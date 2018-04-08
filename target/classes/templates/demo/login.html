@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <title>ZSYJ</title>  
+  <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+  <link rel="stylesheet" type = 'text/css' href="/css/login.css">
+  <link rel="stylesheet" type = 'text/css' href="/css/map.css">
+</head>
+<body>
+<div class="w3-sidebar w3-light-grey w3-bar-block" style="width:20%">
+  <input class ='cb' type="button" onclick="location.href='home';" value="Home" /> 
+  <input class ='cb' type="button" onclick="location.href='login';" value="Login" />  
+  <input class ='cb' type="button" onclick="location.href='aboutus';" value="About" />
+  <input class ='cb' type="button" onclick="location.href='credit';" value="Credit" />    
+</div>
+
+<div style="margin-left:20%">
+
+<div class="w3-container w3-teal">
+  <h1>       Log In  </h1>
+</div>
+
+<!-- Map Div 1,2 api 3 call function-->  
+<div id="container"></div>
+<form action=" ">
+  <div class="imgcontainer">
+    <img src="/asset/user.jpg" alt="user" class="user">
+  </div>
+
+  <div class="container">
+    <label for="uname"><b>Username</b></label>
+    <input type="text" placeholder="Enter Username" name="uname" required>
+    <br>
+    <label for="psw"><b>Password</b></label>
+    <input type="password" placeholder="Enter Password" name="psw" required>
+    <br>
+    <button type="submit" class="submitb" >Login</button>
+    <br>
+    <span>Forgot <a href="resetp">password?</a></span>
+ 	<span style="margin: 300px;"> Register: <a href="register">new account</a></span>
+  </div>
+
+</form>
+</div>
+
+</body>
+</html>
