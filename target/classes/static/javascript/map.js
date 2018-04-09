@@ -90,21 +90,21 @@ function setState(state){
           if(selectState == 'ut'){
 	        	  var url = "http://localhost:8080/demo/congressional_districts";
 	        	  var form = $('<form action="' + url + '" method="post">' +
-	        	    '<input type="text" name="state" value="utah" />' +
+	        	    '<input type="text" name="name" value="utah" />' +
 	        	    '</form>');
 	        	  $('body').append(form);
 	        	  form.submit();	
           }else if(selectState == 'co'){
-	        	  var url = "http://localhost:8080/demo/CD/congressional_districts";
+	        	  var url = "http://localhost:8080/demo/congressional_districts";
 	        	  var form = $('<form action="' + url + '" method="post">' +
-	        	    '<input type="text" name="state" />' +
+	        	    '<input type="text" name="name" value="colorado" />' +
 	        	    '</form>');
 	        	  $('body').append(form);
 	        	  form.submit();	
           }else if(selectState == 'ks'){
-        	  	  var url = "http://localhost:8080/demo/CD/congressional_districts";
+        	  	  var url = "http://localhost:8080/demo/congressional_districts";
 	        	  var form = $('<form action="' + url + '" method="post">' +
-	  	        	    '<input type="text" name="state"/>' +
+	  	        	    '<input type="text" name="name" value= "kansas"/>' +
 	  	        	    '</form>');
 	  	        	  $('body').append(form);
 	  	        	  form.submit();	
