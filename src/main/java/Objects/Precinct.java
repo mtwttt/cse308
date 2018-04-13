@@ -16,6 +16,7 @@ public class Precinct {
     public int dVote;
     public int oVote; 
     public List<List<List<Double>>> coordinates; 
+    public int isBorder;
     
     public int getID() {
     	return id;
@@ -56,6 +57,9 @@ public class Precinct {
 	public List<List<List<Double>>> getCoordinate() {
 		return coordinates;
 	}
+	public int getBorder() {
+		return isBorder;
+	}
 	public int setID() {
 		return id;
     }
@@ -91,5 +95,8 @@ public class Precinct {
 	}
 	public void setoVote(int v) {
 		oVote = v; 
+	}
+	public void setBorder(int b) {
+		isBorder = b;
 	}
 }
