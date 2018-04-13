@@ -19,7 +19,6 @@ public class controller {
 	public String home() {
 		return "demo/homepage_sample.html";
 	}
-	
 	@GetMapping("aboutus")
 	public String aboutus() {
 		return "demo/aboutus.html";
