@@ -1,5 +1,8 @@
 package Objects;
 
-public class CongressionalDistrict {
+import java.util.List;
 
+public class CongressionalDistrict {
+	List<Precinct> precincts;
+	public State state; 
 }
