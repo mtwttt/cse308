@@ -18,19 +18,19 @@ public class Precinct {
     public List<List<List<Double>>> coordinates; 
     
     public int getID() {
-    		return id;
+    	return id;
     }
     public int getPopulation() {
-    		return population;
+    	return population;
     }
     public int getcdNumber() {
-    		return cdNumber;
+    	return cdNumber;
     }
     public int getALand() {
-    		return aLand;
+    	return aLand;
     }
     public int getAWater() {
-    		return aWater;
+    	return aWater;
     }
 	public int getTotalVote() {
 		return totalVote;
@@ -60,16 +60,16 @@ public class Precinct {
 		return id;
     }
     public void setPopulation(int population) {
-    		this.population = population;
+    	this.population = population;
     }
     public void setcdNumber(int cdNumber) {
-    		this.cdNumber = cdNumber;
+    	this.cdNumber = cdNumber;
     }
     public void setALand(int aLand) {
-    		this.aLand = aLand;
+    	this.aLand = aLand;
     }
     public void setAWater(int aWater) {
-    		this.aWater = aWater;
+    	this.aWater = aWater;
     }
 	public void setTotalVote(int totalVote) {
 		this. totalVote = totalVote;
