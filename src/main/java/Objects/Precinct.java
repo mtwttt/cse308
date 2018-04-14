@@ -1,11 +1,16 @@
 package Objects;
-
 import java.util.List;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.Transient;
+
 @Entity
 public class Precinct {
+	@Id
     public int id;
+    @Column
     public int population;
     public int cdNumber;
     public int aLand;
@@ -17,10 +22,14 @@ public class Precinct {
     public int rVote;
     public int dVote;
     public int oVote; 
+    @Transient
     public List<List<List<Double>>> coordinates; 
     public int isBorder;
     public double avgRace;
     
+    public Precinct() {
+    	
+    }
     public int getID() {
     	return id;
     }

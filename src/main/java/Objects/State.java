@@ -3,19 +3,28 @@ package Objects;
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.Transient;
 @Entity
 public class State {
-	private String name = "";
+	@Column
+	private String name;
 	private String overallPartyWin = "";
 	private double republicanStat = 0;
 	private double democraticSta = 0;
+	@Transient
 	private List<CongressionalDistrict> congressionalDistrict = new ArrayList<CongressionalDistrict>();
 	private int overallStateVote = 0;
 	private int year = 0;
-	private int id = 0;
+	@Id
+	private int id;
 	private int totalPopulation = 0;
 	public double totalAvgRace;
+	public State() {
+		
+	}
 	public String getName() {
 		return name;
 	}

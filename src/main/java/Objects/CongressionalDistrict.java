@@ -3,23 +3,35 @@ package Objects;
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.Transient;
 @Entity
 public class CongressionalDistrict {
+	@Id
 	private int id;
+	@Column
 	private int totalVote;
 	private String whichParty;
+	@Transient
 	private List<Precinct> precincts;
 	private double republicanVote;
 	private double democratVote;
+	@Transient
 	private List<CongressionalDistrict> neighborCD;
 	private double compactnessRatio;
 	private int totalPopulation;
+	@Transient
 	private List<Precinct> borderPrecincts;
 	private int representativeAt;
+	@Transient
 	public State state; 
 	private double totalRacial;
 	
+	public CongressionalDistrict() {
+		
+	}
 	public int getId() {
 		return id;
 	}
