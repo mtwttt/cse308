@@ -24,11 +24,8 @@ public class Algorithm {
 	
 	public double calculateCDGoodness(CongressionalDistrict CD) {
 		double goodness = 0.0;
-		State state = CD.state;
-		int avgPopulation = state.getTotalPopulation()/state.getCongressionalDistrict().size();
-		int CDPopulation = CD.getTotalPopulation();
-		int populationScore = 1 - Math.abs(avgPopulation - CDPopulation)/avgPopulation;
-		
-		return 0.0;
+		goodness = CD.getPopulationScore() * populationW + CD.getCompactnessScore() * compactnessW + 
+				CD.getPartisanFairnessScore() * partisanW + CD.getRacialFairnessScore() * racialW;
+		return goodness;
 	}
 }
