@@ -122,7 +122,27 @@ public class CongressionalDistrict {
 		return 0.0;
 	}
 	public double getPartisanFairnessScore() {
-		return 0.0;
+		double partisanScore = 0.0;
+		double democWastedVotes = 0.0;
+		double repubWastedVotes = 0.0;
+		for (Precinct p : this.precincts) {
+			int precinctTotal = p.getTotalVote();
+			double precinctDemoc = p.getdVote();
+			double precinctRepub = p.getrVote();
+			int voteToWin = precinctTotal/2+1;
+			if (precinctDemoc>=precinctRepub) {
+				democWastedVotes+= precinctDemoc - voteToWin;
+				repubWastedVotes+= precinctRepub;
+			}
+			else {
+				repubWastedVotes+= precinctRepub - voteToWin;
+				democWastedVotes+= precinctDemoc;
+			}
+		}
+		partisanScore = (repubWastedVotes + democWastedVotes)/this.totalVote;
+		if (partisanScore>1)
+			partisanScore = 0.5;
+		return partisanScore;
 	}
 	public double getRacialFairnessScore() {
 		return 0.0;
