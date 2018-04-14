@@ -13,6 +13,7 @@ public class State {
 	private int year = 0;
 	private int id = 0;
 	private int totalPopulation = 0;
+	public double totalAvgRace;
 	public String getName() {
 		return name;
 	}
@@ -84,5 +85,8 @@ public class State {
 			}
 		}
 		return precincts;	
+	}
+	public double getTargetRacial() {
+		return totalAvgRace / congressionalDistrict.size();
 	}
 }
