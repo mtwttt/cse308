@@ -109,8 +109,13 @@ public class CongressionalDistrict {
 		for(int i=0;i< precincts.size();i++) {
 			if(precincts.get(i).getBorder() == 1) {
 				borders.add(precincts.get(i));
-			}ß
+			}
 		}
 		return borders;
+	}
+	public double getPopulationScore() {
+		int avgPopulation = state.getTotalPopulation()/state.getCongressionalDistrict().size();
+		int populationScore = 1 - Math.abs(avgPopulation - totalPopulation)/avgPopulation;
+		return populationScore;
 	}
 }
