@@ -1,6 +1,7 @@
 package Objects;
 
 public class User {
+<<<<<<< HEAD
 	String firstName;
 	String lastName;
 	String email;
@@ -27,3 +28,9 @@ public class User {
 	
 }
 
+=======
+	public String firstName;
+	public String lastName;
+	public String email;
+}
+>>>>>>> c761d25aa083cfdc8bb15d7e1c15cd3a983cb58f

@@ -67,5 +67,22 @@ public class State {
 	public void setTotalPopulation(int totalPopulation) {
 		this.totalPopulation = totalPopulation;
 	}
-	
+	public RawCDData generateBorder(List<List<List<Double>>> coordinates, RawCDData precincts) {
+		List<List<Double>> coordinate = coordinates.get(0);
+		for(int i=0;i<precincts.features.size();i++) {
+			List<List<Double>> checkLists = precincts.features.get(i).geometry.coordinates.get(0);
+			for (int x = 0;x<checkLists.size();x++) {
+				double checkX = checkLists.get(x).get(0);
+				double checkY = checkLists.get(x).get(1);
+				for(int y = 0;y<coordinate.size();y++) {
+					double borderX = coordinate.get(x).get(0);
+					double borderY = coordinate.get(x).get(1);
+					if((borderX - checkX < 0.000001) && (borderY - checkY < 0.000001)) {
+						precincts.features.get(i).properties.setBorder(1);
+					}
+				}
+			}
+		}
+		return precincts;	
+	}
 }
