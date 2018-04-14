@@ -16,6 +16,7 @@ public class CongressionalDistrict {
 	private List<Precinct> borderPrecincts;
 	private int representativeAt;
 	public State state; 
+	private double totalRacial;
 	
 	public int getId() {
 		return id;
@@ -125,6 +126,7 @@ public class CongressionalDistrict {
 		return 0.0;
 	}
 	public double getRacialFairnessScore() {
-		return 0.0;
+		double goal = state.getTargetRacial();
+		return 1-(Math.abs(totalRacial - goal)/state.totalAvgRace);
 	}
 }
