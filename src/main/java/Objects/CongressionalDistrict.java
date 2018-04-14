@@ -118,4 +118,13 @@ public class CongressionalDistrict {
 		int populationScore = 1 - Math.abs(avgPopulation - totalPopulation)/avgPopulation;
 		return populationScore;
 	}
+	public double getCompactnessScore() {
+		return 0.0;
+	}
+	public double getPartisanFairnessScore() {
+		return 0.0;
+	}
+	public double getRacialFairnessScore() {
+		return 0.0;
+	}
 }
