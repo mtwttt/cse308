@@ -140,9 +140,7 @@ public class CongressionalDistrict {
 				democWastedVotes+= precinctDemoc;
 			}
 		}
-		partisanScore = (repubWastedVotes + democWastedVotes)/this.totalVote;
-		if (partisanScore>1)
-			partisanScore = 0.5;
+		partisanScore = 1 - (repubWastedVotes + democWastedVotes)/this.totalVote;
 		return partisanScore;
 	}
 	public double getRacialFairnessScore() {
