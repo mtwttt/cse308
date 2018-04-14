@@ -2,6 +2,8 @@ package Objects;
 
 import java.util.List;
 
+import javax.persistence.Entity;
+@Entity
 public class Precinct {
     public int id;
     public int population;
@@ -17,6 +19,7 @@ public class Precinct {
     public int oVote; 
     public List<List<List<Double>>> coordinates; 
     public int isBorder;
+    public double avgRace;
     
     public int getID() {
     	return id;
@@ -63,6 +66,9 @@ public class Precinct {
 	public int setID() {
 		return id;
     }
+	public double getRaceAvg() {
+		return avgRace;
+	}
     public void setPopulation(int population) {
     	this.population = population;
     }
@@ -98,5 +104,8 @@ public class Precinct {
 	}
 	public void setBorder(int b) {
 		isBorder = b;
+	}
+	public void setAvgRace(int a) {
+		avgRace = a;
 	}
 }

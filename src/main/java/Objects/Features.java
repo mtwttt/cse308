@@ -1,6 +1,6 @@
 package Objects;
 
 public class Features {
-	Precinct properties;
+	public Precinct properties;
 	GeoData geometry;
 }

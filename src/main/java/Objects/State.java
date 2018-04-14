@@ -3,6 +3,8 @@ package Objects;
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.persistence.Entity;
+@Entity
 public class State {
 	private String name = "";
 	private String overallPartyWin = "";
