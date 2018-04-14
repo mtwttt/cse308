@@ -1,5 +1,6 @@
 package Objects;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class CongressionalDistrict {
@@ -102,5 +103,14 @@ public class CongressionalDistrict {
 	
 	public void setRepLocation(int location) {
 		this.representativeAt = location;
+	}
+	public List<Precinct> getBorderPrecinct(){
+		List<Precinct> borders = new ArrayList();
+		for(int i=0;i< precincts.size();i++) {
+			if(precincts.get(i).getBorder() == 1) {
+				borders.add(precincts.get(i));
+			}ß
+		}
+		return borders;
 	}
 }
