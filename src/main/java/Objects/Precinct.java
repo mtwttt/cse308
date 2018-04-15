@@ -117,4 +117,7 @@ public class Precinct {
 	public void setAvgRace(int a) {
 		avgRace = a;
 	}
+	public void setCoordinate(List<List<Double>> c) {
+		coordinates.set(0, c);
+	}
 }

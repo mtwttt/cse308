@@ -21,11 +21,11 @@ public class Algorithm {
 	public void setpartisanW(double weight) {
 		this.partisanW = weight;
 	}
-	
 	public double calculateCDGoodness(CongressionalDistrict CD) {
 		double goodness = 0.0;
 		goodness = CD.getPopulationScore() * populationW + CD.getCompactnessScore() * compactnessW + 
 				CD.getPartisanFairnessScore() * partisanW + CD.getRacialFairnessScore() * racialW;
 		return goodness;
 	}
+	
 }

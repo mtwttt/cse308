@@ -97,7 +97,34 @@ public class State {
 		}
 		return precincts;	
 	}
+	public State generateBorder(List<List<List<Double>>> cdBorder) {
+		for(int i=0;i<congressionalDistrict.size();i++) {
+			List<Precinct> precincts = congressionalDistrict.get(i).getPrecincts();
+			for(int j=0;j<precincts.size();j++) {
+				List<List<Double>> coordinate = precincts.get(j).getCoordinate().get(0);
+				for(int k = 0;k<coordinate.size();k++) {
+					double pX = coordinate.get(k).get(0);
+					double pY = coordinate.get(k).get(1);
+					for(int x = 0;x<cdBorder.get(0).size();x++) {
+						double bX = cdBorder.get(0).get(x).get(0);
+						double bY = cdBorder.get(0).get(x).get(1);
+						if((Math.abs(bX - pX)< 0.000001) && (Math.abs(bY - pY) < 0.000001)) {
+							precincts.get(j).setBorder(1);
+						}
+					}
+				}
+			}
+		}
+		return this;
+	}
 	public double getTargetRacial() {
 		return totalAvgRace / congressionalDistrict.size();
+	}
+	public int getCurrentPopulation() {
+		int total =0;
+		for (int i=0;i<congressionalDistrict.size();i++) {
+			total+=congressionalDistrict.get(i).getCurrentPopulation();
+		}
+		return total;
 	}
 }

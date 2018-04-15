@@ -15,9 +15,9 @@ public class Coordinate {
 	double y;
 	@Id
 	int precinctID;
-}
-class CoordinateID implements Serializable{
-	double x;
-	double y;
-	int precinctID;
+	public Coordinate(double x, double y, int precinctID) {
+		this.x = x;
+		this.y = y;
+		this.precinctID = precinctID;
+	}
 }

@@ -161,4 +161,11 @@ public class CongressionalDistrict {
 		double goal = state.getTargetRacial();
 		return 1-(Math.abs(totalRacial - goal)/state.totalAvgRace);
 	}
+	public int getCurrentPopulation() {
+		int total =0;
+		for (int i=0;i<precincts.size();i++) {
+			total += precincts.get(0).getPopulation();
+		}
+		return total;
+	}
 }
