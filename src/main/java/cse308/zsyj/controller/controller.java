@@ -1,9 +1,15 @@
 package cse308.zsyj.controller;
 
+import Objects.Account;
 import Objects.State;
 import cse308.zsyj.service.StateService;
 
 import org.springframework.beans.factory.annotation.Autowired;
+
+
+import java.util.Arrays;
+
+
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -24,10 +30,12 @@ public class controller {
 	public String home() {
 		return "demo/homepage_sample.html";
 	}
+	
 	@GetMapping("aboutus")
 	public String aboutus() {
 		return "demo/aboutus.html";
 	}
+	
 	@RequestMapping(value="congressional_districts", method=RequestMethod.POST)
 	public String congressionaldistricts(State state, Model model) {
 		state = stateService.getState(state.getName(), 2008);
@@ -37,21 +45,42 @@ public class controller {
 		System.out.println("---------------------------------");
 		return "demo/congressional_districts.html";
 	}
+	
 	@GetMapping("credit")
 	public String index() {
 		return "demo/credit.html";
 	}
-	@GetMapping("login")
-	public String login() {
+	
+	@GetMapping("loginpage")
+	public String loginPage() {
 		return "demo/login.html";
 	}
+	
 	@GetMapping("register")
 	public String register() {
 		return "demo/register.html";
 	}
+	
 	@GetMapping("resetp")
 	public String resetp() {
 		return "demo/resetp.html";
 	}
+	
+	@RequestMapping(value = "login", method=RequestMethod.POST)
+	public String login(Account account) {
+		if (account.validate()) {
+			if(account.isAdmin())
+				return "demo/admin.html";
+		}
+		return "demo/login.html";
+	}
+	
+	@RequestMapping(value = "generateBorder", method=RequestMethod.POST)
+	public String generateBorder(State state, Model model) {
+		
+		return null;
+		
+	}
+	
 
 }

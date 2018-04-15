@@ -29,12 +29,26 @@ compactness.oninput = function() {
 
 
 function style(feature) {
-    return {
-        fillColor: 'red',
-        color: 'grey',
-    };
+	switch (feature.properties.CONGRESSIO) {
+    case '1': 
+    	return { fillColor: 'red', color: 'grey', weight: 1, opacity: 0.75};
+    case '2':   
+    	return {fillColor: 'green', color: 'grey', weight: 1,opacity: 0.7};
+    case '3': 
+    	return {fillColor: 'white', color: 'grey', weight: 1, opacity: 0.7};
+    case '4':   
+    	return { fillColor: 'blue', color: 'grey', weight: 1, opacity: 0.7};
+    default:   
+    	return {fillColor: 'grey', color: 'grey', weight: 1, opacity: 0.7, 
+    	fillOpacity: 0.7};
+}
+    
 }
 
 function onEachFeature(feature, layer) {
-	layer.bindPopup("Pid: "+layer.feature.pid+"</br>"+"Name: "+layer.feature.properties.NAME10);
+	layer.bindPopup("Pid: "+layer.feature.pid+"</br>"
+			+"Name: "+layer.feature.properties.NAME10+"</br>"
+			+"Population: "+layer.feature.properties.POP100+"</br>"
+			+"rVote: "+ layer.feature.properties.PRES_R_08+"</br>"
+			+"dVote: "+ layer.feature.properties.PRES_D_08);
 }
