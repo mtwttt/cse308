@@ -36,5 +36,5 @@ function style(feature) {
 }
 
 function onEachFeature(feature, layer) {
-	layer.bindPopup(layer.feature.properties.STATEFP+"</br>"+layer.feature.properties.COUNTYFP);
+	layer.bindPopup("Pid: "+layer.feature.pid+"</br>"+"Name: "+layer.feature.properties.NAME10);
 }
