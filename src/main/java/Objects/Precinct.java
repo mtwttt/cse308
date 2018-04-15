@@ -1,6 +1,6 @@
 package Objects;
 import java.util.List;
-
+import java.util.ArrayList;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
@@ -9,7 +9,7 @@ import javax.persistence.Transient;
 @Entity
 public class Precinct {
 	@Id
-    public int id;
+    public int pid;
     @Column
     public int population;
     public int cdNumber;
@@ -23,7 +23,7 @@ public class Precinct {
     public int dVote;
     public int oVote; 
     @Transient
-    public List<List<List<Double>>> coordinates; 
+    public List<List<List<Double>>> coordinates;
     public int isBorder;
     public double avgRace;
     
@@ -31,7 +31,7 @@ public class Precinct {
     	
     }
     public int getID() {
-    	return id;
+    	return pid;
     }
     public int getPopulation() {
     	return population;
@@ -72,8 +72,8 @@ public class Precinct {
 	public int getBorder() {
 		return isBorder;
 	}
-	public int setID() {
-		return id;
+	public void setID(int id) {
+		pid = id;
     }
 	public double getRaceAvg() {
 		return avgRace;
@@ -118,6 +118,10 @@ public class Precinct {
 		avgRace = a;
 	}
 	public void setCoordinate(List<List<Double>> c) {
+		if(coordinates == null) {
+			coordinates = new ArrayList<List<List<Double>>>();
+		}
+		if(c.size()!=0)
 		coordinates.set(0, c);
 	}
 }

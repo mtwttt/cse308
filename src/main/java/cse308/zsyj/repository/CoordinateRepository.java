@@ -9,6 +9,6 @@ import Objects.Coordinate;
 import Objects.CoordinateID;
 
 public interface CoordinateRepository extends CrudRepository<Coordinate,CoordinateID>{
-	@Query(value =  "Select x, y from Coordinates where precinctId = ?1", nativeQuery = true)
+	@Query(value =  "Select x, y from Coordinate where precinctId = ?1", nativeQuery = true)
 	List<List<Double>> findXandYbyPrecinctID(int PrecinctID);
 }

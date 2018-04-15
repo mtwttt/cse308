@@ -1,6 +1,9 @@
 package cse308.zsyj.controller;
 
 import Objects.State;
+import cse308.zsyj.service.StateService;
+
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -15,6 +18,8 @@ import org.springframework.web.bind.annotation.ResponseBody;
 @Controller
 @RequestMapping("demo")
 public class controller {
+	@Autowired
+	StateService stateService;
 	@GetMapping("home")
 	public String home() {
 		return "demo/homepage_sample.html";
@@ -25,7 +30,8 @@ public class controller {
 	}
 	@RequestMapping(value="congressional_districts", method=RequestMethod.POST)
 	public String congressionaldistricts(State state, Model model) {
-		System.out.println("---------------------------------");
+		state = stateService.getState(state.getName(), 2008);
+		System.out.println(state.getId());
 		model.addAttribute("state",state);
 		System.out.println(state.getName());
 		System.out.println("---------------------------------");

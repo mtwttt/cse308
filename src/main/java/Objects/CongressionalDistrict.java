@@ -10,7 +10,8 @@ import javax.persistence.Transient;
 @Entity
 public class CongressionalDistrict {
 	@Id
-	private int id;
+	private int cdid;
+	private int sid;
 	@Column
 	private int totalVote;
 	private String whichParty;
@@ -33,7 +34,7 @@ public class CongressionalDistrict {
 		
 	}
 	public int getId() {
-		return id;
+		return cdid;
 	}
 	
 	public int getTotalVote() {
@@ -77,7 +78,7 @@ public class CongressionalDistrict {
 	}
 	
 	public void setId(int id) {
-		this.id = id;
+		this.cdid = id;
 	}
 	
 	public void setTotalVote(int totalVote) {
