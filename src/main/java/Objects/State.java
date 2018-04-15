@@ -11,16 +11,16 @@ import javax.persistence.Transient;
 public class State {
 	@Column
 	private String name;
-	private String overallPartyWin = "";
-	private double republicanStat = 0;
-	private double democraticSta = 0;
+	private String overallPartyWin;
+	private double republicanStat;
+	private double democraticSta;
 	@Transient
 	private List<CongressionalDistrict> congressionalDistrict = new ArrayList<CongressionalDistrict>();
-	private int overallStateVote = 0;
-	private int year = 0;
+	private int overallStateVote;
+	private int year;
 	@Id
-	private int id;
-	private int totalPopulation = 0;
+	private int sid;
+	private int totalPopulation;
 	public double totalAvgRace;
 	public State() {
 		
@@ -68,10 +68,10 @@ public class State {
 		this.year = year;
 	}
 	public int getId() {
-		return id;
+		return sid;
 	}
 	public void setId(int id) {
-		this.id = id;
+		this.sid = id;
 	}
 	public int getTotalPopulation() {
 		return totalPopulation;
