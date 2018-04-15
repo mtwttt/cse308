@@ -49,9 +49,48 @@ public class Algorithm {
 				else
 					break;				
 			}
-			movePrecinct(p,CD,neighbor, state);
+			Precinct resultPrecinct;
+			resultPrecinct  = movePrecinct(p,CD,neighbor,state);
+			updateBorder(resultPrecinct,CD,neighbor,state);
 		}
 	}
+	
+	public void updateBorder(Precinct p, CongressionalDistrict CD,List<Precinct> neighbor, State state) {
+		for (Precinct pr : CD.getPrecincts()) {
+			List<List<Double>> listOfPoints = p.getCoordinate().get(0);
+			for (List<Double> l1 : listOfPoints) {
+				List<List<Double>> listOfNeighborP = pr.getCoordinate().get(0);
+				for (List<Double> l2 : listOfNeighborP) {
+					if (l1.get(0)==l2.get(0) && l1.get(1)==l2.get(1) && CD.getId()==pr.getcdNumber()) {
+						pr.setBorder(1);
+					}
+				}
+			}
+		}
+		for (Precinct pr : neighbor) {
+			List<Precinct> prNeighbor = getNeighborPrecincts(pr, state.getCongressionalDistrict());
+			for (Precinct pr2 : prNeighbor) {
+				int border = 0;
+				List<List<Double>> listOfPoints = p.getCoordinate().get(0);
+				for (List<Double> l1 : listOfPoints) {
+					List<List<Double>> listOfNeighborP = pr.getCoordinate().get(0);
+					for (List<Double> l2 : listOfNeighborP) {
+						if (l1.get(0)==l2.get(0) && l1.get(1)==l2.get(1) && pr.getcdNumber()!=pr2.getcdNumber()) {
+							pr.setBorder(1);
+							border = 1;
+							break;
+						}
+					}
+				}
+				if (border==0)
+					pr.setBorder(0);
+			}
+		}
+		
+		
+		
+	}
+	
 	
 	public Precinct movePrecinct(Precinct moveP, CongressionalDistrict CD, List<Precinct> neighbor, State state) {
 		Cloner cloner = new Cloner();
@@ -78,6 +117,7 @@ public class Algorithm {
 				CD.setPrecincts(removeList);
 				targetC.updateCDInfo();
 				CD.updateCDInfo();
+				moveP.setcdNumber(targetC.getId());
 				return moveP;
 			}
 		}
