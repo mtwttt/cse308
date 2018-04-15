@@ -168,4 +168,24 @@ public class CongressionalDistrict {
 		}
 		return total;
 	}
+	public int getCurrentTotalVote() {
+		int total =0;
+		for (int i=0;i<precincts.size();i++) {
+			total += precincts.get(0).getTotalVote();
+		}
+		return total;
+	}
+	public void updateCDInfo() {
+		int totalP =0;
+		int totalV =0;
+		int totalR =0;
+		for (int i=0;i<precincts.size();i++) {
+			totalP += precincts.get(0).getPopulation();
+			totalV += precincts.get(0).getTotalVote();
+			totalR += precincts.get(0).getRaceAvg();
+		}
+		totalPopulation = totalP;
+		totalVote = totalV;
+		totalRacial = totalR;
+	}
 }

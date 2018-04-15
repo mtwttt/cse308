@@ -3,6 +3,8 @@ package Objects;
 import java.util.ArrayList;
 import java.util.List;
 
+import com.rits.cloning.Cloner;
+
 public class Algorithm {
 	private double populationW;
 	private double compactnessW;
@@ -51,11 +53,35 @@ public class Algorithm {
 		}
 	}
 	
-	public void movePrecinct(Precinct p, CongressionalDistrict CD, List<Precinct> neighbor, State state) {
+	public Precinct movePrecinct(Precinct moveP, CongressionalDistrict CD, List<Precinct> neighbor, State state) {
+		Cloner cloner = new Cloner();
 		for (Precinct targetP: neighbor) {
 			CongressionalDistrict targetC = state.getCongressionalDistrict().get(targetP.getcdNumber());
-			
+			CongressionalDistrict cloneTargetC = cloner.deepClone(targetC);
+			CongressionalDistrict cloneSourceC = cloner.deepClone(CD);
+			List<Precinct> addedList = cloneTargetC.getPrecincts();
+			addedList.add(moveP);
+			cloneTargetC.setPrecincts(addedList);
+			List<Precinct> removeList= cloneSourceC.getPrecincts();
+			removeList.remove(moveP);
+			cloneSourceC.setPrecincts(removeList);
+			cloneTargetC.updateCDInfo();
+			cloneSourceC.updateCDInfo();
+			double originalScore = calculateCDGoodness(targetC) + calculateCDGoodness(CD);
+			double newScore = calculateCDGoodness(cloneTargetC) + calculateCDGoodness(cloneSourceC);
+			if(newScore>originalScore) {
+				addedList = targetC.getPrecincts();
+				addedList.add(moveP);
+				removeList= CD.getPrecincts();
+				removeList.remove(moveP);
+				targetC.setPrecincts(addedList);
+				CD.setPrecincts(removeList);
+				targetC.updateCDInfo();
+				CD.updateCDInfo();
+				return moveP;
+			}
 		}
+		return null;
 	}
 
 	public List<Precinct> getNeighborPrecincts(Precinct p, List<CongressionalDistrict> CDList) {
