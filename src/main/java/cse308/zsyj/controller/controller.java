@@ -92,7 +92,7 @@ public class controller {
 	
 	@RequestMapping(value = "generateBorder", method=RequestMethod.POST)
 	public String generateBorder(State state, Model model) {
-		String fileUrl = "./src/main/resources/static/json/kansasCD.geojson";
+		String fileUrl = "./src/main/resources/static/json/kansasCD2010.geojson";
 		try {
 			RawCDData cdBoundary = new Gson().fromJson(new FileReader(fileUrl), RawCDData.class);
 			state = stateService.getState(state.getName(), 2008);
