@@ -44,7 +44,7 @@ public class StateService {
 				cdRepository.save(cds.get(0));
 				List<Precinct> precincts = cds.get(i).getPrecincts();
 				for(int j =0 ; j<precincts.size();j++) {
-					precinctRepository.save(precincts.get(j));
+					precinctRepository.save(precincts.get(j)); 
 				}
 			}
 		}
