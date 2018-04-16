@@ -42,7 +42,7 @@ public class Algorithm {
 			List<Precinct> neighbor;
 			while (true) {
 				p = borderPrecincts.get((int)Math.random()*size);
-				neighbor = getNeighborPrecincts(p,state.getCongressionalDistrict());
+				neighbor = getNeighborInOtherCD(p,state.getCongressionalDistrict());
 				if (neighbor.size()==0) {
 					continue;
 				}
@@ -51,11 +51,12 @@ public class Algorithm {
 			}
 			Precinct resultPrecinct;
 			resultPrecinct  = movePrecinct(p,CD,neighbor,state);
-			updateBorder(resultPrecinct,CD,neighbor,state);
+			updateSourceCDBorder(resultPrecinct,CD);
+			updateTargetCDBorder(neighbor,state);
 		}
 	}
 	
-	public void updateBorder(Precinct p, CongressionalDistrict CD,List<Precinct> neighbor, State state) {
+	public void updateSourceCDBorder(Precinct p, CongressionalDistrict CD) {
 		for (Precinct pr : CD.getPrecincts()) {
 			List<ArrayList<Double>> listOfPoints = p.getCoordinate().get(0);
 			for (List<Double> l1 : listOfPoints) {
@@ -67,30 +68,15 @@ public class Algorithm {
 				}
 			}
 		}
-		for (Precinct pr : neighbor) {
-			List<Precinct> prNeighbor = getNeighborPrecincts(pr, state.getCongressionalDistrict());
-			for (Precinct pr2 : prNeighbor) {
-				int border = 0;
-				List<ArrayList<Double>> listOfPoints = p.getCoordinate().get(0);
-				for (List<Double> l1 : listOfPoints) {
-					List<ArrayList<Double>> listOfNeighborP = pr.getCoordinate().get(0);
-					for (List<Double> l2 : listOfNeighborP) {
-						if (l1.get(0)==l2.get(0) && l1.get(1)==l2.get(1) && pr.getcdNumber()!=pr2.getcdNumber()) {
-							pr.setBorder(1);
-							border = 1;
-							break;
-						}
-					}
-				}
-				if (border==0)
-					pr.setBorder(0);
-			}
-		}
-		
-		
-		
 	}
 	
+	public void updateTargetCDBorder(List<Precinct> neighbor, State state) {
+		for (Precinct pr : neighbor) {
+			List<Precinct> prNeighbor = getNeighborInOtherCD(pr, state.getCongressionalDistrict());
+			if (prNeighbor.size()==0)
+				pr.setBorder(0);
+		}
+	}
 	
 	public Precinct movePrecinct(Precinct moveP, CongressionalDistrict CD, List<Precinct> neighbor, State state) {
 		Cloner cloner = new Cloner();
@@ -98,33 +84,31 @@ public class Algorithm {
 			CongressionalDistrict targetC = state.getCongressionalDistrict().get(targetP.getcdNumber());
 			CongressionalDistrict cloneTargetC = cloner.deepClone(targetC);
 			CongressionalDistrict cloneSourceC = cloner.deepClone(CD);
-			List<Precinct> addedList = cloneTargetC.getPrecincts();
-			addedList.add(moveP);
-			cloneTargetC.setPrecincts(addedList);
-			List<Precinct> removeList= cloneSourceC.getPrecincts();
-			removeList.remove(moveP);
-			cloneSourceC.setPrecincts(removeList);
-			cloneTargetC.updateCDInfo();
-			cloneSourceC.updateCDInfo();
+			updateCD(cloneTargetC, cloneSourceC, moveP);
 			double originalScore = calculateCDGoodness(targetC) + calculateCDGoodness(CD);
 			double newScore = calculateCDGoodness(cloneTargetC) + calculateCDGoodness(cloneSourceC);
-			if(newScore>originalScore) {
-				addedList = targetC.getPrecincts();
-				addedList.add(moveP);
-				removeList= CD.getPrecincts();
-				removeList.remove(moveP);
-				targetC.setPrecincts(addedList);
-				CD.setPrecincts(removeList);
-				targetC.updateCDInfo();
-				CD.updateCDInfo();
-				moveP.setcdNumber(targetC.getId());
-				return moveP;
-			}
+			if(newScore>originalScore) 
+				return updateCD(targetC, CD, moveP);
 		}
 		return null;
 	}
 
-	public List<Precinct> getNeighborPrecincts(Precinct p, List<CongressionalDistrict> CDList) {
+	public Precinct updateCD(CongressionalDistrict targetC, CongressionalDistrict CD, Precinct moveP) {
+		List<Precinct> addedList = targetC.getPrecincts();
+		addedList.add(moveP);
+		List<Precinct> removeList= CD.getPrecincts();
+		removeList.remove(moveP);
+		targetC.setPrecincts(addedList);
+		CD.setPrecincts(removeList);
+		targetC.updateCDInfo();
+		CD.updateCDInfo();
+		moveP.setcdNumber(targetC.getId());
+		targetC.updateCDInfo();
+		CD.updateCDInfo();
+		return moveP;
+	}
+	
+	public List<Precinct> getNeighborInOtherCD(Precinct p, List<CongressionalDistrict> CDList) {
 		List<Precinct> neighbor = new ArrayList<Precinct>();
 		for (CongressionalDistrict CD : CDList) {
 			if (CD.getId()!=p.getcdNumber()) {
