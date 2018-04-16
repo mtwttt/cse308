@@ -1,5 +1,5 @@
 import json, pymysql, sys
-import importState, importCD, importPrecinct
+import importState, importCD, importPrecinct, importCoordinate
 
 KANSAS = 1
 COLORADO = 2
@@ -18,7 +18,7 @@ def main():
     fileName = sys.argv[1]
     with open(fileName) as json_data:
         d = json.load(json_data)
-    addPid(d, fileName)
+    # addPid(d, fileName)
     db = pymysql.connect(host='mysql4.cs.stonybrook.edu', user='zhzou',
                          password='109825816', db='zsyj', charset='utf8mb4',)
     if "kansas" in fileName:
@@ -27,9 +27,10 @@ def main():
         sid = UTAH
     else:
         sid = COLORADO
-    importState.importState(d,fileName[0:-5],str(sid),db)
-    importCD.importCD(d,str(sid),db)
-    importPrecinct.importPrecinct(d,db)
+    # importState.importState(d,fileName[0:-5],str(sid),db)
+    # importCD.importCD(d,str(sid),db)
+    # importPrecinct.importPrecinct(d,db)
+    importCoordinate.importCoordinate(d,db)
     db.close()
 
 if __name__ == "__main__":
