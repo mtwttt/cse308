@@ -97,8 +97,7 @@ public class State {
 		}
 		return precincts;	
 	}
-	public State generateBorder(List<List<List<Double>>> cdBorder) {
-		int t =0;
+	public void generateBorder(List<List<List<Double>>> cdBorder) {
 		for(int i=0;i<congressionalDistrict.size();i++) {
 			List<Precinct> precincts = congressionalDistrict.get(i).getPrecincts();
 			for(int j=0;j<precincts.size();j++) {
@@ -116,13 +115,8 @@ public class State {
 					}
 				}
 				}
-				else {
-					t++;
-				}
 			}
 		}
-		System.out.println(t);
-		return this;
 	}
 	public double getTargetRacial() {
 		return totalAvgRace / congressionalDistrict.size();
