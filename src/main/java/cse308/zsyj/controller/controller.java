@@ -2,6 +2,16 @@ package cse308.zsyj.controller;
 
 import Objects.Account;
 import Objects.State;
+import cse308.zsyj.service.StateService;
+
+import org.json.simple.JSONObject;
+import org.json.simple.parser.JSONParser;
+import org.json.simple.parser.ParseException;
+import org.springframework.beans.factory.annotation.Autowired;
+
+import java.io.FileNotFoundException;
+import java.io.FileReader;
+import java.io.IOException;
 
 import java.util.Arrays;
 
@@ -15,6 +25,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
+
+import com.google.gson.Gson;
 
 @Controller
 @RequestMapping("demo")
@@ -70,7 +82,20 @@ public class controller {
 	
 	@RequestMapping(value = "generateBorder", method=RequestMethod.POST)
 	public String generateBorder(State state, Model model) {
-		
+		String fileUrl = "/json/kansasCD.geojson";
+		JSONParser parser = new JSONParser();
+		try {
+			JSONObject j = (JSONObject) parser.parse(new FileReader(fileUrl));
+			System.out.println(j);
+		} catch (FileNotFoundException e) {
+			e.printStackTrace();
+		} catch (IOException e) {
+			
+			e.printStackTrace();
+		} catch (ParseException e) {
+			
+			e.printStackTrace();
+		}
 		return null;
 		
 	}
