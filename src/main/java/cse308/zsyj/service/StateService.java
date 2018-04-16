@@ -51,6 +51,7 @@ public class StateService {
 		}
 		public State getState(String stateName, int year) {
 			int stateID = stateRepository.findByNameAndYear(stateName, year);
+			State state = stateRepository.findById(stateID).get();
 			List <CongressionalDistrict> cds = cdRepository.findAllById(stateID);
 			for (int i=0;i<cds.size();i++) {
 				int cdID = cds.get(i).getId();
@@ -61,8 +62,8 @@ public class StateService {
 					toAdd.add(precincts.get(j));
 				}
 				cds.get(i).setPrecincts(toAdd);
+				cds.get(i).setState(state);
 			}
-			State state = new State();
 			state.setCongressionalDistrict(cds);
 			return state;
 		}

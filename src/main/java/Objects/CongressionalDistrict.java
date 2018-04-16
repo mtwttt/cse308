@@ -189,4 +189,7 @@ public class CongressionalDistrict {
 		totalVote = totalV;
 		totalRacial = totalR;
 	}
+	public void setState(State state) {
+		this.state = state;
+	}
 }
