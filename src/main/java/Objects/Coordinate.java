@@ -14,10 +14,13 @@ public class Coordinate {
 	@Id
 	double y;
 	@Id
-	int precinctID;
+	int precinctid;
+	public Coordinate() {
+		
+	}
 	public Coordinate(double x, double y, int precinctID) {
 		this.x = x;
 		this.y = y;
-		this.precinctID = precinctID;
+		this.precinctid = precinctID;
 	}
 }

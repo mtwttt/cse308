@@ -1,6 +1,9 @@
 package cse308.zsyj.controller;
 
 import Objects.Account;
+import Objects.CongressionalDistrict;
+import Objects.Precinct;
+import Objects.RawCDData;
 import Objects.State;
 import cse308.zsyj.service.StateService;
 
@@ -12,8 +15,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
-
+import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.List;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -27,10 +31,14 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.google.gson.Gson;
+import com.google.gson.JsonIOException;
+import com.google.gson.JsonSyntaxException;
 
 @Controller
 @RequestMapping("demo")
 public class controller {
+	@Autowired
+	StateService stateService;
 	@GetMapping("home")
 	public String home() {
 		return "demo/homepage_sample.html";
@@ -43,7 +51,8 @@ public class controller {
 	
 	@RequestMapping(value="congressional_districts", method=RequestMethod.POST)
 	public String congressionaldistricts(State state, Model model) {
-		System.out.println("---------------------------------");
+		//state = stateService.getState(state.getName(), 2008);
+		//System.out.println(state.getCongressionalDistrict().get(0).getPrecincts().get(0).getCoordinate().get(0).get(0).get(0));
 		model.addAttribute("state",state);
 		System.out.println(state.getName());
 		System.out.println("---------------------------------");
@@ -82,20 +91,28 @@ public class controller {
 	
 	@RequestMapping(value = "generateBorder", method=RequestMethod.POST)
 	public String generateBorder(State state, Model model) {
-		String fileUrl = "/json/kansasCD.geojson";
-		JSONParser parser = new JSONParser();
+		String fileUrl = "./src/main/resources/static/json/kansasCD.geojson";
 		try {
-			JSONObject j = (JSONObject) parser.parse(new FileReader(fileUrl));
-			System.out.println(j);
-		} catch (FileNotFoundException e) {
-			e.printStackTrace();
-		} catch (IOException e) {
-			
-			e.printStackTrace();
-		} catch (ParseException e) {
-			
+			RawCDData cdBoundary = new Gson().fromJson(new FileReader(fileUrl), RawCDData.class);
+			state = stateService.getState(state.getName(), 2008);
+			for(int i=0;i<cdBoundary.features.size();i++) {
+				List<List<List<Double>>> coordinates = cdBoundary.features.get(i).geometry.coordinates;
+				state.generateBorder(coordinates);
+			}
+			int t =0;
+			for(int i=0;i<state.getCongressionalDistrict().size();i++) {
+				CongressionalDistrict cd = state.getCongressionalDistrict().get(i);
+				for(int j=0;j<cd.getPrecincts().size();j++) {
+					Precinct p = cd.getPrecincts().get(j);
+					if(p.isBorder==1)
+						t++;
+				}
+			}
+			System.out.println(t);
+		} catch (JsonSyntaxException | JsonIOException | FileNotFoundException e) {
 			e.printStackTrace();
 		}
+		
 		return null;
 		
 	}

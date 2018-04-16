@@ -57,9 +57,9 @@ public class Algorithm {
 	
 	public void updateBorder(Precinct p, CongressionalDistrict CD,List<Precinct> neighbor, State state) {
 		for (Precinct pr : CD.getPrecincts()) {
-			List<List<Double>> listOfPoints = p.getCoordinate().get(0);
+			List<ArrayList<Double>> listOfPoints = p.getCoordinate().get(0);
 			for (List<Double> l1 : listOfPoints) {
-				List<List<Double>> listOfNeighborP = pr.getCoordinate().get(0);
+				List<ArrayList<Double>> listOfNeighborP = pr.getCoordinate().get(0);
 				for (List<Double> l2 : listOfNeighborP) {
 					if (l1.get(0)==l2.get(0) && l1.get(1)==l2.get(1) && CD.getId()==pr.getcdNumber()) {
 						pr.setBorder(1);
@@ -71,9 +71,9 @@ public class Algorithm {
 			List<Precinct> prNeighbor = getNeighborPrecincts(pr, state.getCongressionalDistrict());
 			for (Precinct pr2 : prNeighbor) {
 				int border = 0;
-				List<List<Double>> listOfPoints = p.getCoordinate().get(0);
+				List<ArrayList<Double>> listOfPoints = p.getCoordinate().get(0);
 				for (List<Double> l1 : listOfPoints) {
-					List<List<Double>> listOfNeighborP = pr.getCoordinate().get(0);
+					List<ArrayList<Double>> listOfNeighborP = pr.getCoordinate().get(0);
 					for (List<Double> l2 : listOfNeighborP) {
 						if (l1.get(0)==l2.get(0) && l1.get(1)==l2.get(1) && pr.getcdNumber()!=pr2.getcdNumber()) {
 							pr.setBorder(1);
@@ -129,9 +129,9 @@ public class Algorithm {
 		for (CongressionalDistrict CD : CDList) {
 			if (CD.getId()!=p.getcdNumber()) {
 				for (Precinct pr : CD.getBorderPrecinct()) {
-					List<List<Double>> listOfPoints = p.getCoordinate().get(0);
+					List<ArrayList<Double>> listOfPoints = p.getCoordinate().get(0);
 					for (List<Double> l1 : listOfPoints) {
-						List<List<Double>> listOfNeighborP = pr.getCoordinate().get(0);
+						List<ArrayList<Double>> listOfNeighborP = pr.getCoordinate().get(0);
 						for (List<Double> l2 : listOfNeighborP) {
 							if (l1.get(0)==l2.get(0) && l1.get(1)==l2.get(1)) {
 								neighbor.add(pr);

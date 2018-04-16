@@ -101,7 +101,8 @@ public class State {
 		for(int i=0;i<congressionalDistrict.size();i++) {
 			List<Precinct> precincts = congressionalDistrict.get(i).getPrecincts();
 			for(int j=0;j<precincts.size();j++) {
-				List<List<Double>> coordinate = precincts.get(j).getCoordinate().get(0);
+				if(precincts.get(j).getCoordinate().size()!=0) {
+				List<ArrayList<Double>> coordinate = precincts.get(j).getCoordinate().get(0);
 				for(int k = 0;k<coordinate.size();k++) {
 					double pX = coordinate.get(k).get(0);
 					double pY = coordinate.get(k).get(1);
@@ -112,6 +113,7 @@ public class State {
 							precincts.get(j).setBorder(1);
 						}
 					}
+				}
 				}
 			}
 		}

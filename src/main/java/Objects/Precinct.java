@@ -23,7 +23,7 @@ public class Precinct {
     public int dVote;
     public int oVote; 
     @Transient
-    public List<List<List<Double>>> coordinates;
+    public List<ArrayList<ArrayList<Double>>> coordinates;
     public int isBorder;
     public double avgRace;
     
@@ -66,7 +66,7 @@ public class Precinct {
 	public double getoVote() {
 		return oVote; 
 	}
-	public List<List<List<Double>>> getCoordinate() {
+	public List<ArrayList<ArrayList<Double>>> getCoordinate() {
 		return coordinates;
 	}
 	public int getBorder() {
@@ -117,11 +117,19 @@ public class Precinct {
 	public void setAvgRace(int a) {
 		avgRace = a;
 	}
-	public void setCoordinate(List<List<Double>> c) {
+	public void setCoordinate(List<Coordinate> list) {
 		if(coordinates == null) {
-			coordinates = new ArrayList<List<List<Double>>>();
+			coordinates = new ArrayList<ArrayList<ArrayList<Double>>>();
 		}
-		if(c.size()!=0)
-		coordinates.set(0, c);
+		if(list.size()!=0) {
+		ArrayList<ArrayList<Double>> addList = new ArrayList<ArrayList<Double>>();
+		for(int i=0;i<list.size();i++) {
+			ArrayList sublist = new ArrayList<Double>();
+			sublist.add(list.get(i).x);
+			sublist.add(list.get(i).y);
+			addList.add(sublist);
+		}
+		coordinates.add(addList);
+		}
 	}
 }
