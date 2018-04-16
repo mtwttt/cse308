@@ -128,4 +128,17 @@ public class State {
 		}
 		return total;
 	}
+	public ArrayList<Integer> getBorderPrecinctID(){
+		ArrayList<Integer> pids = new ArrayList<Integer>();
+		for(int i=0;i<congressionalDistrict.size();i++) {
+			CongressionalDistrict cd = congressionalDistrict.get(i);
+			for(int j=0;j<cd.getPrecincts().size();j++) {
+				Precinct p = cd.getPrecincts().get(j);
+				if(p.isBorder==1) {
+					pids.add(p.getID());
+				}
+			}
+		}
+		return pids;
+	}
 }
