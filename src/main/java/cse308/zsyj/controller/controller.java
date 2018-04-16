@@ -2,6 +2,7 @@ package cse308.zsyj.controller;
 
 import Objects.Account;
 import Objects.State;
+<<<<<<< HEAD
 import cse308.zsyj.service.StateService;
 
 import org.json.simple.JSONObject;
@@ -12,8 +13,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
-import java.util.Arrays;
 
+import java.util.Arrays;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -31,8 +32,6 @@ import com.google.gson.Gson;
 @Controller
 @RequestMapping("demo")
 public class controller {
-	@Autowired
-	StateService stateService;
 	@GetMapping("home")
 	public String home() {
 		return "demo/homepage_sample.html";
@@ -45,8 +44,7 @@ public class controller {
 	
 	@RequestMapping(value="congressional_districts", method=RequestMethod.POST)
 	public String congressionaldistricts(State state, Model model) {
-		state = stateService.getState(state.getName(), 2008);
-		System.out.println(state.getId());
+		System.out.println("---------------------------------");
 		model.addAttribute("state",state);
 		System.out.println(state.getName());
 		System.out.println("---------------------------------");
@@ -74,10 +72,11 @@ public class controller {
 	}
 	
 	@RequestMapping(value = "login", method=RequestMethod.POST)
-	public String login(Account account) {
+	public String login(Account account, Model model) {
 		if (account.validate()) {
-			if(account.isAdmin())
+			if(account.isAdmin()) {
 				return "demo/admin.html";
+			}
 		}
 		return "demo/login.html";
 	}
