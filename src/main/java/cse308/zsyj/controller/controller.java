@@ -2,7 +2,6 @@ package cse308.zsyj.controller;
 
 import Objects.Account;
 import Objects.State;
-<<<<<<< HEAD
 import cse308.zsyj.service.StateService;
 
 import org.json.simple.JSONObject;
