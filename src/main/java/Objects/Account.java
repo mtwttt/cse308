@@ -3,7 +3,7 @@ package Objects;
 public class Account {
 	String username;
 	Byte[] password;
-	boolean isAdmin = false;
+	boolean isAdmin = true;
 	public String getUsername() {
 		return username;
 	}
