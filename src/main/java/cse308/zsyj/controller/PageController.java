@@ -36,12 +36,12 @@ import com.google.gson.JsonSyntaxException;
 
 @Controller
 @RequestMapping("demo")
-public class controller {
+public class PageController {
 	@Autowired
 	StateService stateService;
 	@GetMapping("home")
 	public String home() {
-		return "demo/homepage_sample.html";
+		return "demo/home.html";
 	}
 	
 	@GetMapping("aboutus")
@@ -49,14 +49,14 @@ public class controller {
 		return "demo/aboutus.html";
 	}
 	
-	@RequestMapping(value="congressional_districts", method=RequestMethod.POST)
+	@RequestMapping(value="CD", method=RequestMethod.POST)
 	public String congressionaldistricts(State state, Model model) {
 		//state = stateService.getState(state.getName(), 2008);
 		//System.out.println(state.getCongressionalDistrict().get(0).getPrecincts().get(0).getCoordinate().get(0).get(0).get(0));
 		model.addAttribute("state",state);
 		System.out.println(state.getName());
 		System.out.println("---------------------------------");
-		return "demo/congressional_districts.html";
+		return "demo/congressionalD.html";
 	}
 	
 	@GetMapping("credit")
@@ -114,7 +114,7 @@ public class controller {
 			e.printStackTrace();
 		}
 		model.addAttribute("state", state);
-		return "/demo/congressional_districts.html";
+		return "demo/congressionalD.html";
 		
 	}
 	

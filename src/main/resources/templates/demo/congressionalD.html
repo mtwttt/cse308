@@ -5,6 +5,7 @@
   <title>ZSYJ</title>  
   <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
   <link rel="stylesheet" type = 'text/css' href="/css/map.css">
+  <link rel="stylesheet" type = 'text/css' href="/css/loader.css">
   <script src="/javascript/jquery-3.3.1.min.js"></script>
     <meta name="viewport" content="initial-scale=1,maximum-scale=1,user-scalable=no" />
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.0.3/dist/leaflet.css" />
@@ -44,6 +45,17 @@
               </form>
             </ul>
       </div>
+       <button class="dropdown-btn">Years </button>
+          <div class="dropdown-container">
+            <ul class="w3-ul">
+              <form action="CD"  method="post">
+                <li><input type="radio" id="utah" name="year" value="2010"  >2000</li>
+                <li><input type="radio" id="colorado" name="year" value="2011" > 2001</li>
+                <li><input type="radio" id="kansas" name="year" value="2012" > 2002</li>
+                <button type="submit"> Apply </button>
+              </form>
+            </ul>
+     	  </div>
 </div>
 
 <div style="margin-left:20%">
@@ -53,6 +65,7 @@
 <div id="container"></div>
 	<script src="/javascript/interaction.js"></script>
 	<script src="/javascript/congressional.js"></script>
+	<div class="loader"></div>
    <div id="map"></div>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
     <script src="https://unpkg.com/leaflet@1.0.3/dist/leaflet.js"></script>
