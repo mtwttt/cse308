@@ -27,19 +27,16 @@ function setState(state){
         R.safari();
   }
   if(selectState == 'ut'){
-        console.log(selectState);
         usRaphael[selectState].color = Raphael.getColor();
         usRaphael[selectState].animate({fill: "#000080"}, 500);
         usRaphael[selectState].toFront();
         R.safari();
   }else if (selectState == 'ks'){
-        console.log(selectState);
         usRaphael[selectState].color = Raphael.getColor();
         usRaphael[selectState].animate({fill: "#8B0000"}, 500);
         usRaphael[selectState].toFront();
         R.safari();
   }else if (selectState == 'co'){
-        console.log(selectState);
         usRaphael[selectState].color = Raphael.getColor();
         usRaphael[selectState].animate({fill: "#FFFF00"}, 500);
         usRaphael[selectState].toFront();
@@ -88,21 +85,21 @@ function setState(state){
 
         st[0].onclick = function () {
           if(selectState == 'ut'){
-	        	  var url = "http://localhost:8080/demo/congressional_districts";
+	        	  var url = "http://localhost:8080/demo/CD";
 	        	  var form = $('<form action="' + url + '" method="post">' +
 	        	    '<input type="text" name="name" value="utah" />' +
 	        	    '</form>');
 	        	  $('body').append(form);
 	        	  form.submit();	
           }else if(selectState == 'co'){
-	        	  var url = "http://localhost:8080/demo/congressional_districts";
+	        	  var url = "http://localhost:8080/demo/CD";
 	        	  var form = $('<form action="' + url + '" method="post">' +
 	        	    '<input type="text" name="name" value="colorado" />' +
 	        	    '</form>');
 	        	  $('body').append(form);
 	        	  form.submit();	
           }else if(selectState == 'ks'){
-        	  	  var url = "http://localhost:8080/demo/congressional_districts";
+        	  	  var url = "http://localhost:8080/demo/CD";
 	        	  var form = $('<form action="' + url + '" method="post">' +
 	  	        	    '<input type="text" name="name" value= "kansas"/>' +
 	  	        	    '</form>');
@@ -127,6 +124,5 @@ function offmouse(){
     usRaphael['ks'][0].onmouseout = undefined;
     usRaphael['ks'][0].onmouseover = undefined;
     usRaphael['ks'][0].onclick = undefined;
-    console.log("run");
 }
 
