@@ -100,20 +100,11 @@ public class PageController {
 				List<List<List<Double>>> coordinates = cdBoundary.features.get(i).geometry.coordinates;
 				state.generateBorder(coordinates);
 			}
-			int t =0;
-			for(int i=0;i<state.getCongressionalDistrict().size();i++) {
-				CongressionalDistrict cd = state.getCongressionalDistrict().get(i);
-				for(int j=0;j<cd.getPrecincts().size();j++) {
-					Precinct p = cd.getPrecincts().get(j);
-					if(p.isBorder==1)
-						t++;
-				}
-			}
-			System.out.println(t);
 		} catch (JsonSyntaxException | JsonIOException | FileNotFoundException e) {
 			e.printStackTrace();
 		}
 		model.addAttribute("state", state);
+		model.addAttribute("pids",state.getBorderPrecinctIDs());
 		return "demo/congressionalD.html";
 		
 	}

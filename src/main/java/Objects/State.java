@@ -22,63 +22,80 @@ public class State {
 	private int sid;
 	private int totalPopulation;
 	public double totalAvgRace;
-	public State() {
-		
-	}
+	public State() {	}
+	
 	public String getName() {
 		return name;
 	}
+	
 	public void setName(String name) {
 		this.name = name;
 	}
+	
 	public String getOverallPartyWin() {
 		return overallPartyWin;
 	}
+	
 	public void setOverallPartyWin(String overallPartyWin) {
 		this.overallPartyWin = overallPartyWin;
 	}
+	
 	public double getRepublicanStat() {
 		return republicanStat;
 	}
+	
 	public void setRepublicanStat(double republicanStat) {
 		this.republicanStat = republicanStat;
 	}
+	
 	public double getDemocraticSta() {
 		return democraticSta;
 	}
+	
 	public void setDemocraticSta(double democraticSta) {
 		this.democraticSta = democraticSta;
 	}
+	
 	public List<CongressionalDistrict> getCongressionalDistrict() {
 		return congressionalDistrict;
 	}
+	
 	public void setCongressionalDistrict(List<CongressionalDistrict> congressionalDistrict) {
 		this.congressionalDistrict = congressionalDistrict;
 	}
+	
 	public int getOverallStateVote() {
 		return overallStateVote;
 	}
+	
 	public void setOverallStateVote(int overallStateVote) {
 		this.overallStateVote = overallStateVote;
 	}
+	
 	public int getYear() {
 		return year;
 	}
+	
 	public void setYear(int year) {
 		this.year = year;
 	}
+	
 	public int getId() {
 		return sid;
 	}
+	
 	public void setId(int id) {
 		this.sid = id;
 	}
+	
 	public int getTotalPopulation() {
 		return totalPopulation;
 	}
+	
 	public void setTotalPopulation(int totalPopulation) {
 		this.totalPopulation = totalPopulation;
 	}
+	
 	public RawCDData generateBorder(List<List<List<Double>>> coordinates, RawCDData precincts) {
 		List<List<Double>> coordinate = coordinates.get(0);
 		for(int i=0;i<precincts.features.size();i++) {
@@ -97,6 +114,7 @@ public class State {
 		}
 		return precincts;	
 	}
+	
 	public void generateBorder(List<List<List<Double>>> cdBorder) {
 		for(int i=0;i<congressionalDistrict.size();i++) {
 			List<Precinct> precincts = congressionalDistrict.get(i).getPrecincts();
@@ -118,9 +136,11 @@ public class State {
 			}
 		}
 	}
+	
 	public double getTargetRacial() {
 		return totalAvgRace / congressionalDistrict.size();
 	}
+	
 	public int getCurrentPopulation() {
 		int total =0;
 		for (int i=0;i<congressionalDistrict.size();i++) {
@@ -128,7 +148,8 @@ public class State {
 		}
 		return total;
 	}
-	public ArrayList<Integer> getBorderPrecinctID(){
+	
+	public ArrayList<Integer> getBorderPrecinctIDs(){
 		ArrayList<Integer> pids = new ArrayList<Integer>();
 		for(int i=0;i<congressionalDistrict.size();i++) {
 			CongressionalDistrict cd = congressionalDistrict.get(i);
@@ -141,4 +162,5 @@ public class State {
 		}
 		return pids;
 	}
+	
 }
