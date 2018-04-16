@@ -73,7 +73,8 @@ public class controller {
 	@RequestMapping(value = "login", method=RequestMethod.POST)
 	public String login(Account account, Model model) {
 		
-			if(account.isAdmin()) {
+			if(account.validate()) {
+				if(account.isAdmin())
 				return "demo/admin.html";
 			}
 		
