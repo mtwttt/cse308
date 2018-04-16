@@ -113,8 +113,8 @@ public class controller {
 		} catch (JsonSyntaxException | JsonIOException | FileNotFoundException e) {
 			e.printStackTrace();
 		}
-		
-		return null;
+		model.addAttribute("state", state);
+		return "/demo/congressional_districts.html";
 		
 	}
 	
