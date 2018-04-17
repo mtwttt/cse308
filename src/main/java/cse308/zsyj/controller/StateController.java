@@ -17,6 +17,7 @@ import cse308.zsyj.repository.CoordinateRepository;
 import cse308.zsyj.repository.PrecinctRepository;
 import cse308.zsyj.repository.StateRepository;
 import cse308.zsyj.service.StateService;
+
 @Controller
 public class StateController {
 	@Autowired

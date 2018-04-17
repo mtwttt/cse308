@@ -121,17 +121,17 @@ public class State {
 			for(int j=0;j<precincts.size();j++) {
 				if(precincts.get(j).getCoordinate().size()!=0) {
 				List<ArrayList<Double>> coordinate = precincts.get(j).getCoordinate().get(0);
-				for(int k = 0;k<coordinate.size();k++) {
-					double pX = coordinate.get(k).get(0);
-					double pY = coordinate.get(k).get(1);
-					for(int x = 0;x<cdBorder.get(0).size();x++) {
-						double bX = cdBorder.get(0).get(x).get(0);
-						double bY = cdBorder.get(0).get(x).get(1);
-						if((Math.abs(bX - pX)< 0.000001) && (Math.abs(bY - pY) < 0.000001)) {
-							precincts.get(j).setBorder(1);
+					for(int k = 0;k<coordinate.size();k++) {
+						double pX = coordinate.get(k).get(0);
+						double pY = coordinate.get(k).get(1);
+						for(int x = 0;x<cdBorder.get(0).size();x++) {
+							double bX = cdBorder.get(0).get(x).get(0);
+							double bY = cdBorder.get(0).get(x).get(1);
+							if((Math.abs(bX - pX)< 0.000001) && (Math.abs(bY - pY) < 0.000001)) {
+								precincts.get(j).setBorder(1);
+							}
 						}
 					}
-				}
 				}
 			}
 		}
@@ -161,6 +161,20 @@ public class State {
 			}
 		}
 		return pids;
+	}
+	
+	public ArrayList<Precinct> getBorderPrecincts(){
+		ArrayList<Precinct> ps = new ArrayList<Precinct>();
+		for(int i=0;i<congressionalDistrict.size();i++) {
+			CongressionalDistrict cd = congressionalDistrict.get(i);
+			for(int j=0;j<cd.getPrecincts().size();j++) {
+				Precinct p = cd.getPrecincts().get(j);
+				if(p.isBorder==1) {
+					ps.add(p);
+				}
+			}
+		}
+		return ps;
 	}
 	
 }

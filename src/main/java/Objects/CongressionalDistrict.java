@@ -30,9 +30,8 @@ public class CongressionalDistrict {
 	public State state; 
 	private double totalRacial;
 	
-	public CongressionalDistrict() {
-		
-	}
+	public CongressionalDistrict() {	}
+	
 	public int getId() {
 		return cdid;
 	}
@@ -120,6 +119,7 @@ public class CongressionalDistrict {
 	public void setRepLocation(int location) {
 		this.representativeAt = location;
 	}
+	
 	public List<Precinct> getBorderPrecinct(){
 		List<Precinct> borders = new ArrayList();
 		for(int i=0;i< precincts.size();i++) {
@@ -129,14 +129,19 @@ public class CongressionalDistrict {
 		}
 		return borders;
 	}
+	
 	public double getPopulationScore() {
-		int avgPopulation = state.getTotalPopulation()/state.getCongressionalDistrict().size();
-		int populationScore = 1 - Math.abs(avgPopulation - totalPopulation)/avgPopulation;
+		int avgPopulation = state.getTotalPopulation()
+				/state.getCongressionalDistrict().size();
+		int populationScore = 1 - Math.abs(avgPopulation - totalPopulation)
+				/avgPopulation;
 		return populationScore;
 	}
+	
 	public double getCompactnessScore() {
 		return 0.0;
 	}
+	
 	public double getPartisanFairnessScore() {
 		double partisanScore = 0.0;
 		double democWastedVotes = 0.0;
@@ -158,10 +163,12 @@ public class CongressionalDistrict {
 		partisanScore = 1 - (repubWastedVotes + democWastedVotes)/this.totalVote;
 		return partisanScore;
 	}
+	
 	public double getRacialFairnessScore() {
 		double goal = state.getTargetRacial();
 		return 1-(Math.abs(totalRacial - goal)/state.totalAvgRace);
 	}
+	
 	public int getCurrentPopulation() {
 		int total =0;
 		for (int i=0;i<precincts.size();i++) {
@@ -169,6 +176,7 @@ public class CongressionalDistrict {
 		}
 		return total;
 	}
+	
 	public int getCurrentTotalVote() {
 		int total =0;
 		for (int i=0;i<precincts.size();i++) {
@@ -176,6 +184,7 @@ public class CongressionalDistrict {
 		}
 		return total;
 	}
+	
 	public void updateCDInfo() {
 		int totalP =0;
 		int totalV =0;
@@ -189,6 +198,7 @@ public class CongressionalDistrict {
 		totalVote = totalV;
 		totalRacial = totalR;
 	}
+	
 	public void setState(State state) {
 		this.state = state;
 	}

@@ -1,5 +1,3 @@
 package Objects;
 
-public class Admin {
-
-}
+public class Admin {}

@@ -55,7 +55,7 @@ public class StateService {
 			List <CongressionalDistrict> cds = cdRepository.findAllById(stateID);
 			for (int i=0;i<cds.size();i++) {
 				int cdID = cds.get(i).getId();
-				List<Precinct> toAdd = new ArrayList();
+				List<Precinct> toAdd = new ArrayList<Precinct>();
 				List<Precinct> precincts = precinctRepository.findAllByCD(cdID);
 				for(int j = 0;j<precincts.size();j++) {
 					precincts.get(j).setCoordinate(coordinateRepository.findXandYbyPrecinctID(precincts.get(j).getID()));
@@ -66,5 +66,14 @@ public class StateService {
 			}
 			state.setCongressionalDistrict(cds);
 			return state;
+		}
+		
+		public void updateBorder(State state, boolean updateSQL) {
+			if (updateSQL) {
+				ArrayList<Precinct> ps = state.getBorderPrecincts();
+				for(int i = 0; i < ps.size(); i++) {
+					precinctRepository.save(ps.get(i));
+				}
+			}
 		}
 }

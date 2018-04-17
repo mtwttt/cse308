@@ -27,109 +27,138 @@ public class Precinct {
     public int isBorder;
     public double avgRace;
     
-    public Precinct() {
-    	
-    }
+    public Precinct() {}
+    
     public int getID() {
-    	return pid;
+    		return pid;
     }
+    
     public int getPopulation() {
-    	return population;
+    		return population;
     }
+    
     public int getcdNumber() {
-    	return cdNumber;
+    		return cdNumber;
     }
+    
     public int getALand() {
-    	return aLand;
+    		return aLand;
     }
+    
     public int getAWater() {
-    	return aWater;
+    		return aWater;
     }
+    
 	public int getTotalVote() {
 		return totalVote;
 	}
+	
 	public int getYear() {
 		return year;
 	}
+	
 	public double getLat() {
 		return latitude;
 	}
+	
 	public double getLong() {
 		return longtitude;
 	}
+	
 	public double getrVote() {
 		return rVote;
 	}
+	
 	public double getdVote() {
 		return dVote;
 	}
+	
 	public double getoVote() {
 		return oVote; 
 	}
+	
 	public List<ArrayList<ArrayList<Double>>> getCoordinate() {
 		return coordinates;
 	}
+	
 	public int getBorder() {
 		return isBorder;
 	}
+	
 	public void setID(int id) {
 		pid = id;
     }
+	
 	public double getRaceAvg() {
 		return avgRace;
 	}
+	
     public void setPopulation(int population) {
-    	this.population = population;
+    		this.population = population;
     }
+    
     public void setcdNumber(int cdNumber) {
-    	this.cdNumber = cdNumber;
+    		this.cdNumber = cdNumber;
     }
+    
     public void setALand(int aLand) {
-    	this.aLand = aLand;
+    		this.aLand = aLand;
     }
+    
     public void setAWater(int aWater) {
-    	this.aWater = aWater;
+    		this.aWater = aWater;
     }
+    
 	public void setTotalVote(int totalVote) {
 		this. totalVote = totalVote;
 	}
+	
 	public void setYear(int year) {
 		this.year = year;
 	}
+	
 	public void setLat(double lat) {
 		latitude = lat;
 	}
+	
 	public void setLong(double lon) {
 		longtitude = lon;
 	}
+	
 	public void setrVote(int v) {
 		rVote = v;
 	}
+	
 	public void setdVote(int v) {
 		dVote = v;
 	}
+	
 	public void setoVote(int v) {
 		oVote = v; 
 	}
+	
 	public void setBorder(int b) {
 		isBorder = b;
 	}
+	
 	public void setAvgRace(int a) {
 		avgRace = a;
 	}
+	
 	public void setCoordinate(List<Coordinate> list) {
 		if(coordinates == null) {
 			coordinates = new ArrayList<ArrayList<ArrayList<Double>>>();
 		}
 		if(list.size()!=0) {
-		ArrayList<ArrayList<Double>> addList = new ArrayList<ArrayList<Double>>();
-		for(int i=0;i<list.size();i++) {
-			ArrayList sublist = new ArrayList<Double>();
-			sublist.add(list.get(i).x);
-			sublist.add(list.get(i).y);
-			addList.add(sublist);
-		}
-		coordinates.add(addList);
+			ArrayList<ArrayList<Double>> addList = new ArrayList<ArrayList<Double>>();
+			for(int i=0;i<list.size();i++) {
+				ArrayList<Double> sublist = new ArrayList<Double>();
+				sublist.add(list.get(i).x);
+				sublist.add(list.get(i).y);
+				addList.add(sublist);
+			}
+			coordinates.add(addList);
 		}
 	}
+	
 }

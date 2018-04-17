@@ -9,7 +9,6 @@ import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 @EntityScan(basePackages = "objects")
 @SpringBootApplication
 public class ZsyjApplication {
-
 	public static void main(String[] args) {
 		SpringApplication.run(ZsyjApplication.class, args);
 	}

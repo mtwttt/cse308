@@ -38,6 +38,7 @@ import com.google.gson.JsonSyntaxException;
 @Controller
 @RequestMapping("demo")
 public class PageController {
+	
 	@Autowired
 	StateService stateService;
 	@GetMapping("home")
@@ -55,11 +56,13 @@ public class PageController {
 		model.addAttribute("state",state);
 		return "demo/congressionalD.html";
 	}
+	
 	@RequestMapping(value="loading", method=RequestMethod.POST)
 	public String loading(State state, Model model) {
 		model.addAttribute("state",state);
 		return "demo/loading.html";
 	}
+	
 	@RequestMapping(value="redraw", method=RequestMethod.POST)
 	public String startAlgo(Algorithm weight, String name,Model model) {
 			State state = stateService.getState(name, weight.getYear()); 
@@ -90,12 +93,10 @@ public class PageController {
 	
 	@RequestMapping(value = "login", method=RequestMethod.POST)
 	public String login(Account account, Model model) {
-		
 			if(account.validate()) {
 				if(account.isAdmin())
 				return "demo/admin.html";
 			}
-		
 		return "demo/login.html";
 	}
 	
@@ -103,15 +104,18 @@ public class PageController {
 	public String generateBorder(State state, Model model) {
 		String fileUrl = "./src/main/resources/static/json/kansasCD2010.geojson";
 		try {
-			RawCDData cdBoundary = new Gson().fromJson(new FileReader(fileUrl), RawCDData.class);
+			RawCDData cdBoundary = new Gson().fromJson(new FileReader(fileUrl), 
+					RawCDData.class);
 			state = stateService.getState(state.getName(), 2008);
 			for(int i=0;i<cdBoundary.features.size();i++) {
-				List<List<List<Double>>> coordinates = cdBoundary.features.get(i).geometry.coordinates;
+				List<List<List<Double>>> coordinates = 
+						cdBoundary.features.get(i).geometry.coordinates;
 				state.generateBorder(coordinates);
 			}
 		} catch (JsonSyntaxException | JsonIOException | FileNotFoundException e) {
 			e.printStackTrace();
 		}
+		
 		model.addAttribute("state", state);
 		model.addAttribute("pids",state.getBorderPrecinctIDs());
 		return "demo/generateBorder.html";

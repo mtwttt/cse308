@@ -52,8 +52,10 @@ public class Algorithm {
 
 	public double calculateCDGoodness(CongressionalDistrict CD) {
 		double goodness = 0.0;
-		goodness = CD.getPopulationScore() * populationW + CD.getCompactnessScore() * compactnessW + 
-				CD.getPartisanFairnessScore() * partisanW + CD.getRacialFairnessScore() * racialW;
+		goodness = CD.getPopulationScore() * populationW  
+				+ CD.getCompactnessScore() * compactnessW 
+				+ CD.getPartisanFairnessScore() * partisanW  
+				+ CD.getRacialFairnessScore() * racialW;
 		return goodness;
 	}
 	
@@ -86,7 +88,8 @@ public class Algorithm {
 			for (List<Double> l1 : listOfPoints) {
 				List<ArrayList<Double>> listOfNeighborP = pr.getCoordinate().get(0);
 				for (List<Double> l2 : listOfNeighborP) {
-					if (l1.get(0)==l2.get(0) && l1.get(1)==l2.get(1) && CD.getId()==pr.getcdNumber()) {
+					if (l1.get(0)==l2.get(0) && l1.get(1)==l2.get(1) 
+							&& CD.getId()==pr.getcdNumber()) {
 						pr.setBorder(1);
 					}
 				}
@@ -96,16 +99,19 @@ public class Algorithm {
 	
 	public void updateTargetCDBorder(List<Precinct> neighbor, State state) {
 		for (Precinct pr : neighbor) {
-			List<Precinct> prNeighbor = getNeighborInOtherCD(pr, state.getCongressionalDistrict());
+			List<Precinct> prNeighbor = getNeighborInOtherCD(pr, 
+					state.getCongressionalDistrict());
 			if (prNeighbor.size()==0)
 				pr.setBorder(0);
 		}
 	}
 	
-	public boolean movePrecinct(Precinct moveP, CongressionalDistrict CD, List<Precinct> neighbor, State state) {
+	public boolean movePrecinct(Precinct moveP, CongressionalDistrict CD,
+			List<Precinct> neighbor, State state) {
 		Cloner cloner = new Cloner();
 		for (Precinct targetP: neighbor) {
-			CongressionalDistrict targetC = state.getCongressionalDistrict().get(targetP.getcdNumber());
+			CongressionalDistrict targetC = 
+					state.getCongressionalDistrict().get(targetP.getcdNumber());
 			CongressionalDistrict cloneTargetC = cloner.deepClone(targetC);
 			CongressionalDistrict cloneSourceC = cloner.deepClone(CD);
 			updateCD(cloneTargetC, cloneSourceC, moveP);

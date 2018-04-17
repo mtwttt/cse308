@@ -1,7 +1,5 @@
 package Objects;
 
-import java.io.Serializable;
-
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.IdClass;
@@ -15,9 +13,8 @@ public class Coordinate {
 	double y;
 	@Id
 	int precinctid;
-	public Coordinate() {
-		
-	}
+	public Coordinate() {}
+	
 	public Coordinate(double x, double y, int precinctID) {
 		this.x = x;
 		this.y = y;

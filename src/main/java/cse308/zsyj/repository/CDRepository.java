@@ -9,6 +9,7 @@ import org.springframework.stereotype.Repository;
 import Objects.CongressionalDistrict;
 @Repository
 public interface CDRepository extends CrudRepository<CongressionalDistrict,Integer>{
-	@Query(value =  "Select * from CongressionalDistrict where sid = ?1", nativeQuery = true)
+	@Query(value =  "Select * from CongressionalDistrict where sid = ?1",
+			nativeQuery = true)
 	List<CongressionalDistrict> findAllById(int id);
 }
