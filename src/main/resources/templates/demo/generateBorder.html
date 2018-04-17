@@ -26,18 +26,33 @@
 <body>
 <div class="w3-sidebar w3-light-grey w3-bar-block" style="width:20%">
 	 <input class ='cb' type="button" onclick="location.href='home';" value="Home" /> 
-	 
-       <button class="dropdown-btn">Years </button>
+	 <form action = "redraw" method ="post">
+	 <p class="dropdown-btn"> Weights</p>
+	 <div class="dropdown-container">
+            <ul class="w3-ul">
+              <li> Population</li>
+               <li><input type="range" min="1" max="100" value="50" class="slider" id="population"><span id="popu"> </span></li>
+              <li> Racial</li>
+               <li><input type="range" min="1" max="100" value="50" class="slider" id="racial"> <span id="raci"> </span> </li>
+              
+              <li> Partisan</li>
+              <li><input type="range" min="1" max="100" value="50" class="slider" id="partisan"> <span id="part"> </span> </li>
+              
+              <li> Compactness</li>
+                <li><input type="range" min="1" max="100" value="50" class="slider" id="compactness"> <span id="comp"> </span> </li>
+            </ul>
+      </div>
+       <p class="dropdown-btn">Years </p>
           <div class="dropdown-container">
             <ul class="w3-ul">
-              <form action="CD"  method="post">
-                <li><input type="radio" id="utah" name="year" value="2010"  >2000</li>
+                <li><input type="radio" id="utah" name="year" value="2010"  checked="checked" >2000</li>
                 <li><input type="radio" id="colorado" name="year" value="2011" > 2001</li>
                 <li><input type="radio" id="kansas" name="year" value="2012" > 2002</li>
-                <button type="submit"> Apply </button>
-              </form>
             </ul>
      	  </div>
+     	  <input type="text" name = "name" th:value ="${state.name}" hidden>
+     	  <input type="submit" value="redraw"/>
+     </form>
 </div>
 
 <div style="margin-left:20%">
@@ -53,6 +68,8 @@
     <script src="https://unpkg.com/leaflet@1.0.3/dist/leaflet.js"></script>
     <script th:inline="javascript">
 	    var state = "/json/"+ [[${state.name}]]+".json";
+	    var pids = [[${pids}]];
+	    console.log(pids);
         var counties = $.ajax({
             url: state,
             dataType: "json",
@@ -71,9 +88,40 @@
                 accessToken: 'pk.eyJ1Ijoiam1hdXJvIiwiYSI6ImVYb0lheE0ifQ.Js4ba2SyUxHPCIDl1Aq1cQ'
             }).addTo(map);
             // Add requested external GeoJSON to map
-            var kyCounties = L.geoJSON(counties.responseJSON,{style: style, onEachFeature: onEachFeature}).addTo(map);
-            var newkyCounties = L.geoJSON(counties.responseJSON,{style: style, onEachFeature: onEachFeature}).addTo(map);
-            });
+            var kyCounties = L.geoJSON(counties.responseJSON,{style:function(feature) {
+			            
+			        		if(pids.includes(feature.pid)){
+			        			switch (feature.properties.CONGRESSIO) {
+				                case '1': 
+				                	return { fillColor: 'red', color: '#138D75', weight: 2, opacity: 2};
+				                case '2':   
+				                	return {fillColor: 'green', color: '#138D75', weight: 2,opacity: 2};
+				                case '3': 
+				                	return {fillColor: 'white', color: '#138D75', weight: 2, opacity: 2};
+				                case '4':   
+				                	return { fillColor: 'blue', color: '#138D75', weight: 2, opacity: 2};
+				                default:   
+				                	return {fillColor: 'grey', color: '#138D75', weight: 2, opacity: 2, 
+				                	fillOpacity: 0.7};
+				            }
+			        		}
+			        		else{
+			        			switch (feature.properties.CONGRESSIO) {
+				                case '1': 
+				                	return { fillColor: 'red', color: 'grey', weight: 1, opacity: 0.75};
+				                case '2':   
+				                	return {fillColor: 'green', color: 'grey', weight: 1,opacity: 0.7};
+				                case '3': 
+				                	return {fillColor: 'white', color: 'grey', weight: 1, opacity: 0.7};
+				                case '4':   
+				                	return { fillColor: 'blue', color: 'grey', weight: 1, opacity: 0.7};
+				                default:   
+				                	return {fillColor: 'grey', color: 'grey', weight: 1, opacity: 0.7, 
+				                	fillOpacity: 0.7};
+				            }
+			        		}
+              }, onEachFeature: onEachFeature}).addTo(map);
+        });
     </script>
 </div>
 

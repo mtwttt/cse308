@@ -1,6 +1,7 @@
 package cse308.zsyj.controller;
 
 import Objects.Account;
+import Objects.Algorithm;
 import Objects.CongressionalDistrict;
 import Objects.Precinct;
 import Objects.RawCDData;
@@ -51,12 +52,20 @@ public class PageController {
 	
 	@RequestMapping(value="CD", method=RequestMethod.POST)
 	public String congressionaldistricts(State state, Model model) {
-		//state = stateService.getState(state.getName(), 2008);
-		//System.out.println(state.getCongressionalDistrict().get(0).getPrecincts().get(0).getCoordinate().get(0).get(0).get(0));
 		model.addAttribute("state",state);
-		System.out.println(state.getName());
-		System.out.println("---------------------------------");
 		return "demo/congressionalD.html";
+	}
+	@RequestMapping(value="loading", method=RequestMethod.POST)
+	public String loading(State state, Model model) {
+		model.addAttribute("state",state);
+		return "demo/loading.html";
+	}
+	@RequestMapping(value="redraw", method=RequestMethod.POST)
+	public String startAlgo(Algorithm weight, String name,Model model) {
+			State state = stateService.getState(name, weight.getYear()); 
+			state = weight.startAlgorithm(state);
+			model.addAttribute("state",state);
+			return "demo/home.html";
 	}
 	
 	@GetMapping("credit")
@@ -105,7 +114,7 @@ public class PageController {
 		}
 		model.addAttribute("state", state);
 		model.addAttribute("pids",state.getBorderPrecinctIDs());
-		return "demo/congressionalD.html";
+		return "demo/generateBorder.html";
 		
 	}
 	

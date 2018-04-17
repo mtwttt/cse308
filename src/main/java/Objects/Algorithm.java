@@ -10,6 +10,7 @@ public class Algorithm {
 	private double compactnessW;
 	private double racialW;
 	private double partisanW;
+	private int year;
 	
 	public void setPopulationW(double weight) {
 		this.populationW = weight;
@@ -19,6 +20,7 @@ public class Algorithm {
 		this.compactnessW = weight;
 	}
 	
+	
 	public void setracialW(double weight) {
 		this.racialW = weight;
 	}
@@ -26,7 +28,28 @@ public class Algorithm {
 	public void setpartisanW(double weight) {
 		this.partisanW = weight;
 	}
-	
+	public void setYear(int year) {
+		this.year = year;
+	}
+	public int getYear() {
+		return year;
+	}
+	public double getPopulationW() {
+		return populationW;
+	}
+
+	public double getCompactnessW() {
+		return compactnessW;
+	}
+
+	public double getRacialW() {
+		return racialW;
+	}
+
+	public double getPartisanW() {
+		return partisanW;
+	}
+
 	public double calculateCDGoodness(CongressionalDistrict CD) {
 		double goodness = 0.0;
 		goodness = CD.getPopulationScore() * populationW + CD.getCompactnessScore() * compactnessW + 
@@ -34,7 +57,7 @@ public class Algorithm {
 		return goodness;
 	}
 	
-	public void startAlgorithm(State state) {
+	public State startAlgorithm(State state) {
 		for (CongressionalDistrict CD : state.getCongressionalDistrict()) {
 			List<Precinct> borderPrecincts = CD.getBorderPrecinct();
 			int size = borderPrecincts.size();
@@ -54,6 +77,7 @@ public class Algorithm {
 				updateTargetCDBorder(neighbor,state);
 			}
 		}
+		return state;
 	}
 	
 	public void updateSourceCDBorder(Precinct p, CongressionalDistrict CD) {

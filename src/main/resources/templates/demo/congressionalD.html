@@ -26,36 +26,33 @@
 <body>
 <div class="w3-sidebar w3-light-grey w3-bar-block" style="width:20%">
 	 <input class ='cb' type="button" onclick="location.href='home';" value="Home" /> 
-	 <button class="dropdown-btn"> Weights</button>
+	 <form action = "redraw" method="post">
+	 <p class="dropdown-btn"> Weights</p>
 	 <div class="dropdown-container">
             <ul class="w3-ul">
-              <form>
               <li> Population</li>
-               <li><input type="range" min="1" max="100" value="50" class="slider" id="population"><span id="popu"> </span></li>
+               <li><input type="range" min="1" max="100" value="50" class="slider" name="populationW" id="population"><span id="popu"> </span></li>
               <li> Racial</li>
-               <li><input type="range" min="1" max="100" value="50" class="slider" id="racial"> <span id="raci"> </span> </li>
+               <li><input type="range" min="1" max="100" value="50" class="slider" name="racialW" id="racial"> <span id="raci"> </span> </li>
               
               <li> Partisan</li>
-              <li><input type="range" min="1" max="100" value="50" class="slider" id="partisan"> <span id="part"> </span> </li>
+              <li><input type="range" min="1" max="100" value="50" class="slider" name="partisanW" id="partisan"> <span id="part"> </span> </li>
               
               <li> Compactness</li>
-                <li><input type="range" min="1" max="100" value="50" class="slider" id="compactness"> <span id="comp"> </span> </li>
-              
-              <l1><button type="submit"> Redraw </button>
-              </form>
+                <li><input type="range" min="1" max="100" value="50" class="slider" name ="compactnessW" id="compactness"> <span id="comp"> </span> </li>
             </ul>
       </div>
-       <button class="dropdown-btn">Years </button>
+       <p class="dropdown-btn">Years </p>
           <div class="dropdown-container">
             <ul class="w3-ul">
-              <form action="CD"  method="post">
-                <li><input type="radio" id="utah" name="year" value="2010"  >2000</li>
+                <li><input type="radio" id="utah" name="year" value="2010"  checked="checked" >2000</li>
                 <li><input type="radio" id="colorado" name="year" value="2011" > 2001</li>
                 <li><input type="radio" id="kansas" name="year" value="2012" > 2002</li>
-                <button type="submit"> Apply </button>
-              </form>
             </ul>
      	  </div>
+     	  <input type="text" name = "name" th:value ="${state.name}" hidden>
+     	  <input type="submit" value="redraw"/>
+     </form>
 </div>
 
 <div style="margin-left:20%">
