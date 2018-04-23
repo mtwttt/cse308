@@ -131,8 +131,7 @@ public class CongressionalDistrict {
 	}
 	
 	public double getPopulationScore() {
-		int avgPopulation = state.getTotalPopulation()
-				/state.getCongressionalDistrict().size();
+		double avgPopulation = state.getTotalPopulation() /state.getCongressionalDistrict().size();
 		double populationScore = (1 - (Math.abs(avgPopulation - totalPopulation)/avgPopulation));
 		return populationScore;
 	}
@@ -164,12 +163,13 @@ public class CongressionalDistrict {
 			}
 		}
 		partisanScore = 1 - (repubWastedVotes + democWastedVotes)/this.totalVote;
-		return partisanScore;
+		return 0;
 	}
 	
 	public double getRacialFairnessScore() {
 		double goal = state.getTargetRacial();
-		return 1-(Math.abs(totalRacial - goal)/state.totalAvgRace);
+		double temp = 1-(Math.abs(totalRacial - goal)/state.totalAvgRace);
+		return temp;
 	}
 	
 	public int getCurrentPopulation() {
@@ -191,11 +191,11 @@ public class CongressionalDistrict {
 	public void updateCDInfo() {
 		int totalP =0;
 		int totalV =0;
-		int totalR =0;
+		double totalR =0;
 		for (int i=0;i<precincts.size();i++) {
-			totalP += precincts.get(0).getPopulation();
-			totalV += precincts.get(0).getTotalVote();
-			totalR += precincts.get(0).getRaceAvg();
+			totalP += precincts.get(i).getPopulation();
+			totalV += precincts.get(i).getTotalVote();
+			totalR += precincts.get(i).getRaceAvg();
 		}
 		totalPopulation = totalP;
 		totalVote = totalV;
@@ -204,5 +204,13 @@ public class CongressionalDistrict {
 	
 	public void setState(State state) {
 		this.state = state;
+	}
+	public double getTotalArea() {
+		double totalArea = 0;
+		for(int i=0;i<precincts.size();i++) {
+			totalArea += precincts.get(i).getALand();
+			totalArea += precincts.get(i).getAWater();
+		}
+		return totalArea;
 	}
 }

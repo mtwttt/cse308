@@ -76,16 +76,23 @@ public class Algorithm {
 	}
 	
 	public void updateSourceCDBorder(Precinct p, CongressionalDistrict CD) {
+		List<ArrayList<Double>> listOfPoints = p.getCoordinate().get(0);
 		for (Precinct pr : CD.getPrecincts()) {
-			List<ArrayList<Double>> listOfPoints = p.getCoordinate().get(0);
+			int flag = 0;
 			for (List<Double> l1 : listOfPoints) {
+				if(pr.getCoordinate().size()!=0) {
 				List<ArrayList<Double>> listOfNeighborP = pr.getCoordinate().get(0);
 				for (List<Double> l2 : listOfNeighborP) {
 					if (l1.get(0).doubleValue()==l2.get(0).doubleValue() && l1.get(1).doubleValue()==l2.get(1).doubleValue()
 							&& CD.getId()==pr.getcdNumber()) {
 						pr.setBorder(1);
+						flag = 1;
+						break;
 					}
 				}
+			}
+				if(flag == 1)
+					break;
 			}
 		}
 	}
@@ -110,10 +117,11 @@ public class Algorithm {
 			updateCD(cloneTargetC, cloneSourceC, moveP);
 			double originalScore = calculateCDGoodness(targetC) + calculateCDGoodness(CD);
 			double newScore = calculateCDGoodness(cloneTargetC) + calculateCDGoodness(cloneSourceC);
-			System.out.println(moveP.getPopulation() +" "+ targetP.getID()+ " OriginalScore = " + originalScore + " NewScore = " + newScore);
-			if(newScore>=originalScore) {
+			System.out.println(CD.getId()+" "+moveP.getPopulation() +" "+ targetP.getID()+ " OriginalScore = " + originalScore + " NewScore = " + newScore);
+			if(newScore>originalScore) {
+				System.out.println("got it");
 				updateCD(targetC, CD, moveP);
-				return(true);
+				return true;
 			}
 		}
 		return(false);
@@ -123,7 +131,12 @@ public class Algorithm {
 		List<Precinct> addedList = targetC.getPrecincts();
 		addedList.add(moveP);
 		List<Precinct> removeList= CD.getPrecincts();
-		removeList.remove(moveP);
+		for(int i=0;i<removeList.size();i++) {
+			if(moveP.getID() == removeList.get(i).getID()) {
+				removeList.remove(i);
+				break;
+			}	
+		}
 		targetC.setPrecincts(addedList);
 		CD.setPrecincts(removeList);
 		targetC.updateCDInfo();
