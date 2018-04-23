@@ -133,8 +133,7 @@ public class CongressionalDistrict {
 	public double getPopulationScore() {
 		int avgPopulation = state.getTotalPopulation()
 				/state.getCongressionalDistrict().size();
-		int populationScore = (1 - Math.abs(avgPopulation - totalPopulation))
-				/avgPopulation;
+		double populationScore = (1 - (Math.abs(avgPopulation - totalPopulation)/avgPopulation));
 		return populationScore;
 	}
 	
@@ -154,13 +153,13 @@ public class CongressionalDistrict {
 			if (precinctDemoc>=precinctRepub) {
 				democWastedVotes+= precinctDemoc - voteToWin;
 				if (democWastedVotes<=0)
-					democWastedVotes = 5;
+					democWastedVotes = 0;
 				repubWastedVotes+= precinctRepub;
 			}
 			else {
 				repubWastedVotes+= precinctRepub - voteToWin;
 				if (repubWastedVotes<=0)
-					repubWastedVotes = 5;
+					repubWastedVotes = 0;
 				democWastedVotes+= precinctDemoc;
 			}
 		}
