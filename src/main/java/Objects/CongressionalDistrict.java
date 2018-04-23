@@ -133,7 +133,7 @@ public class CongressionalDistrict {
 	public double getPopulationScore() {
 		int avgPopulation = state.getTotalPopulation()
 				/state.getCongressionalDistrict().size();
-		int populationScore = 1 - Math.abs(avgPopulation - totalPopulation)
+		int populationScore = (1 - Math.abs(avgPopulation - totalPopulation))
 				/avgPopulation;
 		return populationScore;
 	}
@@ -161,7 +161,7 @@ public class CongressionalDistrict {
 			}
 		}
 		partisanScore = 1 - (repubWastedVotes + democWastedVotes)/this.totalVote;
-		return partisanScore;
+		return 0;
 	}
 	
 	public double getRacialFairnessScore() {
