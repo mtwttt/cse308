@@ -153,15 +153,19 @@ public class CongressionalDistrict {
 			int voteToWin = precinctTotal/2+1;
 			if (precinctDemoc>=precinctRepub) {
 				democWastedVotes+= precinctDemoc - voteToWin;
+				if (democWastedVotes<=0)
+					democWastedVotes = 5;
 				repubWastedVotes+= precinctRepub;
 			}
 			else {
 				repubWastedVotes+= precinctRepub - voteToWin;
+				if (repubWastedVotes<=0)
+					repubWastedVotes = 5;
 				democWastedVotes+= precinctDemoc;
 			}
 		}
 		partisanScore = 1 - (repubWastedVotes + democWastedVotes)/this.totalVote;
-		return 0;
+		return partisanScore;
 	}
 	
 	public double getRacialFairnessScore() {
