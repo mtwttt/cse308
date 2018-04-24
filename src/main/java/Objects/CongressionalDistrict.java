@@ -29,7 +29,8 @@ public class CongressionalDistrict {
 	@Transient
 	public State state; 
 	private double totalRacial;
-	
+	@Transient
+	private double totalArea;
 	public CongressionalDistrict() {	}
 	
 	public int getId() {
@@ -137,7 +138,17 @@ public class CongressionalDistrict {
 	}
 	
 	public double getCompactnessScore() {
-		return 0.0;
+		List<Double> info = findMaxMin();
+		double maxLat = info.get(0);
+		double maxLon = info.get(1);
+		double minLat = info.get(2);
+		double minLon = info.get(3);
+		double distanceLat = maxLat-minLat;
+		double distanceLon = maxLon-minLon;
+		double expectedArea = (distanceLat*distanceLon)*111111*111111;
+		double area = getTotalArea();
+		double cScore = area/expectedArea;
+		return cScore;
 	}
 	
 	public double getPartisanFairnessScore() {
@@ -163,7 +174,7 @@ public class CongressionalDistrict {
 			}
 		}
 		partisanScore = 1 - (repubWastedVotes + democWastedVotes)/this.totalVote;
-		return 0;
+		return partisanScore;
 	}
 	
 	public double getRacialFairnessScore() {
@@ -212,5 +223,27 @@ public class CongressionalDistrict {
 			totalArea += precincts.get(i).getAWater();
 		}
 		return totalArea;
+	}
+	public List<Double> findMaxMin() {
+		double maxLat = precincts.get(0).getLat();
+		double maxLon = precincts.get(0).getLong();
+		double minLat = maxLat;
+		double minLon = maxLon;
+		for(int i=1;i<precincts.size();i++) {
+			if(maxLat<precincts.get(i).getLat())
+				maxLat = precincts.get(i).getLat();
+			if(maxLon<precincts.get(i).getLong())
+				maxLon = precincts.get(i).getLong();
+			if(minLat>precincts.get(i).getLat())
+				minLat = precincts.get(i).getLat();
+			if(minLon>precincts.get(i).getLong())
+				minLon = precincts.get(i).getLong();
+		}
+		List<Double> l = new ArrayList<Double>();
+		l.add(maxLat);
+		l.add(maxLon);
+		l.add(minLat);
+		l.add(minLon);
+		return l;
 	}
 }
