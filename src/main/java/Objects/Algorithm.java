@@ -108,7 +108,7 @@ public class Algorithm {
 	
 	public boolean movePrecinct(Precinct moveP, CongressionalDistrict CD,
 			List<Precinct> neighbor, State state) {
-		System.out.println(neighbor.size());
+		System.out.println(moveP.getcdNumber());
 		Cloner cloner = new Cloner();
 		for (Precinct targetP: neighbor) {
 			CongressionalDistrict targetC = getTargetCD(state,targetP);
@@ -117,7 +117,7 @@ public class Algorithm {
 			updateCD(cloneTargetC, cloneSourceC, moveP);
 			double originalScore = calculateCDGoodness(targetC) + calculateCDGoodness(CD);
 			double newScore = calculateCDGoodness(cloneTargetC) + calculateCDGoodness(cloneSourceC);
-			System.out.println(CD.getId()+" "+moveP.getPopulation() +" "+ targetP.getID()+ " OriginalScore = " + originalScore + " NewScore = " + newScore);
+			System.out.println(moveP.getcdNumber()+" "+moveP.getPopulation() +" "+ targetP.getID()+ " OriginalScore = " + originalScore + " NewScore = " + newScore);
 			if(newScore>originalScore) {
 				System.out.println("got it");
 				updateCD(targetC, CD, moveP);
