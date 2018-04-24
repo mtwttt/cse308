@@ -108,7 +108,6 @@ public class Algorithm {
 	
 	public boolean movePrecinct(Precinct moveP, CongressionalDistrict CD,
 			List<Precinct> neighbor, State state) {
-		System.out.println(neighbor.size());
 		Cloner cloner = new Cloner();
 		for (Precinct targetP: neighbor) {
 			CongressionalDistrict targetC = getTargetCD(state,targetP);
@@ -121,6 +120,7 @@ public class Algorithm {
 			if(newScore>originalScore) {
 				System.out.println("got it");
 				updateCD(targetC, CD, moveP);
+				moveP.setcdNumber(targetC.getId());
 				return true;
 			}
 		}
@@ -141,7 +141,6 @@ public class Algorithm {
 		CD.setPrecincts(removeList);
 		targetC.updateCDInfo();
 		CD.updateCDInfo();
-		moveP.setcdNumber(targetC.getId());
 		targetC.updateCDInfo();
 		CD.updateCDInfo();
 	}
@@ -165,8 +164,6 @@ public class Algorithm {
 						if(flag == 1)
 							break;
 					}
-					if(flag == 1)
-						break;
 				}
 			}
 		}
