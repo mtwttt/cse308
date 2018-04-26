@@ -42,13 +42,12 @@ function style(feature) {
     	return {fillColor: 'grey', color: 'grey', weight: 1, opacity: 0.7, 
     	fillOpacity: 0.7};
 }
-    
 }
 
 function onEachFeature(feature, layer) {
 	layer.bindPopup("Pid: "+layer.feature.pid+"</br>"
 			+"Name: "+layer.feature.properties.NAME10+"</br>"
 			+"Population: "+layer.feature.properties.POP100+"</br>"
-			+"rVote: "+ layer.feature.properties.PRES_R_08+"</br>"
-			+"dVote: "+ layer.feature.properties.PRES_D_08);
+			+"rVote for President 2008: "+ layer.feature.properties.PRES_R_08+"</br>"
+			+"dVote for President 2008: "+ layer.feature.properties.PRES_D_08);
 }
