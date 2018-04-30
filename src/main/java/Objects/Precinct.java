@@ -26,8 +26,18 @@ public class Precinct {
     public List<ArrayList<ArrayList<Double>>> coordinates;
     public int isBorder;
     public double avgRace;
+    @Transient
+    public int isUsed;
     
     public Precinct() {}
+    
+    public int getIsUsed() {
+    	return isUsed;
+    }
+    
+    public void setIsUsed(int used) {
+    	this.isUsed = used;
+    }
     
     public int getID() {
     		return pid;

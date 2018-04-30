@@ -11,6 +11,16 @@ public class Algorithm {
 	private double racialW;
 	private double partisanW;
 	private int year;
+	private static boolean running;
+	private int improvedTimes;
+	private int failedTimes;
+	private int repConstraint;
+	
+	
+	public Algorithm() {
+		improvedTimes = 0;
+		failedTimes = 0;
+	}
 	
 	public void setPopulationW(double weight) {
 		this.populationW = weight;
@@ -60,19 +70,51 @@ public class Algorithm {
 	}
 	
 	public State startAlgorithm(State state) {
+		running = true;
 		for (CongressionalDistrict CD : state.getCongressionalDistrict()) {
 			List<Precinct> borderPrecincts = CD.getBorderPrecinct();
 			List<Precinct> neighbor;
-			for(Precinct p:borderPrecincts) {			
-					neighbor = getNeighborInOtherCD(p,state.getCongressionalDistrict());
-				if (neighbor.size()!=0&&movePrecinct(p,CD,neighbor,state)) {
-					updateSourceCDBorder(p,CD);
-					updateTargetCDBorder(neighbor,state);
+			for(Precinct p:borderPrecincts) {	
+				boolean representative = true;
+				if (!running) {
+					StateManager.state = state;
 					return state;
 				}
+				if (p.getIsUsed()==1) {
+					continue;
+				}
+				neighbor = getNeighborInOtherCD(p,state.getCongressionalDistrict());
+				if (repConstraint==1)
+				{
+					representative = checkRepConstraint(p, CD);
+				}
+				if (neighbor.size()!=0 && representative && movePrecinct(p,CD,neighbor,state)) {
+					improvedTimes++;
+					updateSourceCDBorder(p,CD);
+					updateTargetCDBorder(neighbor,state);
+				}
+				else {
+					failedTimes++;
+				}
+				if (improvedTimes>=10 || failedTimes>=20) {
+					return state;
+				}
+					
 			}
 		}
 		return state;
+	}
+	
+	public boolean checkRepConstraint(Precinct p, CongressionalDistrict CD) {
+		if (p.getID()==CD.getRepLocation())
+			return true;
+		else
+			return false;
+	}
+	
+	public void pauseHandler() {
+		if (running)
+			running = false;
 	}
 	
 	public void updateSourceCDBorder(Precinct p, CongressionalDistrict CD) {
@@ -106,6 +148,7 @@ public class Algorithm {
 	}
 	
 	public boolean movePrecinct(Precinct moveP, CongressionalDistrict CD, List<Precinct> neighbor, State state) {
+		moveP.setIsUsed(1);
 		Cloner cloner = new Cloner();
 		for (Precinct targetP: neighbor) {
 			CongressionalDistrict targetC = getTargetCD(state,targetP);
