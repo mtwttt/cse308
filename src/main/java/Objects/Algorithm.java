@@ -99,15 +99,13 @@ public class Algorithm {
 	
 	public void updateTargetCDBorder(List<Precinct> neighbor, State state) {
 		for (Precinct pr : neighbor) {
-			List<Precinct> prNeighbor = getNeighborInOtherCD(pr, 
-					state.getCongressionalDistrict());
+			List<Precinct> prNeighbor = getNeighborInOtherCD(pr, state.getCongressionalDistrict());
 			if (prNeighbor.size()==0)
 				pr.setBorder(0);
 		}
 	}
 	
-	public boolean movePrecinct(Precinct moveP, CongressionalDistrict CD,
-			List<Precinct> neighbor, State state) {
+	public boolean movePrecinct(Precinct moveP, CongressionalDistrict CD, List<Precinct> neighbor, State state) {
 		Cloner cloner = new Cloner();
 		for (Precinct targetP: neighbor) {
 			CongressionalDistrict targetC = getTargetCD(state,targetP);
