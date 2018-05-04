@@ -4,7 +4,11 @@ public class User {
 	String firstName;
 	String lastName;
 	String email;
-	Byte[] password;
+	String password;
+	
+	public String getPassword() {
+		return password;
+	}
 	public String getFirstName() {
 		return firstName;
 	}
@@ -23,6 +27,8 @@ public class User {
 	public void setEmail(String e) {
 		email = e;
 	}
-	
+	public void setPassword(String p) {
+		password = p;
+	}
 	
 }
