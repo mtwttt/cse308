@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <title>ZSYJ</title>  
+  <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+  <link rel="stylesheet" type = 'text/css' href="/css/map.css">
+  <link rel="stylesheet" type = 'text/css' href="/css/loader.css">
+  <script src="/javascript/jquery-3.3.1.min.js"></script>
+    <meta name="viewport" content="initial-scale=1,maximum-scale=1,user-scalable=no" />
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.0.3/dist/leaflet.css" />
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+        }
+        #map {
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            width: 100%;
+        }
+    </style>
+    
+</head>
+<body>
+<div class="w3-sidebar w3-light-grey w3-bar-block" style="width:20%">
+	 <input class ='cb' type="button" onclick="location.href='home';" value="Home" /> 
+</div>
+
+<div style="margin-left:20%">
+
+<div id="container"></div>
+	<script src="/javascript/interaction.js"></script>
+	<script src="/javascript/congressional.js"></script>
+	<div class="loader"></div>
+   <div id="map"></div>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <script src="https://unpkg.com/leaflet@1.0.3/dist/leaflet.js"></script>
+    <script th:inline="javascript">
+	    var state = "/json/"+ [[${state.name}]]+".json";
+	    var pids = [[${pids}]];
+	    console.log(pids);
+        var counties = $.ajax({
+            url: state,
+            dataType: "json",
+            success: console.log("County data successfully loaded."),
+            error: function(xhr) {
+                alert(xhr.statusText)
+            }
+        })
+        $.when(counties).done(function() {
+            var map = L.map('map')
+                .setView([39.113014, -95.358887], 5);
+            var basemap =L.tileLayer('https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token={accessToken}', {
+                attribution: 'Map data &copy; <a href="http://openstreetmap.org">OpenStreetMap</a> contributors, '
+                +'<a href="http://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, Imagery © '
+                +'<a href="http://mapbox.com">Mapbox</a>',
+                maxZoom: 18,
+                id: 'jmauro.ld1o2np1',
+                accessToken: 'pk.eyJ1Ijoiam1hdXJvIiwiYSI6ImVYb0lheE0ifQ.Js4ba2SyUxHPCIDl1Aq1cQ'
+            }).addTo(map);
+            
+            var kyCounties = L.geoJSON(counties.responseJSON,{style:function(feature) {
+			        		if(pids.includes(feature.pid)){
+			        			switch (feature.properties.CONGRESSIO) {
+				                case '1': 
+				                	return { fillColor: 'red', color: '#17A589', weight: 2, opacity: 1};
+				                case '2':   
+				                	return {fillColor: 'green', color: '#17A589', weight: 2,opacity: 1};
+				                case '3': 
+				                	return {fillColor: 'white', color: '#17A589', weight: 2, opacity: 1};
+				                case '4':   
+				                	return { fillColor: 'blue ', color: '#17A589', weight: 2, opacity: 1};
+				                default:   
+				                	return {fillColor: 'grey', color: '#17A589', weight: 2, opacity: 1, 
+				                	fillOpacity: 0.7};
+				            }
+			        		}
+			        		else{
+			        			switch (feature.properties.CONGRESSIO) {
+				                case '1': 
+				                	return { fillColor: 'red', color: 'grey', weight: 1, opacity: 0.75};
+				                case '2':   
+				                	return {fillColor: 'green', color: 'grey', weight: 1,opacity: 0.7};
+				                case '3': 
+				                	return {fillColor: 'white', color: 'grey', weight: 1, opacity: 0.7};
+				                case '4':   
+				                	return { fillColor: 'blue', color: 'grey', weight: 1, opacity: 0.7};
+				                default:   
+				                	return {fillColor: 'grey', color: 'grey', weight: 1, opacity: 0.7, 
+				                	fillOpacity: 0.7};
+				            }
+			        		}
+              }, onEachFeature: onEachFeature}).addTo(map);
+        });
+    </script>
+</div>
+
+</body>
+</html>

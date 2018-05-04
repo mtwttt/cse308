@@ -70,7 +70,11 @@ public class Algorithm {
 	}
 	
 	public State startAlgorithm(State state) {
+<<<<<<< HEAD
+		System.out.println("--------------------");
+=======
 		running = true;
+>>>>>>> f33658c692c698d57d990e6907a478e1bc982f19
 		for (CongressionalDistrict CD : state.getCongressionalDistrict()) {
 			List<Precinct> borderPrecincts = CD.getBorderPrecinct();
 			List<Precinct> neighbor;
@@ -157,7 +161,7 @@ public class Algorithm {
 			updateCD(cloneTargetC, cloneSourceC, moveP);
 			double originalScore = calculateCDGoodness(targetC) + calculateCDGoodness(CD);
 			double newScore = calculateCDGoodness(cloneTargetC) + calculateCDGoodness(cloneSourceC);
-			System.out.println(CD.getId()+" "+moveP.getPopulation() +" "+ targetP.getID()+ " OriginalScore = " + originalScore + " NewScore = " + newScore);
+			System.out.println(CD.getId()+" "+targetC.getId()+" "+ moveP.getID()+ " OriginalScore = " + originalScore + " NewScore = " + newScore);
 			if(newScore>originalScore) {
 				System.out.println("got it");
 				updateCD(targetC, CD, moveP);

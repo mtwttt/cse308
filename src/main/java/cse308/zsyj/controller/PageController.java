@@ -70,10 +70,13 @@ public class PageController {
 	
 	@RequestMapping(value="redraw", method=RequestMethod.POST)
 	public String startAlgo(Algorithm weight, String name,Model model) {
+			System.out.println("11111111");
 			State state = stateService.getState(name, weight.getYear()); 
+			System.out.println("xxxxxxxxxxxxxxxxxxxxxxxxx");
 			state = weight.startAlgorithm(state);
 			model.addAttribute("state",state);
-			return "demo/home.html";
+			model.addAttribute("pids",state.getBorderPrecinctIDs());
+			return "demo/generateBorder.html";
 	}
 	
 	@GetMapping("credit")
@@ -173,9 +176,6 @@ public class PageController {
 		
 		model.addAttribute("state", state);
 		model.addAttribute("pids",state.getBorderPrecinctIDs());
-		return "demo/generateBorder.html";
-		
+		return "demo/generateBorder.html";	
 	}
-	
-
 }
