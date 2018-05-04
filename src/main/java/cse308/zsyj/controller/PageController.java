@@ -89,6 +89,12 @@ public class PageController {
 		return "demo/login.html";
 	}
 	
+	@GetMapping("editUser")
+	public String editUser() {
+		
+		return "demo/editUser.html";
+	}
+	
 	@GetMapping("register")
 	public String register() {
 		
