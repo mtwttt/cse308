@@ -6,6 +6,7 @@ import Objects.CongressionalDistrict;
 import Objects.Precinct;
 import Objects.RawCDData;
 import Objects.State;
+import cse308.zsyj.repository.UserRepository;
 import cse308.zsyj.service.StateService;
 
 import org.json.simple.JSONObject;
@@ -38,9 +39,13 @@ import com.google.gson.JsonSyntaxException;
 @Controller
 @RequestMapping("demo")
 public class PageController {
+	static final String AB = "0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz";
 	
 	@Autowired
 	StateService stateService;
+	@Autowired
+	UserRepository userRepo;
+	
 	@GetMapping("home")
 	public String home() {
 		return "demo/home.html";
@@ -83,8 +88,50 @@ public class PageController {
 	
 	@GetMapping("register")
 	public String register() {
-		return "demo/register.html";
+		
+		return "demo/register.html";	
 	}
+	
+	@GetMapping("verify")
+	public String verify() {
+		
+		return "demo/verify.html";	
+	}
+	
+	@GetMapping("verifyAccount")
+	public String verifyAccount(Account account) {
+		String vkey = account.getVkey();
+		String username = account.getUsername();
+		System.out.println("vkey:"+vkey+" "+username);
+		Account a = userRepo.getAccount(username);
+		if(a==null) 
+			return "demo/verify.html";
+		if(	a.setVerified(vkey)) {
+			userRepo.save(a);
+			return "demo/login.html";
+		}
+		else {
+			return "demo/verify.html";	
+		}
+	}
+	
+	@GetMapping("regist")
+	public String regist(Account account, Model model) {
+		boolean check = false;
+		check = account.checkPsw();
+		if(check) {
+			String vkey = "";
+			for (int i = 0; i<8; i++) {
+				vkey += AB.charAt((int)(Math.random()*62));
+			}
+			account.setVkey(vkey);
+			account.sendEmail();
+			userRepo.save(account);
+			return "demo/login.html";
+		}
+		return "demo/register.html";	
+	}
+	
 	
 	@GetMapping("resetp")
 	public String resetp() {
@@ -93,9 +140,17 @@ public class PageController {
 	
 	@RequestMapping(value = "login", method=RequestMethod.POST)
 	public String login(Account account, Model model) {
-			if(account.validate()) {
+			String username = account.getUsername();
+			String password = account.getPassword();
+			boolean check = userRepo.verified(username, password);
+			if ( check==false) {
+				account = userRepo.getAccount(username);
 				if(account.isAdmin())
-				return "demo/admin.html";
+					return "demo/admin.html";
+				return "demo/home.html";
+			}
+			else {
+				
 			}
 		return "demo/login.html";
 	}
