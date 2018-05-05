@@ -19,11 +19,14 @@ public class Account {
 	String password;
 	String email;
 	String prefs;
-	boolean isAdmin = true;
+	boolean isAdmin = false;
 	boolean verified =false;
 	String vkey = null;
 	public String getUsername() {
 		return username;
+	}
+	public boolean getVerified() {
+		return verified;
 	}
 	
 	public void setUsername(String username) {
@@ -111,5 +114,8 @@ public class Account {
 		}catch(Exception e) {
 			e.printStackTrace();
 		}
+	}
+	public void setIsAdmin(boolean b) {
+		this.isAdmin = b;
 	}
 }

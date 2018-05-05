@@ -56,6 +56,13 @@ public class PageController {
 		return "demo/aboutus.html";
 	}
 	
+	@GetMapping("manageUser")
+	public String manageUser(Model model) {
+		ArrayList<Account> accounts = (ArrayList<Account>) userRepo.getUsers();
+		model.addAttribute("accounts", accounts);
+		return "demo/manageUser.html";
+	}
+	
 	@RequestMapping(value="CD", method=RequestMethod.POST)
 	public String congressionaldistricts(State state, Model model) {
 		model.addAttribute("state",state);
@@ -133,6 +140,7 @@ public class PageController {
 			for (int i = 0; i<8; i++) {
 				vkey += AB.charAt((int)(Math.random()*62));
 			}
+			account.setIsAdmin(false);
 			account.setVkey(vkey);
 			account.sendEmail();
 			userRepo.save(account);
@@ -151,8 +159,9 @@ public class PageController {
 	public String login(Account account, Model model) {
 			String username = account.getUsername();
 			String password = account.getPassword();
-			boolean check = userRepo.verified(username, password);
-			if ( check==false) {
+			int check = userRepo.verified(username, password);
+			System.out.print("asdasd+"+check);
+			if ( check == 1) {
 				account = userRepo.getAccount(username);
 				if(account.isAdmin())
 					return "demo/admin.html";
