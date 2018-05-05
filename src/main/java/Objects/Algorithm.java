@@ -1,6 +1,7 @@
 package Objects;
 
 import java.util.ArrayList;
+import java.io.*;
 import java.util.List;
 
 import com.rits.cloning.Cloner;
@@ -70,12 +71,13 @@ public class Algorithm {
 	}
 	
 	public State startAlgorithm(State state) {
-<<<<<<< HEAD
-		System.out.println("--------------------");
-=======
+		File logFile = new File("./log/log.txt");
 		running = true;
->>>>>>> f33658c692c698d57d990e6907a478e1bc982f19
+		try {
 		for (CongressionalDistrict CD : state.getCongressionalDistrict()) {
+			FileWriter writer = new FileWriter(logFile,true);
+			writer.append("Getting border precinct from congressional district "+CD.getId()+"\n");
+			writer.close();
 			List<Precinct> borderPrecincts = CD.getBorderPrecinct();
 			List<Precinct> neighbor;
 			for(Precinct p:borderPrecincts) {	
@@ -105,6 +107,10 @@ public class Algorithm {
 				}
 					
 			}
+		
+		}
+		}catch(Exception e) {
+			System.out.println("err");
 		}
 		return state;
 	}
@@ -152,6 +158,13 @@ public class Algorithm {
 	}
 	
 	public boolean movePrecinct(Precinct moveP, CongressionalDistrict CD, List<Precinct> neighbor, State state) {
+		File logFile = new File("./log/log.txt");
+		try {
+			FileWriter writer = new FileWriter(logFile,true);
+			if(repConstraint == 1) {
+				writer.append("Passed Constrain\n");
+			}
+			writer.append("Moving Precinct "+moveP.getID()+" From Congressional District " + moveP.getcdNumber()+"\n");
 		moveP.setIsUsed(1);
 		Cloner cloner = new Cloner();
 		for (Precinct targetP: neighbor) {
@@ -161,13 +174,23 @@ public class Algorithm {
 			updateCD(cloneTargetC, cloneSourceC, moveP);
 			double originalScore = calculateCDGoodness(targetC) + calculateCDGoodness(CD);
 			double newScore = calculateCDGoodness(cloneTargetC) + calculateCDGoodness(cloneSourceC);
-			System.out.println(CD.getId()+" "+targetC.getId()+" "+ moveP.getID()+ " OriginalScore = " + originalScore + " NewScore = " + newScore);
+			writer.append("Moving Precinct to neighbor with original score:" +originalScore+"\n");
+			writer.append("The NewScore After moving= " +newScore+"\n");
 			if(newScore>originalScore) {
 				System.out.println("got it");
+				writer.append("Score improved, moving precinct to Congressional District" +targetC.getId()+"\n");
 				updateCD(targetC, CD, moveP);
 				moveP.setcdNumber(targetC.getId());
+				writer.close();
 				return true;
 			}
+			else {
+				writer.append("Score did not improved, moving precinct back" +"\n");
+			}
+		}
+		writer.close();
+		}catch(Exception e) {
+			System.out.println("error");
 		}
 		return(false);
 	}
