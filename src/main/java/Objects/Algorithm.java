@@ -110,6 +110,7 @@ public class Algorithm {
 		
 		}
 		}catch(Exception e) {
+			
 			e.printStackTrace();
 		}
 		return state;
