@@ -71,8 +71,8 @@ public class Algorithm {
 	}
 	
 	public State startAlgorithm(State state) {
-		File logFile = new File("./log/log.txt");
 		running = true;
+		File logFile = new File("./log/log.txt");
 		try {
 		for (CongressionalDistrict CD : state.getCongressionalDistrict()) {
 			FileWriter writer = new FileWriter(logFile,true);
