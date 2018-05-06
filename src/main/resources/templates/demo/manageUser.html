@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="utf-8" />
+  <title>ZSYJ</title>  
+  <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+  <link rel="stylesheet" type = 'text/css' href="/css/map.css">
+  <link rel="stylesheet" type = 'text/css' href="/css/users.css">
+  <script src="/javascript/jquery-3.3.1.min.js"></script>
+  <script src="/javascript/raphael-min.js"></script>
+  <script src="/javascript/us-map-svg.js"></script>
+
+
+</head>
+<body>
+<div class="w3-sidebar w3-light-grey w3-bar-block" style="width:20%">
+  <input class ='cb' type="button" onclick="location.href='home';" value="Log Out" /> 
+  <input class ='cb' type="button" onclick="location.href='manageUser';" value="Manage User" /> 
+  
+     <button class="dropdown-btn">Select States To Generate Border</button>
+          <div class="dropdown-container">
+            <ul class="w3-ul">
+              <form action="loading"  method="post">
+                <li><input type="radio" id="utah" name="name" value="utah"   onClick="setState('ut')"> Utah</li>
+                <li><input type="radio" id="colorado" name="name" value="colorado"  onClick="setState('co')"> Colorado</li>
+                <li><input type="radio" id="kansas" name="name" value="kansas"  onClick="setState('ks')"> Kansas</li>
+                <button type="submit"> Apply </button>
+              </form>
+            </ul>
+      </div>
+
+</div>
+
+<div style="margin-left:20%">
+
+<div class="w3-container w3-teal">
+  <h1>       User Manage  </h1>
+</div>
+	<section>
+						  <!--for demo wrap-->
+						  <div class="tbl-header">
+						    <table cellpadding="0" cellspacing="0" border="0">
+						      <thead>
+						        <tr>
+						          <th>Username </th>
+						          <th>Email </th>
+						          <th>Verified</th>
+						          <th>Vkey</th>
+						          <th>    </th>
+						          <th>    </th>
+						        </tr>
+						      </thead>
+						    </table>
+						  </div>
+						  <div class="tbl-content">
+						  
+						    <table cellpadding="0" cellspacing="0" border="0">
+						      <tbody>
+						      	
+			
+								
+									<tr th:each="account: ${accounts}">
+									<form action="editUser" method="post">
+									<input type = "hidden" name="eid" value = ${account.getUsername()}/>
+								      <td th:text="${account.username}"></td>
+								      <td th:text="${account.email}"></td>
+								      <td th:text="${account.verified}"></td>
+								      <td th:text="${account.vkey}"></td>
+								      <td><input type="button" class = "edit_button">Edit</button></td>
+								      
+								    </form>
+								    <td><form action="deleteUser" method = "post" >
+								    <input type = "hidden" name="eid" value = ${account.getUsername()}/>
+								      <button type="submit" class = "edit_button" onclick="return confirm('Are you sure you want to delete?(no regret.)')">Delete</button></form></td>		
+								    </tr>
+								    
+								    <tr>
+								    <form action="addEmployeeServlet" method="post">
+								    <input type = "hidden" name="mid" value = ${manager.getId()}/>
+								    <td><button type="submit" class = "add_button">Add Employee</button></td>
+								    </form>
+								    </tr>
+						      </tbody>
+						    </table>
+						  </div>
+				</section>
+<div id="container"></div>
+	
+</div>
+
+</body>
+</html>
