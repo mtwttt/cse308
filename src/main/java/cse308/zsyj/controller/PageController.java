@@ -13,6 +13,7 @@ import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
 import org.json.simple.parser.ParseException;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 
 import java.io.FileNotFoundException;
 import java.io.FileReader;
@@ -74,10 +75,46 @@ public class PageController {
 		model.addAttribute("state",state);
 		return "demo/loading.html";
 	}
-	
 	@RequestMapping(value="redraw", method=RequestMethod.POST)
-	public String startAlgo(Algorithm weight, String name,String selectpid,Model model) {
+	public @ResponseBody
+	State startAlgo(@RequestParam("name") String name,@RequestParam("year") int year, 
+			@RequestParam("populationW") int populationW,@RequestParam("racialW") int racialW,
+			@RequestParam("partisanW") int partisanW,@RequestParam("compactnessW") int compactnessW,
+			@RequestParam("selectpid") String selectpid) {
+		System.out.println(name);
+		System.out.println(populationW);
+		System.out.println(partisanW);
+		System.out.println(racialW);
+		System.out.println(year);
+		System.out.println(compactnessW);
+		System.out.println(selectpid);
+
+		Algorithm weight = new Algorithm();
+		weight.setcompactnessW(compactnessW);
+		weight.setpartisanW(partisanW);
+		weight.setPopulationW(populationW);
+		weight.setracialW(racialW);
+		weight.setYear(year);
+		List<Integer> pids = new ArrayList<Integer>();
+		if(!selectpid.equals("")) {
+			String strarray[] = selectpid.split(",");
+			int intarray[] = new int[strarray.length];
+			for (int i = 0; i < intarray.length ; i++) {
+			    pids.add(Integer.parseInt(strarray[i]));
+			}
+		}
+		State state = stateService.getState(name, weight.getYear()); 
+		System.out.println("xxxxxxxxxxxxxxxxxxxxxxxxx");
+		state = weight.startAlgorithm(state);
+	    return state;
+	}
+	/*
+	 * 
+	 * 	
+	@RequestMapping(value="redraw", method=RequestMethod.POST)
+	public ResponseEntity<?> startAlgo( @RequestBody Algorithm weight, String name,String selectpid,Model model) {
 			System.out.println(selectpid);
+			System.out.println("11111111111111111111");
 			List<Integer> pids = new ArrayList<Integer>();
 			if(!selectpid.equals("")) {
 				String strarray[] = selectpid.split(",");
@@ -91,9 +128,9 @@ public class PageController {
 			state = weight.startAlgorithm(state);
 			model.addAttribute("state",state);
 			model.addAttribute("pids",state.getBorderDict());
-			return "demo/generateBorder.html";
+			return ResponseEntity.ok(state);
 	}
-	
+	*/
 	@GetMapping("credit")
 	public String index() {
 		return "demo/credit.html";

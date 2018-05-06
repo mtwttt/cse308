@@ -7,7 +7,6 @@ var output1 = document.getElementById("raci");
 var output2 = document.getElementById("part");
 var output3 = document.getElementById("comp");
 
-var selected = []
 
 output.innerHTML = population.value;
 population.oninput = function() {
@@ -63,6 +62,7 @@ var unhighlight = {
 	    'weight': 1,
 	    'opacity': 0.7
 };
+var selected = []
 
 function onEachFeature(feature, layer) {
 	layer.bindPopup("Pid: "+layer.feature.pid+"</br>"
@@ -89,5 +89,59 @@ function onEachFeature(feature, layer) {
         	    selectpid.value = selected;
     		}
     });
+	
+}
+
+var flag = true;
+
+var json_data = {};
+json_data["year"] = 2008;
+json_data["selectpid"] = selected;
+var ret = "";
+function start(){
+	var state = document.getElementById("state");
+	console.log(state.value);
+	for (var i in selected) {
+	    ret = i+",";
+	}
+	$.ajax({
+        type: "post",
+        url: "http://localhost:8080/demo/redraw",
+        data: { populationW: population.value,
+			racialW: racial.value,
+			partisanW: partisan.value,
+			compactnessW : compactness.value,
+			year: 2008,
+			name: state.value,
+			selectpid: ret},
+        success: function (response) {
+        		if(flag){
+            		console.log("123");
+            		flag = false;
+        		}
+        },
+    });		
+}
+
+/*
+ *        data: { populationW: population.value,
+        			racialW: racial.value,
+        			partisanW: partisan.value,
+        			compactnessW : compactness.value,
+        			year: 2008,
+        			name: state.value,
+        			selectpid: selected},
+ */
+
+
+function stop(){
+	flag = false;
+}
+
+function continute(){
+	flag = true;
+}
+
+function reset(){
 	
 }

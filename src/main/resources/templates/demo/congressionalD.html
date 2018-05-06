@@ -6,7 +6,7 @@
   <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
   <link rel="stylesheet" type = 'text/css' href="/css/map.css">
   <link rel="stylesheet" type = 'text/css' href="/css/loader.css">
-  <link rel="stylesheet" type = 'text/css' href="/css/popup.css">
+  <link rel="stylesheet" type = 'text/css' href="/css/popup.css">  
   <script src="/javascript/jquery-3.3.1.min.js"></script>
     <meta name="viewport" content="initial-scale=1,maximum-scale=1,user-scalable=no" />
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.0.3/dist/leaflet.css" />
@@ -51,25 +51,23 @@
                 <li><input type="radio" id="kansas" name="year" value="2012" > 2012</li>
             </ul>
      	  </div>
-     	  
-     		<a class="button" href="#popup1">Let me Pop up</a>
-     	  <div id="popup1" class="overlay">
-				<div class="popup">
-					<h2>Here i am</h2>
-					<a class="close" href="#">&times;</a>
-					<div class="content">
-						Thank to pop me out of that button, but now i'm done so you can close this window.
-					</div>
-				</div>
-			</div>
+     	  <a id="myBtn">Open Modal</a>
+     	  <br>
 		  <input type="text" name ="selectpid" id = "selectpid" value =""  hidden>
-     	  <input type="text" name = "name" th:value ="${state.name}" hidden>
+     	  <input type="text" id = "state" th:value ="${state.name}" hidden>
      	  <input type="submit" value="redraw"/>
      </form>
-</div>
+     <button class= "reset" onclick="">Pause</button>
+     <br>
+     <button class= "reset" onclick="">Continue</button>
+     <br>
+     <button class= "reset" onclick="">Reset</button>
+     <br>
+     <button class= "reset" onclick="start()">Start</button>
+</div>     	  			
 
 <div style="margin-left:20%">
-  
+
 <div id="container"></div>
 	<script src="/javascript/interaction.js"></script>
 	<script src="/javascript/congressional.js"></script>
@@ -77,6 +75,7 @@
    <div id="map"></div>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
     <script src="https://unpkg.com/leaflet@1.0.3/dist/leaflet.js"></script>
+
     <script th:inline="javascript">
 	    var state = "/json/"+ [[${state.name}]]+".json";
         var counties = $.ajax({
@@ -104,7 +103,54 @@
             			onEachFeature: onEachFeature}).addTo(map);
         });
     </script>
-</div>
+    <script type="text/javascript">
+    var modal = document.getElementById('popup1');
+     var btn = document.getElementById("popup");
+	 btn.onclick = function() {
+		 console.log("yescolick");
+	     modal.style.display = "block";
+	 }
+	 window.onclick = function(event) {
+		    if (event.target == modal) {
+		        modal.style.display = "none";
+		    }
+	}
+    </script>
+    	<div id="myModal" class="modal">
+		  <!-- Modal content -->
+		  <div class="modal-content">
+		    <span class="close">&times;</span>
+		    <p>Some text in the Modal..</p>
+			</div>
+   </div>
 
+<script>
+// Get the modal
+var modal = document.getElementById('myModal');
+
+// Get the button that opens the modal
+var btn = document.getElementById("myBtn");
+
+// Get the <span> element that closes the modal
+var span = document.getElementsByClassName("close")[0];
+
+// When the user clicks the button, open the modal 
+btn.onclick = function() {
+    modal.style.display = "block";
+}
+
+// When the user clicks on <span> (x), close the modal
+span.onclick = function() {
+    modal.style.display = "none";
+}
+
+// When the user clicks anywhere outside of the modal, close it
+window.onclick = function(event) {
+    if (event.target == modal) {
+        modal.style.display = "none";
+    }
+}
+</script>
+</div>
 </body>
 </html>

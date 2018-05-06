@@ -7,11 +7,11 @@ import java.util.List;
 import com.rits.cloning.Cloner;
 
 public class Algorithm {
-	private double populationW;
-	private double compactnessW;
-	private double racialW;
-	private double partisanW;
-	private int year;
+	private Integer populationW;
+	private Integer compactnessW;
+	private Integer racialW;
+	private Integer partisanW;
+	private Integer year;
 	private static boolean running;
 	private int improvedTimes;
 	private int failedTimes;
@@ -23,20 +23,20 @@ public class Algorithm {
 		failedTimes = 0;
 	}
 	
-	public void setPopulationW(double weight) {
+	public void setPopulationW(int weight) {
 		this.populationW = weight;
 	}
 	
-	public void setcompactnessW(double weight) {
+	public void setcompactnessW(int weight) {
 		this.compactnessW = weight;
 	}
 	
 	
-	public void setracialW(double weight) {
+	public void setracialW(int weight) {
 		this.racialW = weight;
 	}
 	
-	public void setpartisanW(double weight) {
+	public void setpartisanW(int weight) {
 		this.partisanW = weight;
 	}
 	public void setYear(int year) {
@@ -110,7 +110,7 @@ public class Algorithm {
 		
 		}
 		}catch(Exception e) {
-			System.out.println("err");
+			e.printStackTrace();
 		}
 		return state;
 	}
