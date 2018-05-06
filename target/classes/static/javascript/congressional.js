@@ -7,6 +7,8 @@ var output1 = document.getElementById("raci");
 var output2 = document.getElementById("part");
 var output3 = document.getElementById("comp");
 
+var selected = []
+
 output.innerHTML = population.value;
 population.oninput = function() {
   output.innerHTML = this.value;
@@ -33,16 +35,34 @@ function style(feature) {
     case '1': 
     	return { fillColor: 'red', color: 'grey', weight: 1, opacity: 0.75};
     case '2':   
-    	return {fillColor: 'green', color: 'grey', weight: 1,opacity: 0.7};
+    	return {fillColor: 'aqua', color: 'grey', weight: 1,opacity: 0.7};
     case '3': 
-    	return {fillColor: 'white', color: 'grey', weight: 1, opacity: 0.7};
+    	return {fillColor: 'olive', color: 'grey', weight: 1, opacity: 0.7};
     case '4':   
+    	return { fillColor: 'yellow', color: 'grey', weight: 1, opacity: 0.7};
+    case '5':   
     	return { fillColor: 'blue', color: 'grey', weight: 1, opacity: 0.7};
+    case '6':   
+    	return { fillColor: 'white', color: 'grey', weight: 1, opacity: 0.7};
+    case '7':   
+    	return { fillColor: 'green', color: 'grey', weight: 1, opacity: 0.7};
     default:   
     	return {fillColor: 'grey', color: 'grey', weight: 1, opacity: 0.7, 
     	fillOpacity: 0.7};
+	}
 }
-}
+
+var highlight = {
+	    'color': 'black',
+	    'weight': 2,
+	    'opacity': 1
+};
+
+var unhighlight = {
+	    'color': 'gray',
+	    'weight': 1,
+	    'opacity': 0.7
+};
 
 function onEachFeature(feature, layer) {
 	layer.bindPopup("Pid: "+layer.feature.pid+"</br>"
@@ -50,4 +70,24 @@ function onEachFeature(feature, layer) {
 			+"Population: "+layer.feature.properties.POP100+"</br>"
 			+"rVote for President 2008: "+ layer.feature.properties.PRES_R_08+"</br>"
 			+"dVote for President 2008: "+ layer.feature.properties.PRES_D_08);
+	layer.on('mouseover', function (e) {
+        this.openPopup();
+    });
+    layer.on('mouseout', function (e) {
+        this.closePopup();
+    });
+    var selectpid = document.getElementById("selectpid");
+    layer.on('click', function (e){
+    		console.log(selected);
+    		if(selected.indexOf(layer.feature.pid)!=-1){
+    			 selected.splice( selected.indexOf(layer.feature.pid), 1 );
+    			 layer.setStyle(unhighlight);
+    			 selectpid.value = selected;
+    		}else{
+        		selected.push(layer.feature.pid);
+        	    layer.setStyle(highlight);
+        	    selectpid.value = selected;
+    		}
+    });
+	
 }

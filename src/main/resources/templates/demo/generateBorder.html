@@ -33,6 +33,7 @@
 <div id="container"></div>
 	<script src="/javascript/interaction.js"></script>
 	<script src="/javascript/congressional.js"></script>
+	<script src="/javascript/popup.js"></script>
 	<div class="loader"></div>
    <div id="map"></div>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
@@ -62,31 +63,42 @@
             }).addTo(map);
             
             var kyCounties = L.geoJSON(counties.responseJSON,{style:function(feature) {
-			        		if(pids.includes(feature.pid)){
-			        			switch (feature.properties.CONGRESSIO) {
-				                case '1': 
-				                	return { fillColor: 'red', color: '#17A589', weight: 2, opacity: 1};
-				                case '2':   
-				                	return {fillColor: 'green', color: '#17A589', weight: 2,opacity: 1};
-				                case '3': 
-				                	return {fillColor: 'white', color: '#17A589', weight: 2, opacity: 1};
-				                case '4':   
-				                	return { fillColor: 'blue ', color: '#17A589', weight: 2, opacity: 1};
-				                default:   
-				                	return {fillColor: 'grey', color: '#17A589', weight: 2, opacity: 1, 
-				                	fillOpacity: 0.7};
-				            }
+			        		if(feature.pid in pids){
+			        			console.log(pids[feature.pid])
+							if(pids[feature.pid] == 1){
+								return { fillColor: 'red', color: 'black', weight: 1, opacity: 0.75};
+							}else if (pids[feature.pid] == 2 ){
+								return {fillColor: 'aqua', color: 'black', weight: 1,opacity: 0.7};
+							}else if (pids[feature.pid] == 3){
+								return {fillColor: 'olive', color: 'black', weight: 1, opacity: 0.7};
+							}else if (pids[feature.pid] == 4){
+								return { fillColor: 'yellow', color: 'black', weight: 1, opacity: 0.7};
+							}else if (pids[feature.pid] == 5){
+								return { fillColor: 'blue', color: 'black', weight: 1, opacity: 0.7};
+							}else if (pids[feature.pid] == 6){
+								return { fillColor: 'white', color: 'black', weight: 1, opacity: 0.7};
+							}else if (pids[feature.pid] == 7){
+								return { fillColor: 'green', color: 'black', weight: 1, opacity: 0.7};
+							}else{
+								return {fillColor: 'grey', color: 'black', weight: 1, opacity: 0.7, 	fillOpacity: 0.7};
+							}
 			        		}
 			        		else{
 			        			switch (feature.properties.CONGRESSIO) {
 				                case '1': 
 				                	return { fillColor: 'red', color: 'grey', weight: 1, opacity: 0.75};
 				                case '2':   
-				                	return {fillColor: 'green', color: 'grey', weight: 1,opacity: 0.7};
+				                	return {fillColor: 'aqua', color: 'grey', weight: 1,opacity: 0.7};
 				                case '3': 
-				                	return {fillColor: 'white', color: 'grey', weight: 1, opacity: 0.7};
+				                	return {fillColor: 'olive', color: 'grey', weight: 1, opacity: 0.7};
 				                case '4':   
+				                	return { fillColor: 'yellow', color: 'grey', weight: 1, opacity: 0.7};
+				                case '5':   
 				                	return { fillColor: 'blue', color: 'grey', weight: 1, opacity: 0.7};
+				                case '6':   
+				                	return { fillColor: 'white', color: 'grey', weight: 1, opacity: 0.7};
+				                case '7':   
+				                	return { fillColor: 'green', color: 'grey', weight: 1, opacity: 0.7};
 				                default:   
 				                	return {fillColor: 'grey', color: 'grey', weight: 1, opacity: 0.7, 
 				                	fillOpacity: 0.7};

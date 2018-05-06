@@ -27,7 +27,5 @@
 			<attribute name="maven.pomderived" value="true"/>
 		</attributes>
 	</classpathentry>
-	<classpathentry kind="lib" path="C:/Users/Zhi Zou/Downloads/javamail1_4_5.zip"/>
-	<classpathentry kind="lib" path="C:/Users/Zhi Zou/Downloads/javamail-1.4.5/mail.jar"/>
 	<classpathentry kind="output" path="target/classes"/>
 </classpath>

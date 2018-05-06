@@ -69,13 +69,21 @@ public class PageController {
 	}
 	
 	@RequestMapping(value="redraw", method=RequestMethod.POST)
-	public String startAlgo(Algorithm weight, String name,Model model) {
-			System.out.println("11111111");
+	public String startAlgo(Algorithm weight, String name,String selectpid,Model model) {
+			System.out.println(selectpid);
+			List<Integer> pids = new ArrayList<Integer>();
+			if(!selectpid.equals("")) {
+				String strarray[] = selectpid.split(",");
+				int intarray[] = new int[strarray.length];
+				for (int i = 0; i < intarray.length ; i++) {
+				    pids.add(Integer.parseInt(strarray[i]));
+				}
+			}
 			State state = stateService.getState(name, weight.getYear()); 
 			System.out.println("xxxxxxxxxxxxxxxxxxxxxxxxx");
 			state = weight.startAlgorithm(state);
 			model.addAttribute("state",state);
-			model.addAttribute("pids",state.getBorderPrecinctIDs());
+			model.addAttribute("pids",state.getBorderDict());
 			return "demo/generateBorder.html";
 	}
 	

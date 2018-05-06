@@ -7,6 +7,7 @@ import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.Transient;
+import java.util.Hashtable;
 @Entity
 public class State {
 	@Column
@@ -171,6 +172,20 @@ public class State {
 				Precinct p = cd.getPrecincts().get(j);
 				if(p.isBorder==1) {
 					ps.add(p);
+				}
+			}
+		}
+		return ps;
+	}
+	
+	public Hashtable<Integer,Integer> getBorderDict(){
+		Hashtable<Integer,Integer> ps = new Hashtable<Integer,Integer>();
+		for(int i=0;i<congressionalDistrict.size();i++) {
+			CongressionalDistrict cd = congressionalDistrict.get(i);
+			for(int j=0;j<cd.getPrecincts().size();j++) {
+				Precinct p = cd.getPrecincts().get(j);
+				if(p.isBorder==1) {
+					ps.put(p.getID(),cd.getId());
 				}
 			}
 		}

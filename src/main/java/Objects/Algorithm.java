@@ -70,11 +70,7 @@ public class Algorithm {
 	}
 	
 	public State startAlgorithm(State state) {
-<<<<<<< HEAD
-		System.out.println("--------------------");
-=======
 		running = true;
->>>>>>> f33658c692c698d57d990e6907a478e1bc982f19
 		for (CongressionalDistrict CD : state.getCongressionalDistrict()) {
 			List<Precinct> borderPrecincts = CD.getBorderPrecinct();
 			List<Precinct> neighbor;

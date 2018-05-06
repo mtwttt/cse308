@@ -6,6 +6,7 @@
   <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
   <link rel="stylesheet" type = 'text/css' href="/css/map.css">
   <link rel="stylesheet" type = 'text/css' href="/css/loader.css">
+  <link rel="stylesheet" type = 'text/css' href="/css/popup.css">
   <script src="/javascript/jquery-3.3.1.min.js"></script>
     <meta name="viewport" content="initial-scale=1,maximum-scale=1,user-scalable=no" />
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.0.3/dist/leaflet.css" />
@@ -31,15 +32,15 @@
 	 <div class="dropdown-container">
             <ul class="w3-ul">
               <li> Population</li>
-               <li><input type="range" min="1" max="100" value="50" class="slider" name="populationW" id="population"><span id="popu"> </span></li>
+               <li><input type="range" min="0" max="100" value="50" class="slider" name="populationW" id="population"><span id="popu"> </span></li>
               <li> Racial</li>
-               <li><input type="range" min="1" max="100" value="50" class="slider" name="racialW" id="racial"> <span id="raci"> </span> </li>
+               <li><input type="range" min="0" max="100" value="50" class="slider" name="racialW" id="racial"> <span id="raci"> </span> </li>
               
               <li> Partisan</li>
-              <li><input type="range" min="1" max="100" value="50" class="slider" name="partisanW" id="partisan"> <span id="part"> </span> </li>
+              <li><input type="range" min="0" max="100" value="50" class="slider" name="partisanW" id="partisan"> <span id="part"> </span> </li>
               
               <li> Compactness</li>
-                <li><input type="range" min="1" max="100" value="50" class="slider" name ="compactnessW" id="compactness"> <span id="comp"> </span> </li>
+                <li><input type="range" min="0" max="100" value="50" class="slider" name ="compactnessW" id="compactness"> <span id="comp"> </span> </li>
             </ul>
       </div>
        <p class="dropdown-btn">Years </p>
@@ -50,6 +51,18 @@
                 <li><input type="radio" id="kansas" name="year" value="2012" > 2012</li>
             </ul>
      	  </div>
+     	  
+     		<a class="button" href="#popup1">Let me Pop up</a>
+     	  <div id="popup1" class="overlay">
+				<div class="popup">
+					<h2>Here i am</h2>
+					<a class="close" href="#">&times;</a>
+					<div class="content">
+						Thank to pop me out of that button, but now i'm done so you can close this window.
+					</div>
+				</div>
+			</div>
+		  <input type="text" name ="selectpid" id = "selectpid" value =""  hidden>
      	  <input type="text" name = "name" th:value ="${state.name}" hidden>
      	  <input type="submit" value="redraw"/>
      </form>
