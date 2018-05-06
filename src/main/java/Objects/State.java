@@ -22,6 +22,8 @@ public class State {
 	private int sid;
 	private int totalPopulation;
 	public double totalAvgRace;
+	@Transient
+	public List<Integer> selectedPids;
 	public State() {	}
 	
 	public String getName() {
