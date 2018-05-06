@@ -23,16 +23,22 @@ public class State {
 	private int sid;
 	private int totalPopulation;
 	public double totalAvgRace;
+	@Transient
+	public List<Integer> selectedPids;
 	public State() {	}
 	
 	public String getName() {
 		return name;
 	}
-	
+	public List<Integer> getSelectedPids(){
+		return selectedPids;
+	}
 	public void setName(String name) {
 		this.name = name;
 	}
-	
+	public void setSeletedPids(List<Integer> pids) {
+		this.selectedPids = pids;
+	}
 	public String getOverallPartyWin() {
 		return overallPartyWin;
 	}

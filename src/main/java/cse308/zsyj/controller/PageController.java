@@ -124,6 +124,7 @@ public class PageController {
 				}
 			}
 			State state = stateService.getState(name, weight.getYear()); 
+			state.setSeletedPids(pids);
 			System.out.println("xxxxxxxxxxxxxxxxxxxxxxxxx");
 			state = weight.startAlgorithm(state);
 			model.addAttribute("state",state);
