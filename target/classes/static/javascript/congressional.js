@@ -115,16 +115,17 @@ function start(){
 			name: state.value,
 			selectpid: ret},
         success: function (response) {
-        		if(flag){
             		console.log("123");
             		flag = false;
-        		}
-        },
+        },error: function (request, status, error) {
+        		console.log("12345");
+        }
     });		
 }
 
 /*
- *        data: { populationW: population.value,
+ *        data: { 
+ *        		populationW: population.value,
         			racialW: racial.value,
         			partisanW: partisan.value,
         			compactnessW : compactness.value,

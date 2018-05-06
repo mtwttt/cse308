@@ -106,6 +106,7 @@ public class PageController {
 		State state = stateService.getState(name, weight.getYear()); 
 		System.out.println("xxxxxxxxxxxxxxxxxxxxxxxxx");
 		state = weight.startAlgorithm(state);
+		System.out.println("xxxxxxxxxxxxxxxxxxxxxxxxx");
 	    return state;
 	}
 	/*
