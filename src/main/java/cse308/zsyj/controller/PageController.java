@@ -74,6 +74,8 @@ public class PageController {
 	@RequestMapping(value="CD", method=RequestMethod.POST)
 	public String congressionaldistricts(State state, Model model) {
 		StateManager.state = stateService.getState(state.getName(), 2008);
+		Algorithm.improvedTimes = 0;
+		Algorithm.failedTimes = 0;
 		return "demo/congressionalD.html";
 	}
 	
@@ -254,7 +256,6 @@ public class PageController {
 	@RequestMapping(value = "generateBorder", method=RequestMethod.POST)
 	public String generateBorder(State state, Model model) {
 		String fileUrl = "./src/main/resources/static/json/kansasCD2010.geojson";
-		String PrecinctUrl = "./src/main/resources/static/json/kansas.json";
 		try {
 			RawCDData cdBoundary = new Gson().fromJson(new FileReader(fileUrl), 
 					RawCDData.class);

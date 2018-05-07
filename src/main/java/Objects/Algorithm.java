@@ -13,9 +13,10 @@ public class Algorithm {
 	private Integer partisanW;
 	private Integer year;
 	public static boolean running;
-	private int improvedTimes;
-	private int failedTimes;
-	private int repConstraint;
+	public static int improvedTimes;
+	public static int failedTimes;
+	public static int repConstraint;
+	
 	
 	
 	public Algorithm() {
