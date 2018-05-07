@@ -6,10 +6,11 @@ import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Repository;
 
 import Objects.Precinct;
+import Objects.PrecinctID;
 
 @Repository
-public interface PrecinctRepository extends CrudRepository<Precinct, Integer>{
-	@Query(value =  "Select * from Precinct where cdNumber = ?1", 
+public interface PrecinctRepository extends CrudRepository<Precinct, PrecinctID>{
+	@Query(value =  "Select * from Precinct where cdNumber = ?1 and sid = ?2 and year = ?3", 
 			nativeQuery = true)
-	List<Precinct> findAllByCD(int pid);
+	List<Precinct> findAllByCD(int cdNumber,int sid,int year);
 }
