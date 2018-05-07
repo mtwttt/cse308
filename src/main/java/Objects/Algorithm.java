@@ -140,12 +140,12 @@ public class Algorithm {
 	}
 	
 	public void updateSourceCDBorder(Precinct p, CongressionalDistrict CD) {
-		List<ArrayList<Double>> listOfPoints = p.getCoordinate().get(0);
+		List<List<Double>> listOfPoints = p.getCoordinate().get(0);
 		for (Precinct pr : CD.getPrecincts()) {
 			int flag = 0;
 			for (List<Double> l1 : listOfPoints) {
-				if(pr.getCoordinate().size()!=0) {
-				List<ArrayList<Double>> listOfNeighborP = pr.getCoordinate().get(0);
+				if(pr.getCoordinate()!= null&& pr.getCoordinate().size()!=0) {
+				List<List<Double>> listOfNeighborP = pr.getCoordinate().get(0);
 				for (List<Double> l2 : listOfNeighborP) {
 					if (l1.get(0).doubleValue()==l2.get(0).doubleValue() && l1.get(1).doubleValue()==l2.get(1).doubleValue()
 							&& CD.getId()==pr.getcdNumber()) {
@@ -227,11 +227,11 @@ public class Algorithm {
 	
 	public List<Precinct> getNeighborInOtherCD(Precinct p, List<CongressionalDistrict> CDList) {
 		List<Precinct> neighbor = new ArrayList<Precinct>();
-		List<ArrayList<Double>> listOfPoints = p.getCoordinate().get(0);
+		List<List<Double>> listOfPoints = p.getCoordinate().get(0);
 		for (CongressionalDistrict CD : CDList) {
 			if (CD.getId()!=p.getcdNumber()) {
 				for (Precinct pr : CD.getBorderPrecinct()) {
-					List<ArrayList<Double>> listOfNeighborP = pr.getCoordinate().get(0);
+					List<List<Double>> listOfNeighborP = pr.getCoordinate().get(0);
 					int flag = 0;
 					for (List<Double> l1 : listOfPoints) {
 						for (List<Double> l2 : listOfNeighborP) {

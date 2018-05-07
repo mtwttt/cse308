@@ -27,7 +27,7 @@ public class StateService {
 		CDRepository cdRepository;
 		@Autowired
 		CoordinateRepository coordinateRepository;
-		
+		/*
 		public void saveState(RawCDData cd) {
 			for(int i =0;i<cd.features.size();i++) {
 				precinctRepository.save(cd.features.get(i).properties);
@@ -49,19 +49,15 @@ public class StateService {
 				}
 			}
 		}
+		*/
 		public State getState(String stateName, int year) {
 			int stateID = stateRepository.findByNameAndYear(stateName, year);
 			State state = stateRepository.findById(stateID).get();
 			List <CongressionalDistrict> cds = cdRepository.findAllById(stateID,year);
 			for (int i=0;i<cds.size();i++) {
 				int cdID = cds.get(i).getId();
-				List<Precinct> toAdd = new ArrayList<Precinct>();
 				List<Precinct> precincts = precinctRepository.findAllByCD(cdID,stateID,year);
-				for(int j = 0;j<precincts.size();j++) {
-					precincts.get(j).setCoordinate(coordinateRepository.findXandYbyPrecinctID(precincts.get(j).getID()));
-					toAdd.add(precincts.get(j));
-				}
-				cds.get(i).setPrecincts(toAdd);
+				cds.get(i).setPrecincts(precincts);
 				cds.get(i).setState(state);
 			}
 			state.setCongressionalDistrict(cds);

@@ -953,3 +953,76 @@ Score did not improved, moving precinct back
 Moving Precinct to neighbor with original score:295.8732653104316
 The NewScore After moving= 294.8459187797754
 Score did not improved, moving precinct back
+Getting border precinct from congressional district 1
+Getting border precinct from congressional district 1
+Moving Precinct 81 From Congressional District 1
+Moving Precinct to neighbor with original score:304.4552532551955
+The NewScore After moving= 303.447364222225
+Score did not improved, moving precinct back
+Moving Precinct 82 From Congressional District 1
+Moving Precinct to neighbor with original score:304.4552532551955
+The NewScore After moving= 304.5279764302974
+Score improved, moving precinct to Congressional District4
+Getting border precinct from congressional district 1
+Moving Precinct 81 From Congressional District 1
+Moving Precinct to neighbor with original score:304.4552532551955
+The NewScore After moving= 303.447364222225
+Score did not improved, moving precinct back
+Moving Precinct 82 From Congressional District 1
+Moving Precinct to neighbor with original score:304.4552532551955
+The NewScore After moving= 304.5279764302974
+Score improved, moving precinct to Congressional District4
+Moving Precinct 84 From Congressional District 1
+Moving Precinct to neighbor with original score:304.5279764302974
+The NewScore After moving= 304.4849726173262
+Score did not improved, moving precinct back
+Moving Precinct 88 From Congressional District 1
+Moving Precinct to neighbor with original score:304.5279764302974
+The NewScore After moving= 304.73632699874463
+Score improved, moving precinct to Congressional District4
+Moving Precinct 90 From Congressional District 1
+Moving Precinct to neighbor with original score:304.73632699874463
+The NewScore After moving= 303.8560830948219
+Score did not improved, moving precinct back
+Moving Precinct to neighbor with original score:304.73632699874463
+The NewScore After moving= 303.8560830948219
+Score did not improved, moving precinct back
+Moving Precinct 290 From Congressional District 1
+Moving Precinct to neighbor with original score:304.73632699874463
+The NewScore After moving= 305.0713493251476
+Score improved, moving precinct to Congressional District4
+Moving Precinct 291 From Congressional District 1
+Moving Precinct to neighbor with original score:305.0713493251476
+The NewScore After moving= 304.61870225543845
+Score did not improved, moving precinct back
+Moving Precinct to neighbor with original score:305.0713493251476
+The NewScore After moving= 304.61870225543845
+Score did not improved, moving precinct back
+Moving Precinct 292 From Congressional District 1
+Moving Precinct to neighbor with original score:305.0713493251476
+The NewScore After moving= 304.87176425633413
+Score did not improved, moving precinct back
+Moving Precinct to neighbor with original score:305.0713493251476
+The NewScore After moving= 304.87176425633413
+Score did not improved, moving precinct back
+Moving Precinct 395 From Congressional District 1
+Moving Precinct to neighbor with original score:295.8732653104316
+The NewScore After moving= 295.06541470571034
+Score did not improved, moving precinct back
+Moving Precinct 399 From Congressional District 1
+Moving Precinct to neighbor with original score:295.8732653104316
+The NewScore After moving= 295.06849803875684
+Score did not improved, moving precinct back
+Moving Precinct to neighbor with original score:295.8732653104316
+The NewScore After moving= 295.06849803875684
+Score did not improved, moving precinct back
+Moving Precinct to neighbor with original score:295.8732653104316
+The NewScore After moving= 295.06849803875684
+Score did not improved, moving precinct back
+Moving Precinct 401 From Congressional District 1
+Moving Precinct to neighbor with original score:295.8732653104316
+The NewScore After moving= 294.8459187797754
+Score did not improved, moving precinct back
+Moving Precinct to neighbor with original score:295.8732653104316
+The NewScore After moving= 294.8459187797754
+Score did not improved, moving precinct back
