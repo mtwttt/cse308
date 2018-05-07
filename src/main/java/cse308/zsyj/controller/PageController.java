@@ -67,6 +67,51 @@ public class PageController {
 		model.addAttribute("accounts", accounts);
 		return "demo/manageUser.html";
 	}
+	@RequestMapping(value="addUser", method=RequestMethod.POST)
+	public String addUser(HttpSession httpSession) {
+		return "demo/addUser.html";
+	}
+	@RequestMapping(value="editUser", method=RequestMethod.POST)
+	public String editUser(@RequestParam(name ="username") String username,HttpSession httpSession) {
+		System.out.println(username);
+		httpSession.setAttribute("editUsername", username.substring(0, username.length()-1));
+		return "demo/editUser.html";
+	}
+	@RequestMapping(value="deleteUser", method=RequestMethod.POST)
+	public String deleteUser(Model model,@RequestParam(name ="deleteUsername") String username,HttpSession httpSession) {
+		//Account account = new Account();
+		//account.setUsername(username);
+		userRepo.deleteById(username.substring(0, username.length()-1));
+		ArrayList<Account> accounts = (ArrayList<Account>) userRepo.getUsers();
+		model.addAttribute("accounts", accounts);
+		return "demo/manageUser.html";
+	}
+	@RequestMapping(value="edit", method=RequestMethod.POST)
+	public String edit(Model model, Account account,@RequestParam(name ="verified") String v,HttpSession httpSession) {
+		Account original = userRepo.getAccount((String)httpSession.getAttribute("editUsername"));
+		if(!account.getUsername().equals("")) {
+			original.setUsername(account.getUsername());
+		}
+		if(!account.getEmail().equals("")) {
+			original.setEmail(account.getEmail());
+		}
+		if(!account.getVkey().equals("")) {
+			original.setVkey(account.getVkey());
+		}
+		if(!account.getPassword().equals("")) {
+			original.setPassword(account.getPassword());
+		}
+		if(v.equals("True")) {
+			original.setIsVerified(true);
+		}
+		else if (v.equals("False")) {
+			original.setIsVerified(false);
+		}
+		userRepo.save(original);
+		ArrayList<Account> accounts = (ArrayList<Account>) userRepo.getUsers();
+		model.addAttribute("accounts", accounts);
+		return "demo/manageUser.html";
+	}
 	
 	@RequestMapping(value="CD", method=RequestMethod.POST)
 	public String congressionaldistricts(State state, Model model) {
@@ -79,6 +124,7 @@ public class PageController {
 		model.addAttribute("state",state);
 		return "demo/loading.html";
 	}
+	
 	@RequestMapping(value="redraw", method=RequestMethod.POST)
 	public @ResponseBody
 	State startAlgo(@RequestParam("name") String name,@RequestParam("year") int year, 
@@ -226,6 +272,7 @@ public class PageController {
 					httpSession.setAttribute("isAdmin", true);
 					return "demo/admin.html";
 				}
+				httpSession.setAttribute("username", username);
 				return "demo/home.html";
 			}
 			else {

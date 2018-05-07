@@ -118,4 +118,8 @@ public class Account {
 	public void setIsAdmin(boolean b) {
 		this.isAdmin = b;
 	}
+	public void setIsVerified(boolean v) {
+		// TODO Auto-generated method stub
+		this.verified = v;
+	}
 }
