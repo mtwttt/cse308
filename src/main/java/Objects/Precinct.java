@@ -4,19 +4,24 @@ import java.util.ArrayList;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.IdClass;
 import javax.persistence.Transient;
 
 @Entity
+@IdClass(PrecinctID.class)
 public class Precinct {
 	@Id
     public int pid;
+	@Id 
+	public int sid;
+	@Id 
+	public int year;
     @Column
     public int population;
     public int cdNumber;
     public int aLand;
     public int aWater;
     public int totalVote;
-    public int year; 
     public double latitude;
     public double longtitude;
     public int rVote;
@@ -30,7 +35,12 @@ public class Precinct {
     public int isUsed;
     
     public Precinct() {}
-    
+    public int getSid() {
+    	return sid;
+    }
+    public void setSid(int s) {
+    	this.sid = s;
+    }
     public int getIsUsed() {
     	return isUsed;
     }

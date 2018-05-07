@@ -14,6 +14,7 @@ import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
 import org.json.simple.parser.ParseException;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.Scope;
 import org.springframework.http.ResponseEntity;
 
 import java.io.FileNotFoundException;
@@ -23,6 +24,8 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Hashtable;
 import java.util.List;
+
+import javax.servlet.http.HttpSession;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -40,6 +43,7 @@ import com.google.gson.JsonIOException;
 import com.google.gson.JsonSyntaxException;
 
 @Controller
+@Scope("session")
 @RequestMapping("demo")
 public class PageController {
 	static final String AB = "0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz";
@@ -211,16 +215,26 @@ public class PageController {
 		return "demo/resetp.html";
 	}
 	
+	@GetMapping("admin")
+	public String admin(HttpSession httpSession) {
+		if(httpSession.getAttribute("isAdmin")!=null&&(boolean)(httpSession.getAttribute("isAdmin"))==true) {
+			return "demo/admin.html";
+		}
+		return "demo/login.html";
+	}
+	
 	@RequestMapping(value = "login", method=RequestMethod.POST)
-	public String login(Account account, Model model) {
+	public String login(Account account, Model model, HttpSession httpSession) {
 			String username = account.getUsername();
 			String password = account.getPassword();
 			int check = userRepo.verified(username, password);
 			System.out.print("asdasd+"+check);
 			if ( check == 1) {
 				account = userRepo.getAccount(username);
-				if(account.isAdmin())
+				if(account.isAdmin()) {
+					httpSession.setAttribute("isAdmin", true);
 					return "demo/admin.html";
+				}
 				return "demo/home.html";
 			}
 			else {

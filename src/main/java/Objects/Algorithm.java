@@ -89,6 +89,17 @@ public class Algorithm {
 				if (p.getIsUsed()==1) {
 					continue;
 				}
+				List<Integer> selectedP = state.getSelectedPids();
+				int selected = -1;
+				for (Integer i: selectedP) {
+					if (i==p.getID()) {
+						selected = 1;
+						break;
+					}
+				}
+				if (selected==1) {
+					continue;
+				}
 				neighbor = getNeighborInOtherCD(p,state.getCongressionalDistrict());
 				if (repConstraint==1)
 				{
