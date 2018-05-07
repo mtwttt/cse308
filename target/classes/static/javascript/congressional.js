@@ -124,9 +124,14 @@ function start(){
 			name: state.value,
 			selectpid: ret},
         success: function (response) {
+        		if(flag){
             		console.log("123");
             		updateMap(response,state.value);
-            		flag = false;
+            		start();
+        		}else{
+        			updateMap(response,state.value);
+        			flag = true;
+        		}
         },error: function (request, status, error) {
         		console.log("12345");
         }
@@ -137,6 +142,7 @@ function updateMap(pids,name){
     var state = "/json/"+name+".json";
     var maps = document.getElementById("map");
     console.log(pids);
+    console.log(maps);
     var counties = $.ajax({
         url: state,
         dataType: "json",
@@ -146,8 +152,14 @@ function updateMap(pids,name){
         }
     })
     $.when(counties).done(function() {
+    		console.log("xxxxxxxxxxxxxxxxxxxxx");
+    		maps.remove();
+    		document.getElementById('weathermap').innerHTML = "<div id='map' style='width: 100%; height: 100%;'></div>";
+    		maps = document.getElementById("map");
+    		console.log(maps);
         var map = L.map(maps)
             .setView([39.113014, -95.358887], 8);
+		console.log("11111111111111111");
         var basemap =L.tileLayer('https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token={accessToken}', {
             attribution: 'Map data &copy; <a href="http://openstreetmap.org">OpenStreetMap</a> contributors, '
             +'<a href="http://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, Imagery © '
@@ -156,10 +168,8 @@ function updateMap(pids,name){
             id: 'jmauro.ld1o2np1',
             accessToken: 'pk.eyJ1Ijoiam1hdXJvIiwiYSI6ImVYb0lheE0ifQ.Js4ba2SyUxHPCIDl1Aq1cQ'
         }).addTo(map);
-        
-        var kyCounties = L.geoJSON(counties.responseJSON,{style:function(feature) {
+        var kyCounties = L.geoJSON(counties.responseJSON,{style:function(feature) {     
 		        		if(feature.pid in pids){
-		        			console.log(pids[feature.pid])
 						if(pids[feature.pid] == 1){
 							return { fillColor: 'red', color: 'black', weight: 1, opacity: 0.75};
 						}else if (pids[feature.pid] == 2 ){
@@ -214,6 +224,16 @@ function updateMap(pids,name){
  */
 function stop(){
 	flag = false;
+	$.ajax({
+        type: "post",
+        url: "http://localhost:8080/demo/stop",
+        data: { stop: false},
+        success: function (response) {
+        		console.log("got it");
+        },error: function (request, status, error) {
+        		console.log("12345");
+        }
+    });	
 }
 
 function continute(){
