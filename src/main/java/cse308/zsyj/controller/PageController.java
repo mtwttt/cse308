@@ -128,8 +128,7 @@ public class PageController {
 		return "demo/loading.html";
 	}
 	
-<<<<<<< HEAD
-=======
+
 	@RequestMapping(value="stop", method=RequestMethod.POST)
 	public @ResponseBody String stop(boolean stop) {
 		Algorithm.running = stop;
@@ -139,7 +138,6 @@ public class PageController {
 		return "got it";
 	}
 	
->>>>>>> 29ed27ed4377d3a9c0ce5eab1b9cddf6404140d0
 	@RequestMapping(value="redraw", method=RequestMethod.POST)
 	public @ResponseBody
 	Hashtable<Integer,Integer> startAlgo(@RequestParam("name") String name,@RequestParam("year") int year, 
