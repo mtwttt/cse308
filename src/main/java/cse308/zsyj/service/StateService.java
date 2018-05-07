@@ -1,5 +1,6 @@
 package cse308.zsyj.service;
 
+import java.io.FileReader;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
@@ -7,11 +8,14 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.google.gson.Gson;
+
 import Objects.CongressionalDistrict;
 import Objects.Coordinate;
 import Objects.Precinct;
 import Objects.RawCDData;
 import Objects.State;
+import Objects.StateManager;
 import cse308.zsyj.repository.CDRepository;
 import cse308.zsyj.repository.CoordinateRepository;
 import cse308.zsyj.repository.PrecinctRepository;
@@ -61,6 +65,23 @@ public class StateService {
 				cds.get(i).setState(state);
 			}
 			state.setCongressionalDistrict(cds);
+			String fileUrl = "./src/main/resources/static/json/"+stateName+".json";
+			try {
+				RawCDData cdBoundary = new Gson().fromJson(new FileReader(fileUrl), 
+						RawCDData.class);
+			for(CongressionalDistrict c : state.getCongressionalDistrict()) {
+				for(Precinct p: c.getPrecincts()) {
+					for(int i=0;i<cdBoundary.features.size();i++) {
+						if(cdBoundary.features.get(i).pid == p.getID()) {
+							p.setCoordinate(cdBoundary.features.get(i).geometry.coordinates);
+							break;
+						}
+					}
+				}
+			}
+			}catch(Exception e) {
+				e.printStackTrace();
+			}
 			return state;
 		}
 		
