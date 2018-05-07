@@ -12,6 +12,7 @@
 </head>
 <body>
 <div class="w3-sidebar w3-light-grey w3-bar-block" style="width:20%">
+<p style="margin-left:1.0em">Welcome: <span th:utext=" ${session.username}"/></p>
   <input class ='cb' type="button" onclick="location.href='home';" value="Home" /> 
   <input class ='cb' type="button" onclick="location.href='loginpage';" value="Login" />  
   <input class ='cb' type="button" onclick="location.href='aboutus';" value="About" /> 

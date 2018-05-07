@@ -37,56 +37,42 @@
 <div style="margin-left:20%">
 
 <div class="w3-container w3-teal">
-  <h1>       User Manage  </h1>
+  
 </div>
-	<section>
-						  <!--for demo wrap-->
-						  <div class="tbl-header">
-						    <table cellpadding="0" cellspacing="0" border="0">
-						      <thead>
-						        <tr>
-						          <th>Username </th>
-						          <th>Email </th>
-						          <th>Verified</th>
-						          <th>Vkey</th>
-						          <th>    </th>
-						          <th>    </th>
-						        </tr>
-						      </thead>
-						    </table>
-						  </div>
-						  <div class="tbl-content">
-						  
-						    <table cellpadding="0" cellspacing="0" border="0">
-						      <tbody>
-						      	
-			
-								
-									<tr th:each="account: ${accounts}">
-									<form action="editUser" method="post">
-									<input type = "hidden" name="username" th:value = ${account.getUsername()}/>
-								      <td th:text="${account.username}"></td>
-								      <td th:text="${account.email}"></td>
-								      <td th:text="${account.verified}"></td>
-								      <td th:text="${account.vkey}"></td>
-								      <td><button type="submit" class = "edit_button">Edit</button></td>
-								      
-								    </form>
-								    <td><form action="deleteUser" method = "post" >
-								    <input type = "hidden" name="deleteUsername" th:value = ${account.getUsername()}/>
-								      <button type="submit" class = "edit_button" onclick="return confirm('Are you sure you want to delete?(no regret.)')">Delete</button></form></td>		
-								    </tr>
-								    
-								    <tr>
-								    <form action="addUser" method="post">
-								   
-								    <td><button type="submit" class = "add_button">Add Account</button></td>
-								    </form>
-								    </tr>
-						      </tbody>
-						    </table>
-						  </div>
-				</section>
+	<form action="edit" method="post">
+  <div class="container">
+  <h1><span style="font-size: pt; color: white">User <span th:utext=" ${session.editUsername}"/></span></h1>
+  <h2><span style="font-size: 16pt; color: white; margin-left:1.5em">Leave the input box empty if you don't want a change for that attribute.</span></h2>
+	<label><b><span style="font-size: 14pt; color: white; margin-left:2.5em">New Account Username</span></b></label>
+    <br></br>
+    <input type="text" value="" name="username" style="margin-left:3.0em">
+    <br></br>
+	<label><b><span style="font-size: 14pt; color: white; margin-left:2.5em">New Password</span></b></label>
+    <br></br>
+    <input type="password" value="" name="password" style="margin-left:3.0em">
+    <br></br>
+    <label><b><span style="font-size: 14pt; color: white; margin-left:2.5em">New Email</span></b></label>
+    <br></br>
+    <input type="text" value="" name="email" style="margin-left:3.0em">
+    <br></br>
+    <label><b><span style="font-size: 14pt; color: white; margin-left:2.5em">New VKey (8 random chars)</span></b></label>
+    <br></br>
+    <input type="text" value="" name="vkey" style="margin-left:3.0em">
+    <br></br>
+	<label><b><span style="font-size: 14pt; color: white; margin-left:2.5em">Verified or Not</span></b></label>
+	<br></br>
+	<select class="select_b" name="verified" style="margin-left:3.0em">
+	  <option value="Default">Select</option>
+	  <option value="True">True</option>
+	  <option value="False">False</option>
+	</select>		
+	<br></br>
+    <div class="clearfix" style="margin-left:3.0em">
+      <a class = "edit_button" href="manageUser">Cancel</a>
+      <button type="submit" class="edit_button">Change</button>
+    </div>
+  </div>
+</form>
 <div id="container"></div>
 	
 </div>
