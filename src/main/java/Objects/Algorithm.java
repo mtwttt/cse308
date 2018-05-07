@@ -12,7 +12,7 @@ public class Algorithm {
 	private Integer racialW;
 	private Integer partisanW;
 	private Integer year;
-	private static boolean running;
+	public static boolean running;
 	private int improvedTimes;
 	private int failedTimes;
 	private int repConstraint;
@@ -144,7 +144,7 @@ public class Algorithm {
 					}
 				}
 			}
-				if(flag == 1)
+			if(flag == 1)
 					break;
 			}
 		}

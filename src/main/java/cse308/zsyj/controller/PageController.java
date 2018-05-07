@@ -6,6 +6,7 @@ import Objects.CongressionalDistrict;
 import Objects.Precinct;
 import Objects.RawCDData;
 import Objects.State;
+import Objects.StateManager;
 import cse308.zsyj.repository.UserRepository;
 import cse308.zsyj.service.StateService;
 
@@ -20,6 +21,7 @@ import java.io.FileReader;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Hashtable;
 import java.util.List;
 
 import org.springframework.stereotype.Controller;
@@ -49,6 +51,7 @@ public class PageController {
 	
 	@GetMapping("home")
 	public String home() {
+		
 		return "demo/home.html";
 	}
 	
@@ -66,6 +69,8 @@ public class PageController {
 	
 	@RequestMapping(value="CD", method=RequestMethod.POST)
 	public String congressionaldistricts(State state, Model model) {
+		// 
+		StateManager.state = stateService.getState(state.getName(), 2008);
 		model.addAttribute("state",state);
 		return "demo/congressionalD.html";
 	}
@@ -75,12 +80,13 @@ public class PageController {
 		model.addAttribute("state",state);
 		return "demo/loading.html";
 	}
+	
 	@RequestMapping(value="redraw", method=RequestMethod.POST)
 	public @ResponseBody
-	State startAlgo(@RequestParam("name") String name,@RequestParam("year") int year, 
+	Hashtable<Integer,Integer> startAlgo(@RequestParam("name") String name,@RequestParam("year") int year, 
 			@RequestParam("populationW") int populationW,@RequestParam("racialW") int racialW,
 			@RequestParam("partisanW") int partisanW,@RequestParam("compactnessW") int compactnessW,
-			@RequestParam("selectpid") String selectpid) {
+			@RequestParam("selectpid") String selectpid, Model model) {
 		System.out.println(name);
 		System.out.println(populationW);
 		System.out.println(partisanW);
@@ -103,11 +109,14 @@ public class PageController {
 			    pids.add(Integer.parseInt(strarray[i]));
 			}
 		}
-		State state = stateService.getState(name, weight.getYear()); 
+		State state = StateManager.state;
+		for(int x : pids) {
+			System.out.println(x);
+		}
 		System.out.println("xxxxxxxxxxxxxxxxxxxxxxxxx");
 		state = weight.startAlgorithm(state);
 		System.out.println("xxxxxxxxxxxxxxxxxxxxxxxxx");
-	    return state;
+	    return state.getBorderDict();
 	}
 	/*
 	 * 
