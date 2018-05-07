@@ -57,7 +57,7 @@
      	  <input type="text" id = "state" th:value ="${state.name}" hidden>
      	  <input type="submit" value="redraw"/>
      </form>
-     <button class= "reset" onclick="">Pause</button>
+     <button class= "reset" onclick="stop()">Pause</button>
      <br>
      <button class= "reset" onclick="">Continue</button>
      <br>
@@ -73,6 +73,7 @@
 	<script src="/javascript/congressional.js"></script>
 	<div class="loader"></div>
    <div id="map"></div>
+   <div id="weathermap"></div>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
     <script src="https://unpkg.com/leaflet@1.0.3/dist/leaflet.js"></script>
 
@@ -105,11 +106,6 @@
     </script>
     <script type="text/javascript">
     var modal = document.getElementById('popup1');
-     var btn = document.getElementById("popup");
-	 btn.onclick = function() {
-		 console.log("yescolick");
-	     modal.style.display = "block";
-	 }
 	 window.onclick = function(event) {
 		    if (event.target == modal) {
 		        modal.style.display = "none";

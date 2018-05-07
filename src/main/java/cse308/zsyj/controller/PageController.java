@@ -6,6 +6,7 @@ import Objects.CongressionalDistrict;
 import Objects.Precinct;
 import Objects.RawCDData;
 import Objects.State;
+import Objects.StateManager;
 import cse308.zsyj.repository.UserRepository;
 import cse308.zsyj.service.StateService;
 
@@ -21,6 +22,7 @@ import java.io.FileReader;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Hashtable;
 import java.util.List;
 
 import javax.servlet.http.HttpSession;
@@ -53,6 +55,7 @@ public class PageController {
 	
 	@GetMapping("home")
 	public String home() {
+		
 		return "demo/home.html";
 	}
 	
@@ -115,7 +118,7 @@ public class PageController {
 	
 	@RequestMapping(value="CD", method=RequestMethod.POST)
 	public String congressionaldistricts(State state, Model model) {
-		model.addAttribute("state",state);
+		StateManager.state = stateService.getState(state.getName(), 2008);
 		return "demo/congressionalD.html";
 	}
 	
@@ -125,12 +128,24 @@ public class PageController {
 		return "demo/loading.html";
 	}
 	
+<<<<<<< HEAD
+=======
+	@RequestMapping(value="stop", method=RequestMethod.POST)
+	public @ResponseBody String stop(boolean stop) {
+		Algorithm.running = stop;
+		if(Algorithm.running == false) {
+			System.out.println("1231241");
+		}
+		return "got it";
+	}
+	
+>>>>>>> 29ed27ed4377d3a9c0ce5eab1b9cddf6404140d0
 	@RequestMapping(value="redraw", method=RequestMethod.POST)
 	public @ResponseBody
-	State startAlgo(@RequestParam("name") String name,@RequestParam("year") int year, 
+	Hashtable<Integer,Integer> startAlgo(@RequestParam("name") String name,@RequestParam("year") int year, 
 			@RequestParam("populationW") int populationW,@RequestParam("racialW") int racialW,
 			@RequestParam("partisanW") int partisanW,@RequestParam("compactnessW") int compactnessW,
-			@RequestParam("selectpid") String selectpid) {
+			@RequestParam("selectpid") String selectpid, Model model) {
 		System.out.println(name);
 		System.out.println(populationW);
 		System.out.println(partisanW);
@@ -152,12 +167,16 @@ public class PageController {
 			for (int i = 0; i < intarray.length ; i++) {
 			    pids.add(Integer.parseInt(strarray[i]));
 			}
+		}	
+		State state = StateManager.state;
+		state.setSeletedPids(pids);
+		for(int x : pids) {
+			System.out.println(x);
 		}
-		State state = stateService.getState(name, weight.getYear()); 
 		System.out.println("xxxxxxxxxxxxxxxxxxxxxxxxx");
 		state = weight.startAlgorithm(state);
 		System.out.println("xxxxxxxxxxxxxxxxxxxxxxxxx");
-	    return state;
+	    return state.getBorderDict();
 	}
 	/*
 	 * 
@@ -284,6 +303,7 @@ public class PageController {
 	@RequestMapping(value = "generateBorder", method=RequestMethod.POST)
 	public String generateBorder(State state, Model model) {
 		String fileUrl = "./src/main/resources/static/json/kansasCD2010.geojson";
+		String PrecinctUrl = "./src/main/resources/static/json/kansas.json";
 		try {
 			RawCDData cdBoundary = new Gson().fromJson(new FileReader(fileUrl), 
 					RawCDData.class);

@@ -1,5 +1,6 @@
 package cse308.zsyj.service;
 
+import java.io.FileReader;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
@@ -7,11 +8,14 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.google.gson.Gson;
+
 import Objects.CongressionalDistrict;
 import Objects.Coordinate;
 import Objects.Precinct;
 import Objects.RawCDData;
 import Objects.State;
+import Objects.StateManager;
 import cse308.zsyj.repository.CDRepository;
 import cse308.zsyj.repository.CoordinateRepository;
 import cse308.zsyj.repository.PrecinctRepository;
@@ -27,7 +31,7 @@ public class StateService {
 		CDRepository cdRepository;
 		@Autowired
 		CoordinateRepository coordinateRepository;
-		
+		/*
 		public void saveState(RawCDData cd) {
 			for(int i =0;i<cd.features.size();i++) {
 				precinctRepository.save(cd.features.get(i).properties);
@@ -49,22 +53,35 @@ public class StateService {
 				}
 			}
 		}
+		*/
 		public State getState(String stateName, int year) {
 			int stateID = stateRepository.findByNameAndYear(stateName, year);
 			State state = stateRepository.findById(stateID).get();
 			List <CongressionalDistrict> cds = cdRepository.findAllById(stateID,year);
 			for (int i=0;i<cds.size();i++) {
 				int cdID = cds.get(i).getId();
-				List<Precinct> toAdd = new ArrayList<Precinct>();
 				List<Precinct> precincts = precinctRepository.findAllByCD(cdID,stateID,year);
-				for(int j = 0;j<precincts.size();j++) {
-					precincts.get(j).setCoordinate(coordinateRepository.findXandYbyPrecinctID(precincts.get(j).getID()));
-					toAdd.add(precincts.get(j));
-				}
-				cds.get(i).setPrecincts(toAdd);
+				cds.get(i).setPrecincts(precincts);
 				cds.get(i).setState(state);
 			}
 			state.setCongressionalDistrict(cds);
+			String fileUrl = "./src/main/resources/static/json/"+stateName+".json";
+			try {
+				RawCDData cdBoundary = new Gson().fromJson(new FileReader(fileUrl), 
+						RawCDData.class);
+			for(CongressionalDistrict c : state.getCongressionalDistrict()) {
+				for(Precinct p: c.getPrecincts()) {
+					for(int i=0;i<cdBoundary.features.size();i++) {
+						if(cdBoundary.features.get(i).pid == p.getID()) {
+							p.setCoordinate(cdBoundary.features.get(i).geometry.coordinates);
+							break;
+						}
+					}
+				}
+			}
+			}catch(Exception e) {
+				e.printStackTrace();
+			}
 			return state;
 		}
 		
