@@ -13,9 +13,11 @@ public class Algorithm {
 	private Integer partisanW;
 	private Integer year;
 	public static boolean running;
-	private int improvedTimes;
-	private int failedTimes;
-	private int repConstraint;
+	public static int improvedTimes;
+	public static int failedTimes;
+	public static int repConstraint;
+	public static int contigConstraint;
+	
 	
 	
 	public Algorithm() {
@@ -70,8 +72,50 @@ public class Algorithm {
 		return goodness;
 	}
 	
+	public void markTheP(Precinct p, CongressionalDistrict CD, Precinct excluded) {
+		List<Precinct> currN = this.getNeighborInSameCD(p, CD);
+		for (Precinct pp: currN) {
+			if (pp.isChecked==0) {
+				pp.isChecked=1;
+				if (p.isCheckedWithP==1 && pp.getID()!=excluded.getID())
+					pp.isCheckedWithP = 1;
+				markTheP(pp, CD, excluded);
+			}
+		}
+	}
+	
+	public boolean checkContigConstraint(Precinct p, List<Precinct> neighbor, State state) {
+		if (neighbor.size()!=0) {
+			CongressionalDistrict targetCD = getTargetCD(state, neighbor.get(0));
+			List<Precinct> lop = targetCD.getPrecincts();
+			for (Precinct pp: lop) {
+				pp.isChecked = 0;
+				pp.isCheckedWithP = 0;
+			}
+			neighbor.get(0).isCheckedWithP = 1;
+			markTheP(neighbor.get(0),targetCD, p);
+			int count = 0;
+			int actual = 0;
+			for (Precinct pp: lop) {
+				if (pp.isChecked==1) {
+					count++;
+				}
+				if (pp.isCheckedWithP==1) {
+					actual++;
+				}
+			}
+			
+			
+			System.out.println("Counted: "+count+" Actual: "+ actual);
+			if (count<actual)
+				return false;
+		}
+		return(true);
+	}
+	
 	public State startAlgorithm(State state) {
 		running = true;
+		this.contigConstraint = 1;
 		File logFile = new File("./log/log.txt");
 		try {
 		for (CongressionalDistrict CD : state.getCongressionalDistrict()) {
@@ -82,6 +126,7 @@ public class Algorithm {
 			List<Precinct> neighbor;
 			for(Precinct p:borderPrecincts) {	
 				boolean representative = true;
+				boolean contiguity = true;
 				if (!running) {
 					StateManager.state = state;
 					return state;
@@ -109,6 +154,7 @@ public class Algorithm {
 					improvedTimes++;
 					updateSourceCDBorder(p,CD);
 					updateTargetCDBorder(neighbor,state);
+					return state;
 				}
 				else {
 					failedTimes++;
@@ -188,7 +234,7 @@ public class Algorithm {
 			double newScore = calculateCDGoodness(cloneTargetC) + calculateCDGoodness(cloneSourceC);
 			writer.append("Moving Precinct to neighbor with original score:" +originalScore+"\n");
 			writer.append("The NewScore After moving= " +newScore+"\n");
-			if(newScore>originalScore) {
+			if(newScore>originalScore/** && (contigConstraint == 1 && checkContigConstraint(moveP, neighbor,state))**/) {
 				System.out.println("got it");
 				writer.append("Score improved, moving precinct to Congressional District" +targetC.getId()+"\n");
 				updateCD(targetC, CD, moveP);
@@ -223,6 +269,30 @@ public class Algorithm {
 		CD.updateCDInfo();
 		targetC.updateCDInfo();
 		CD.updateCDInfo();
+	}
+	
+	public List<Precinct> getNeighborInSameCD(Precinct p, CongressionalDistrict CD) {
+		List<Precinct> neighbor = new ArrayList<Precinct>();
+		List<List<Double>> listOfPoints = p.getCoordinate().get(0);
+		
+		for (Precinct pr : CD.getPrecincts()) {
+			if (pr.getCoordinate()==null)
+				continue;
+			List<List<Double>> listOfNeighborP = pr.getCoordinate().get(0);
+			int flag = 0;
+			for (List<Double> l1 : listOfPoints) {
+				for (List<Double> l2 : listOfNeighborP) {
+					if ((l1.get(0).doubleValue()==l2.get(0).doubleValue()) && (l1.get(1).doubleValue()==l2.get(1).doubleValue())) {
+						neighbor.add(pr);
+						flag = 1;
+						break;
+					}
+				}
+				if(flag == 1)
+					break;
+			}
+		}
+		return(neighbor);
 	}
 	
 	public List<Precinct> getNeighborInOtherCD(Precinct p, List<CongressionalDistrict> CDList) {
