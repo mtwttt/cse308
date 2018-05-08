@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="utf-8" />
+  <title>ZSYJ</title>  
+  <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+  <link rel="stylesheet" type = 'text/css' href="/css/map.css">
+  <link rel="stylesheet" type = 'text/css' href="/css/users.css">
+  <script src="/javascript/jquery-3.3.1.min.js"></script>
+  <script src="/javascript/raphael-min.js"></script>
+  <script src="/javascript/us-map-svg.js"></script>
+
+
+</head>
+<body>
+<div class="w3-sidebar w3-light-grey w3-bar-block" style="width:20%">
+  <input class ='cb' type="button" onclick="location.href='admin';" value="Home" />
+  <input class ='cb' type="button" onclick="location.href='home';" value="Log Out" /> 
+  <input class ='cb' type="button" onclick="location.href='manageUser';" value="Manage User" /> 
+  <input class ='cb' type="button" onclick="location.href='changeExternal';" value="Modify External File" /> 
+  <input class ='cb' type="button" onclick="location.href='importState';" value="Import State File" /> 
+  <input class ='cb' type="button" onclick="location.href='statistics';" value="View Statistics" /> 
+     <button class="dropdown-btn">Select States To Generate Border</button>
+          <div class="dropdown-container">
+            <ul class="w3-ul">
+              <form action="loading"  method="post">
+                <li><input type="radio" id="utah" name="name" value="utah"   onClick="setState('ut')"> Utah</li>
+                <li><input type="radio" id="colorado" name="name" value="colorado"  onClick="setState('co')"> Colorado</li>
+                <li><input type="radio" id="kansas" name="name" value="kansas"  onClick="setState('ks')"> Kansas</li>
+                <button type="submit"> Apply </button>
+              </form>
+            </ul>
+      </div>
+
+</div>
+
+<div style="margin-left:20%">
+
+<div class="w3-container w3-teal">
+  
+</div>
+	<form action="edit" method="post">
+  <div class="container">
+  <h1><span style="font-size: pt; color: white">User <span th:utext=" ${session.editUsername}"/></span></h1>
+	<label><b><span style="font-size: 14pt; color: white; margin-left:2.5em">New Account Username</span></b></label>
+    <br></br>
+    <input type="text" value="" name="username" style="margin-left:3.0em">
+    <br></br>
+	<label><b><span style="font-size: 14pt; color: white; margin-left:2.5em">New Password</span></b></label>
+    <br></br>
+    <input type="password" value="" name="password" style="margin-left:3.0em">
+    <br></br>
+    <label><b><span style="font-size: 14pt; color: white; margin-left:2.5em">New Email</span></b></label>
+    <br></br>
+    <input type="text" value="" name="email" style="margin-left:3.0em">
+    <br></br>
+    <label><b><span style="font-size: 14pt; color: white; margin-left:2.5em">New VKey (8 random chars)</span></b></label>
+    <br></br>
+    <input type="text" value="" name="vkey" style="margin-left:3.0em">
+    <br></br>
+	<label><b><span style="font-size: 14pt; color: white; margin-left:2.5em">Verified or Not</span></b></label>
+	<select class="select_b" name="verified" style="margin-left:3.0em">
+	  <option value="Default">Select</option>
+	  <option value="True">True</option>
+	  <option value="False">False</option>
+	</select>
+	<br></br>
+	<label><b><span style="font-size: 14pt; color: white; margin-left:2.5em">IsAdmin or Not</span></b></label>
+	<select class="select_b" name="IsAdmin" style="margin-left:3.0em">
+	  <option value="Default">Select</option>
+	  <option value="True">True</option>
+	  <option value="False">False</option>
+	</select>		
+	<br></br>
+    <div class="clearfix" style="margin-left:3.0em">
+      <a class = "edit_button" href="manageUser">Cancel</a>
+      <button type="submit" class="edit_button">Change</button>
+    </div>
+  </div>
+</form>
+<div id="container"></div>
+	
+</div>
+
+</body>
+</html>

@@ -6,10 +6,17 @@ body{
 h1{
   font-size: 30px;
   color: #fff;
-  text-transform: uppercase;
+  margin-left:1.0em;
   font-weight: 300;
-  text-align: center;
   margin-bottom: 15px;
+}
+input {
+    background-color: #AED6F1;
+    color: white;
+    border-radius: 12px;
+    border: 2px solid #85C1E9; 
+    width: 60%;
+	padding: 8px 12px;
 }
 table{
   width:100%;
@@ -54,4 +61,38 @@ td{
 section{
   margin: 50px;
 }
+.edit_button {
+padding: 8px 16px;
+border-radius: 12px;
+background-color: #AED6F1;
+color: white;
+border: 2px solid #85C1E9; 
+}
 
+
+.edit_button:hover {
+  background-color: #2E86C1;
+  box-shadow: 0 5px #666;
+  transform: translateY(4px);
+}
+
+.add_button {
+padding: 8px 24px;
+border-radius: 12px;
+background-color: #AED6F1;
+color: white;
+border: 2px solid #85C1E9; 
+}
+.select_b {
+padding: 8px 24px;
+border-radius: 12px;
+background-color: #AED6F1;
+color: white;
+border: 2px solid #85C1E9; 
+}
+
+.add_button:hover {
+  background-color: #2E86C1;
+  box-shadow: 0 5px #666;
+  transform: translateY(4px);
+}

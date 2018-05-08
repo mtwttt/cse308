@@ -70,29 +70,57 @@ public class PageController {
 		model.addAttribute("accounts", accounts);
 		return "demo/manageUser.html";
 	}
+	@RequestMapping(value="addUser", method=RequestMethod.POST)
+	public String addUser(HttpSession httpSession) {
+		return "demo/addUser.html";
+	}
+	@RequestMapping(value="editUser", method=RequestMethod.POST)
+	public String editUser(@RequestParam(name ="username") String username,HttpSession httpSession) {
+		System.out.println(username);
+		httpSession.setAttribute("editUsername", username.substring(0, username.length()-1));
+		return "demo/editUser.html";
+	}
+	@RequestMapping(value="deleteUser", method=RequestMethod.POST)
+	public String deleteUser(Model model,@RequestParam(name ="deleteUsername") String username,HttpSession httpSession) {
+		//Account account = new Account();
+		//account.setUsername(username);
+		userRepo.deleteById(username.substring(0, username.length()-1));
+		ArrayList<Account> accounts = (ArrayList<Account>) userRepo.getUsers();
+		model.addAttribute("accounts", accounts);
+		return "demo/manageUser.html";
+	}
+	@RequestMapping(value="edit", method=RequestMethod.POST)
+	public String edit(Model model, Account account,@RequestParam(name ="verified") String v,HttpSession httpSession) {
+		Account original = userRepo.getAccount((String)httpSession.getAttribute("editUsername"));
+		if(!account.getUsername().equals("")) {
+			original.setUsername(account.getUsername());
+		}
+		if(!account.getEmail().equals("")) {
+			original.setEmail(account.getEmail());
+		}
+		if(!account.getVkey().equals("")) {
+			original.setVkey(account.getVkey());
+		}
+		if(!account.getPassword().equals("")) {
+			original.setPassword(account.getPassword());
+		}
+		if(v.equals("True")) {
+			original.setIsVerified(true);
+		}
+		else if (v.equals("False")) {
+			original.setIsVerified(false);
+		}
+		userRepo.save(original);
+		ArrayList<Account> accounts = (ArrayList<Account>) userRepo.getUsers();
+		model.addAttribute("accounts", accounts);
+		return "demo/manageUser.html";
+	}
 	
 	@RequestMapping(value="CD", method=RequestMethod.POST)
 	public String congressionaldistricts(State state, Model model) {
 		StateManager.state = stateService.getState(state.getName(), 2008);
-		String fileUrl = "./src/main/resources/static/json/kansas.json";
-		
-		try {
-			RawCDData cdBoundary = new Gson().fromJson(new FileReader(fileUrl), 
-					RawCDData.class);
-		model.addAttribute("state",state);
-		for(CongressionalDistrict c : StateManager.state.getCongressionalDistrict()) {
-			for(Precinct p: c.getPrecincts()) {
-				for(int i=0;i<cdBoundary.features.size();i++) {
-					if(cdBoundary.features.get(i).pid == p.getID()) {
-						p.setCoordinate(cdBoundary.features.get(i).geometry.coordinates);
-						break;
-					}
-				}
-			}
-		}
-		}catch(Exception e) {
-			e.printStackTrace();
-		}
+		Algorithm.improvedTimes = 0;
+		Algorithm.failedTimes = 0;
 		return "demo/congressionalD.html";
 	}
 	
@@ -102,6 +130,7 @@ public class PageController {
 		return "demo/loading.html";
 	}
 	
+
 	@RequestMapping(value="stop", method=RequestMethod.POST)
 	public @ResponseBody String stop(boolean stop) {
 		Algorithm.running = stop;
@@ -262,6 +291,7 @@ public class PageController {
 					httpSession.setAttribute("isAdmin", true);
 					return "demo/admin.html";
 				}
+				httpSession.setAttribute("username", username);
 				return "demo/home.html";
 			}
 			else {

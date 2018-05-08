@@ -26,7 +26,7 @@ function setState(state){
         usRaphael[state].toFront();
         R.safari();
   }
-  if(selectState == 'ut'){
+  if(selectState == 'id'){
         usRaphael[selectState].color = Raphael.getColor();
         usRaphael[selectState].animate({fill: "#000080"}, 500);
         usRaphael[selectState].toFront();
@@ -48,7 +48,7 @@ function setState(state){
       (function (st) {
         st[0].style.cursor = "pointer";
         st[0].onmouseover = function () {
-          if(selectState == 'ut'){
+          if(selectState == 'id'){
             usRaphael[selectState].animate({fill: st.color}, 500);
             usRaphael[selectState].toFront();
             R.safari();
@@ -63,7 +63,7 @@ function setState(state){
           }
         };
         st[0].onmouseout = function () {
-          if(selectState == 'ut'){
+          if(selectState == 'id'){
             usRaphael[selectState].color = Raphael.getColor();
             usRaphael[selectState].animate({fill: "#000080"}, 500);
             usRaphael[selectState].toFront();
@@ -84,10 +84,10 @@ function setState(state){
         };
 
         st[0].onclick = function () {
-          if(selectState == 'ut'){
+          if(selectState == 'id'){
 	        	  var url = "http://localhost:8080/demo/CD";
 	        	  var form = $('<form action="' + url + '" method="post">' +
-	        	    '<input type="text" name="name" value="utah" />' +
+	        	    '<input type="text" name="name" value="idaho" />' +
 	        	    '</form>');
 	        	  $('body').append(form);
 	        	  form.submit();	
@@ -115,9 +115,9 @@ function setState(state){
 }
 
 function offmouse(){
-    usRaphael['ut'][0].onmouseout = undefined;
-    usRaphael['ut'][0].onmouseover = undefined;
-    usRaphael['ut'][0].onclick = undefined;
+    usRaphael['id'][0].onmouseout = undefined;
+    usRaphael['id'][0].onmouseover = undefined;
+    usRaphael['id'][0].onclick = undefined;
     usRaphael['co'][0].onmouseout = undefined;
     usRaphael['co'][0].onmouseover = undefined;
     usRaphael['co'][0].onclick = undefined;

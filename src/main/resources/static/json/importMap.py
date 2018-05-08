@@ -2,8 +2,8 @@ import json, pymysql, sys
 import importState, importCD, importPrecinct, importCoordinate
 
 KANSAS = 1
-COLORADO = 2
-UTAH = 3
+COLORADO = 3
+UTAH = 2
 
 def addPid(d,fileName):
     for i in d["features"]:
@@ -30,7 +30,7 @@ def main():
     # importState.importState(d,fileName[0:-5],str(sid),db)
     # importCD.importCD(d,str(sid),db)
     # importPrecinct.importPrecinct(d,db)
-    importCoordinate.importCoordinate(d,db)
+    # importCoordinate.importCoordinate(d,db)
     db.close()
 
 if __name__ == "__main__":
