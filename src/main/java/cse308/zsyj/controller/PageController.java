@@ -173,9 +173,12 @@ public class PageController {
 		for(int x : pids) {
 			System.out.println(x);
 		}
+		System.out.println(Algorithm.failedTimes);
 		System.out.println("xxxxxxxxxxxxxxxxxxxxxxxxx");
 		state = weight.startAlgorithm(state);
 		System.out.println("xxxxxxxxxxxxxxxxxxxxxxxxx");
+		System.out.println(Algorithm.failedTimes);
+
 	    return state.getBorderDict();
 	}
 	/*

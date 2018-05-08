@@ -106,6 +106,7 @@ public class State {
 	
 	
 	public void generateBorder(List<List<List<Double>>> cdBorder) {
+		double diff = 0.000001;
 		for(int i=0;i<congressionalDistrict.size();i++) {
 			List<Precinct> precincts = congressionalDistrict.get(i).getPrecincts();
 			for(int j=0;j<precincts.size();j++) {
@@ -117,7 +118,7 @@ public class State {
 						for(int x = 0;x<cdBorder.get(0).size();x++) {
 							double bX = cdBorder.get(0).get(x).get(0);
 							double bY = cdBorder.get(0).get(x).get(1);
-							if((Math.abs(bX - pX)< 0.000001) && (Math.abs(bY - pY) < 0.000001)) {
+							if((Math.abs(bX - pX)< diff) && (Math.abs(bY - pY) < diff)) {
 								precincts.get(j).setBorder(1);
 							}
 						}
