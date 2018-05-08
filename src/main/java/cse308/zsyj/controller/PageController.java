@@ -321,11 +321,12 @@ public class PageController {
 						cdBoundary.features.get(i).geometry.coordinates;
 				state.generateBorder(coordinates);
 			}
+			
 		} catch (JsonSyntaxException | JsonIOException | FileNotFoundException e) {
 			e.printStackTrace();
-		}
-		*/
+		}*/
 		
+		System.out.println(state.getBorderPrecinctIDs());
 		model.addAttribute("state", state);
 		model.addAttribute("pids",state.getBorderPrecinctIDs());
 		return "demo/generateBorder.html";	
