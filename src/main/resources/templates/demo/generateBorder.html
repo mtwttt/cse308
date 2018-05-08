@@ -69,7 +69,7 @@
             
             var kyCounties = L.geoJSON(counties.responseJSON,{style:function(feature) {
 			        		if(feature.pid in pids){
-			        			console.log(pids[feature.pid])
+			        			console.log(pids[feature.pid]);
 							if(pids[feature.pid] == 1){
 								return { fillColor: 'red', color: 'black', weight: 1, opacity: 0.75};
 							}else if (pids[feature.pid] == 2 ){
