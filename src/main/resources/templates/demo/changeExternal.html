@@ -60,26 +60,99 @@
 						  
 						    <table cellpadding="0" cellspacing="0" border="0">
 						      <tbody>
-									<tr><td>Name</td><td id="NAME10"></td><td><input type="text" value="" name="NAME10v"/></td></tr>
-								    <tr><td>Land Area</td><td id="ALAND10"></td><td><input type="text" value="" name="ALAND10v"/></td></tr>
-								    <tr><td>Water Area</td><td id="AWATER10"></td><td><input type="text" value="" name="AWATER10v"/></td></tr>
-								    <tr><td>Latitude</td><td id="INTPTLAT10"></td><td><input type="text" value="" name="INTPTLAT10v"/></td></tr>
-								    <tr><td>Longitude</td><td id="INTPTLON10"></td><td><input type="text" value="" name="INTPTLON10v"/></td></tr>
-								    <tr><td>rVote for President 2008</td><td id="PRES_R_08"></td><td><input type="text" value="" name="PRES_R_08v"/></td></tr>
-								    <tr><td>dVote for President 2008</td><td id="PRES_D_08"></td><td><input type="text" value="" name="PRES_D_08v"/></td></tr>
-								    <tr><td>Other Vote for President 2008</td><td id="PRES_O_08"></td><td><input type="text" value="" name="PRES_O_08v"/></td></tr>
-								    <tr><td>Population</td><td id="POP100"></td><td><input type="text" value="" name="POP100v"/></td></tr>
-								    <tr><td>Average Racial</td><td id="AV"></td><td><input type="text" value="" name="AVv"/></td></tr>
-								    <tr><td>Congressional District Number</td><td id="CONGRESSIO"></td><td><input type="text" value="" name="CONGRESSIOv"/></td></tr>
+									<tr><td>Name</td><td id="NAME10"></td><td><input type="text" value="" id="NAME10v"/></td></tr>
+								    <tr><td>Land Area</td><td id="ALAND10"></td><td><input type="text" value="" id="ALAND10v"/></td></tr>
+								    <tr><td>Water Area</td><td id="AWATER10"></td><td><input type="text" value="" id="AWATER10v"/></td></tr>
+								    <tr><td>Latitude</td><td id="INTPTLAT10"></td><td><input type="text" value="" id="INTPTLAT10v"/></td></tr>
+								    <tr><td>Longitude</td><td id="INTPTLON10"></td><td><input type="text" value="" id="INTPTLON10v"/></td></tr>
+								    <tr><td>rVote for President 2008</td><td id="PRES_R_08"></td><td><input type="text" value="" id="PRES_R_08v"/></td></tr>
+								    <tr><td>dVote for President 2008</td><td id="PRES_D_08"></td><td><input type="text" value="" id="PRES_D_08v"/></td></tr>
+								    <tr><td>Other Vote for President 2008</td><td id="PRES_O_08"></td><td><input type="text" value="" id="PRES_O_08v"/></td></tr>
+								    <tr><td>Population</td><td id="POP100"></td><td><input type="text" value="" id="POP100v"/></td></tr>
+								    <tr><td>Average Racial</td><td id="AV"></td><td><input type="text" value="" id="AVv"/></td></tr>
+								    <tr><td>Congressional District Number</td><td id="CONGRESSIO"></td><td><input type="text" value="" id="CONGRESSIOv"/></td></tr>
 								    <tr>
 								    <td><button id="saveButton" class = "add_button">Save</button></td>
 								    </tr>
 						      </tbody>
 						    </table>
+						  
 						  </div>
 	</section>
 </div>
 <script>
+document.getElementById('saveButton').onclick = function(){
+	var files = document.getElementById('selectFiles').files;
+	var pid = document.getElementById('pid').value;
+	var NAME10v = document.getElementById('NAME10v').value;
+	var ALAND10v = document.getElementById('ALAND10v').value;
+	var AWATER10v = document.getElementById('AWATER10v').value;
+	var INTPTLAT10v = document.getElementById('INTPTLAT10v').value;
+	var INTPTLON10v = document.getElementById('INTPTLON10v').value;
+	var PRES_R_08v = document.getElementById('PRES_R_08v').value;
+	var PRES_D_08v = document.getElementById('PRES_D_08v').value;
+	var PRES_O_08v = document.getElementById('PRES_O_08v').value;
+	var POP100v = document.getElementById('POP100v').value;
+	var AVv = document.getElementById('AVv').value;
+	var CONGRESSIOv = document.getElementById('CONGRESSIOv').value;
+	
+	 console.log(files);
+	  if (files.length <= 0) {
+	    return false;
+	  }
+	  var fr = new FileReader();
+	  fr.onload = function(e) { 
+		  console.log(e);
+		    var result = JSON.parse(e.target.result);
+		    var properties = result.features[parseInt(pid)].properties;
+		    if(NAME10v.valueOf() !=""){
+		    	result.features[parseInt(pid)].properties["NAME10"] = NAME10v;
+		    }
+		    if(ALAND10v.valueOf() !=""){
+		    	result.features[parseInt(pid)].properties["ALAND10"] = ALAND10v;
+		    }
+		    if(AWATER10v.valueOf() !=""){
+		    	result.features[parseInt(pid)].properties["AWATER10"] = AWATER10v;
+		    }
+		    if(INTPTLAT10v.valueOf() !=""){
+		    	result.features[parseInt(pid)].properties["INTPTLAT10"] = INTPTLAT10v;
+		    }
+		    if(INTPTLON10v.valueOf() !=""){
+		    	result.features[parseInt(pid)].properties["INTPTLON10"] = INTPTLON10v;
+		    }
+		    if(PRES_R_08v.valueOf() !=""){
+		    	result.features[parseInt(pid)].properties["PRES_R_08"] = PRES_R_08v;
+		    }
+		    if(PRES_D_08v.valueOf() !=""){
+		    	result.features[parseInt(pid)].properties["PRES_D_08"] = PRES_D_08v;
+		    }
+		    if(PRES_O_08v.valueOf() !=""){
+		    	result.features[parseInt(pid)].properties["PRES_O_08"] = PRES_O_08v;
+		    }
+		    if(POP100v.valueOf() !=""){
+		    	result.features[parseInt(pid)].properties["POP100"] = POP100v;
+		    }
+		    if(AVv.valueOf() !=""){
+		    	result.features[parseInt(pid)].properties["AV"] = AVv;
+		    }
+		    if(CONGRESSIOv.valueOf() !=""){
+		    	result.features[parseInt(pid)].properties["CONGRESSIO"] = CONGRESSIOv;
+		    }
+		    var data = "text/json;charset=utf-8," + encodeURIComponent(JSON.stringify(result));
+		    //var url = URL.createObjectURL( result);
+		    var a = document.createElement('a');
+		    a.href = 'data:' + data;
+		    a.download = 'newData.json';
+		    a.innerHTML = 'download JSON';
+
+		    //var container = document.getElementById('downloadAnchorElem');
+		    document.body.appendChild(a);
+		    a.click();
+		    // $("#textLink").attr("href",url)[0].click();
+	  }
+	  fr.readAsText(files.item(0));
+}
+
 document.getElementById('import').onclick = function() {
   var files = document.getElementById('selectFiles').files;
   var pid = document.getElementById('pid').value;
