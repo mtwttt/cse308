@@ -42,7 +42,7 @@ function style(feature) {
     case '5':   
     	return { fillColor: 'blue', color: 'grey', weight: 1, opacity: 0.7};
     case '6':   
-    	return { fillColor: 'white', color: 'grey', weight: 1, opacity: 0.7};
+    	return { fillColor: 'pink', color: 'grey', weight: 1, opacity: 0.7};
     case '7':   
     	return { fillColor: 'green', color: 'grey', weight: 1, opacity: 0.7};
     default:   
@@ -181,7 +181,7 @@ function updateMap(pids,name){
 						}else if (pids[feature.pid] == 5){
 							return { fillColor: 'blue', color: 'black', weight: 1, opacity: 0.7};
 						}else if (pids[feature.pid] == 6){
-							return { fillColor: 'white', color: 'black', weight: 1, opacity: 0.7};
+							return { fillColor: 'pink', color: 'black', weight: 1, opacity: 0.7};
 						}else if (pids[feature.pid] == 7){
 							return { fillColor: 'green', color: 'black', weight: 1, opacity: 0.7};
 						}else{
@@ -201,7 +201,7 @@ function updateMap(pids,name){
 			                case '5':   
 			                	return { fillColor: 'blue', color: 'grey', weight: 1, opacity: 0.7};
 			                case '6':   
-			                	return { fillColor: 'white', color: 'grey', weight: 1, opacity: 0.7};
+			                	return { fillColor: 'pink', color: 'grey', weight: 1, opacity: 0.7};
 			                case '7':   
 			                	return { fillColor: 'green', color: 'grey', weight: 1, opacity: 0.7};
 			                default:   
