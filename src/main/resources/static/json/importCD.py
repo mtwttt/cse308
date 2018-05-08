@@ -1,5 +1,7 @@
 import json, pymysql
 #
+
+
 def getCdDict(d):
     cdDict = {}
     for i in d["features"]:
@@ -9,10 +11,10 @@ def getCdDict(d):
                                                          "rVote":0, "dVote": 0, "countP": 0, "totalVote": 0}
             cdDict[i["properties"]["CONGRESSIO"]]["totalPopulation"] += i["properties"]["POP100"]
             cdDict[i["properties"]["CONGRESSIO"]]["totalRacial"] += i["properties"]["AV"]
-            cdDict[i["properties"]["CONGRESSIO"]]["rVote"] += i["properties"]["PRES_R_08"]
-            cdDict[i["properties"]["CONGRESSIO"]]["dVote"] += i["properties"]["PRES_D_08"]
+            cdDict[i["properties"]["CONGRESSIO"]]["rVote"] += i["properties"]["PRES08__R"]
+            cdDict[i["properties"]["CONGRESSIO"]]["dVote"] += i["properties"]["PRES08__D"]
             cdDict[i["properties"]["CONGRESSIO"]]["countP"] += 1
-            cdDict[i["properties"]["CONGRESSIO"]]["totalVote"] += i["properties"]["T_08"]
+            cdDict[i["properties"]["CONGRESSIO"]]["totalVote"] += i["properties"]["PRES08__R"]+i["properties"]["PRES08__D"]+i["properties"]["PRES08_MP"]
     return cdDict
 
 def importCD(d, sid, db):
@@ -36,3 +38,12 @@ def importCD(d, sid, db):
         except:
             print("error2")
             db.rollback()
+
+
+with open("colorado.json") as json_data:
+        d = json.load(json_data)
+    # addPid(d, fileName)
+db = pymysql.connect(host='mysql4.cs.stonybrook.edu', user='zhzou',
+                         password='109825816', db='zsyj', charset='utf8mb4',)
+importCD(d,str(3),db)
+    #
