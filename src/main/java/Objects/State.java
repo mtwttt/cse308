@@ -106,7 +106,12 @@ public class State {
 	
 	
 	public void generateBorder(List<List<List<Double>>> cdBorder) {
+		System.out.println(name);
 		double diff = 0.000001;
+		if(name.equals("Colorado")||name.equals("Idaho")) {
+			diff = 0.001;
+			System.out.println("ASd");
+		}			
 		for(int i=0;i<congressionalDistrict.size();i++) {
 			List<Precinct> precincts = congressionalDistrict.get(i).getPrecincts();
 			for(int j=0;j<precincts.size();j++) {
@@ -120,6 +125,7 @@ public class State {
 							double bY = cdBorder.get(0).get(x).get(1);
 							if((Math.abs(bX - pX)< diff) && (Math.abs(bY - pY) < diff)) {
 								precincts.get(j).setBorder(1);
+								break;
 							}
 						}
 					}
@@ -180,6 +186,46 @@ public class State {
 			}
 		}
 		return ps;
+	}
+	public void generateBorder2() {
+		for(CongressionalDistrict c: getCongressionalDistrict()) {
+			for(Precinct p : c.getPrecincts()) {
+				if(p.getCoordinate()!=null) {
+					List<List<Double>> pC = p.getCoordinate().get(0);
+					for(List<Double> cs : pC) {
+						double x1 = cs.get(0);
+						double y1 = cs.get(1);
+						for(CongressionalDistrict c2: getCongressionalDistrict()) {
+							int flag2 = 0;
+							if(c.getId()!=c2.getId()) {
+								for(Precinct p2: c2.getPrecincts()) {
+									int flag1 = 0;
+									if(p2.getCoordinate()!=null) {
+										List<List<Double>> pC2 = p2.getCoordinate().get(0);
+										for(List<Double> cs2 : pC2){
+											double x2 = cs2.get(0);
+											double y2 = cs2.get(1);
+											if(x1==x2&&y2==y1) {
+												p.setBorder(1);
+												flag1=1;
+												flag2 =1;
+												break;
+											}
+										}
+										if(flag1 == 1)
+											break;
+									}
+								}
+							}
+							if(flag2 == 1)
+								break;
+						}
+					}
+					
+				}
+			}
+			
+		}
 	}
 	
 }

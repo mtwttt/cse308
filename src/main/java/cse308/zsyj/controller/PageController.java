@@ -305,11 +305,17 @@ public class PageController {
 	
 	@RequestMapping(value = "generateBorder", method=RequestMethod.POST)
 	public String generateBorder(State state, Model model) {
-		String fileUrl = "./src/main/resources/static/json/kansasCD2010.geojson";
+		String filename = state.getName().toLowerCase();
+		String fileUrl = "./src/main/resources/static/json/"+filename+"CD.geojson";
+		state = stateService.getState(state.getName(), 2008);
+		state.generateBorder2();
+		/*
 		try {
 			RawCDData cdBoundary = new Gson().fromJson(new FileReader(fileUrl), 
 					RawCDData.class);
 			state = stateService.getState(state.getName(), 2008);
+			System.out.println(state.getCongressionalDistrict().size());
+			System.out.println(cdBoundary.features.size());
 			for(int i=0;i<cdBoundary.features.size();i++) {
 				List<List<List<Double>>> coordinates = 
 						cdBoundary.features.get(i).geometry.coordinates;
@@ -318,6 +324,7 @@ public class PageController {
 		} catch (JsonSyntaxException | JsonIOException | FileNotFoundException e) {
 			e.printStackTrace();
 		}
+		*/
 		
 		model.addAttribute("state", state);
 		model.addAttribute("pids",state.getBorderPrecinctIDs());
