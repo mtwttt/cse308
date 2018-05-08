@@ -52,7 +52,7 @@
             dataType: "json",
             success: console.log("County data successfully loaded."),
             error: function(xhr) {
-                alert(xhr.statusText)
+                alert(xhr.statusText);
             }
         })
         $.when(counties).done(function() {
@@ -68,21 +68,21 @@
             }).addTo(map);
             
             var kyCounties = L.geoJSON(counties.responseJSON,{style:function(feature) {
-			        		if(feature.pid in pids){
-			        			console.log(pids[feature.pid]);
-							if(pids[feature.pid] == 1){
+			        		if(pids.includes(feature.pid) ){
+			        			console.log("1231231");
+							if(feature.properties.CONGRESSIO == 1){
 								return { fillColor: 'red', color: 'black', weight: 1, opacity: 0.75};
-							}else if (pids[feature.pid] == 2 ){
+							}else if (feature.properties.CONGRESSIO == 2 ){
 								return {fillColor: 'aqua', color: 'black', weight: 1,opacity: 0.7};
-							}else if (pids[feature.pid] == 3){
+							}else if (feature.properties.CONGRESSIO == 3){
 								return {fillColor: 'olive', color: 'black', weight: 1, opacity: 0.7};
-							}else if (pids[feature.pid] == 4){
+							}else if (feature.properties.CONGRESSIO == 4){
 								return { fillColor: 'yellow', color: 'black', weight: 1, opacity: 0.7};
-							}else if (pids[feature.pid] == 5){
+							}else if (feature.properties.CONGRESSIO == 5){
 								return { fillColor: 'blue', color: 'black', weight: 1, opacity: 0.7};
-							}else if (pids[feature.pid] == 6){
+							}else if (feature.properties.CONGRESSIO == 6){
 								return { fillColor: 'white', color: 'black', weight: 1, opacity: 0.7};
-							}else if (pids[feature.pid] == 7){
+							}else if (feature.properties.CONGRESSIO == 7){
 								return { fillColor: 'green', color: 'black', weight: 1, opacity: 0.7};
 							}else{
 								return {fillColor: 'grey', color: 'black', weight: 1, opacity: 0.7, 	fillOpacity: 0.7};
