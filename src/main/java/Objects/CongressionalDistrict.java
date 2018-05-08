@@ -36,6 +36,14 @@ public class CongressionalDistrict {
 	private double totalRacial;
 	@Transient
 	private double totalArea;
+	public int ecoMedian;
+	public int ecoMean;
+	public int getEcoMean() {
+		return ecoMean;
+	}
+	public int getEcoMedian() {
+		return ecoMedian;
+	}
 	public CongressionalDistrict() {	}
 	
 	public int getYear() {
