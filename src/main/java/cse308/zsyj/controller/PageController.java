@@ -116,6 +116,44 @@ public class PageController {
 		return "demo/manageUser.html";
 	}
 	
+	@RequestMapping(value="add", method=RequestMethod.POST)
+	public String add(Model model, Account account,@RequestParam(name ="verified") String v,@RequestParam(name ="IsAdmin") String a) {
+		Account original = new Account();
+		if(!account.getUsername().equals("")) {
+			original.setUsername(account.getUsername());
+		}
+		if(!account.getEmail().equals("")) {
+			original.setEmail(account.getEmail());
+		}
+		if(!account.getVkey().equals("")) {
+			original.setVkey(account.getVkey());
+		}
+		if(!account.getPassword().equals("")) {
+			original.setPassword(account.getPassword());
+		}
+		if(v.equals("True")) {
+			original.setIsVerified(true);
+		}
+		else if (v.equals("False")) {
+			original.setIsVerified(false);
+		}
+		if(a.equals("True")) {
+			original.setIsAdmin(true);
+		}
+		else if (a.equals("False")) {
+			original.setIsAdmin(false);
+		}
+		userRepo.save(original);
+		ArrayList<Account> accounts = (ArrayList<Account>) userRepo.getUsers();
+		model.addAttribute("accounts", accounts);
+		return "demo/manageUser.html";
+	}
+	
+	@GetMapping("changeExternal")
+	public String changeExternal(Model model) {
+		return "demo/changeExternal.html";
+	}
+	
 	@RequestMapping(value="CD", method=RequestMethod.POST)
 	public String congressionaldistricts(State state, Model model) {
 		StateManager.state = stateService.getState(state.getName(), 2008);
@@ -139,6 +177,7 @@ public class PageController {
 		}
 		return "got it";
 	}
+	
 	
 	@RequestMapping(value="redraw", method=RequestMethod.POST)
 	public @ResponseBody
