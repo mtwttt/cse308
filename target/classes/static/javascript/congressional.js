@@ -34,17 +34,17 @@ function style(feature) {
     case '1': 
     	return { fillColor: 'red', color: 'grey', weight: 1, opacity: 0.75};
     case '2':   
-    	return {fillColor: 'aqua', color: 'grey', weight: 1,opacity: 0.7};
+    	return {fillColor: '#9F06F2', color: 'grey', weight: 1,opacity: 0.7};
     case '3': 
-    	return {fillColor: 'olive', color: 'grey', weight: 1, opacity: 0.7};
+    	return {fillColor: '#04F9FD', color: 'grey', weight: 1, opacity: 0.7};
     case '4':   
     	return { fillColor: 'yellow', color: 'grey', weight: 1, opacity: 0.7};
     case '5':   
-    	return { fillColor: 'blue', color: 'grey', weight: 1, opacity: 0.7};
-    case '6':   
-    	return { fillColor: 'pink', color: 'grey', weight: 1, opacity: 0.7};
-    case '7':   
     	return { fillColor: 'green', color: 'grey', weight: 1, opacity: 0.7};
+    case '6':   
+    	return { fillColor: 'blue', color: 'grey', weight: 1, opacity: 0.7};
+    case '7':   
+    	return { fillColor: '#FB03D0', color: 'grey', weight: 1, opacity: 0.7};
     default:   
     	return {fillColor: 'grey', color: 'grey', weight: 1, opacity: 0.7, 
     	fillOpacity: 0.7};
@@ -173,41 +173,41 @@ function updateMap(pids,name){
 						if(pids[feature.pid] == 1){
 							return { fillColor: 'red', color: 'black', weight: 1, opacity: 0.75};
 						}else if (pids[feature.pid] == 2 ){
-							return {fillColor: 'aqua', color: 'black', weight: 1,opacity: 0.7};
+							return {fillColor: '#9F06F2', color: 'black', weight: 1,opacity: 0.7};
 						}else if (pids[feature.pid] == 3){
-							return {fillColor: 'olive', color: 'black', weight: 1, opacity: 0.7};
+							return {fillColor: '#04F9FD', color: 'black', weight: 1, opacity: 0.7};
 						}else if (pids[feature.pid] == 4){
 							return { fillColor: 'yellow', color: 'black', weight: 1, opacity: 0.7};
 						}else if (pids[feature.pid] == 5){
-							return { fillColor: 'blue', color: 'black', weight: 1, opacity: 0.7};
-						}else if (pids[feature.pid] == 6){
-							return { fillColor: 'pink', color: 'black', weight: 1, opacity: 0.7};
-						}else if (pids[feature.pid] == 7){
 							return { fillColor: 'green', color: 'black', weight: 1, opacity: 0.7};
+						}else if (pids[feature.pid] == 6){
+							return { fillColor: 'blue', color: 'black', weight: 1, opacity: 0.7};
+						}else if (pids[feature.pid] == 7){
+							return { fillColor: '#FB03D0', color: 'black', weight: 1, opacity: 0.7};
 						}else{
 							return {fillColor: 'grey', color: 'black', weight: 1, opacity: 0.7, 	fillOpacity: 0.7};
 						}
 		        		}
 		        		else{
 		        			switch (feature.properties.CONGRESSIO) {
-			                case '1': 
-			                	return { fillColor: 'red', color: 'grey', weight: 1, opacity: 0.75};
-			                case '2':   
-			                	return {fillColor: 'aqua', color: 'grey', weight: 1,opacity: 0.7};
-			                case '3': 
-			                	return {fillColor: 'olive', color: 'grey', weight: 1, opacity: 0.7};
-			                case '4':   
-			                	return { fillColor: 'yellow', color: 'grey', weight: 1, opacity: 0.7};
-			                case '5':   
-			                	return { fillColor: 'blue', color: 'grey', weight: 1, opacity: 0.7};
-			                case '6':   
-			                	return { fillColor: 'pink', color: 'grey', weight: 1, opacity: 0.7};
-			                case '7':   
-			                	return { fillColor: 'green', color: 'grey', weight: 1, opacity: 0.7};
-			                default:   
-			                	return {fillColor: 'grey', color: 'grey', weight: 1, opacity: 0.7, 
-			                	fillOpacity: 0.7};
-			            }
+		        		    case '1': 
+		        		    	return { fillColor: 'red', color: 'grey', weight: 1, opacity: 0.75};
+		        		    case '2':   
+		        		    	return {fillColor: '#9F06F2', color: 'grey', weight: 1,opacity: 0.7};
+		        		    case '3': 
+		        		    	return {fillColor: '#04F9FD', color: 'grey', weight: 1, opacity: 0.7};
+		        		    case '4':   
+		        		    	return { fillColor: 'yellow', color: 'grey', weight: 1, opacity: 0.7};
+		        		    case '5':   
+		        		    	return { fillColor: 'green', color: 'grey', weight: 1, opacity: 0.7};
+		        		    case '6':   
+		        		    	return { fillColor: 'blue', color: 'grey', weight: 1, opacity: 0.7};
+		        		    case '7':   
+		        		    	return { fillColor: '#FB03D0', color: 'grey', weight: 1, opacity: 0.7};
+		        		    default:   
+		        		    	return {fillColor: 'grey', color: 'grey', weight: 1, opacity: 0.7, 
+		        		    	fillOpacity: 0.7};
+		        			}
 		        		}
           }, onEachFeature: onEachFeature}).addTo(map);
     });
