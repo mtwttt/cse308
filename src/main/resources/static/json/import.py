@@ -1,6 +1,6 @@
 import json, pymysql
 #
-with open('kansas.json') as json_data:
+with open('colorado.json') as json_data:
     d = json.load(json_data)
 db = pymysql.connect(host='mysql4.cs.stonybrook.edu',
                      user='zhzou',
@@ -18,17 +18,17 @@ for i in d["features"]:
         cdNumber = "0"
     aLand = str(i["properties"]["ALAND10"])
     aWater = str(i["properties"]["AWATER10"])
-    totalVote = str(i["properties"]["T_08"])
+    totalVote = str(i["properties"]["PRES08__R"]+i["properties"]["PRES08__D"]+i["properties"]["PRES08_MP"])
     year = str(2008)
     latitude = str(i["properties"]["INTPTLAT10"])
     longtitude = str(i["properties"]["INTPTLON10"])
-    rVote = str(i["properties"]["PRES_R_08"])
-    dVote = str(i["properties"]["PRES_D_08"])
-    oVote = str((i["properties"]["T_08"]-i["properties"]["PRES_R_08"]-i["properties"]["PRES_D_08"]))
+    rVote = str(i["properties"]["PRES08__R"])
+    dVote = str(i["properties"]["PRES08__D"])
+    oVote = str(i["properties"]["PRES08_MP"])
     avgRace = str(i["properties"]["AV"])
     sql = """INSERT INTO Precinct( pid, population, cdNumber, aLand, aWater,
                 totalVote, year, latitude,
-                longtitude, rVote, dVote, oVote, isBorder, avgRace) values (
+                longtitude, rVote, dVote, oVote, isBorder, avgRace, sid) values (
                 """+pid+""",
                 """+popu+""",
                 """+cdNumber+""",
@@ -42,7 +42,8 @@ for i in d["features"]:
                 """+dVote+""",
                 """+oVote+""",
                 0,
-                """+avgRace+"""
+                """+avgRace+""",
+                3
                 );
                 """
     try:
