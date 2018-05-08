@@ -33,6 +33,10 @@ public class Precinct {
     public double avgRace;
     @Transient
     public int isUsed;
+    @Transient
+    public int isChecked;
+    @Transient
+    public int isCheckedWithP;
     
     public Precinct() {}
     public int getSid() {
