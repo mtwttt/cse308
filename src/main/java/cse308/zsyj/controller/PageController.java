@@ -307,9 +307,9 @@ public class PageController {
 	public String generateBorder(State state, Model model) {
 		String filename = state.getName().toLowerCase();
 		String fileUrl = "./src/main/resources/static/json/"+filename+"CD.geojson";
-		state = stateService.getState(state.getName(), 2008);
-		state.generateBorder2();
-		/*
+		//state = stateService.getState(state.getName(), 2008);
+		//state.generateBorder2();
+		
 		try {
 			RawCDData cdBoundary = new Gson().fromJson(new FileReader(fileUrl), 
 					RawCDData.class);
@@ -324,8 +324,8 @@ public class PageController {
 			
 		} catch (JsonSyntaxException | JsonIOException | FileNotFoundException e) {
 			e.printStackTrace();
-		}*/
-		
+		}
+		//stateService.updateBorder(state, true);
 		System.out.println(state.getBorderPrecinctIDs());
 		model.addAttribute("state", state);
 		model.addAttribute("pids",state.getBorderPrecinctIDs());

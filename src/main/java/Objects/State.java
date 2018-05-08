@@ -109,7 +109,7 @@ public class State {
 		System.out.println(name);
 		double diff = 0.000001;
 		if(name.equals("Colorado")||name.equals("Idaho")) {
-			diff = 0.1;
+			diff = 0.0001;
 			System.out.println("ASd");
 		}			
 		for(int i=0;i<congressionalDistrict.size();i++) {
@@ -191,7 +191,7 @@ public class State {
 	public void generateBorder2() {
 		for(CongressionalDistrict c : getCongressionalDistrict()) {
 			for(Precinct p : c.getPrecincts()) {
-				if(p.getID() == 564 || p.getID() == 899 || p.getID() == 271 || p.getID() == 713 || p.getID() == 475 || p.getID() == 492 || p.getID() == 269 || p.getID() == 270 || p.getID() == 493 || p.getID() == 131 || p.getID() == 125 || p.getID() == 85 || p.getID() == 499 || p.getID() == 485 || p.getID() == 808 || p.getID() == 807 || p.getID() == 814 || p.getID() == 873 || p.getID() == 863 || p.getID() == 862 || p.getID() == 489) {
+				if(p.getID() == 564 || p.getID() == 899 || p.getID() == 271 || p.getID() == 713 || p.getID() == 475 || p.getID() == 492 || p.getID() == 269 || p.getID() == 270 || p.getID() == 493 || p.getID() == 131 || p.getID() == 125 || p.getID() == 85 || p.getID() == 499 || p.getID() == 485 || p.getID() == 808 || p.getID() == 807 || p.getID() == 814 || p.getID() == 873 || p.getID() == 863 || p.getID() == 862 || p.getID() == 489|| p.getID() == 500) {
 					p.setBorder(1);
 					System.out.println("123");
 				}
