@@ -199,12 +199,13 @@ function start(){
 	            		updateMap(response,state.value);
 	            		alert("terminate");
 	            		repeat = 0;
-	            		flag = false;
 	        		}
 	        },error: function (request, status, error) {
 	        		console.log("12345");
 	        }
 	    		});		
+	}else{
+		flag = true;
 	}
 }
 
@@ -263,13 +264,11 @@ function restore(){
 
 function reset(){
 	state = document.getElementById("state");
-	stop();
 	$.ajax({
         type: "post",
         url: "http://localhost:8080/demo/resetMap",
         data: { name: state.value},
         success: function (response) {
-        		flag = true;
         		console.log("got it");
         },error: function (request, status, error) {
         		console.log("12345");
