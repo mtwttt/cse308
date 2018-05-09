@@ -386,8 +386,8 @@ public class PageController {
 			RawCDData cdBoundary = new Gson().fromJson(new FileReader(fileUrl), 
 					RawCDData.class);
 			state = stateService.getState(state.getName(), 2008);
-			System.out.println(state.getCongressionalDistrict().size());
-			System.out.println(cdBoundary.features.size());
+			//System.out.println(state.getCongressionalDistrict().size());
+			//System.out.println(cdBoundary.features.size());
 			for(int i=0;i<cdBoundary.features.size();i++) {
 				List<List<List<Double>>> coordinates = 
 						cdBoundary.features.get(i).geometry.coordinates;
@@ -398,7 +398,7 @@ public class PageController {
 			e.printStackTrace();
 		}
 		//stateService.updateBorder(state, true);
-		System.out.println(state.getBorderPrecinctIDs());
+		//System.out.println(state.getBorderPrecinctIDs());
 		model.addAttribute("state", state);
 		model.addAttribute("pids",state.getBorderPrecinctIDs());
 		return "demo/generateBorder.html";	
