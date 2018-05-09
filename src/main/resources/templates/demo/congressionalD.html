@@ -63,6 +63,8 @@
      	 </div>
      	  <input type="text" id = "state" th:value ="${state.name}" hidden>
      <div>
+     <button class= "reset" onclick="representative()"><span>Representative Info</span></button>
+     <br>
      <button class= "reset" onclick="stop()"><span>Pause</span></button>
      <br>
      <button class= "reset" onclick="restore()"><span>Continue</span></button>
@@ -82,5 +84,19 @@
 </div>
 
 </div>
+<script th:inline="javascript">
+	function representative(){
+		var s = document.getElementById("state").value;
+		if(s.valueOf() == 'kansas'){
+			window.open("repKS",'_blank');
+		}
+		else if (s.valueOf() == 'idaho'){
+			window.open("repID",'_blank');
+		}
+		else{
+			window.open("repCO",'_blank');
+		}
+	};
+</script>
 </body>
 </html>

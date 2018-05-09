@@ -67,6 +67,18 @@ public class PageController {
 	public String aboutus(HttpSession httpSession) {
 		return "demo/aboutus.html";
 	}
+	@GetMapping("repKS")
+	public String repKS(HttpSession httpSession) {
+		return "demo/kansasRepresent.html";
+	}
+	@GetMapping("repID")
+	public String repID(HttpSession httpSession) {
+		return "demo/idahoRepresent.html";
+	}
+	@GetMapping("repCO")
+	public String repCO(HttpSession httpSession) {
+		return "demo/coloradoRepresent.html";
+	}
 	
 	@GetMapping("manageUser")
 	public String manageUser(Model model) {
