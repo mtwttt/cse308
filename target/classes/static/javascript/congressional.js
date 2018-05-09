@@ -249,5 +249,14 @@ function findLocation(){
 }
 
 function movePrecinct(moveP){
-	
+	$.ajax({
+        type: "post",
+        url: "http://localhost:8080/demo/resetMap",
+        data: { moveP: moveP},
+        success: function (response) {
+        		console.log("got it");
+        },error: function (request, status, error) {
+        		console.log("12345");
+        }
+    });
 }

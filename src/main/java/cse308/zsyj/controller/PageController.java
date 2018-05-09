@@ -206,6 +206,12 @@ public class PageController {
 		return "got it";
 	}
 	
+	@RequestMapping(value="moveP", method=RequestMethod.POST)
+	public @ResponseBody int moveP(int movePid) {
+		
+		return 0;
+	}
+	
 	@RequestMapping(value="redraw", method=RequestMethod.POST)
 	public @ResponseBody
 	Hashtable<Integer,Integer> startAlgo(@RequestParam("name") String name,@RequestParam("year") int year, 
