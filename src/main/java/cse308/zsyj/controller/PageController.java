@@ -200,9 +200,7 @@ public class PageController {
 		for(int i =1; i<cdlist.size()+1; i++) {
 			String attr = "cd"+i;
 			httpSession.setAttribute(attr, cdlist.get(i-1).toString());
-			System.out.print(1);
 		}
-		System.out.print(2);
 		return "demo/congressionalD.html";
 	}
 	
@@ -225,15 +223,29 @@ public class PageController {
 	}
 	
 	@RequestMapping(value="resetMap", method=RequestMethod.POST)
-	public @ResponseBody String resetMap(@RequestParam("name") String name) {
+	public @ResponseBody String resetMap(@RequestParam("name") String name, HttpSession httpSession) {
 		StateManager.state = stateService.getState(name, 2008);
+		int id = 1;
+		if(name.equals("colorado"))
+			id = 3;
+		else if(name.equals("idaho"))
+			id = 2;
+		List<CongressionalDistrict> cdlist = cdRepository.findAllById(id, 2008);
+		for(int i =1; i<cdlist.size()+1; i++) {
+			String attr = "cd"+i;
+			httpSession.setAttribute(attr, cdlist.get(i-1).toString());
+		}
 		return "got it";
 	}
 	
 	@RequestMapping(value="moveP", method=RequestMethod.POST)
-	public @ResponseBody int moveP(@RequestParam("moveP") int moveP) {
+	public @ResponseBody int moveP(@RequestParam("moveP") int moveP, HttpSession httpSession) {
 		Algorithm temp = new Algorithm();
 		int movedCD = temp.manualMove(StateManager.state, moveP);
+		for (int i = 1; i<StateManager.state.getCongressionalDistrict().size()+1 ;i++) {
+			String attr = "cd"+i;
+			httpSession.setAttribute(attr, StateManager.state.getCongressionalDistrict().get(i-1).toString());
+		}
 		return movedCD;
 	}
 	
@@ -244,7 +256,9 @@ public class PageController {
 			@RequestParam("partisanW") int partisanW,@RequestParam("compactnessW") int compactnessW,
 			@RequestParam("selectpid") String selectpid,
 			@RequestParam("contiguity") boolean contiguity,
-			@RequestParam("representative") boolean representative,Model model) {
+			@RequestParam("representative") boolean representative,
+			Model model,
+			HttpSession httpSession) {
 
 		Algorithm weight = new Algorithm();
 		if (contiguity)
@@ -282,7 +296,10 @@ public class PageController {
 		}
 		System.out.println("xxxxxxxxxxxxxxxxxxxxxxxxx");
 		System.out.println(Algorithm.failedTimes);
-
+		for (int i = 1; i<state.getCongressionalDistrict().size()+1 ;i++) {
+			String attr = "cd"+i;
+			httpSession.setAttribute(attr, state.getCongressionalDistrict().get(i-1).toString());
+		}
 	    return state.getBorderDict();
 	}
 	@GetMapping("credit")

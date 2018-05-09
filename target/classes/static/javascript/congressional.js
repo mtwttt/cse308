@@ -116,7 +116,7 @@ function onEachFeature(feature, layer) {
 	if (layer.feature.properties.CONGRESSIO.valueOf() =="7"){
 		cdInfo = cd7;
 	}
-	layer.bindPopup("Pid: "+layer.feature.pid+"</br>"
+	layer.bindPopup("Precinct Original Info: </br>"+"Pid: "+layer.feature.pid+"</br>"
 			+"Name: "+layer.feature.properties.NAME10+"</br>"
 			+"Population: "+layer.feature.properties.POP100+"</br>"
 			+"rVote for President 2008: "+ layer.feature.properties.PRES_R_08+"</br>"
