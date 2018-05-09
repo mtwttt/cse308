@@ -11359,6 +11359,7 @@ Getting border precinct from congressional district 1
 Getting border precinct from congressional district 1
 Getting border precinct from congressional district 1
 Getting border precinct from congressional district 1
+<<<<<<< HEAD
 Moving Precinct 81 From Congressional District 1
 Moving Precinct to neighbor with original score:304.4552532551955
 The NewScore After moving= 303.447364222225
@@ -11491,3 +11492,5 @@ Moving Precinct to neighbor with original score:295.8732653104316
 The NewScore After moving= 294.8459187797754
 Score did not improved, moving precinct back
 Getting border precinct from congressional district 1
+=======
+>>>>>>> 907a2d0a65c263a855b81f90dfaf08dcf61ff797
