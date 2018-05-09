@@ -203,14 +203,12 @@ public class PageController {
 	}
 	
 	@RequestMapping(value="resetMap", method=RequestMethod.POST)
-<<<<<<< HEAD
-	public @ResponseBody String resetMap(@RequestParam("name") String name) {
-=======
-	public @ResponseBody String reset(String name) {
+
+	public @ResponseBody String resetMap(String name) {
 		Algorithm.improvedTimes = 0;
 		Algorithm.failedTimes = 0;
 		Algorithm.stop =0;
->>>>>>> 6c17a364053dc3b9beb8ad438d9cedb3e7b038f8
+
 		StateManager.state = stateService.getState(name, 2008);
 		return "got it";
 	}
