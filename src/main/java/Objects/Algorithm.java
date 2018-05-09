@@ -304,12 +304,15 @@ public class Algorithm {
 			for (List<Double> l1 : listOfPoints) {
 				for (List<Double> l2 : listOfNeighborP) {
 					if ((l1.get(0).doubleValue()==l2.get(0).doubleValue()) && (l1.get(1).doubleValue()==l2.get(1).doubleValue())&& p.getID()!=pr.getID()) {
-						neighbor.add(pr);
-						flag = 1;
+						flag++;
+						if (flag>=2) {
+							neighbor.add(pr);
+							break;
+						}
 						break;
 					}
 				}
-				if(flag == 1)
+				if(flag == 2)
 					break;
 			}
 		}
@@ -327,12 +330,15 @@ public class Algorithm {
 					for (List<Double> l1 : listOfPoints) {
 						for (List<Double> l2 : listOfNeighborP) {
 							if ((l1.get(0).doubleValue()==l2.get(0).doubleValue()) && (l1.get(1).doubleValue()==l2.get(1).doubleValue())) {
-								neighbor.add(pr);
-								flag = 1;
+								flag++;
+								if (flag>=2) {
+									neighbor.add(pr);
+									break;
+								}
 								break;
 							}
 						}
-						if(flag == 1)
+						if(flag == 2)
 							break;
 					}
 				}
