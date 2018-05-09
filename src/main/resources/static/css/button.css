@@ -1,0 +1,105 @@
+.reset {
+  border-radius: 4px;
+  background-color: #00bfff;
+  border: none;
+  color: #FFFFFF;
+  text-align: center;
+  font-size: 17px;
+  padding: 10px;
+  width: 120px;
+  transition: all 0.5s;
+  cursor: pointer;
+  margin: 5px;
+  opacity: 0.8;
+}
+
+.reset span {
+  cursor: pointer;
+  display: inline-block;
+  position: relative;
+  transition: 0.5s;
+}
+
+.reset span:after {
+  content: '\00bb';
+  position: absolute;
+  opacity: 0;
+  top: 0;
+  right: -20px;
+  transition: 0.5s;
+}
+
+.reset:hover span {
+  padding-right: 25px;
+}
+
+.reset:hover span:after {
+  opacity: 1.5;
+  right: 0;
+}
+
+.dropdown-btn{
+  border-radius: 4px;
+  background-color: #3cb371;
+  border: none;
+  color: #FFFFFF;
+  text-align: center;
+  font-size: 15px;
+  padding: 7px;
+  width: 120px;
+  transition: all 0.5s;
+  cursor: pointer;
+  margin: 5px;
+  opacity: 0.8;
+}
+
+.dropdown-btn span {
+  cursor: pointer;
+  display: inline-block;
+  position: relative;
+  transition: 0.5s;
+}
+
+.dropdown-btn span:after {
+  content: '\00bb';
+  position: absolute;
+  opacity: 0;
+  top: 0;
+  right: -20px;
+  transition: 0.5s;
+}
+
+.dropdown-btn:hover span {
+  padding-right: 25px;
+}
+
+.dropdown-btn:hover span:after {
+  opacity: 1.5;
+  right: 0;
+}
+
+.dropdown-btn:after{
+	background-color:#006400;
+}
+
+.cb{
+  border-radius: 4px;
+  background-color: #3cb371;
+  border: none;
+  color: #FFFFFF;
+  text-align: center;
+  font-size: 15px;
+  padding: 7px;
+  width: 120px;
+  transition: all 0.5s;
+  cursor: pointer;
+  margin: 5px;
+  opacity: 0.8;
+}
+
+
+.cb:hover{
+  opacity: 1;
+  right: 0;
+  background-color: #000080;
+}

@@ -5,6 +5,7 @@
   <title>ZSYJ</title>  
   <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
   <link rel="stylesheet" type = 'text/css' href="/css/map.css">
+  <link rel="stylesheet" type = 'text/css' href="/css/button.css">  
   <script src="/javascript/jquery-3.3.1.min.js"></script>
   <script src="/javascript/raphael-min.js"></script>
   <script src="/javascript/us-map-svg.js"></script>
@@ -14,18 +15,28 @@
 <div class="w3-sidebar w3-light-grey w3-bar-block" style="width:20%">
 <p style="margin-left:1.0em">Welcome: <span th:utext=" ${session.username}"/></p>
   <input class ='cb' type="button" onclick="location.href='home';" value="Home" /> 
-  <input class ='cb' type="button" onclick="location.href='loginpage';" value="Login" />  
+  <input class ='cb' type="button" onclick="location.href='loginpage';" value="Login" /> 
   <input class ='cb' type="button" onclick="location.href='aboutus';" value="About" /> 
   <input class ='cb' type="button" onclick="location.href='credit';" value="Credit" />  
 
-     <button class="dropdown-btn">Select States </button>
+
+       <p class="dropdown-btn">Years </p>
+          <div class="dropdown-container">
+            <ul class="w3-ul">
+                <li><input type="radio" id="idaho" name="year" value="2008"  checked="checked" > 2008</li>
+                <li><input type="radio" id="colorado" name="year" value="2010" > 2010</li>
+                <li><input type="radio" id="kansas" name="year" value="2012" > 2012</li>
+            </ul>
+     	  </div>
+     	  
+     <button class="dropdown-btn"><span>Select States </span></button>
           <div class="dropdown-container">
             <ul class="w3-ul">
               <form action="CD"  method="post">
                 <li><input type="radio" id="idaho" name="name" value="idaho"   onClick="setState('id')"> Idaho</li>
                 <li><input type="radio" id="colorado" name="name" value="colorado"  onClick="setState('co')"> Colorado</li>
-                <li><input type="radio" id="kansas" name="name" value="kansas"  onClick="setState('ks')"> Kansas</li>
-                <button type="submit"> Apply </button>
+                <li><input type="radio" id="kansas" name="name" value="kansas"  checked="checked" onClick="setState('ks')"> Kansas</li>
+                <button class = "reset" type="submit"> <span>Apply</span> </button>
               </form>
             </ul>
       </div>

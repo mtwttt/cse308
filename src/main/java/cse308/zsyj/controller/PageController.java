@@ -200,6 +200,18 @@ public class PageController {
 		return "got it";
 	}
 	
+	@RequestMapping(value="resetMap", method=RequestMethod.POST)
+	public @ResponseBody String reset(@RequestParam("name") String name) {
+		StateManager.state = stateService.getState(name, 2008);
+		return "got it";
+	}
+	
+	@RequestMapping(value="moveP", method=RequestMethod.POST)
+	public @ResponseBody int moveP(@RequestParam("moveP") int moveP) {
+		Algorithm temp = new Algorithm();
+		int movedCD = temp.manualMove(StateManager.state, moveP);
+		return movedCD;
+	}
 	
 	@RequestMapping(value="redraw", method=RequestMethod.POST)
 	public @ResponseBody
@@ -245,30 +257,6 @@ public class PageController {
 
 	    return state.getBorderDict();
 	}
-	/*
-	 * 
-	 * 	
-	@RequestMapping(value="redraw", method=RequestMethod.POST)
-	public ResponseEntity<?> startAlgo( @RequestBody Algorithm weight, String name,String selectpid,Model model) {
-			System.out.println(selectpid);
-			System.out.println("11111111111111111111");
-			List<Integer> pids = new ArrayList<Integer>();
-			if(!selectpid.equals("")) {
-				String strarray[] = selectpid.split(",");
-				int intarray[] = new int[strarray.length];
-				for (int i = 0; i < intarray.length ; i++) {
-				    pids.add(Integer.parseInt(strarray[i]));
-				}
-			}
-			State state = stateService.getState(name, weight.getYear()); 
-			state.setSeletedPids(pids);
-			System.out.println("xxxxxxxxxxxxxxxxxxxxxxxxx");
-			state = weight.startAlgorithm(state);
-			model.addAttribute("state",state);
-			model.addAttribute("pids",state.getBorderDict());
-			return ResponseEntity.ok(state);
-	}
-	*/
 	@GetMapping("credit")
 	public String index(HttpSession httpSession) {
 		return "demo/credit.html";

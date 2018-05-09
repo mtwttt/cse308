@@ -27,12 +27,6 @@ $.when(counties).done(function() {
             			onEachFeature: onEachFeature}).addTo(map);
 });
   
-
-
-
-
-
-
 var population = document.getElementById("population");
 var racial = document.getElementById("racial");
 var partisan = document.getElementById("partisan");
@@ -41,8 +35,6 @@ var output = document.getElementById("popu");
 var output1 = document.getElementById("raci");
 var output2 = document.getElementById("part");
 var output3 = document.getElementById("comp");
-
-
 
 output.innerHTML = population.value;
 population.oninput = function() {
@@ -112,17 +104,14 @@ function onEachFeature(feature, layer) {
     layer.on('mouseout', function (e) {
         this.closePopup();
     });
-    var selectpid = document.getElementById("selectpid");
     layer.on('click', function (e){
     		console.log(selected);
     		if(selected.indexOf(layer.feature.pid)!=-1){
     			 selected.splice( selected.indexOf(layer.feature.pid), 1 );
     			 layer.setStyle(unhighlight);
-    			 selectpid.value = selected;
     		}else{
         		selected.push(layer.feature.pid);
         	    layer.setStyle(highlight);
-        	    selectpid.value = selected;
     		}
     });
 	
@@ -163,9 +152,6 @@ function start(){
         		if(flag){
             		updateMap(response,state.value);
             		start();
-        		}else{
-        			updateMap(response,state.value);
-        			flag = true;
         		}
         },error: function (request, status, error) {
         		console.log("12345");
@@ -174,6 +160,7 @@ function start(){
 }
 
 function updateMap(pids,name){
+	console.log("123");
 	styleMap.eachLayer( function (layer){
 		if(layer.feature.pid in pids){
 			if(pids[layer.feature.pid] == 1){
@@ -210,10 +197,92 @@ function stop(){
     });	
 }
 
-function continute(){
+function restore(){
 	flag = true;
+	start();
 }
 
 function reset(){
+	state = document.getElementById("state");
 	flag = true;
+	$.ajax({
+        type: "post",
+        url: "http://localhost:8080/demo/resetMap",
+        data: { name: state.value},
+        success: function (response) {
+        		console.log("got it");
+        },error: function (request, status, error) {
+        		console.log("12345");
+        }
+    });	
+}
+
+
+function findLocation(){
+	var selectpid = parseInt(document.getElementById("precinctid").value);
+	var lat = 0;
+	var lon = 0;
+	var zoom = 10;
+	var area = 0;
+	styleMap.eachLayer( function (layer){
+		if(layer.feature.pid == selectpid){
+			lat = layer.feature.properties.INTPTLAT10;
+			lon = layer.feature.properties.INTPTLON10;
+			area = layer.feature.properties.ALAND10 + layer.feature.properties.AWATER10;
+			layer.openPopup();
+		}
+	});
+	if(area < 700000){
+		zoom = 12;
+	}else if (area < 1000000){
+		zoom = 11;
+	}
+	console.log(lat);
+	console.log(lon);
+	console.log(selectpid);
+	console.log(zoom);
+	map.setView(new L.LatLng(lat,lon), zoom);
+
+}
+
+function movePrecinct(){
+	var moveP = parseInt(document.getElementById("moveP").value);
+	$.ajax({
+        type: "post",
+        url: "http://localhost:8080/demo/moveP",
+        data: { moveP: moveP},
+        success: function (response) {
+        		updatePrecinct(response,moveP);
+        },error: function (request, status, error) {
+        		console.log("12345");
+        }
+    });
+}
+
+
+function updatePrecinct(CD,precinct){
+	console.log("123");
+	if(precinct != -1){
+	styleMap.eachLayer( function (layer){
+		if(layer.feature.pid == precinct){
+			if(CD == 1){
+				layer.setStyle({ fillColor: 'red', color: 'grey', weight: 1, opacity: 0.75});
+			}else if (CD == 2 ){
+				layer.setStyle({fillColor: '#9F06F2', color: 'grey', weight: 1,opacity: 0.7});
+			}else if (CD == 3){
+				layer.setStyle({fillColor: '#04F9FD', color: 'grey', weight: 1, opacity: 0.7});
+			}else if (CD == 4){
+				layer.setStyle({ fillColor: 'yellow', color: 'grey', weight: 1, opacity: 0.7});
+			}else if (CD == 5){
+				layer.setStyle({ fillColor: 'green', color: 'grey', weight: 1, opacity: 0.7});
+			}else if (CD == 6){
+				layer.setStyle({ fillColor: 'blue', color: 'grey', weight: 1, opacity: 0.7});
+			}else if (CD == 7){
+				layer.setStyle({ fillColor: '#FB03D0', color: 'grey', weight: 1, opacity: 0.7});
+			}else{
+				layer.setStyle({fillColor: 'grey', color: 'grey', weight: 1, opacity: 0.7, 	fillOpacity: 0.7});
+				}
+			}
+		});
+	}
 }
