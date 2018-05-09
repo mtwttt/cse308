@@ -11355,3 +11355,7 @@ Getting border precinct from congressional district 1
 =======
 >>>>>>> ad42939bb5289ca9490a0390f2be4e70fe87e906
 >>>>>>> 19da1bf6b24537c5300b9072df71bf52a75f09f2
+Getting border precinct from congressional district 1
+Getting border precinct from congressional district 1
+Getting border precinct from congressional district 1
+Getting border precinct from congressional district 1
