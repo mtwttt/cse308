@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <title>ZSYJ</title>  
+  <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+  <link rel="stylesheet" type = 'text/css' href="/css/map.css">
+  <link rel="stylesheet" type = 'text/css' href="/css/loader.css">
+  <link rel="stylesheet" type = 'text/css' href="/css/button.css">   
+    <link rel="stylesheet" type = 'text/css' href="/css/compareState.css">   
+    	<script src="/javascript/interaction.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <script src="https://unpkg.com/leaflet@1.0.3/dist/leaflet.js"></script>
+  <script src="/javascript/jquery-3.3.1.min.js"></script>
+    <meta name="viewport" content="initial-scale=1,maximum-scale=1,user-scalable=no" />
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.0.3/dist/leaflet.css" />
+    <style>
+        #map {
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            width: 100%;
+            height:100%;
+        }
+    </style>
+  
+</head>
+<body>
+
+<div id ="container">
+     	<input type="text" id = "state" name = "state" th:value ="${name}" hidden>
+
+
+
+<div id="origMap">
+	<script src="/javascript/compareState.js"></script>
+	<div id="map"></div>
+</div>
+<div id="currMap">
+	<div id="map2"></div>
+</div>
+	
+<div id="origStat"></div>
+<div id="currStat"></div>
+
+</div>
+</body>
+</html>

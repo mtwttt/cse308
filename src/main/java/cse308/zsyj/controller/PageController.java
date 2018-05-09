@@ -393,4 +393,14 @@ public class PageController {
 		model.addAttribute("pids",state.getBorderPrecinctIDs());
 		return "demo/generateBorder.html";	
 	}
+	
+	@RequestMapping(value = "compareState", method=RequestMethod.POST)
+	public String compareState(String state,Model model) {
+		System.out.println(state);
+		model.addAttribute("name",state);
+		return "demo/compareState.html";	
+	}
 }
+
+
+
