@@ -177,33 +177,45 @@ function start(){
 	    ret = ret +selected[i]+",";
 	}
 	console.log(ret);
-	$.ajax({
-        type: "post",
-        url: "http://localhost:8080/demo/redraw",
-        data: { populationW: population.value,
-			racialW: racial.value,
-			partisanW: partisan.value,
-			compactnessW : compactness.value,
-			year: 2008,
-			name: state.value,
-			selectpid: ret,
-			contiguity: contiguity.checked,
-			representative: representative.checked},
-        success: function (response) {
-        		if(flag && isEmpty(response) == false){
-        			repeat += 1;
-            		updateMap(response,state.value);
-            		start();
-        		}else{
-            		updateMap(response,state.value);
-            		alert("terminate");
-            		repeat = 0;
-            		flag = true;
-        		}
-        },error: function (request, status, error) {
-        		console.log("12345");
-        }
-    });		
+	if(flag){
+		document.getElementById("pause").style.display = "inline";
+		document.getElementById("start").style.display = "none";
+		document.getElementById("reset").style.display = "none";
+		document.getElementById("continue").style.display = "none";
+		$.ajax({
+	        type: "post",
+	        url: "http://localhost:8080/demo/redraw",
+	        data: { populationW: population.value,
+				racialW: racial.value,
+				partisanW: partisan.value,
+				compactnessW : compactness.value,
+				year: 2008,
+				name: state.value,
+				selectpid: ret,
+				contiguity: contiguity.checked,
+				representative: representative.checked},
+	        success: function (response) {
+
+	        		if( isEmpty(response) == false){
+	        			repeat += 1;
+	            		updateMap(response,state.value);
+	            		start();
+	        		}else{
+		    	        	document.getElementById("continue").style.display = "none";
+		    	        	document.getElementById("reset").style.display = "inline";
+		    	        	document.getElementById("pause").style.display = "none";
+		    	        	document.getElementById("start").style.display = "none";
+	            		updateMap(response,state.value);
+	            		alert("terminate");
+	            		repeat = 0;
+	        		}
+	        },error: function (request, status, error) {
+	        		console.log("12345");
+	        }
+	    		});		
+	}else{
+		flag = true;
+	}
 }
 
 function updateMap(pids,name){
@@ -231,12 +243,17 @@ function updateMap(pids,name){
 	});
 }
 function stop(){
+
 	flag = false;
 	$.ajax({
         type: "post",
         url: "http://localhost:8080/demo/stop",
         data: { stop: false},
         success: function (response) {
+	        	document.getElementById("continue").style.display = "inline";
+	        	document.getElementById("reset").style.display = "inline";
+	        	document.getElementById("pause").style.display = "none";
+	        	document.getElementById("start").style.display = "none";
         		console.log("got it");
         },error: function (request, status, error) {
         		console.log("12345");
@@ -245,27 +262,35 @@ function stop(){
 }
 
 function restore(){
+	flag = true;
 	$.ajax({
         type: "post",
         url: "http://localhost:8080/demo/stop",
         data: { stop: true},
         success: function (response) {
+	        	document.getElementById("continue").style.display = "none";
+	        	document.getElementById("reset").style.display = "none";
+	        	document.getElementById("pause").style.display = "inline";
+	        	document.getElementById("start").style.display = "none";
+        		start();
         		console.log("got it");
         },error: function (request, status, error) {
         		console.log("12345");
         }
     });	
-	start();
 }
 
 function reset(){
 	state = document.getElementById("state");
-	stop();
 	$.ajax({
         type: "post",
         url: "http://localhost:8080/demo/resetMap",
         data: { name: state.value},
         success: function (response) {
+	        	document.getElementById("continue").style.display = "none";
+	        	document.getElementById("reset").style.display = "none";
+	        	document.getElementById("pause").style.display = "none";
+	        	document.getElementById("start").style.display = "inline";
         		console.log("got it");
         },error: function (request, status, error) {
         		console.log("12345");

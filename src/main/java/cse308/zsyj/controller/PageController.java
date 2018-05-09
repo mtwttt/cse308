@@ -259,6 +259,7 @@ public class PageController {
 		Algorithm.improvedTimes = 0;
 		Algorithm.failedTimes = 0;
 		Algorithm.stop =0;
+		Algorithm.running = true;
 		int id = 1;
 		if(name.equals("colorado"))
 			id = 3;
