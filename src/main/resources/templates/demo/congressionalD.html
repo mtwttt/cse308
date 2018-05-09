@@ -50,8 +50,15 @@
                 <li><input type="radio" id="kansas" name="year" value="2012" > 2012</li>
             </ul>
      	  </div>
+     	<p class="dropdown-btn">Find a Precinct</p>
+          <div class="dropdown-container">
+            <ul class="w3-ul">
+            		<li><label >Precinct ID:</label></li>
+                <li><input type="text" id="precinctid"></li>
+                <li><input type="button" onclick="findLocation()" value="Find"> </li>
+            </ul>
+     	 </div>
      	  <br>
-		  <input type="text" name ="selectpid" id = "selectpid" value =""  hidden>
      	  <input type="text" id = "state" th:value ="${state.name}" hidden>
      <button class= "reset" onclick="stop()">Pause</button>
      <br>
