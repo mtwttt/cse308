@@ -360,13 +360,13 @@ public class Algorithm {
 		}
 		return null;
 	}
-	public State manualMove(State state,int pid) {
+	public int manualMove(State state,int pid) {
 		for(CongressionalDistrict c: state.getCongressionalDistrict()) {
 			for(Precinct p :c.getPrecincts()) {
 				if(p.getID() == pid) {
 					List<Precinct> neighbor = getNeighborInOtherCD(p,state.getCongressionalDistrict());
 					if(neighbor.size() ==0) {
-						return state;
+						return -1;
 					}
 					else {
 						int neighborCD = neighbor.get(0).getcdNumber();
@@ -381,12 +381,14 @@ public class Algorithm {
 						updateCD(targetC,c,p);
 						updateSourceCDBorder(p,c);
 						updateTargetCDBorder(neighbor,state);
-						return state;
+						StateManager.state = state;
+						p.setIsUsed(1);
+						return neighborCD;
 						
 					}
 				}
 			}
 		}
-		return state;
+		return -1;
 	}
 }
