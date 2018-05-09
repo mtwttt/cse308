@@ -183,6 +183,7 @@ public class Algorithm {
 			
 			e.printStackTrace();
 		}
+		stop = 1;
 		return state;
 	}
 	
