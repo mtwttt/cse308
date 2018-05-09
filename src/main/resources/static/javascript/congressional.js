@@ -196,6 +196,7 @@ function start(){
             		start();
         		}else{
             		updateMap(response,state.value);
+            		alert("terminate");
             		repeat = 0;
             		flag = true;
         		}
@@ -210,21 +211,21 @@ function updateMap(pids,name){
 	styleMap.eachLayer( function (layer){
 		if(layer.feature.pid in pids){
 			if(pids[layer.feature.pid] == 1){
-				layer.setStyle({ fillColor: 'red', color: 'grey', weight: 1, opacity: 0.75});
+				layer.setStyle({ fillColor: 'red', color: 'black', weight: 1, opacity: 0.75});
 			}else if (pids[layer.feature.pid] == 2 ){
-				layer.setStyle({fillColor: '#9F06F2', color: 'grey', weight: 1,opacity: 0.7});
+				layer.setStyle({fillColor: '#9F06F2', color: 'black', weight: 1,opacity: 0.7});
 			}else if (pids[layer.feature.pid] == 3){
-				layer.setStyle({fillColor: '#04F9FD', color: 'grey', weight: 1, opacity: 0.7});
+				layer.setStyle({fillColor: '#04F9FD', color: 'black', weight: 1, opacity: 0.7});
 			}else if (pids[layer.feature.pid] == 4){
-				layer.setStyle({ fillColor: 'yellow', color: 'grey', weight: 1, opacity: 0.7});
+				layer.setStyle({ fillColor: 'yellow', color: 'black', weight: 1, opacity: 0.7});
 			}else if (pids[layer.feature.pid] == 5){
-				layer.setStyle({ fillColor: 'green', color: 'grey', weight: 1, opacity: 0.7});
+				layer.setStyle({ fillColor: 'green', color: 'black', weight: 1, opacity: 0.7});
 			}else if (pids[layer.feature.pid] == 6){
-				layer.setStyle({ fillColor: 'blue', color: 'grey', weight: 1, opacity: 0.7});
+				layer.setStyle({ fillColor: 'blue', color: 'black', weight: 1, opacity: 0.7});
 			}else if (pids[layer.feature.pid] == 7){
-				layer.setStyle({ fillColor: '#FB03D0', color: 'grey', weight: 1, opacity: 0.7});
+				layer.setStyle({ fillColor: '#FB03D0', color: 'black', weight: 1, opacity: 0.7});
 			}else{
-				layer.setStyle({fillColor: 'grey', color: 'grey', weight: 1, opacity: 0.7, 	fillOpacity: 0.7});
+				layer.setStyle({fillColor: 'grey', color: 'black', weight: 1, opacity: 0.7, 	fillOpacity: 0.7});
 			}
 		}
 	});
@@ -259,7 +260,7 @@ function restore(){
 
 function reset(){
 	state = document.getElementById("state");
-	flag = true;
+	stop();
 	$.ajax({
         type: "post",
         url: "http://localhost:8080/demo/resetMap",
@@ -362,3 +363,4 @@ function updatePrecinct(CD,precinct){
 		});
 	}
 }
+
