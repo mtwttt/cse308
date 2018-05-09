@@ -169,8 +169,8 @@ public class Algorithm {
 				else {
 					failedTimes++;
 				}
-				if (improvedTimes>=1 || failedTimes>=18) {
-					if(failedTimes>=18) {
+				if (improvedTimes>=1 || failedTimes>=19) {
+					if(failedTimes>=19) {
 						stop = 1;
 					}
 					return state;
