@@ -221,15 +221,22 @@ public class CongressionalDistrict {
 	public void updateCDInfo() {
 		int totalP =0;
 		int totalV =0;
+		int totalRepu =0;
+		int totalDemo =0;
 		double totalR =0;
 		for (int i=0;i<precincts.size();i++) {
 			totalP += precincts.get(i).getPopulation();
 			totalV += precincts.get(i).getTotalVote();
 			totalR += precincts.get(i).getRaceAvg();
+			totalRepu+= precincts.get(i).getrVote();
+			totalDemo+= precincts.get(i).getdVote();
 		}
 		totalPopulation = totalP;
 		totalVote = totalV;
 		totalRacial = totalR;
+		republicanVote = totalRepu;
+		democratVote = totalDemo;
+		
 	}
 	
 	public void setState(State state) {
