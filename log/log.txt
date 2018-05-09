@@ -11934,6 +11934,7 @@ Score did not improved, moving precinct back
 Moving Precinct to neighbor with original score:305.0713493251476
 The NewScore After moving= 304.61870225543845
 Score did not improved, moving precinct back
+<<<<<<< HEAD
 Passed Constrain
 Moving Precinct 292 From Congressional District 1
 Moving Precinct to neighbor with original score:305.0713493251476
@@ -14274,6 +14275,8 @@ Moving Precinct to neighbor with original score:304.4552532551955
 The NewScore After moving= 304.5279764302974
 Contiguity Constraint check passed.
 Score improved, moving precinct to Congressional District4
+=======
+>>>>>>> 367245db68c529818eddb6ecd21ac4aa06851309
 Getting border precinct from congressional district 1
 Passed Constrain
 Moving Precinct 81 From Congressional District 1
@@ -14312,6 +14315,7 @@ Score did not improved, moving precinct back
 Moving Precinct to neighbor with original score:304.73632699874463
 The NewScore After moving= 303.6490893547183
 Score did not improved, moving precinct back
+<<<<<<< HEAD
 Passed Constrain
 Moving Precinct 90 From Congressional District 1
 Moving Precinct to neighbor with original score:304.73632699874463
@@ -14384,6 +14388,8 @@ The NewScore After moving= 295.9201439277656
 Contiguity Constraint check passed.
 Score improved, moving precinct to Congressional District2
 Getting border precinct from congressional district 1
+=======
+>>>>>>> 367245db68c529818eddb6ecd21ac4aa06851309
 Getting border precinct from congressional district 1
 Passed Constrain
 Moving Precinct 81 From Congressional District 1
@@ -14422,6 +14428,7 @@ Score did not improved, moving precinct back
 Moving Precinct to neighbor with original score:304.73632699874463
 The NewScore After moving= 303.6490893547183
 Score did not improved, moving precinct back
+<<<<<<< HEAD
 Passed Constrain
 Moving Precinct 90 From Congressional District 1
 Moving Precinct to neighbor with original score:304.73632699874463
@@ -14520,3 +14527,5 @@ Moving Precinct to neighbor with original score:304.4552532551955
 The NewScore After moving= 304.5279764302974
 Contiguity Constraint check passed.
 Score improved, moving precinct to Congressional District4
+=======
+>>>>>>> 367245db68c529818eddb6ecd21ac4aa06851309

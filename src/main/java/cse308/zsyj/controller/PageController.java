@@ -485,14 +485,41 @@ public class PageController {
 		Cloner clone = new Cloner();
 		
 		State original = stateService.getState(state, 2008);
+		
 		original = original.clearCoor(original);
 		original.setCDsize();
+		System.out.println(original.getCongressionalDistrict().size());
 		State current = clone.deepClone(StateManager.state);
+		//get pids
+		model.addAttribute("pids",current.getBorderDict());
+		String oString = "";
+		for(CongressionalDistrict c: original.getCongressionalDistrict()) {
+			oString += "CD ID: "+ c.getId()+"<br>"
+					  +"Year: "+c.getYear()+"<br>"
+					  +"totalVote: "+c.getTotalVote()+"<br>"
+					  + "Party: " +c.getParty()+"<br>"
+					  +"Republican Vote: "+c.getRepublicanVote()+"<br>"
+					  +"Democratic Vote: "+c.getDemocratVote()+"<br>"
+					  +"Total Population: "+c.getTotalPopulation()+"<br>";
+		}
 		current = current.clearCoor(current);
 		current.setCDsize();
+		String cString = "";
+		for(CongressionalDistrict c: current.getCongressionalDistrict()) {
+			  cString += "CD ID: "+ c.getId()+"<br>"
+					  +"Year: "+c.getYear()+"<br>"
+					  +"totalVote: "+c.getTotalVote()+"<br>"
+					  + "Party: " +c.getParty()+"<br>"
+					  +"Republican Vote: "+c.getRepublicanVote()+"<br>"
+					  +"Democratic Vote: "+c.getDemocratVote()+"<br>"
+					  +"Total Population: "+c.getTotalPopulation()+"<br>";
+		}
+		System.out.println(current.getCongressionalDistrict().size());
 		model.addAttribute("name",state);
 		model.addAttribute("original",original);
 		model.addAttribute("current",current);
+		model.addAttribute("oString",oString);
+		model.addAttribute("cString",cString);
 		return "demo/compareState.html";	
 	}
 }
