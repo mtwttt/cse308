@@ -11252,3 +11252,5 @@ Moving Precinct 290 From Congressional District 1
 Moving Precinct to neighbor with original score:304.73632699874463
 The NewScore After moving= 305.0713493251476
 Score improved, moving precinct to Congressional District4
+Getting border precinct from congressional district 1
+Getting border precinct from congressional district 1

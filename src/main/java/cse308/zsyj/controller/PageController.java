@@ -226,7 +226,14 @@ public class PageController {
 
 		Algorithm weight = new Algorithm();
 		System.out.println(contiguity);
-		
+		if (contiguity)
+			Algorithm.contigConstraint = 1;
+		else
+			Algorithm.contigConstraint = 0;
+		if (representative)
+			Algorithm.repConstraint = 1;
+		else
+			Algorithm.repConstraint = 0;
 		weight.setcompactnessW(compactnessW);
 		weight.setpartisanW(partisanW);
 		weight.setPopulationW(populationW);
