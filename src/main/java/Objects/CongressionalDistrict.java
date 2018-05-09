@@ -150,6 +150,18 @@ public class CongressionalDistrict {
 		return borders;
 	}
 	
+	public String toString(){
+		String win;
+		if (this.whichParty.equals("r")) {
+			win = "Republican";
+		}
+		else {
+			win = "Democrat";
+		}
+		return "CD Number: "+this.cdid+"</br>"+"CD "+win+" Party Wins</br>"+"CD Population: "+this.totalPopulation+"</br>"+"CD rVote for President 2008: "+this.republicanVote+"</br>"
+				+ "CD dVote for President 2008: "+this.democratVote +"</br>"+"Eco Salary Median: "+this.ecoMedian+"</br>Eco Salary Mean: "+this.ecoMean;
+	}
+	
 	public double getPopulationScore() {
 		double avgPopulation = state.getTotalPopulation() /state.getCongressionalDistrict().size();
 		double populationScore = (1 - (Math.abs(avgPopulation - totalPopulation)/avgPopulation));
