@@ -106,16 +106,15 @@ public class State {
 	
 	
 	public void generateBorder(List<List<List<Double>>> cdBorder) {
-		System.out.println(name);
+		//System.out.println(name);
 		double diff = 0.000001;
 		if(name.equals("Colorado")||name.equals("Idaho")) {
 			diff = 0.0001;
-			System.out.println("ASd");
 		}			
 		for(int i=0;i<congressionalDistrict.size();i++) {
 			List<Precinct> precincts = congressionalDistrict.get(i).getPrecincts();
 			for(int j=0;j<precincts.size();j++) {
-				if(precincts.get(j).getCoordinate().size()!=0) {
+				if(precincts.get(j).getCoordinate()!=null&&precincts.get(j).getCoordinate().size()!=0) {
 				List<List<Double>> coordinate = precincts.get(j).getCoordinate().get(0);
 					for(int k = 0;k<coordinate.size();k++) {
 						double pX = coordinate.get(k).get(0);
@@ -124,7 +123,6 @@ public class State {
 							double bX = cdBorder.get(0).get(x).get(0);
 							double bY = cdBorder.get(0).get(x).get(1);
 							if((Math.abs(bX - pX) <= diff) && (Math.abs(bY - pY) <= diff)) {
-								System.out.println("hi");
 								precincts.get(j).setBorder(1);
 								break;
 							}
