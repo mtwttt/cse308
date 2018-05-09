@@ -18,6 +18,8 @@ public class State {
 	@Transient
 	private List<CongressionalDistrict> congressionalDistrict = new ArrayList<CongressionalDistrict>();
 	private int overallStateVote;
+	@Transient
+	private int CDsize;
 	private int year;
 	@Id
 	private int sid;
@@ -27,6 +29,17 @@ public class State {
 	public List<Integer> selectedPids;
 	public State() {	}
 	
+
+	public int getCDsize() {
+		return CDsize;
+	}
+
+
+	public void setCDsize() {
+		CDsize = congressionalDistrict.size();
+	}
+
+
 	public String getName() {
 		return name;
 	}
@@ -195,6 +208,13 @@ public class State {
 				}
 			}
 		}
+	}
+	
+	public State clearCoor(State state) {
+		for(CongressionalDistrict c: state.getCongressionalDistrict()) {
+			c.setPrecincts(null);
+		}
+		return state;
 	}
 	
 }

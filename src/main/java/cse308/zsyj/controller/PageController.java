@@ -43,6 +43,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import com.google.gson.Gson;
 import com.google.gson.JsonIOException;
 import com.google.gson.JsonSyntaxException;
+import com.rits.cloning.Cloner;
 
 @Controller
 @Scope("session")
@@ -404,8 +405,17 @@ public class PageController {
 	
 	@RequestMapping(value = "compareState", method=RequestMethod.POST)
 	public String compareState(String state,Model model) {
-		System.out.println(state);
+		Cloner clone = new Cloner();
+		
+		State original = stateService.getState(state, 2008);
+		original = original.clearCoor(original);
+		original.setCDsize();
+		State current = clone.deepClone(StateManager.state);
+		current = current.clearCoor(current);
+		current.setCDsize();
 		model.addAttribute("name",state);
+		model.addAttribute("original",original);
+		model.addAttribute("current",current);
 		return "demo/compareState.html";	
 	}
 }

@@ -26,34 +26,27 @@ $.when(counties).done(function() {
             }).addTo(map);
      styleMap = L.geoJSON(counties.responseJSON,{style: style,
             			onEachFeature: onEachFeature}).addTo(map);
+     
+     
+     
+     
+     var map2 = L.map('map2')
+     .setView([39.113014, -95.358887], 5);
+	var basemap2 =L.tileLayer('https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png'
+	 				+'?access_token={accessToken}', {
+	     attribution: 'Map data &copy; <a href="http://openstreetmap.org">'
+	     		+'OpenStreetMap</a> contributors, '
+	     		+'<a href="http://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, '
+	     		+'Imagery © <a href="http://mapbox.com">Mapbox</a>',
+	     maxZoom: 18,
+	     id: 'jmauro.ld1o2np1',
+	     accessToken: 'pk.eyJ1Ijoiam1hdXJvIiwiYSI6ImVYb0lheE0ifQ.Js4ba2SyUxHPCIDl1Aq1cQ'
+	 }).addTo(map2);
+	var styleMap2 = L.geoJSON(counties.responseJSON,{style: style,
+	 			onEachFeature: onEachFeature}).addTo(map2);
 });
   
 
-
-var counties2 = $.ajax({
-    url: states,
-    dataType: "json",
-    success: console.log("County data successfully loaded."),
-    error: function(xhr) {
-        alert(xhr.statusText);
-    }
-})
-$.when(counties2).done(function() {
-var map2 = L.map('map2')
-        .setView([39.113014, -95.358887], 5);
-var basemap2 =L.tileLayer('https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png'
-    				+'?access_token={accessToken}', {
-        attribution: 'Map data &copy; <a href="http://openstreetmap.org">'
-        		+'OpenStreetMap</a> contributors, '
-        		+'<a href="http://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, '
-        		+'Imagery © <a href="http://mapbox.com">Mapbox</a>',
-        maxZoom: 18,
-        id: 'jmauro.ld1o2np1',
-        accessToken: 'pk.eyJ1Ijoiam1hdXJvIiwiYSI6ImVYb0lheE0ifQ.Js4ba2SyUxHPCIDl1Aq1cQ'
-    }).addTo(map);
-var styleMap2 = L.geoJSON(counties.responseJSON,{style: style,
-    			onEachFeature: onEachFeature}).addTo(map2);
-});
 
 function style(feature) {
 	switch (feature.properties.CONGRESSIO) {

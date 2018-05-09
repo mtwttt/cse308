@@ -8,7 +8,8 @@
   <link rel="stylesheet" type = 'text/css' href="/css/loader.css">
   <link rel="stylesheet" type = 'text/css' href="/css/button.css">   
     <link rel="stylesheet" type = 'text/css' href="/css/compareState.css">   
-    	<script src="/javascript/interaction.js"></script>
+        <link rel="stylesheet" type = 'text/css' href="/css/dropDown.css">   
+    
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
     <script src="https://unpkg.com/leaflet@1.0.3/dist/leaflet.js"></script>
   <script src="/javascript/jquery-3.3.1.min.js"></script>
@@ -37,11 +38,62 @@
 	<div id="map"></div>
 </div>
 <div id="currMap">
+
 	<div id="map2"></div>
 </div>
 	
-<div id="origStat"></div>
-<div id="currStat"></div>
+<div id="origStat">
+<p>Original State</p>
+<div class="dropdown">
+<button class="dropbtn">State Information</button>
+  <div  class="dropdown-content">
+  		<p >Name <span th:utext ="${original.name}" > </span> </p>
+  		<p >Number of CD:  <span th:utext ="${original.CDsize}" > </span></li>
+  		<p >RepublicanStat: <span th:utext ="${original.republicanStat}" > </span></p>
+  		<p >DemocraticStat: <span th:utext ="${original.democraticSta}" > </span></p>
+  		<p >Population: <span th:utext ="${original.totalPopulation}" > </span></p>
+  		<p >State Votes: <span th:utext ="${original.overallStateVote}" > </span></p>
+  		<p >TotalAvgRace: <span th:utext ="${original.totalAvgRace}" > </span></p>
+  </div>
+
+<button class="dropbtn"  style="background:#3cb371;">CD Information</button>
+  <div  class="dropdown-content">
+		<p>CD ID: </p>
+		
+  </div>
+</div>
+</div>
+<div id="currStat">
+<p>Improved State</p>
+<div class="dropdown">
+<button class="dropbtn">State Information</button>
+  <div  class="dropdown-content">
+  		<p >Name <span th:utext ="${current.name}" > </span> </p>
+  		<p >Number of CD:  <span th:utext ="${current.CDsize}" > </span></li>
+  		<p >RepublicanStat: <span th:utext ="${current.republicanStat}" > </span></p>
+  		<p >DemocraticStat: <span th:utext ="${current.democraticSta}" > </span></p>
+  		<p >Population: <span th:utext ="${current.totalPopulation}" > </span></p>
+  		<p >State Votes: <span th:utext ="${current.overallStateVote}" > </span></p>
+  		<p >TotalAvgRace: <span th:utext ="${current.totalAvgRace}" > </span></p>
+  </div>
+
+<button class="dropbtn"  style="background:#3cb371;">Dropdown</button>
+  <div  class="dropdown-content">
+    <a href="#home">Home</a>
+    <a href="#about">About</a>
+    <a href="#contact">Contact</a>
+  </div>
+</div>
+
+
+</div>
+<script th:inline="javascript">
+	var originalCD = [[${original.congressionalDistrict}]]
+    var currentCD = [[${current.congressionalDistrict}]];
+	console.log(originalCD);
+    console.log(current);
+</script>
+    	<script src="/javascript/dropDown.js"></script>
 
 </div>
 </body>
