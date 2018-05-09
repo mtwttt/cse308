@@ -17,6 +17,7 @@ public class Algorithm {
 	public static int failedTimes;
 	public static int repConstraint;
 	public static int contigConstraint;
+	public static int stop;
 	
 	
 	
@@ -167,7 +168,10 @@ public class Algorithm {
 				else {
 					failedTimes++;
 				}
-				if (improvedTimes>=1 || failedTimes>=50) {
+				if (improvedTimes>=1 || failedTimes>=10) {
+					if(failedTimes>=10) {
+						stop = 1;
+					}
 					return state;
 				}
 					
