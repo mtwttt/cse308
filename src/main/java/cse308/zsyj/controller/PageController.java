@@ -225,6 +225,8 @@ public class PageController {
 			@RequestParam("representative") boolean representative,Model model) {
 
 		Algorithm weight = new Algorithm();
+		System.out.println(contiguity);
+		
 		weight.setcompactnessW(compactnessW);
 		weight.setpartisanW(partisanW);
 		weight.setPopulationW(populationW);
