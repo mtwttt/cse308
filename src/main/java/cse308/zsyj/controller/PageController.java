@@ -154,6 +154,11 @@ public class PageController {
 		return "demo/changeExternal.html";
 	}
 	
+	@GetMapping("statistics")
+	public String statistics(Model model, HttpSession httpSession) {
+		return "demo/stat.html";
+	}
+	
 	@RequestMapping(value="CD", method=RequestMethod.POST)
 	public String congressionaldistricts(State state, Model model) {
 		StateManager.state = stateService.getState(state.getName(), 2008);
@@ -341,6 +346,7 @@ public class PageController {
 			}
 		return "demo/login.html";
 	}
+	
 	
 	@RequestMapping(value = "generateBorder", method=RequestMethod.POST)
 	public String generateBorder(State state, Model model) {
