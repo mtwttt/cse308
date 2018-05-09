@@ -210,9 +210,10 @@ public class PageController {
 	}
 	
 	@RequestMapping(value="moveP", method=RequestMethod.POST)
-	public @ResponseBody int moveP(int movePid) {
-		
-		return 0;
+	public @ResponseBody int moveP(@RequestParam("moveP") int moveP) {
+		Algorithm temp = new Algorithm();
+		int movedCD = temp.manualMove(StateManager.state, moveP);
+		return movedCD;
 	}
 	
 	@RequestMapping(value="redraw", method=RequestMethod.POST)

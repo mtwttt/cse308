@@ -104,9 +104,6 @@ function onEachFeature(feature, layer) {
     layer.on('mouseout', function (e) {
         this.closePopup();
     });
-    layer.on('dblclick', function (e) {
-        movePrecinct(layer.feature.pid);
-    });
     layer.on('click', function (e){
     		console.log(selected);
     		if(selected.indexOf(layer.feature.pid)!=-1){
@@ -248,15 +245,44 @@ function findLocation(){
 
 }
 
-function movePrecinct(moveP){
+function movePrecinct(){
+	var moveP = parseInt(document.getElementById("moveP").value);
 	$.ajax({
         type: "post",
-        url: "http://localhost:8080/demo/resetMap",
+        url: "http://localhost:8080/demo/moveP",
         data: { moveP: moveP},
         success: function (response) {
-        		console.log("got it");
+        		updatePrecinct(response,moveP);
         },error: function (request, status, error) {
         		console.log("12345");
         }
     });
+}
+
+
+function updatePrecinct(CD,precinct){
+	console.log("123");
+	if(precinct != -1){
+	styleMap.eachLayer( function (layer){
+		if(layer.feature.pid == precinct){
+			if(CD == 1){
+				layer.setStyle({ fillColor: 'red', color: 'grey', weight: 1, opacity: 0.75});
+			}else if (CD == 2 ){
+				layer.setStyle({fillColor: '#9F06F2', color: 'grey', weight: 1,opacity: 0.7});
+			}else if (CD == 3){
+				layer.setStyle({fillColor: '#04F9FD', color: 'grey', weight: 1, opacity: 0.7});
+			}else if (CD == 4){
+				layer.setStyle({ fillColor: 'yellow', color: 'grey', weight: 1, opacity: 0.7});
+			}else if (CD == 5){
+				layer.setStyle({ fillColor: 'green', color: 'grey', weight: 1, opacity: 0.7});
+			}else if (CD == 6){
+				layer.setStyle({ fillColor: 'blue', color: 'grey', weight: 1, opacity: 0.7});
+			}else if (CD == 7){
+				layer.setStyle({ fillColor: '#FB03D0', color: 'grey', weight: 1, opacity: 0.7});
+			}else{
+				layer.setStyle({fillColor: 'grey', color: 'grey', weight: 1, opacity: 0.7, 	fillOpacity: 0.7});
+				}
+			}
+		});
+	}
 }
