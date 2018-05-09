@@ -152,6 +152,9 @@ function start(){
         		if(flag){
             		updateMap(response,state.value);
             		start();
+        		}else{
+            		updateMap(response,state.value);
+            		flag = true;
         		}
         },error: function (request, status, error) {
         		console.log("12345");
@@ -198,13 +201,22 @@ function stop(){
 }
 
 function restore(){
-	flag = true;
+	$.ajax({
+        type: "post",
+        url: "http://localhost:8080/demo/stop",
+        data: { stop: true},
+        success: function (response) {
+        		console.log("got it");
+        },error: function (request, status, error) {
+        		console.log("12345");
+        }
+    });	
 	start();
 }
 
 function reset(){
 	state = document.getElementById("state");
-	flag = true;
+	stop();
 	$.ajax({
         type: "post",
         url: "http://localhost:8080/demo/resetMap",
@@ -215,6 +227,27 @@ function reset(){
         		console.log("12345");
         }
     });	
+	
+	styleMap.eachLayer( function (layer){
+			console.log(layer.feature.properties.CONGRESSIO);
+			if(layer.feature.properties.CONGRESSIO == 1){
+				layer.setStyle({ fillColor: 'red', color: 'grey', weight: 1, opacity: 0.75});
+			}else if (layer.feature.properties.CONGRESSIO == 2 ){
+				layer.setStyle({fillColor: '#9F06F2', color: 'grey', weight: 1,opacity: 0.7});
+			}else if (layer.feature.properties.CONGRESSIO == 3){
+				layer.setStyle({fillColor: '#04F9FD', color: 'grey', weight: 1, opacity: 0.7});
+			}else if (layer.feature.properties.CONGRESSIO == 4){
+				layer.setStyle({ fillColor: 'yellow', color: 'grey', weight: 1, opacity: 0.7});
+			}else if (layer.feature.properties.CONGRESSIO == 5){
+				layer.setStyle({ fillColor: 'green', color: 'grey', weight: 1, opacity: 0.7});
+			}else if (layer.feature.properties.CONGRESSIO == 6){
+				layer.setStyle({ fillColor: 'blue', color: 'grey', weight: 1, opacity: 0.7});
+			}else if (layer.feature.properties.CONGRESSIO == 7){
+				layer.setStyle({ fillColor: '#FB03D0', color: 'grey', weight: 1, opacity: 0.7});
+			}else{
+				layer.setStyle({fillColor: 'grey', color: 'grey', weight: 1, opacity: 0.7, 	fillOpacity: 0.7});
+			}
+	});
 }
 
 

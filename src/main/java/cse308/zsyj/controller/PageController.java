@@ -196,12 +196,14 @@ public class PageController {
 		Algorithm.running = stop;
 		if(Algorithm.running == false) {
 			System.out.println("1231241");
+		}else {
+			System.out.println("Yes");
 		}
 		return "got it";
 	}
 	
 	@RequestMapping(value="resetMap", method=RequestMethod.POST)
-	public @ResponseBody String reset(@RequestParam("name") String name) {
+	public @ResponseBody String resetMap(@RequestParam("name") String name) {
 		StateManager.state = stateService.getState(name, 2008);
 		return "got it";
 	}
@@ -250,6 +252,7 @@ public class PageController {
 		System.out.println("xxxxxxxxxxxxxxxxxxxxxxxxx");
 		state = weight.startAlgorithm(state);
 		if(Algorithm.stop == 1) {
+			System.out.println("herexxxxxxxxxxx");
 			return new Hashtable<Integer,Integer>();
 		}
 		System.out.println("xxxxxxxxxxxxxxxxxxxxxxxxx");
