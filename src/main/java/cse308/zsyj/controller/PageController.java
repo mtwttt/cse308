@@ -160,6 +160,10 @@ public class PageController {
 	
 	@GetMapping("statistics")
 	public String statistics(Model model, HttpSession httpSession) {
+		List<StateStat> s =  (List<StateStat>) statRepository.findAll();
+		httpSession.setAttribute("ksCount", s.get(0).getCount());
+		httpSession.setAttribute("idCount", s.get(1).getCount());
+		httpSession.setAttribute("coCount", s.get(2).getCount());
 		return "demo/stat.html";
 	}
 	
@@ -168,6 +172,7 @@ public class PageController {
 		StateManager.state = stateService.getState(state.getName(), 2008);
 		Algorithm.improvedTimes = 0;
 		Algorithm.failedTimes = 0;
+		Algorithm.stop =0;
 		int id = 1;
 		if(state.getName().equals("colorado"))
 			id = 3;
@@ -237,6 +242,9 @@ public class PageController {
 		System.out.println(Algorithm.failedTimes);
 		System.out.println("xxxxxxxxxxxxxxxxxxxxxxxxx");
 		state = weight.startAlgorithm(state);
+		if(Algorithm.stop == 1) {
+			return new Hashtable<Integer,Integer>();
+		}
 		System.out.println("xxxxxxxxxxxxxxxxxxxxxxxxx");
 		System.out.println(Algorithm.failedTimes);
 

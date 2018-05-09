@@ -18,4 +18,7 @@ public class StateStat {
 	public void setCount(int s) {
 		this.count = s;
 	}
+	public String toString() {
+		return sid+" "+count;
+	}
 }

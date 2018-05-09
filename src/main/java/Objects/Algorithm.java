@@ -17,6 +17,7 @@ public class Algorithm {
 	public static int failedTimes;
 	public static int repConstraint;
 	public static int contigConstraint;
+	public static int stop;
 	
 	
 	
@@ -72,26 +73,12 @@ public class Algorithm {
 		return goodness;
 	}
 	
-//	public boolean markTheP(Precinct p, CongressionalDistrict CD, int dep) {
-//		System.out.println("Processing "+p.getID());
-//		if (dep>=100)
-//			return false;
-//		for (Precinct pp: this.getNeighborInSameCD(p, CD)) {
-//			if (pp.isChecked==0) {
-//				pp.isChecked=1;
-//				return markTheP(pp, CD, dep+1);
-//			}
-//			else if (pp.isChecked==1) {
-//				return true;
-//			}
-//		}
-//		return false;
-//	}
+
 	public static int conFlag;
 	
 	public void checked(int curr, int target, List<Precinct> pN, CongressionalDistrict CD) {
-		System.out.println("curr = "+curr);
 		if (curr==target) {
+			System.out.println("got to "+pN.get(target).getID());
 			conFlag = 1;
 			return;
 		}
@@ -101,6 +88,8 @@ public class Algorithm {
 				if (pN.get(i).getID()==pi.getID() && pN.get(i).isChecked==0) {
 					pN.get(i).isChecked=1;
 					checked(i,target,pN,CD);
+					if (conFlag==1)
+						return;
 					pN.get(i).isChecked=0;
 				}
 			}
@@ -108,15 +97,19 @@ public class Algorithm {
 	}
 	
 	public boolean checkContigConstraint(Precinct p, CongressionalDistrict targetCD, State state) {
-		List<CongressionalDistrict> otherCD = new ArrayList<CongressionalDistrict>();
 		CongressionalDistrict thisCD = this.getTargetCD(state, p);
-		otherCD.add(targetCD);
 		List<Precinct> pN = this.getNeighborInSameCD(p, thisCD);
+		if (pN.size()==1) {
+			System.out.println("Fail");
+			return false;
+		}
+			
 		for (int i=1;i<pN.size();i++) {
 			conFlag = 0;
 			for (Precinct kk:pN)
 				kk.isChecked = 0;
 			pN.get(0).isChecked = 1;
+			System.out.println("From "+pN.get(0).getID());
 			checked(0,i,pN,thisCD);
 			if (conFlag==0) {
 				System.out.println("Fail");
@@ -176,7 +169,10 @@ public class Algorithm {
 				else {
 					failedTimes++;
 				}
-				if (improvedTimes>=4 || failedTimes>=50) {
+				if (improvedTimes>=1 || failedTimes>=10) {
+					if(failedTimes>=10) {
+						stop = 1;
+					}
 					return state;
 				}
 					
@@ -312,13 +308,16 @@ public class Algorithm {
 			int flag = 0;
 			for (List<Double> l1 : listOfPoints) {
 				for (List<Double> l2 : listOfNeighborP) {
-					if ((l1.get(0).doubleValue()==l2.get(0).doubleValue()) && (l1.get(1).doubleValue()==l2.get(1).doubleValue())) {
-						neighbor.add(pr);
-						flag = 1;
+					if ((l1.get(0).doubleValue()==l2.get(0).doubleValue()) && (l1.get(1).doubleValue()==l2.get(1).doubleValue())&& p.getID()!=pr.getID()) {
+						flag++;
+						if (flag>=2) {
+							neighbor.add(pr);
+							break;
+						}
 						break;
 					}
 				}
-				if(flag == 1)
+				if(flag == 2)
 					break;
 			}
 		}
@@ -336,12 +335,15 @@ public class Algorithm {
 					for (List<Double> l1 : listOfPoints) {
 						for (List<Double> l2 : listOfNeighborP) {
 							if ((l1.get(0).doubleValue()==l2.get(0).doubleValue()) && (l1.get(1).doubleValue()==l2.get(1).doubleValue())) {
-								neighbor.add(pr);
-								flag = 1;
+								flag++;
+								if (flag>=2) {
+									neighbor.add(pr);
+									break;
+								}
 								break;
 							}
 						}
-						if(flag == 1)
+						if(flag == 2)
 							break;
 					}
 				}
