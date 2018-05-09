@@ -4555,6 +4555,213 @@ Moving Precinct 1063 From Congressional District 1
 Moving Precinct to neighbor with original score:296.0863192320179
 The NewScore After moving= 296.2089611983091
 Score improved, moving precinct to Congressional District2
-=======
->>>>>>> 307bdd2ba853bc94a3255ccdc94965ae8db1b932
->>>>>>> c586c7e8d63dbe5884ef2be7655cb47148fb3746
+Getting border precinct from congressional district 1
+Moving Precinct 85 From Congressional District 1
+Moving Precinct to neighbor with original score:243.64719380982345
+The NewScore After moving= 243.93955967868322
+Score improved, moving precinct to Congressional District2
+Getting border precinct from congressional district 1
+Moving Precinct 17 From Congressional District 1
+Moving Precinct to neighbor with original score:243.93955967868322
+The NewScore After moving= 244.6519895164495
+Score improved, moving precinct to Congressional District2
+Getting border precinct from congressional district 1
+Moving Precinct 18 From Congressional District 1
+Moving Precinct to neighbor with original score:244.6519895164495
+The NewScore After moving= 245.3946271067033
+Score improved, moving precinct to Congressional District2
+Getting border precinct from congressional district 1
+Moving Precinct 21 From Congressional District 1
+Moving Precinct to neighbor with original score:245.3946271067033
+The NewScore After moving= 245.76829038826776
+Score improved, moving precinct to Congressional District2
+Getting border precinct from congressional district 1
+Moving Precinct 85 From Congressional District 1
+Moving Precinct to neighbor with original score:243.64719380982345
+The NewScore After moving= 243.93955967868322
+Score improved, moving precinct to Congressional District2
+Getting border precinct from congressional district 1
+Moving Precinct 17 From Congressional District 1
+Moving Precinct to neighbor with original score:243.93955967868322
+The NewScore After moving= 244.6519895164495
+Score improved, moving precinct to Congressional District2
+Getting border precinct from congressional district 1
+Moving Precinct 18 From Congressional District 1
+Moving Precinct to neighbor with original score:244.6519895164495
+The NewScore After moving= 245.3946271067033
+Score improved, moving precinct to Congressional District2
+Getting border precinct from congressional district 1
+Moving Precinct 85 From Congressional District 1
+Moving Precinct to neighbor with original score:243.64719380982345
+The NewScore After moving= 243.93955967868322
+Score improved, moving precinct to Congressional District2
+Getting border precinct from congressional district 1
+Moving Precinct 17 From Congressional District 1
+Moving Precinct to neighbor with original score:243.93955967868322
+The NewScore After moving= 244.6519895164495
+Score improved, moving precinct to Congressional District2
+Getting border precinct from congressional district 1
+Moving Precinct 85 From Congressional District 1
+Moving Precinct to neighbor with original score:243.64719380982345
+The NewScore After moving= 243.93955967868322
+Score improved, moving precinct to Congressional District2
+Getting border precinct from congressional district 1
+Moving Precinct 17 From Congressional District 1
+Moving Precinct to neighbor with original score:243.93955967868322
+The NewScore After moving= 244.6519895164495
+Score improved, moving precinct to Congressional District2
+Getting border precinct from congressional district 1
+Moving Precinct 18 From Congressional District 1
+Moving Precinct to neighbor with original score:244.6519895164495
+The NewScore After moving= 245.3946271067033
+Score improved, moving precinct to Congressional District2
+Getting border precinct from congressional district 1
+Moving Precinct 85 From Congressional District 1
+Moving Precinct to neighbor with original score:243.64719380982345
+The NewScore After moving= 243.93955967868322
+Score improved, moving precinct to Congressional District2
+Getting border precinct from congressional district 1
+Moving Precinct 17 From Congressional District 1
+Moving Precinct to neighbor with original score:243.93955967868322
+The NewScore After moving= 244.6519895164495
+Score improved, moving precinct to Congressional District2
+Getting border precinct from congressional district 1
+Moving Precinct 18 From Congressional District 1
+Moving Precinct to neighbor with original score:244.6519895164495
+The NewScore After moving= 245.3946271067033
+Score improved, moving precinct to Congressional District2
+Getting border precinct from congressional district 1
+Moving Precinct 85 From Congressional District 1
+Moving Precinct to neighbor with original score:243.64719380982345
+The NewScore After moving= 243.93955967868322
+Score improved, moving precinct to Congressional District2
+Getting border precinct from congressional district 1
+Moving Precinct 17 From Congressional District 1
+Moving Precinct to neighbor with original score:243.93955967868322
+The NewScore After moving= 244.6519895164495
+Score improved, moving precinct to Congressional District2
+Getting border precinct from congressional district 1
+Moving Precinct 18 From Congressional District 1
+Moving Precinct to neighbor with original score:244.6519895164495
+The NewScore After moving= 245.3946271067033
+Score improved, moving precinct to Congressional District2
+Getting border precinct from congressional district 1
+Moving Precinct 21 From Congressional District 1
+Moving Precinct to neighbor with original score:245.3946271067033
+The NewScore After moving= 245.76829038826776
+Score improved, moving precinct to Congressional District2
+Getting border precinct from congressional district 1
+Moving Precinct 8 From Congressional District 1
+Moving Precinct to neighbor with original score:245.76829038826776
+The NewScore After moving= 246.05379322390698
+Score improved, moving precinct to Congressional District2
+Getting border precinct from congressional district 1
+Moving Precinct 10 From Congressional District 1
+Moving Precinct to neighbor with original score:246.05379322390698
+The NewScore After moving= 246.55566141972997
+Score improved, moving precinct to Congressional District2
+Getting border precinct from congressional district 1
+Moving Precinct 5 From Congressional District 1
+Moving Precinct to neighbor with original score:246.55566141972997
+The NewScore After moving= 247.27283601170507
+Score improved, moving precinct to Congressional District2
+Getting border precinct from congressional district 1
+Getting border precinct from congressional district 1
+Moving Precinct 85 From Congressional District 1
+Moving Precinct to neighbor with original score:243.64719380982345
+The NewScore After moving= 243.93955967868322
+Score improved, moving precinct to Congressional District2
+Moving Precinct 131 From Congressional District 1
+Moving Precinct to neighbor with original score:243.93955967868322
+The NewScore After moving= 244.07834651772546
+Score improved, moving precinct to Congressional District2
+Getting border precinct from congressional district 1
+Moving Precinct 17 From Congressional District 1
+Moving Precinct to neighbor with original score:244.07834651772546
+The NewScore After moving= 244.79005911701256
+Score improved, moving precinct to Congressional District2
+Getting border precinct from congressional district 1
+Getting border precinct from congressional district 1
+Moving Precinct 18 From Congressional District 1
+Moving Precinct to neighbor with original score:244.79005911701256
+The NewScore After moving= 245.53269548100687
+Score improved, moving precinct to Congressional District2
+Moving Precinct 24 From Congressional District 1
+Moving Precinct to neighbor with original score:245.53269548100687
+The NewScore After moving= 246.14983312179677
+Score improved, moving precinct to Congressional District2
+Getting border precinct from congressional district 1
+Moving Precinct 26 From Congressional District 1
+Moving Precinct to neighbor with original score:246.14983312179677
+The NewScore After moving= 246.5627328224072
+Score improved, moving precinct to Congressional District2
+Getting border precinct from congressional district 1
+Moving Precinct 25 From Congressional District 1
+Moving Precinct to neighbor with original score:246.5627328224072
+The NewScore After moving= 247.01347139131005
+Score improved, moving precinct to Congressional District2
+Getting border precinct from congressional district 1
+Moving Precinct 27 From Congressional District 1
+Moving Precinct to neighbor with original score:247.01347139131005
+The NewScore After moving= 247.48546437376973
+Score improved, moving precinct to Congressional District2
+Getting border precinct from congressional district 1
+Moving Precinct 85 From Congressional District 1
+Moving Precinct to neighbor with original score:243.64719380982345
+The NewScore After moving= 243.93955967868322
+Score improved, moving precinct to Congressional District2
+Getting border precinct from congressional district 1
+Moving Precinct 17 From Congressional District 1
+Moving Precinct to neighbor with original score:243.93955967868322
+The NewScore After moving= 244.6519895164495
+Score improved, moving precinct to Congressional District2
+Getting border precinct from congressional district 1
+Moving Precinct 18 From Congressional District 1
+Moving Precinct to neighbor with original score:244.6519895164495
+The NewScore After moving= 245.3946271067033
+Score improved, moving precinct to Congressional District2
+Getting border precinct from congressional district 1
+Moving Precinct 21 From Congressional District 1
+Moving Precinct to neighbor with original score:245.3946271067033
+The NewScore After moving= 245.76829038826776
+Score improved, moving precinct to Congressional District2
+Getting border precinct from congressional district 1
+Moving Precinct 8 From Congressional District 1
+Moving Precinct to neighbor with original score:245.76829038826776
+The NewScore After moving= 246.05379322390698
+Score improved, moving precinct to Congressional District2
+Getting border precinct from congressional district 1
+Moving Precinct 10 From Congressional District 1
+Moving Precinct to neighbor with original score:246.05379322390698
+The NewScore After moving= 246.55566141972997
+Score improved, moving precinct to Congressional District2
+Getting border precinct from congressional district 1
+Moving Precinct 5 From Congressional District 1
+Moving Precinct to neighbor with original score:246.55566141972997
+The NewScore After moving= 247.27283601170507
+Score improved, moving precinct to Congressional District2
+Getting border precinct from congressional district 1
+Moving Precinct 6 From Congressional District 1
+Moving Precinct to neighbor with original score:247.27283601170507
+The NewScore After moving= 248.13344590718438
+Score improved, moving precinct to Congressional District2
+Getting border precinct from congressional district 1
+Moving Precinct 7 From Congressional District 1
+Moving Precinct to neighbor with original score:248.13344590718438
+The NewScore After moving= 248.45248133727642
+Score improved, moving precinct to Congressional District2
+Getting border precinct from congressional district 1
+Moving Precinct 9 From Congressional District 1
+Moving Precinct to neighbor with original score:248.45248133727642
+The NewScore After moving= 248.9808645857463
+Score improved, moving precinct to Congressional District2
+Getting border precinct from congressional district 1
+Moving Precinct 11 From Congressional District 1
+Moving Precinct to neighbor with original score:248.9808645857463
+The NewScore After moving= 249.63575817315797
+Score improved, moving precinct to Congressional District2
+Getting border precinct from congressional district 1
+Moving Precinct 12 From Congressional District 1
+Moving Precinct to neighbor with original score:249.63575817315797
+The NewScore After moving= 250.19526540721444
+Score improved, moving precinct to Congressional District2

@@ -7,6 +7,8 @@ import Objects.Precinct;
 import Objects.RawCDData;
 import Objects.State;
 import Objects.StateManager;
+import Objects.StateStat;
+import cse308.zsyj.repository.StateStatRepository;
 import cse308.zsyj.repository.UserRepository;
 import cse308.zsyj.service.StateService;
 
@@ -52,6 +54,8 @@ public class PageController {
 	StateService stateService;
 	@Autowired
 	UserRepository userRepo;
+	@Autowired
+	StateStatRepository statRepository;
 	
 	@GetMapping("home")
 	public String home() {
@@ -159,6 +163,14 @@ public class PageController {
 		StateManager.state = stateService.getState(state.getName(), 2008);
 		Algorithm.improvedTimes = 0;
 		Algorithm.failedTimes = 0;
+		int id = 1;
+		if(state.getName().equals("colorado"))
+			id = 3;
+		else if(state.getName().equals("idaho"))
+			id = 2;
+		StateStat stat= statRepository.findById(id).get();
+		stat.setCount(stat.getCount()+1);
+		statRepository.save(stat);
 		return "demo/congressionalD.html";
 	}
 	
