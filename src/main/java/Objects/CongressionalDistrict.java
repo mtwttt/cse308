@@ -150,6 +150,18 @@ public class CongressionalDistrict {
 		return borders;
 	}
 	
+	public String toString(){
+		String win;
+		if (this.whichParty.equals("r")) {
+			win = "Republican";
+		}
+		else {
+			win = "Democrat";
+		}
+		return "CD Number: "+this.cdid+"</br>"+"CD "+win+" Party Wins</br>"+"CD Population: "+this.totalPopulation+"</br>"+"CD rVote for President 2008: "+this.republicanVote+"</br>"
+				+ "CD dVote for President 2008: "+this.democratVote +"</br>"+"Eco Salary Median: "+this.ecoMedian+"</br>Eco Salary Mean: "+this.ecoMean;
+	}
+	
 	public double getPopulationScore() {
 		double avgPopulation = state.getTotalPopulation() /state.getCongressionalDistrict().size();
 		double populationScore = (1 - (Math.abs(avgPopulation - totalPopulation)/avgPopulation));
@@ -221,15 +233,22 @@ public class CongressionalDistrict {
 	public void updateCDInfo() {
 		int totalP =0;
 		int totalV =0;
+		int totalRepu =0;
+		int totalDemo =0;
 		double totalR =0;
 		for (int i=0;i<precincts.size();i++) {
 			totalP += precincts.get(i).getPopulation();
 			totalV += precincts.get(i).getTotalVote();
 			totalR += precincts.get(i).getRaceAvg();
+			totalRepu+= precincts.get(i).getrVote();
+			totalDemo+= precincts.get(i).getdVote();
 		}
 		totalPopulation = totalP;
 		totalVote = totalV;
 		totalRacial = totalR;
+		republicanVote = totalRepu;
+		democratVote = totalDemo;
+		
 	}
 	
 	public void setState(State state) {

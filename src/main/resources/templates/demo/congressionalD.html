@@ -6,8 +6,13 @@
   <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
   <link rel="stylesheet" type = 'text/css' href="/css/map.css">
   <link rel="stylesheet" type = 'text/css' href="/css/loader.css">
+<<<<<<< HEAD
   <link rel="stylesheet" type = 'text/css' href="/css/button.css">    
   
+=======
+  <link rel="stylesheet" type = 'text/css' href="/css/button.css">
+    
+>>>>>>> a754ae482cbfc2ba9db668c6cd11cede19b2b453
   <script src="/javascript/jquery-3.3.1.min.js"></script>
     <meta name="viewport" content="initial-scale=1,maximum-scale=1,user-scalable=no" />
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.0.3/dist/leaflet.css" />
@@ -45,7 +50,7 @@
                 <li><input type="range" min="0" max="100" value="50" class="slider" name ="compactnessW" id="compactness"> <span id="comp"> </span> </li>
             </ul>
       </div>
-        <p class="dropdown-btn">Check Constraints</p>
+        <p class="dropdown-btn"><span>Check Constraints</span></p>
           <div class="dropdown-container">
             <ul class="w3-ul">
             		<li><input type="checkbox" id="contiguity"  checked="checked"> Contiguity </li>
@@ -53,7 +58,7 @@
             </ul>
      	 </div>
      	 
-     	<p class="dropdown-btn">Find a Precinct</p>
+     	<p class="dropdown-btn"><span>Find a Precinct</span></p>
           <div class="dropdown-container">
             <ul class="w3-ul">
 			    <li><label >Precinct ID:</label></li>
@@ -61,7 +66,7 @@
                 <li><input type="button" onclick="findLocation()" value="Find"> </li>
             </ul>
      	 </div>
-     	<p class="dropdown-btn">Move a Precinct</p>
+     	<p class="dropdown-btn"><span>Move a Precinct</span></p>
           <div class="dropdown-container">
             <ul class="w3-ul">
             		<li><label >Precinct ID:</label></li>
@@ -69,10 +74,16 @@
                 <li><input type="button" onclick="movePrecinct()" value="Move"> </li>
             </ul>
      	 </div>
+<<<<<<< HEAD
      <form action="compareState"  method="post" target="_blank">
      	<input type="text" id = "state" name = "state" th:value ="${state.name}" hidden>
      	<input class ='cb' type="submit" value="Compare States"/> 
      </form>
+=======
+     	  <input type="text" id = "state" th:value ="${state.name}" hidden>
+     <div>
+     <button class= "reset" onclick="representative()"><span>Representative Info</span></button>
+>>>>>>> a754ae482cbfc2ba9db668c6cd11cede19b2b453
      <br>
      <button class= "reset" onclick="stop()"><span>Pause</span></button>
      <br>
@@ -81,12 +92,25 @@
      <button class= "reset" onclick="reset()"><span>Reset</span></button>
      <br>
      <button class= "reset" onclick="start()"><span>Start</span></button>
-     <br>
+     </div>
+          <button class= "reset" onclick="test()"><span>test</span></button>
      
 </div>     	  			
 <div style="margin-left:20%" >
+	<script th:inline="javascript">
+	/*<![CDATA[*/
+		var cd1 = [[${session.cd1}]];
+		var cd2 = [[${session.cd2}]];
+		var cd3 = [[${session.cd3}]];
+		var cd4 = [[${session.cd4}]];
+		var cd5 = [[${session.cd5}]];
+		var cd6 = [[${session.cd6}]];
+		var cd7 = [[${session.cd7}]];
+	/*]]>*/
+	</script>
+	
 	<script src="/javascript/interaction.js"></script>
-	<script src="/javascript/congressional.js"></script>
+	<script src="/javascript/congressional.js" th:inline="javascript"></script>
 	<div class="loader"></div>
    <div id="map"></div>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
@@ -94,5 +118,19 @@
 </div>
 
 </div>
+<script th:inline="javascript">
+	function representative(){
+		var s = document.getElementById("state").value;
+		if(s.valueOf() == 'kansas'){
+			window.open("repKS",'_blank');
+		}
+		else if (s.valueOf() == 'idaho'){
+			window.open("repID",'_blank');
+		}
+		else{
+			window.open("repCO",'_blank');
+		}
+	};
+</script>
 </body>
 </html>
