@@ -164,6 +164,7 @@ public class Algorithm {
 					improvedTimes++;
 					updateSourceCDBorder(p,CD);
 					updateTargetCDBorder(neighbor,state);
+					return state;
 				}
 				else {
 					failedTimes++;

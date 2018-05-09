@@ -200,6 +200,11 @@ public class PageController {
 		return "got it";
 	}
 	
+	@RequestMapping(value="resetMap", method=RequestMethod.POST)
+	public @ResponseBody String reset(String name) {
+		StateManager.state = stateService.getState(name, 2008);
+		return "got it";
+	}
 	
 	@RequestMapping(value="redraw", method=RequestMethod.POST)
 	public @ResponseBody
