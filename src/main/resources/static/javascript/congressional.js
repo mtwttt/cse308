@@ -116,11 +116,20 @@ function onEachFeature(feature, layer) {
 	if (layer.feature.properties.CONGRESSIO.valueOf() =="7"){
 		cdInfo = cd7;
 	}
+	if(cdInfo != null){
 	layer.bindPopup("Precinct Original Info: </br>"+"Pid: "+layer.feature.pid+"</br>"
 			+"Name: "+layer.feature.properties.NAME10+"</br>"
 			+"Population: "+layer.feature.properties.POP100+"</br>"
 			+"rVote for President 2008: "+ layer.feature.properties.PRES_R_08+"</br>"
 			+"dVote for President 2008: "+ layer.feature.properties.PRES_D_08+"</br>"+cdInfo);
+	}
+	else{
+		layer.bindPopup("Precinct Original Info: </br>"+"Pid: "+layer.feature.pid+"</br>"
+				+"Name: "+layer.feature.properties.NAME10+"</br>"
+				+"Population: "+layer.feature.properties.POP100+"</br>"
+				+"rVote for President 2008: "+ layer.feature.properties.PRES_R_08+"</br>"
+				+"dVote for President 2008: "+ layer.feature.properties.PRES_D_08+"</br>");
+	}
 	layer.on('mouseover', function (e) {
         this.openPopup();
     });

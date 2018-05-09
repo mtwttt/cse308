@@ -6,6 +6,7 @@
   <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
   <link rel="stylesheet" type = 'text/css' href="/css/map.css">
   <link rel="stylesheet" type = 'text/css' href="/css/loader.css">
+      <link rel="stylesheet" type = 'text/css' href="/css/button.css">
   <script src="/javascript/jquery-3.3.1.min.js"></script>
     <meta name="viewport" content="initial-scale=1,maximum-scale=1,user-scalable=no" />
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.0.3/dist/leaflet.css" />
@@ -35,9 +36,20 @@
 <div style="margin-left:20%">
 
 <div id="container"></div>
+<script th:inline="javascript">
+	/*<![CDATA[*/
+		var cd1 = [[${session.cd1}]];
+		var cd2 = [[${session.cd2}]];
+		var cd3 = [[${session.cd3}]];
+		var cd4 = [[${session.cd4}]];
+		var cd5 = [[${session.cd5}]];
+		var cd6 = [[${session.cd6}]];
+		var cd7 = [[${session.cd7}]];
+	/*]]>*/
+	</script>
 	<script src="/javascript/interaction.js"></script>
 	<script src="/javascript/congressional.js"></script>
-	<script src="/javascript/popup.js"></script>
+	
 	<div class="loader"></div>
    <div id="map"></div>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>

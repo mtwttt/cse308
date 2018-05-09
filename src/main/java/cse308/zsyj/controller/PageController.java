@@ -259,6 +259,9 @@ public class PageController {
 	@RequestMapping(value="resetMap", method=RequestMethod.POST)
 	public @ResponseBody String resetMap(@RequestParam("name") String name, HttpSession httpSession) {
 		StateManager.state = stateService.getState(name, 2008);
+		Algorithm.improvedTimes = 0;
+		Algorithm.failedTimes = 0;
+		Algorithm.stop =0;
 		int id = 1;
 		if(name.equals("colorado"))
 			id = 3;
