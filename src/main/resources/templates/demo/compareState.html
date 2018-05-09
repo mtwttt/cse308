@@ -30,7 +30,12 @@
 
 <div id ="container">
      	<input type="text" id = "state" name = "state" th:value ="${name}" hidden>
-
+    		<p id = "pids" name = "pids" th:value ="${pids}" hidden>
+    		
+<script th:inline="javascript">
+	var pids = [[${pids}]];
+	console.log(pids);
+</script>
 
 
 <div id="origMap">
@@ -58,7 +63,7 @@
 
 <button class="dropbtn"  style="background:#3cb371;">CD Information</button>
   <div  class="dropdown-content">
-		<p>CD ID: </p>
+		<p id="oString"></p>
 		
   </div>
 </div>
@@ -77,21 +82,18 @@
   		<p >TotalAvgRace: <span th:utext ="${current.totalAvgRace}" > </span></p>
   </div>
 
-<button class="dropbtn"  style="background:#3cb371;">Dropdown</button>
+<button class="dropbtn"  style="background:#3cb371;">CD Information</button>
   <div  class="dropdown-content">
-    <a href="#home">Home</a>
-    <a href="#about">About</a>
-    <a href="#contact">Contact</a>
+		<p id="cString"></p>
   </div>
 </div>
 
 
 </div>
 <script th:inline="javascript">
-	var originalCD = [[${original.congressionalDistrict}]]
-    var currentCD = [[${current.congressionalDistrict}]];
-	console.log(originalCD);
-    console.log(current);
+	document.getElementById("oString").innerHTML = [[${oString}]];
+	document.getElementById("cString").innerHTML = [[${cString}]];
+	pids = [[${pids}]];
 </script>
     	<script src="/javascript/dropDown.js"></script>
 

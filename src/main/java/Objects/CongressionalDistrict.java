@@ -38,6 +38,7 @@ public class CongressionalDistrict {
 	private double totalArea;
 	public int ecoMedian;
 	public int ecoMean;
+	
 	public int getEcoMean() {
 		return ecoMean;
 	}
@@ -142,10 +143,12 @@ public class CongressionalDistrict {
 	
 	public List<Precinct> getBorderPrecinct(){
 		List<Precinct> borders = new ArrayList();
+		if(precincts != null) {
 		for(int i=0;i< precincts.size();i++) {
 			if(precincts.get(i).getBorder() == 1) {
 				borders.add(precincts.get(i));
 			}
+		}
 		}
 		return borders;
 	}
@@ -163,9 +166,12 @@ public class CongressionalDistrict {
 	}
 	
 	public double getPopulationScore() {
-		double avgPopulation = state.getTotalPopulation() /state.getCongressionalDistrict().size();
-		double populationScore = (1 - (Math.abs(avgPopulation - totalPopulation)/avgPopulation));
-		return populationScore;
+		if(state.getCongressionalDistrict().size() != 0) {
+			double avgPopulation = state.getTotalPopulation() /state.getCongressionalDistrict().size();
+			double populationScore = (1 - (Math.abs(avgPopulation - totalPopulation)/avgPopulation));
+			return populationScore;
+		}
+		return 0;
 	}
 	
 	public double getCompactnessScore() {
@@ -256,9 +262,11 @@ public class CongressionalDistrict {
 	}
 	public double getTotalArea() {
 		double totalArea = 0;
-		for(int i=0;i<precincts.size();i++) {
-			totalArea += precincts.get(i).getALand();
-			totalArea += precincts.get(i).getAWater();
+		if(precincts != null) {
+			for(int i=0;i<precincts.size();i++) {
+				totalArea += precincts.get(i).getALand();
+				totalArea += precincts.get(i).getAWater();
+			}
 		}
 		return totalArea;
 	}

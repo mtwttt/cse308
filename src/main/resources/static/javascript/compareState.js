@@ -2,7 +2,7 @@ var styleMap = "123"	;
 var state = document.getElementById("state");
 var states = "/json/"+ state.value+".json";
 var map = "tempMap";
-var repeat = 0;
+
 var counties = $.ajax({
             url: states,
             dataType: "json",
@@ -42,10 +42,12 @@ $.when(counties).done(function() {
 	     id: 'jmauro.ld1o2np1',
 	     accessToken: 'pk.eyJ1Ijoiam1hdXJvIiwiYSI6ImVYb0lheE0ifQ.Js4ba2SyUxHPCIDl1Aq1cQ'
 	 }).addTo(map2);
-	var styleMap2 = L.geoJSON(counties.responseJSON,{style: style,
+	var styleMap2 = L.geoJSON(counties.responseJSON,{style: style2,
 	 			onEachFeature: onEachFeature}).addTo(map2);
 });
   
+console.log("--------------");
+console.log(pids);
 
 
 function style(feature) {
@@ -70,6 +72,50 @@ function style(feature) {
 	}
 }
 
+function style2(feature) {
+	if(feature.pid in pids){
+		console.log("123")
+		switch (pids[feature.pid]) {
+		    case 1: 
+		    	return { fillColor: 'red', color: 'grey', weight: 1, opacity: 0.75};
+		    case 2:   
+		    	return {fillColor: '#9F06F2', color: 'grey', weight: 1,opacity: 0.7};
+		    case 3: 
+		    	return {fillColor: '#04F9FD', color: 'grey', weight: 1, opacity: 0.7};
+		    case 4:   
+		    	return { fillColor: 'yellow', color: 'grey', weight: 1, opacity: 0.7};
+		    case 5:   
+		    	return { fillColor: 'green', color: 'grey', weight: 1, opacity: 0.7};
+		    case 6:   
+		    	return { fillColor: 'blue', color: 'grey', weight: 1, opacity: 0.7};
+		    case 7:   
+		    	return { fillColor: '#FB03D0', color: 'grey', weight: 1, opacity: 0.7};
+		    default:   
+		    	return {fillColor: 'grey', color: 'grey', weight: 1, opacity: 0.7, 
+		    	fillOpacity: 0.7};
+			}
+	}else{
+		switch (feature.properties.CONGRESSIO) {
+	    case '1': 
+	    	return { fillColor: 'red', color: 'grey', weight: 1, opacity: 0.75};
+	    case '2':   
+	    	return {fillColor: '#9F06F2', color: 'grey', weight: 1,opacity: 0.7};
+	    case '3': 
+	    	return {fillColor: '#04F9FD', color: 'grey', weight: 1, opacity: 0.7};
+	    case '4':   
+	    	return { fillColor: 'yellow', color: 'grey', weight: 1, opacity: 0.7};
+	    case '5':   
+	    	return { fillColor: 'green', color: 'grey', weight: 1, opacity: 0.7};
+	    case '6':   
+	    	return { fillColor: 'blue', color: 'grey', weight: 1, opacity: 0.7};
+	    case '7':   
+	    	return { fillColor: '#FB03D0', color: 'grey', weight: 1, opacity: 0.7};
+	    default:   
+	    	return {fillColor: 'grey', color: 'grey', weight: 1, opacity: 0.7, 
+	    	fillOpacity: 0.7};
+		}
+	}
+}
 
 function onEachFeature(feature, layer) {
 	layer.bindPopup("Pid: "+layer.feature.pid+"</br>"
