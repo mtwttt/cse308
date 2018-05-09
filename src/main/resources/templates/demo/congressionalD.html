@@ -6,9 +6,8 @@
   <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
   <link rel="stylesheet" type = 'text/css' href="/css/map.css">
   <link rel="stylesheet" type = 'text/css' href="/css/loader.css">
-  <link rel="stylesheet" type = 'text/css' href="/css/button.css">    
-    <link rel="stylesheet" type = 'text/css' href="/css/popup.css">    
-  
+  <link rel="stylesheet" type = 'text/css' href="/css/button.css">
+    
   <script src="/javascript/jquery-3.3.1.min.js"></script>
     <meta name="viewport" content="initial-scale=1,maximum-scale=1,user-scalable=no" />
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.0.3/dist/leaflet.css" />
@@ -31,8 +30,6 @@
 <div id ="container">
 <div class="w3-sidebar w3-light-grey w3-bar-block" style="width:20%">
 	 <input class ='cb' type="button" onclick="location.href='home';" value="Home" /> 
-	 <a href="#popup1">Click Me</a>
-	 
 	 <p class="dropdown-btn"> <span>Weights</span></p>
 	 <div class="dropdown-container">
             <ul class="w3-ul">
@@ -72,11 +69,8 @@
                 <li><input type="button" onclick="movePrecinct()" value="Move"> </li>
             </ul>
      	 </div>
-     <form action="compareState"  method="post" target="_blank">
-     	<input type="text" id = "state" name = "state" th:value ="${state.name}" hidden>
-     	<input class ='cb' type="submit"  value="Compare States"/> 
-     </form>
-     <br>
+     	  <input type="text" id = "state" th:value ="${state.name}" hidden>
+     <div>
      <button class= "reset" onclick="stop()"><span>Pause</span></button>
      <br>
      <button class= "reset" onclick="restore()"><span>Continue</span></button>
@@ -84,7 +78,8 @@
      <button class= "reset" onclick="reset()"><span>Reset</span></button>
      <br>
      <button class= "reset" onclick="start()"><span>Start</span></button>
-     <br>
+     </div>
+          <button class= "reset" onclick="test()"><span>test</span></button>
      
 </div>     	  			
 <div style="margin-left:20%" >
@@ -94,12 +89,6 @@
    <div id="map"></div>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
     <script src="https://unpkg.com/leaflet@1.0.3/dist/leaflet.js"></script>
-</div>
-
-<div id="popup1" class="overlay">
-  <div class="popup">
-  	<a href="#">&times;</a>
-  </div>
 </div>
 
 </div>
