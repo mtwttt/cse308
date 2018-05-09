@@ -11934,6 +11934,243 @@ Score did not improved, moving precinct back
 Moving Precinct to neighbor with original score:305.0713493251476
 The NewScore After moving= 304.61870225543845
 Score did not improved, moving precinct back
+<<<<<<< HEAD
+Passed Constrain
+Moving Precinct 292 From Congressional District 1
+Moving Precinct to neighbor with original score:305.0713493251476
+The NewScore After moving= 304.87176425633413
+Score did not improved, moving precinct back
+Moving Precinct to neighbor with original score:305.0713493251476
+The NewScore After moving= 304.87176425633413
+Score did not improved, moving precinct back
+Passed Constrain
+Moving Precinct 300 From Congressional District 1
+Moving Precinct to neighbor with original score:305.0713493251476
+The NewScore After moving= 302.50354273106984
+Score did not improved, moving precinct back
+Passed Constrain
+Moving Precinct 395 From Congressional District 1
+Moving Precinct to neighbor with original score:295.8732653104316
+The NewScore After moving= 295.06541470571034
+Score did not improved, moving precinct back
+Passed Constrain
+Moving Precinct 399 From Congressional District 1
+Moving Precinct to neighbor with original score:295.8732653104316
+The NewScore After moving= 295.06849803875684
+Score did not improved, moving precinct back
+Moving Precinct to neighbor with original score:295.8732653104316
+The NewScore After moving= 295.06849803875684
+Score did not improved, moving precinct back
+Moving Precinct to neighbor with original score:295.8732653104316
+The NewScore After moving= 295.06849803875684
+Score did not improved, moving precinct back
+Passed Constrain
+Moving Precinct 401 From Congressional District 1
+Moving Precinct to neighbor with original score:295.8732653104316
+The NewScore After moving= 294.8459187797754
+Score did not improved, moving precinct back
+Moving Precinct to neighbor with original score:295.8732653104316
+The NewScore After moving= 294.8459187797754
+Score did not improved, moving precinct back
+Passed Constrain
+Moving Precinct 968 From Congressional District 1
+Moving Precinct to neighbor with original score:295.8732653104316
+The NewScore After moving= 295.9201439277656
+Contiguity Constraint check passed.
+Score improved, moving precinct to Congressional District2
+Getting border precinct from congressional district 1
+Passed Constrain
+Moving Precinct 969 From Congressional District 1
+Moving Precinct to neighbor with original score:295.9201439277656
+The NewScore After moving= 295.9597762420843
+Contiguity Constraint check passed.
+Score improved, moving precinct to Congressional District2
+Getting border precinct from congressional district 1
+Passed Constrain
+Moving Precinct 998 From Congressional District 1
+Moving Precinct to neighbor with original score:295.9597762420843
+The NewScore After moving= 296.0245121641138
+Contiguity Constraint check passed.
+Score improved, moving precinct to Congressional District2
+Getting border precinct from congressional district 1
+Passed Constrain
+Moving Precinct 999 From Congressional District 1
+Moving Precinct to neighbor with original score:296.0245121641138
+The NewScore After moving= 296.0597807071126
+Contiguity Check Failed, moving precinct back
+Passed Constrain
+Moving Precinct 1002 From Congressional District 1
+Moving Precinct to neighbor with original score:296.0245121641138
+The NewScore After moving= 296.04938000798825
+Contiguity Check Failed, moving precinct back
+Moving Precinct to neighbor with original score:296.0245121641138
+The NewScore After moving= 296.04938000798825
+Contiguity Check Failed, moving precinct back
+Moving Precinct to neighbor with original score:296.0245121641138
+The NewScore After moving= 296.04938000798825
+Contiguity Check Failed, moving precinct back
+Passed Constrain
+Moving Precinct 1050 From Congressional District 1
+Moving Precinct to neighbor with original score:305.00742137793424
+The NewScore After moving= 305.263004000818
+Contiguity Constraint check passed.
+Score improved, moving precinct to Congressional District4
+Getting border precinct from congressional district 1
+Passed Constrain
+Moving Precinct 1051 From Congressional District 1
+Moving Precinct to neighbor with original score:305.263004000818
+The NewScore After moving= 305.6019741936801
+Contiguity Constraint check passed.
+Score improved, moving precinct to Congressional District4
+Getting border precinct from congressional district 1
+Passed Constrain
+Moving Precinct 1058 From Congressional District 1
+Moving Precinct to neighbor with original score:295.877846994435
+The NewScore After moving= 295.93016492409583
+Contiguity Check Failed, moving precinct back
+Moving Precinct to neighbor with original score:295.877846994435
+The NewScore After moving= 295.93016492409583
+Contiguity Check Failed, moving precinct back
+Moving Precinct to neighbor with original score:305.6019741936801
+The NewScore After moving= 305.73282463150167
+Contiguity Check Failed, moving precinct back
+Passed Constrain
+Moving Precinct 1062 From Congressional District 1
+Moving Precinct to neighbor with original score:295.877846994435
+The NewScore After moving= 295.9305790844566
+Contiguity Check Failed, moving precinct back
+Moving Precinct to neighbor with original score:295.877846994435
+The NewScore After moving= 295.9305790844566
+Contiguity Check Failed, moving precinct back
+Moving Precinct to neighbor with original score:305.6019741936801
+The NewScore After moving= 305.7607029766313
+Contiguity Check Failed, moving precinct back
+Moving Precinct to neighbor with original score:305.6019741936801
+The NewScore After moving= 305.7607029766313
+Contiguity Check Failed, moving precinct back
+Passed Constrain
+Moving Precinct 1063 From Congressional District 1
+Moving Precinct to neighbor with original score:305.6019741936801
+The NewScore After moving= 305.81933494915256
+Contiguity Constraint check passed.
+Score improved, moving precinct to Congressional District4
+Getting border precinct from congressional district 1
+Passed Constrain
+Moving Precinct 1898 From Congressional District 1
+Moving Precinct to neighbor with original score:295.75190052125924
+The NewScore After moving= 295.8105359874904
+Contiguity Constraint check passed.
+Score improved, moving precinct to Congressional District2
+Getting border precinct from congressional district 1
+Passed Constrain
+Moving Precinct 1895 From Congressional District 1
+Moving Precinct to neighbor with original score:295.8105359874904
+The NewScore After moving= 295.91643953972834
+Contiguity Constraint check passed.
+Score improved, moving precinct to Congressional District2
+Getting border precinct from congressional district 1
+Passed Constrain
+Moving Precinct 1894 From Congressional District 1
+Moving Precinct to neighbor with original score:295.91643953972834
+The NewScore After moving= 295.98644335017906
+Contiguity Check Failed, moving precinct back
+Passed Constrain
+Moving Precinct 1896 From Congressional District 1
+Moving Precinct to neighbor with original score:295.91643953972834
+The NewScore After moving= 295.9497839357694
+Contiguity Constraint check passed.
+Score improved, moving precinct to Congressional District2
+Getting border precinct from congressional district 1
+Passed Constrain
+Moving Precinct 1897 From Congressional District 1
+Moving Precinct to neighbor with original score:295.9497839357694
+The NewScore After moving= 296.03564592066425
+Contiguity Check Failed, moving precinct back
+Passed Constrain
+Moving Precinct 1899 From Congressional District 1
+Moving Precinct to neighbor with original score:295.9497839357694
+The NewScore After moving= 296.0165735548906
+Contiguity Constraint check passed.
+Score improved, moving precinct to Congressional District2
+Getting border precinct from congressional district 1
+Passed Constrain
+Moving Precinct 1901 From Congressional District 1
+Moving Precinct to neighbor with original score:296.0165735548906
+The NewScore After moving= 296.1031797805478
+Contiguity Constraint check passed.
+Score improved, moving precinct to Congressional District2
+Getting border precinct from congressional district 1
+Passed Constrain
+Moving Precinct 1870 From Congressional District 1
+Moving Precinct to neighbor with original score:296.1031797805478
+The NewScore After moving= 296.13510159280173
+Contiguity Check Failed, moving precinct back
+Passed Constrain
+Moving Precinct 1902 From Congressional District 1
+Moving Precinct to neighbor with original score:305.5133774863897
+The NewScore After moving= 302.7965922173644
+Score did not improved, moving precinct back
+Moving Precinct to neighbor with original score:305.5133774863897
+The NewScore After moving= 302.7965922173644
+Score did not improved, moving precinct back
+Passed Constrain
+Moving Precinct 1903 From Congressional District 1
+Moving Precinct to neighbor with original score:296.1031797805478
+The NewScore After moving= 296.20094636459766
+Contiguity Check Failed, moving precinct back
+Moving Precinct to neighbor with original score:296.1031797805478
+The NewScore After moving= 296.20094636459766
+Contiguity Check Failed, moving precinct back
+Moving Precinct to neighbor with original score:296.1031797805478
+The NewScore After moving= 296.20094636459766
+Contiguity Check Failed, moving precinct back
+Moving Precinct to neighbor with original score:296.1031797805478
+The NewScore After moving= 296.20094636459766
+Contiguity Check Failed, moving precinct back
+Moving Precinct to neighbor with original score:305.5133774863897
+The NewScore After moving= 302.8063574973187
+Score did not improved, moving precinct back
+Passed Constrain
+Moving Precinct 1919 From Congressional District 1
+Moving Precinct to neighbor with original score:305.5133774863897
+The NewScore After moving= 303.397472916845
+Score did not improved, moving precinct back
+Passed Constrain
+Moving Precinct 1925 From Congressional District 1
+Moving Precinct to neighbor with original score:305.5133774863897
+The NewScore After moving= 303.58521992804924
+Score did not improved, moving precinct back
+Getting border precinct from congressional district 1
+Passed Constrain
+Moving Precinct 1948 From Congressional District 1
+Moving Precinct to neighbor with original score:305.5133774863897
+The NewScore After moving= 303.5844029521767
+Score did not improved, moving precinct back
+Passed Constrain
+Moving Precinct 1967 From Congressional District 1
+Moving Precinct to neighbor with original score:305.5133774863897
+The NewScore After moving= 303.6264761466381
+Score did not improved, moving precinct back
+Passed Constrain
+Moving Precinct 1968 From Congressional District 1
+Moving Precinct to neighbor with original score:305.5133774863897
+The NewScore After moving= 303.6785948886459
+Score did not improved, moving precinct back
+Getting border precinct from congressional district 1
+Passed Constrain
+Moving Precinct 1973 From Congressional District 1
+Moving Precinct to neighbor with original score:305.5133774863897
+The NewScore After moving= 305.46830064377866
+Score did not improved, moving precinct back
+Moving Precinct to neighbor with original score:305.5133774863897
+The NewScore After moving= 305.46830064377866
+Score did not improved, moving precinct back
+Passed Constrain
+Moving Precinct 1974 From Congressional District 1
+Moving Precinct to neighbor with original score:305.5133774863897
+The NewScore After moving= 305.5196671892556
+Contiguity Constraint check passed.
+Score improved, moving precinct to Congressional District4
 Getting border precinct from congressional district 1
 Passed Constrain
 Moving Precinct 81 From Congressional District 1
@@ -11972,6 +12209,1269 @@ Score did not improved, moving precinct back
 Moving Precinct to neighbor with original score:304.73632699874463
 The NewScore After moving= 303.6490893547183
 Score did not improved, moving precinct back
+Passed Constrain
+Moving Precinct 90 From Congressional District 1
+Moving Precinct to neighbor with original score:304.73632699874463
+The NewScore After moving= 303.8560830948219
+Score did not improved, moving precinct back
+Moving Precinct to neighbor with original score:304.73632699874463
+The NewScore After moving= 303.8560830948219
+Score did not improved, moving precinct back
+Passed Constrain
+Moving Precinct 99 From Congressional District 1
+Moving Precinct to neighbor with original score:304.73632699874463
+The NewScore After moving= 303.62058104880526
+Score did not improved, moving precinct back
+Passed Constrain
+Moving Precinct 290 From Congressional District 1
+Moving Precinct to neighbor with original score:304.73632699874463
+The NewScore After moving= 305.0713493251476
+Contiguity Constraint check passed.
+Score improved, moving precinct to Congressional District4
+Getting border precinct from congressional district 1
+Passed Constrain
+Moving Precinct 291 From Congressional District 1
+Moving Precinct to neighbor with original score:305.0713493251476
+The NewScore After moving= 304.61870225543845
+Score did not improved, moving precinct back
+Moving Precinct to neighbor with original score:305.0713493251476
+The NewScore After moving= 304.61870225543845
+Score did not improved, moving precinct back
+Passed Constrain
+Moving Precinct 292 From Congressional District 1
+Moving Precinct to neighbor with original score:305.0713493251476
+The NewScore After moving= 304.87176425633413
+Score did not improved, moving precinct back
+Moving Precinct to neighbor with original score:305.0713493251476
+The NewScore After moving= 304.87176425633413
+Score did not improved, moving precinct back
+Passed Constrain
+Moving Precinct 300 From Congressional District 1
+Moving Precinct to neighbor with original score:305.0713493251476
+The NewScore After moving= 302.50354273106984
+Score did not improved, moving precinct back
+Passed Constrain
+Moving Precinct 395 From Congressional District 1
+Moving Precinct to neighbor with original score:295.8732653104316
+The NewScore After moving= 295.06541470571034
+Score did not improved, moving precinct back
+Passed Constrain
+Moving Precinct 399 From Congressional District 1
+Moving Precinct to neighbor with original score:295.8732653104316
+The NewScore After moving= 295.06849803875684
+Score did not improved, moving precinct back
+Moving Precinct to neighbor with original score:295.8732653104316
+The NewScore After moving= 295.06849803875684
+Score did not improved, moving precinct back
+Moving Precinct to neighbor with original score:295.8732653104316
+The NewScore After moving= 295.06849803875684
+Score did not improved, moving precinct back
+Passed Constrain
+Moving Precinct 401 From Congressional District 1
+Moving Precinct to neighbor with original score:295.8732653104316
+The NewScore After moving= 294.8459187797754
+Score did not improved, moving precinct back
+Moving Precinct to neighbor with original score:295.8732653104316
+The NewScore After moving= 294.8459187797754
+Score did not improved, moving precinct back
+Passed Constrain
+Moving Precinct 968 From Congressional District 1
+Moving Precinct to neighbor with original score:295.8732653104316
+The NewScore After moving= 295.9201439277656
+Contiguity Constraint check passed.
+Score improved, moving precinct to Congressional District2
+Getting border precinct from congressional district 1
+Passed Constrain
+Moving Precinct 969 From Congressional District 1
+Moving Precinct to neighbor with original score:295.9201439277656
+The NewScore After moving= 295.9597762420843
+Contiguity Constraint check passed.
+Score improved, moving precinct to Congressional District2
+Getting border precinct from congressional district 1
+Passed Constrain
+Moving Precinct 998 From Congressional District 1
+Moving Precinct to neighbor with original score:295.9597762420843
+The NewScore After moving= 296.0245121641138
+Contiguity Constraint check passed.
+Score improved, moving precinct to Congressional District2
+Getting border precinct from congressional district 1
+Passed Constrain
+Moving Precinct 999 From Congressional District 1
+Moving Precinct to neighbor with original score:296.0245121641138
+The NewScore After moving= 296.0597807071126
+Contiguity Check Failed, moving precinct back
+Passed Constrain
+Moving Precinct 1002 From Congressional District 1
+Moving Precinct to neighbor with original score:296.0245121641138
+The NewScore After moving= 296.04938000798825
+Contiguity Check Failed, moving precinct back
+Moving Precinct to neighbor with original score:296.0245121641138
+The NewScore After moving= 296.04938000798825
+Contiguity Check Failed, moving precinct back
+Moving Precinct to neighbor with original score:296.0245121641138
+The NewScore After moving= 296.04938000798825
+Contiguity Check Failed, moving precinct back
+Passed Constrain
+Moving Precinct 1050 From Congressional District 1
+Moving Precinct to neighbor with original score:305.00742137793424
+The NewScore After moving= 305.263004000818
+Contiguity Constraint check passed.
+Score improved, moving precinct to Congressional District4
+Getting border precinct from congressional district 1
+Passed Constrain
+Moving Precinct 1051 From Congressional District 1
+Moving Precinct to neighbor with original score:305.263004000818
+The NewScore After moving= 305.6019741936801
+Contiguity Constraint check passed.
+Score improved, moving precinct to Congressional District4
+Getting border precinct from congressional district 1
+Passed Constrain
+Moving Precinct 1058 From Congressional District 1
+Moving Precinct to neighbor with original score:295.877846994435
+The NewScore After moving= 295.93016492409583
+Contiguity Check Failed, moving precinct back
+Moving Precinct to neighbor with original score:295.877846994435
+The NewScore After moving= 295.93016492409583
+Contiguity Check Failed, moving precinct back
+Moving Precinct to neighbor with original score:305.6019741936801
+The NewScore After moving= 305.73282463150167
+Contiguity Check Failed, moving precinct back
+Passed Constrain
+Moving Precinct 1062 From Congressional District 1
+Moving Precinct to neighbor with original score:295.877846994435
+The NewScore After moving= 295.9305790844566
+Contiguity Check Failed, moving precinct back
+Moving Precinct to neighbor with original score:295.877846994435
+The NewScore After moving= 295.9305790844566
+Contiguity Check Failed, moving precinct back
+Moving Precinct to neighbor with original score:305.6019741936801
+The NewScore After moving= 305.7607029766313
+Contiguity Check Failed, moving precinct back
+Moving Precinct to neighbor with original score:305.6019741936801
+The NewScore After moving= 305.7607029766313
+Contiguity Check Failed, moving precinct back
+Passed Constrain
+Moving Precinct 1063 From Congressional District 1
+Moving Precinct to neighbor with original score:305.6019741936801
+The NewScore After moving= 305.81933494915256
+Contiguity Constraint check passed.
+Score improved, moving precinct to Congressional District4
+Getting border precinct from congressional district 1
+Passed Constrain
+Moving Precinct 1898 From Congressional District 1
+Moving Precinct to neighbor with original score:295.75190052125924
+The NewScore After moving= 295.8105359874904
+Contiguity Constraint check passed.
+Score improved, moving precinct to Congressional District2
+Getting border precinct from congressional district 1
+Passed Constrain
+Moving Precinct 1895 From Congressional District 1
+Moving Precinct to neighbor with original score:295.8105359874904
+The NewScore After moving= 295.91643953972834
+Contiguity Constraint check passed.
+Score improved, moving precinct to Congressional District2
+Getting border precinct from congressional district 1
+Passed Constrain
+Moving Precinct 1894 From Congressional District 1
+Moving Precinct to neighbor with original score:295.91643953972834
+The NewScore After moving= 295.98644335017906
+Contiguity Check Failed, moving precinct back
+Passed Constrain
+Moving Precinct 1896 From Congressional District 1
+Moving Precinct to neighbor with original score:295.91643953972834
+The NewScore After moving= 295.9497839357694
+Contiguity Constraint check passed.
+Score improved, moving precinct to Congressional District2
+Getting border precinct from congressional district 1
+Passed Constrain
+Moving Precinct 1897 From Congressional District 1
+Moving Precinct to neighbor with original score:295.9497839357694
+The NewScore After moving= 296.03564592066425
+Contiguity Check Failed, moving precinct back
+Passed Constrain
+Moving Precinct 1899 From Congressional District 1
+Moving Precinct to neighbor with original score:295.9497839357694
+The NewScore After moving= 296.0165735548906
+Contiguity Constraint check passed.
+Score improved, moving precinct to Congressional District2
+Getting border precinct from congressional district 1
+Passed Constrain
+Moving Precinct 1901 From Congressional District 1
+Moving Precinct to neighbor with original score:296.0165735548906
+The NewScore After moving= 296.1031797805478
+Contiguity Constraint check passed.
+Score improved, moving precinct to Congressional District2
+Getting border precinct from congressional district 1
+Passed Constrain
+Moving Precinct 1870 From Congressional District 1
+Moving Precinct to neighbor with original score:296.1031797805478
+The NewScore After moving= 296.13510159280173
+Contiguity Check Failed, moving precinct back
+Passed Constrain
+Moving Precinct 1902 From Congressional District 1
+Moving Precinct to neighbor with original score:305.5133774863897
+The NewScore After moving= 302.7965922173644
+Score did not improved, moving precinct back
+Moving Precinct to neighbor with original score:305.5133774863897
+The NewScore After moving= 302.7965922173644
+Score did not improved, moving precinct back
+Passed Constrain
+Moving Precinct 1903 From Congressional District 1
+Moving Precinct to neighbor with original score:296.1031797805478
+The NewScore After moving= 296.20094636459766
+Contiguity Check Failed, moving precinct back
+Moving Precinct to neighbor with original score:296.1031797805478
+The NewScore After moving= 296.20094636459766
+Contiguity Check Failed, moving precinct back
+Moving Precinct to neighbor with original score:296.1031797805478
+The NewScore After moving= 296.20094636459766
+Contiguity Check Failed, moving precinct back
+Moving Precinct to neighbor with original score:296.1031797805478
+The NewScore After moving= 296.20094636459766
+Contiguity Check Failed, moving precinct back
+Moving Precinct to neighbor with original score:305.5133774863897
+The NewScore After moving= 302.8063574973187
+Score did not improved, moving precinct back
+Passed Constrain
+Moving Precinct 1919 From Congressional District 1
+Moving Precinct to neighbor with original score:305.5133774863897
+The NewScore After moving= 303.397472916845
+Score did not improved, moving precinct back
+Passed Constrain
+Moving Precinct 1925 From Congressional District 1
+Moving Precinct to neighbor with original score:305.5133774863897
+The NewScore After moving= 303.58521992804924
+Score did not improved, moving precinct back
+Getting border precinct from congressional district 1
+Passed Constrain
+Moving Precinct 85 From Congressional District 1
+Moving Precinct to neighbor with original score:243.64719380982345
+The NewScore After moving= 243.93955967868322
+Contiguity Constraint check passed.
+Score improved, moving precinct to Congressional District2
+Getting border precinct from congressional district 1
+Passed Constrain
+Moving Precinct 17 From Congressional District 1
+Moving Precinct to neighbor with original score:243.93955967868322
+The NewScore After moving= 244.6519895164495
+Contiguity Check Failed, moving precinct back
+Passed Constrain
+Moving Precinct 18 From Congressional District 1
+Moving Precinct to neighbor with original score:243.93955967868322
+The NewScore After moving= 244.64306725194757
+Contiguity Check Failed, moving precinct back
+Passed Constrain
+Moving Precinct 51 From Congressional District 1
+Moving Precinct to neighbor with original score:243.93955967868322
+The NewScore After moving= 243.93549853794372
+Score did not improved, moving precinct back
+Passed Constrain
+Moving Precinct 64 From Congressional District 1
+Moving Precinct to neighbor with original score:243.93955967868322
+The NewScore After moving= 243.88278928404213
+Score did not improved, moving precinct back
+Passed Constrain
+Moving Precinct 82 From Congressional District 1
+Moving Precinct to neighbor with original score:243.93955967868322
+The NewScore After moving= 243.74575239470948
+Score did not improved, moving precinct back
+Passed Constrain
+Moving Precinct 83 From Congressional District 1
+Moving Precinct to neighbor with original score:243.93955967868322
+The NewScore After moving= 243.23051147679428
+Score did not improved, moving precinct back
+Passed Constrain
+Moving Precinct 84 From Congressional District 1
+Moving Precinct to neighbor with original score:243.93955967868322
+The NewScore After moving= 243.68871729644846
+Score did not improved, moving precinct back
+Passed Constrain
+Moving Precinct 86 From Congressional District 1
+Moving Precinct to neighbor with original score:243.93955967868322
+The NewScore After moving= 243.90512651015086
+Score did not improved, moving precinct back
+Passed Constrain
+Moving Precinct 88 From Congressional District 1
+Moving Precinct to neighbor with original score:243.93955967868322
+The NewScore After moving= 244.19366910146329
+Contiguity Constraint check passed.
+Score improved, moving precinct to Congressional District2
+Getting border precinct from congressional district 1
+Passed Constrain
+Moving Precinct 15 From Congressional District 1
+Moving Precinct to neighbor with original score:244.19366910146329
+The NewScore After moving= 244.83183984803574
+Contiguity Constraint check passed.
+Score improved, moving precinct to Congressional District2
+Getting border precinct from congressional district 1
+Passed Constrain
+Moving Precinct 39 From Congressional District 1
+Moving Precinct to neighbor with original score:244.83183984803574
+The NewScore After moving= 245.30178162837234
+Contiguity Constraint check passed.
+Score improved, moving precinct to Congressional District2
+Getting border precinct from congressional district 1
+Passed Constrain
+Moving Precinct 7 From Congressional District 1
+Moving Precinct to neighbor with original score:245.30178162837234
+The NewScore After moving= 245.62751222280102
+Contiguity Check Failed, moving precinct back
+Passed Constrain
+Moving Precinct 65 From Congressional District 1
+Moving Precinct to neighbor with original score:245.30178162837234
+The NewScore After moving= 245.69335620558513
+Contiguity Check Failed, moving precinct back
+Passed Constrain
+Moving Precinct 66 From Congressional District 1
+Moving Precinct to neighbor with original score:245.30178162837234
+The NewScore After moving= 245.712597251185
+Contiguity Check Failed, moving precinct back
+Passed Constrain
+Moving Precinct 73 From Congressional District 1
+Moving Precinct to neighbor with original score:245.30178162837234
+The NewScore After moving= 246.014758052751
+Contiguity Check Failed, moving precinct back
+Moving Precinct to neighbor with original score:245.30178162837234
+The NewScore After moving= 246.014758052751
+Contiguity Check Failed, moving precinct back
+Passed Constrain
+Moving Precinct 74 From Congressional District 1
+Moving Precinct to neighbor with original score:245.30178162837234
+The NewScore After moving= 245.64856782372647
+Contiguity Constraint check passed.
+Score improved, moving precinct to Congressional District2
+Getting border precinct from congressional district 1
+Passed Constrain
+Moving Precinct 87 From Congressional District 1
+Moving Precinct to neighbor with original score:245.64856782372647
+The NewScore After moving= 246.02983652199606
+Contiguity Check Failed, moving precinct back
+Moving Precinct to neighbor with original score:245.64856782372647
+The NewScore After moving= 246.02983652199606
+Contiguity Check Failed, moving precinct back
+Passed Constrain
+Moving Precinct 94 From Congressional District 1
+Moving Precinct to neighbor with original score:245.64856782372647
+The NewScore After moving= 246.21612675129006
+Contiguity Check Failed, moving precinct back
+Passed Constrain
+Moving Precinct 96 From Congressional District 1
+Moving Precinct to neighbor with original score:245.64856782372647
+The NewScore After moving= 246.44542628166732
+Contiguity Check Failed, moving precinct back
+Passed Constrain
+Moving Precinct 108 From Congressional District 1
+Moving Precinct to neighbor with original score:245.64856782372647
+The NewScore After moving= 246.14883973371724
+Contiguity Check Failed, moving precinct back
+Moving Precinct to neighbor with original score:245.64856782372647
+The NewScore After moving= 246.14883973371724
+Contiguity Check Failed, moving precinct back
+Moving Precinct to neighbor with original score:245.64856782372647
+The NewScore After moving= 246.14883973371724
+Contiguity Check Failed, moving precinct back
+Passed Constrain
+Moving Precinct 110 From Congressional District 1
+Moving Precinct to neighbor with original score:245.64856782372647
+The NewScore After moving= 246.15305535375214
+Contiguity Constraint check passed.
+Score improved, moving precinct to Congressional District2
+Getting border precinct from congressional district 1
+Passed Constrain
+Moving Precinct 5 From Congressional District 1
+Moving Precinct to neighbor with original score:246.15305535375214
+The NewScore After moving= 246.93864626860517
+Contiguity Check Failed, moving precinct back
+Passed Constrain
+Moving Precinct 6 From Congressional District 1
+Moving Precinct to neighbor with original score:246.15305535375214
+The NewScore After moving= 247.01367940522465
+Contiguity Check Failed, moving precinct back
+Passed Constrain
+Moving Precinct 37 From Congressional District 1
+Moving Precinct to neighbor with original score:246.15305535375214
+The NewScore After moving= 246.7751201578299
+Contiguity Check Failed, moving precinct back
+Passed Constrain
+Moving Precinct 109 From Congressional District 1
+Moving Precinct to neighbor with original score:246.15305535375214
+The NewScore After moving= 246.68744584182272
+Contiguity Constraint check passed.
+Score improved, moving precinct to Congressional District2
+Getting border precinct from congressional district 1
+Passed Constrain
+Moving Precinct 38 From Congressional District 1
+Moving Precinct to neighbor with original score:246.68744584182272
+The NewScore After moving= 247.0789925814101
+Contiguity Check Failed, moving precinct back
+Passed Constrain
+Moving Precinct 49 From Congressional District 1
+Moving Precinct to neighbor with original score:246.68744584182272
+The NewScore After moving= 247.58189389150866
+Contiguity Check Failed, moving precinct back
+Passed Constrain
+Moving Precinct 81 From Congressional District 1
+Moving Precinct to neighbor with original score:246.68744584182272
+The NewScore After moving= 247.47559761151703
+Contiguity Check Failed, moving precinct back
+Passed Constrain
+Moving Precinct 123 From Congressional District 1
+Moving Precinct to neighbor with original score:246.68744584182272
+The NewScore After moving= 247.13858826693212
+Contiguity Check Failed, moving precinct back
+Moving Precinct to neighbor with original score:246.68744584182272
+The NewScore After moving= 247.13858826693212
+Contiguity Check Failed, moving precinct back
+Moving Precinct to neighbor with original score:246.68744584182272
+The NewScore After moving= 247.13858826693212
+Contiguity Check Failed, moving precinct back
+Passed Constrain
+Moving Precinct 131 From Congressional District 1
+Moving Precinct to neighbor with original score:246.68744584182272
+The NewScore After moving= 246.8247860325771
+Contiguity Check Failed, moving precinct back
+Moving Precinct to neighbor with original score:246.68744584182272
+The NewScore After moving= 246.8247860325771
+Contiguity Check Failed, moving precinct back
+Passed Constrain
+Moving Precinct 269 From Congressional District 1
+Moving Precinct to neighbor with original score:246.68744584182272
+The NewScore After moving= 246.90947743126105
+Contiguity Constraint check passed.
+Score improved, moving precinct to Congressional District2
+Getting border precinct from congressional district 1
+Passed Constrain
+Moving Precinct 270 From Congressional District 1
+Moving Precinct to neighbor with original score:246.90947743126105
+The NewScore After moving= 247.23859896030254
+Contiguity Constraint check passed.
+Score improved, moving precinct to Congressional District2
+Getting border precinct from congressional district 1
+Passed Constrain
+Moving Precinct 80 From Congressional District 1
+Moving Precinct to neighbor with original score:247.23859896030254
+The NewScore After moving= 247.76189736631142
+Contiguity Constraint check passed.
+Score improved, moving precinct to Congressional District2
+Getting border precinct from congressional district 1
+Passed Constrain
+Moving Precinct 2 From Congressional District 1
+Moving Precinct to neighbor with original score:247.76189736631142
+The NewScore After moving= 248.14087566187015
+Contiguity Constraint check passed.
+Score improved, moving precinct to Congressional District2
+Getting border precinct from congressional district 1
+Passed Constrain
+Moving Precinct 1 From Congressional District 1
+Moving Precinct to neighbor with original score:248.14087566187015
+The NewScore After moving= 248.651928218975
+Contiguity Check Failed, moving precinct back
+Passed Constrain
+Moving Precinct 3 From Congressional District 1
+Moving Precinct to neighbor with original score:248.14087566187015
+The NewScore After moving= 248.55377047984535
+Contiguity Constraint check passed.
+Score improved, moving precinct to Congressional District2
+Getting border precinct from congressional district 1
+Passed Constrain
+Moving Precinct 4 From Congressional District 1
+Moving Precinct to neighbor with original score:248.55377047984535
+The NewScore After moving= 248.9874192961223
+Contiguity Constraint check passed.
+Score improved, moving precinct to Congressional District2
+Getting border precinct from congressional district 1
+Passed Constrain
+Moving Precinct 47 From Congressional District 1
+Moving Precinct to neighbor with original score:248.9874192961223
+The NewScore After moving= 249.48746278519016
+Contiguity Check Failed, moving precinct back
+Passed Constrain
+Moving Precinct 56 From Congressional District 1
+Moving Precinct to neighbor with original score:248.9874192961223
+The NewScore After moving= 249.41827962451126
+Contiguity Check Failed, moving precinct back
+Moving Precinct to neighbor with original score:248.9874192961223
+The NewScore After moving= 249.41827962451126
+Contiguity Check Failed, moving precinct back
+Passed Constrain
+Moving Precinct 79 From Congressional District 1
+Moving Precinct to neighbor with original score:248.9874192961223
+The NewScore After moving= 249.4024195784367
+Contiguity Constraint check passed.
+Score improved, moving precinct to Congressional District2
+Getting border precinct from congressional district 1
+Passed Constrain
+Moving Precinct 62 From Congressional District 1
+Moving Precinct to neighbor with original score:249.4024195784367
+The NewScore After moving= 249.9693247878613
+Contiguity Constraint check passed.
+Score improved, moving precinct to Congressional District2
+Getting border precinct from congressional district 1
+Passed Constrain
+Moving Precinct 41 From Congressional District 1
+Moving Precinct to neighbor with original score:249.9693247878613
+The NewScore After moving= 250.48606807413643
+Contiguity Constraint check passed.
+Score improved, moving precinct to Congressional District2
+Getting border precinct from congressional district 1
+Passed Constrain
+Moving Precinct 40 From Congressional District 1
+Moving Precinct to neighbor with original score:250.48606807413643
+The NewScore After moving= 250.9601892120142
+Contiguity Check Failed, moving precinct back
+Passed Constrain
+Moving Precinct 46 From Congressional District 1
+Moving Precinct to neighbor with original score:250.48606807413643
+The NewScore After moving= 250.87403940907788
+Contiguity Constraint check passed.
+Score improved, moving precinct to Congressional District2
+Getting border precinct from congressional district 1
+Passed Constrain
+Moving Precinct 25 From Congressional District 1
+Moving Precinct to neighbor with original score:250.87403940907788
+The NewScore After moving= 251.3251357023309
+Contiguity Check Failed, moving precinct back
+Passed Constrain
+Moving Precinct 26 From Congressional District 1
+Moving Precinct to neighbor with original score:250.87403940907788
+The NewScore After moving= 251.28735978367058
+Contiguity Constraint check passed.
+Score improved, moving precinct to Congressional District2
+Getting border precinct from congressional district 1
+Passed Constrain
+Moving Precinct 24 From Congressional District 1
+Moving Precinct to neighbor with original score:251.28735978367058
+The NewScore After moving= 251.9051499869633
+Contiguity Constraint check passed.
+Score improved, moving precinct to Congressional District2
+Getting border precinct from congressional district 1
+Passed Constrain
+Moving Precinct 27 From Congressional District 1
+Moving Precinct to neighbor with original score:251.9051499869633
+The NewScore After moving= 252.37731413764658
+Contiguity Constraint check passed.
+Score improved, moving precinct to Congressional District2
+Getting border precinct from congressional district 1
+Passed Constrain
+Moving Precinct 21 From Congressional District 1
+Moving Precinct to neighbor with original score:252.37731413764658
+The NewScore After moving= 252.75123025248902
+Contiguity Check Failed, moving precinct back
+Passed Constrain
+Moving Precinct 36 From Congressional District 1
+Moving Precinct to neighbor with original score:252.37731413764658
+The NewScore After moving= 252.88483728165565
+Contiguity Check Failed, moving precinct back
+Moving Precinct to neighbor with original score:252.37731413764658
+The NewScore After moving= 252.88483728165565
+Contiguity Check Failed, moving precinct back
+Passed Constrain
+Moving Precinct 58 From Congressional District 1
+Moving Precinct to neighbor with original score:252.37731413764658
+The NewScore After moving= 252.7341688048045
+Contiguity Check Failed, moving precinct back
+Passed Constrain
+Moving Precinct 59 From Congressional District 1
+Moving Precinct to neighbor with original score:252.37731413764658
+The NewScore After moving= 252.8259343078886
+Contiguity Check Failed, moving precinct back
+Moving Precinct to neighbor with original score:252.37731413764658
+The NewScore After moving= 252.8259343078886
+Contiguity Check Failed, moving precinct back
+Passed Constrain
+Moving Precinct 63 From Congressional District 1
+Moving Precinct to neighbor with original score:252.37731413764658
+The NewScore After moving= 252.7194252823136
+Contiguity Check Failed, moving precinct back
+Moving Precinct to neighbor with original score:252.37731413764658
+The NewScore After moving= 252.7194252823136
+Contiguity Check Failed, moving precinct back
+Passed Constrain
+Moving Precinct 90 From Congressional District 1
+Moving Precinct to neighbor with original score:252.37731413764658
+The NewScore After moving= 252.97514608276003
+Contiguity Constraint check passed.
+Score improved, moving precinct to Congressional District2
+Getting border precinct from congressional district 1
+Passed Constrain
+Moving Precinct 91 From Congressional District 1
+Moving Precinct to neighbor with original score:252.97514608276003
+The NewScore After moving= 253.39590183432722
+Contiguity Check Failed, moving precinct back
+Moving Precinct to neighbor with original score:252.97514608276003
+The NewScore After moving= 253.39590183432722
+Contiguity Check Failed, moving precinct back
+Moving Precinct to neighbor with original score:252.97514608276003
+The NewScore After moving= 253.39590183432722
+Contiguity Check Failed, moving precinct back
+Moving Precinct to neighbor with original score:252.97514608276003
+The NewScore After moving= 253.39590183432722
+Contiguity Check Failed, moving precinct back
+Passed Constrain
+Moving Precinct 92 From Congressional District 1
+Moving Precinct to neighbor with original score:252.97514608276003
+The NewScore After moving= 253.5865906832247
+Contiguity Check Failed, moving precinct back
+Moving Precinct to neighbor with original score:252.97514608276003
+The NewScore After moving= 253.5865906832247
+Contiguity Check Failed, moving precinct back
+Moving Precinct to neighbor with original score:252.97514608276003
+The NewScore After moving= 253.5865906832247
+Contiguity Check Failed, moving precinct back
+Moving Precinct to neighbor with original score:252.97514608276003
+The NewScore After moving= 253.5865906832247
+Contiguity Check Failed, moving precinct back
+Moving Precinct to neighbor with original score:252.97514608276003
+The NewScore After moving= 253.5865906832247
+Contiguity Check Failed, moving precinct back
+Passed Constrain
+Moving Precinct 124 From Congressional District 1
+Moving Precinct to neighbor with original score:252.97514608276003
+The NewScore After moving= 253.30789138031858
+Contiguity Constraint check passed.
+Score improved, moving precinct to Congressional District2
+Getting border precinct from congressional district 1
+Passed Constrain
+Moving Precinct 60 From Congressional District 1
+Moving Precinct to neighbor with original score:253.30789138031858
+The NewScore After moving= 253.83048126256728
+Contiguity Check Failed, moving precinct back
+Passed Constrain
+Moving Precinct 125 From Congressional District 1
+Moving Precinct to neighbor with original score:253.30789138031858
+The NewScore After moving= 253.87232068290498
+Contiguity Check Failed, moving precinct back
+Moving Precinct to neighbor with original score:253.30789138031858
+The NewScore After moving= 253.87232068290498
+Contiguity Check Failed, moving precinct back
+Moving Precinct to neighbor with original score:253.30789138031858
+The NewScore After moving= 253.87232068290498
+Contiguity Check Failed, moving precinct back
+Moving Precinct to neighbor with original score:253.30789138031858
+The NewScore After moving= 253.87232068290498
+Contiguity Check Failed, moving precinct back
+Moving Precinct to neighbor with original score:253.30789138031858
+The NewScore After moving= 253.87232068290498
+Contiguity Check Failed, moving precinct back
+Moving Precinct to neighbor with original score:253.30789138031858
+The NewScore After moving= 253.87232068290498
+Contiguity Check Failed, moving precinct back
+Moving Precinct to neighbor with original score:253.30789138031858
+The NewScore After moving= 253.87232068290498
+Contiguity Check Failed, moving precinct back
+Moving Precinct to neighbor with original score:253.30789138031858
+The NewScore After moving= 253.87232068290498
+Contiguity Check Failed, moving precinct back
+Moving Precinct to neighbor with original score:253.30789138031858
+The NewScore After moving= 253.87232068290498
+Contiguity Check Failed, moving precinct back
+Passed Constrain
+Moving Precinct 130 From Congressional District 1
+Moving Precinct to neighbor with original score:253.30789138031858
+The NewScore After moving= 253.76295437801244
+Contiguity Check Failed, moving precinct back
+Moving Precinct to neighbor with original score:253.30789138031858
+The NewScore After moving= 253.76295437801244
+Contiguity Check Failed, moving precinct back
+Passed Constrain
+Moving Precinct 271 From Congressional District 1
+Moving Precinct to neighbor with original score:253.30789138031858
+The NewScore After moving= 253.31918783476422
+Contiguity Constraint check passed.
+Score improved, moving precinct to Congressional District2
+Getting border precinct from congressional district 1
+Passed Constrain
+Moving Precinct 272 From Congressional District 1
+Moving Precinct to neighbor with original score:253.31918783476422
+The NewScore After moving= 253.56784788682342
+Contiguity Constraint check passed.
+Score improved, moving precinct to Congressional District2
+Getting border precinct from congressional district 1
+Passed Constrain
+Moving Precinct 44 From Congressional District 1
+Moving Precinct to neighbor with original score:253.56784788682342
+The NewScore After moving= 254.01804604623823
+Contiguity Constraint check passed.
+Score improved, moving precinct to Congressional District2
+Getting border precinct from congressional district 1
+Passed Constrain
+Moving Precinct 45 From Congressional District 1
+Moving Precinct to neighbor with original score:254.01804604623823
+The NewScore After moving= 254.3541293092771
+Contiguity Check Failed, moving precinct back
+Passed Constrain
+Moving Precinct 54 From Congressional District 1
+Moving Precinct to neighbor with original score:254.01804604623823
+The NewScore After moving= 254.53208981277868
+Contiguity Constraint check passed.
+Score improved, moving precinct to Congressional District2
+Getting border precinct from congressional district 1
+Passed Constrain
+Moving Precinct 78 From Congressional District 1
+Moving Precinct to neighbor with original score:254.53208981277868
+The NewScore After moving= 255.05082666656116
+Contiguity Constraint check passed.
+Score improved, moving precinct to Congressional District2
+Getting border precinct from congressional district 1
+Passed Constrain
+Moving Precinct 93 From Congressional District 1
+Moving Precinct to neighbor with original score:255.05082666656116
+The NewScore After moving= 255.6502885653232
+Contiguity Check Failed, moving precinct back
+Passed Constrain
+Moving Precinct 95 From Congressional District 1
+Moving Precinct to neighbor with original score:255.05082666656116
+The NewScore After moving= 255.38451419791866
+Contiguity Check Failed, moving precinct back
+Passed Constrain
+Moving Precinct 98 From Congressional District 1
+Moving Precinct to neighbor with original score:255.05082666656116
+The NewScore After moving= 255.487490823896
+Contiguity Constraint check passed.
+Score improved, moving precinct to Congressional District2
+Getting border precinct from congressional district 1
+Passed Constrain
+Moving Precinct 99 From Congressional District 1
+Moving Precinct to neighbor with original score:255.487490823896
+The NewScore After moving= 255.99607484036363
+Contiguity Constraint check passed.
+Score improved, moving precinct to Congressional District2
+Getting border precinct from congressional district 1
+Passed Constrain
+Moving Precinct 32 From Congressional District 1
+Moving Precinct to neighbor with original score:255.99607484036363
+The NewScore After moving= 256.56352031171
+Contiguity Check Failed, moving precinct back
+Passed Constrain
+Moving Precinct 100 From Congressional District 1
+Moving Precinct to neighbor with original score:255.99607484036363
+The NewScore After moving= 256.4822017367494
+Contiguity Constraint check passed.
+Score improved, moving precinct to Congressional District2
+Getting border precinct from congressional district 1
+Passed Constrain
+Moving Precinct 113 From Congressional District 1
+Moving Precinct to neighbor with original score:256.4822017367494
+The NewScore After moving= 256.96997782377537
+Contiguity Constraint check passed.
+Score improved, moving precinct to Congressional District2
+Getting border precinct from congressional district 1
+Passed Constrain
+Moving Precinct 114 From Congressional District 1
+Moving Precinct to neighbor with original score:256.96997782377537
+The NewScore After moving= 257.2627481270865
+Contiguity Constraint check passed.
+Score improved, moving precinct to Congressional District2
+Getting border precinct from congressional district 1
+Passed Constrain
+Moving Precinct 115 From Congressional District 1
+Moving Precinct to neighbor with original score:257.2627481270865
+The NewScore After moving= 257.95009748282234
+Contiguity Constraint check passed.
+Score improved, moving precinct to Congressional District2
+Getting border precinct from congressional district 1
+Passed Constrain
+Moving Precinct 119 From Congressional District 1
+Moving Precinct to neighbor with original score:257.95009748282234
+The NewScore After moving= 258.1974738344694
+Contiguity Constraint check passed.
+Score improved, moving precinct to Congressional District2
+Getting border precinct from congressional district 1
+Passed Constrain
+Moving Precinct 67 From Congressional District 1
+Moving Precinct to neighbor with original score:258.1974738344694
+The NewScore After moving= 258.68599211834146
+Contiguity Check Failed, moving precinct back
+Passed Constrain
+Moving Precinct 69 From Congressional District 1
+Moving Precinct to neighbor with original score:258.1974738344694
+The NewScore After moving= 258.51480761444077
+Contiguity Check Failed, moving precinct back
+Passed Constrain
+Moving Precinct 103 From Congressional District 1
+Moving Precinct to neighbor with original score:258.1974738344694
+The NewScore After moving= 258.80858665571725
+Contiguity Check Failed, moving precinct back
+Passed Constrain
+Moving Precinct 129 From Congressional District 1
+Moving Precinct to neighbor with original score:258.1974738344694
+The NewScore After moving= 258.6692791536957
+Contiguity Check Failed, moving precinct back
+Passed Constrain
+Moving Precinct 136 From Congressional District 1
+Moving Precinct to neighbor with original score:258.1974738344694
+The NewScore After moving= 258.6467572786571
+Contiguity Constraint check passed.
+Score improved, moving precinct to Congressional District2
+Getting border precinct from congressional district 1
+Passed Constrain
+Moving Precinct 132 From Congressional District 1
+Moving Precinct to neighbor with original score:258.6467572786571
+The NewScore After moving= 259.04336951491166
+Contiguity Check Failed, moving precinct back
+Passed Constrain
+Moving Precinct 137 From Congressional District 1
+Moving Precinct to neighbor with original score:258.6467572786571
+The NewScore After moving= 258.9080928356524
+Contiguity Constraint check passed.
+Score improved, moving precinct to Congressional District2
+Getting border precinct from congressional district 1
+Passed Constrain
+Moving Precinct 138 From Congressional District 1
+Moving Precinct to neighbor with original score:258.9080928356524
+The NewScore After moving= 259.59768445556864
+Contiguity Constraint check passed.
+Score improved, moving precinct to Congressional District2
+Getting border precinct from congressional district 1
+Passed Constrain
+Moving Precinct 28 From Congressional District 1
+Moving Precinct to neighbor with original score:259.59768445556864
+The NewScore After moving= 260.04223902736214
+Contiguity Check Failed, moving precinct back
+Passed Constrain
+Moving Precinct 31 From Congressional District 1
+Moving Precinct to neighbor with original score:259.59768445556864
+The NewScore After moving= 260.2714612355543
+Contiguity Constraint check passed.
+Score improved, moving precinct to Congressional District2
+Getting border precinct from congressional district 1
+Passed Constrain
+Moving Precinct 30 From Congressional District 1
+Moving Precinct to neighbor with original score:260.2714612355543
+The NewScore After moving= 260.71520563657606
+Contiguity Check Failed, moving precinct back
+Passed Constrain
+Moving Precinct 42 From Congressional District 1
+Moving Precinct to neighbor with original score:260.2714612355543
+The NewScore After moving= 260.6244857489992
+Contiguity Check Failed, moving precinct back
+Passed Constrain
+Moving Precinct 77 From Congressional District 1
+Moving Precinct to neighbor with original score:260.2714612355543
+The NewScore After moving= 261.09704940142
+Contiguity Check Failed, moving precinct back
+Passed Constrain
+Moving Precinct 121 From Congressional District 1
+Moving Precinct to neighbor with original score:260.2714612355543
+The NewScore After moving= 260.84637652257857
+Contiguity Constraint check passed.
+Score improved, moving precinct to Congressional District2
+Getting border precinct from congressional district 1
+Passed Constrain
+Moving Precinct 12 From Congressional District 1
+Moving Precinct to neighbor with original score:260.84637652257857
+The NewScore After moving= 261.4062742144414
+Contiguity Check Failed, moving precinct back
+Passed Constrain
+Moving Precinct 13 From Congressional District 1
+Moving Precinct to neighbor with original score:260.84637652257857
+The NewScore After moving= 261.21864159897007
+Contiguity Constraint check passed.
+Score improved, moving precinct to Congressional District2
+Getting border precinct from congressional district 1
+Passed Constrain
+Moving Precinct 11 From Congressional District 1
+Moving Precinct to neighbor with original score:261.21864159897007
+The NewScore After moving= 261.8738241322786
+Contiguity Check Failed, moving precinct back
+Passed Constrain
+Moving Precinct 106 From Congressional District 1
+Moving Precinct to neighbor with original score:261.21864159897007
+The NewScore After moving= 261.62753259665715
+Contiguity Constraint check passed.
+Score improved, moving precinct to Congressional District2
+Getting border precinct from congressional district 1
+Passed Constrain
+Moving Precinct 68 From Congressional District 1
+Moving Precinct to neighbor with original score:261.62753259665715
+The NewScore After moving= 262.10872780526336
+Contiguity Check Failed, moving precinct back
+Passed Constrain
+Moving Precinct 105 From Congressional District 1
+Moving Precinct to neighbor with original score:261.62753259665715
+The NewScore After moving= 261.9778325431006
+Contiguity Check Failed, moving precinct back
+Passed Constrain
+Moving Precinct 120 From Congressional District 1
+Moving Precinct to neighbor with original score:261.62753259665715
+The NewScore After moving= 261.9084865220326
+Contiguity Constraint check passed.
+Score improved, moving precinct to Congressional District2
+Getting border precinct from congressional district 1
+Passed Constrain
+Moving Precinct 122 From Congressional District 1
+Moving Precinct to neighbor with original score:261.9084865220326
+The NewScore After moving= 262.1844832301666
+Contiguity Check Failed, moving precinct back
+Moving Precinct to neighbor with original score:261.9084865220326
+The NewScore After moving= 262.1844832301666
+Contiguity Check Failed, moving precinct back
+Passed Constrain
+Moving Precinct 139 From Congressional District 1
+Moving Precinct to neighbor with original score:261.9084865220326
+The NewScore After moving= 262.57512976871055
+Contiguity Constraint check passed.
+Score improved, moving precinct to Congressional District2
+Getting border precinct from congressional district 1
+Passed Constrain
+Moving Precinct 134 From Congressional District 1
+Moving Precinct to neighbor with original score:262.57512976871055
+The NewScore After moving= 262.9061028167291
+Contiguity Constraint check passed.
+Score improved, moving precinct to Congressional District2
+Getting border precinct from congressional district 1
+Passed Constrain
+Moving Precinct 19 From Congressional District 1
+Moving Precinct to neighbor with original score:262.9061028167291
+The NewScore After moving= 263.46137154520585
+Contiguity Check Failed, moving precinct back
+Passed Constrain
+Moving Precinct 133 From Congressional District 1
+Moving Precinct to neighbor with original score:262.9061028167291
+The NewScore After moving= 263.34187026187595
+Contiguity Check Failed, moving precinct back
+Passed Constrain
+Moving Precinct 140 From Congressional District 1
+Moving Precinct to neighbor with original score:262.9061028167291
+The NewScore After moving= 263.3620631274803
+Contiguity Constraint check passed.
+Score improved, moving precinct to Congressional District2
+Getting border precinct from congressional district 1
+Passed Constrain
+Moving Precinct 273 From Congressional District 1
+Moving Precinct to neighbor with original score:263.3620631274803
+The NewScore After moving= 263.62404672155077
+Contiguity Check Failed, moving precinct back
+Moving Precinct to neighbor with original score:263.3620631274803
+The NewScore After moving= 263.62404672155077
+Contiguity Check Failed, moving precinct back
+Moving Precinct to neighbor with original score:263.3620631274803
+The NewScore After moving= 263.62404672155077
+Contiguity Check Failed, moving precinct back
+Passed Constrain
+Moving Precinct 274 From Congressional District 1
+Moving Precinct to neighbor with original score:263.3620631274803
+The NewScore After moving= 263.5051783022243
+Contiguity Check Failed, moving precinct back
+Moving Precinct to neighbor with original score:263.3620631274803
+The NewScore After moving= 263.5051783022243
+Contiguity Check Failed, moving precinct back
+Moving Precinct to neighbor with original score:263.3620631274803
+The NewScore After moving= 263.5051783022243
+Contiguity Check Failed, moving precinct back
+Passed Constrain
+Moving Precinct 541 From Congressional District 1
+Moving Precinct to neighbor with original score:263.3620631274803
+The NewScore After moving= 263.6204666011489
+Contiguity Constraint check passed.
+Score improved, moving precinct to Congressional District2
+Getting border precinct from congressional district 1
+Passed Constrain
+Moving Precinct 81 From Congressional District 1
+Moving Precinct to neighbor with original score:320.0434318363252
+The NewScore After moving= 319.1474248599043
+Score did not improved, moving precinct back
+Passed Constrain
+Moving Precinct 82 From Congressional District 1
+Moving Precinct to neighbor with original score:320.0434318363252
+The NewScore After moving= 320.0948681886764
+Contiguity Constraint check passed.
+Score improved, moving precinct to Congressional District4
+Getting border precinct from congressional district 1
+Passed Constrain
+Moving Precinct 84 From Congressional District 1
+Moving Precinct to neighbor with original score:320.0948681886764
+The NewScore After moving= 320.027504071531
+Score did not improved, moving precinct back
+Passed Constrain
+Moving Precinct 88 From Congressional District 1
+Moving Precinct to neighbor with original score:320.0948681886764
+The NewScore After moving= 320.2775184045913
+Contiguity Constraint check passed.
+Score improved, moving precinct to Congressional District4
+Getting border precinct from congressional district 1
+Passed Constrain
+Moving Precinct 83 From Congressional District 1
+Moving Precinct to neighbor with original score:320.2775184045913
+The NewScore After moving= 319.0711627084707
+Score did not improved, moving precinct back
+Passed Constrain
+Moving Precinct 89 From Congressional District 1
+Moving Precinct to neighbor with original score:320.2775184045913
+The NewScore After moving= 319.32314517050094
+Score did not improved, moving precinct back
+Moving Precinct to neighbor with original score:320.2775184045913
+The NewScore After moving= 319.32314517050094
+Score did not improved, moving precinct back
+Passed Constrain
+Moving Precinct 90 From Congressional District 1
+Moving Precinct to neighbor with original score:320.2775184045913
+The NewScore After moving= 319.50026416201644
+Score did not improved, moving precinct back
+Moving Precinct to neighbor with original score:320.2775184045913
+The NewScore After moving= 319.50026416201644
+Score did not improved, moving precinct back
+Passed Constrain
+Moving Precinct 99 From Congressional District 1
+Moving Precinct to neighbor with original score:320.2775184045913
+The NewScore After moving= 319.3018617024667
+Score did not improved, moving precinct back
+Passed Constrain
+Moving Precinct 290 From Congressional District 1
+Moving Precinct to neighbor with original score:320.2775184045913
+The NewScore After moving= 320.57168793590245
+Contiguity Constraint check passed.
+Score improved, moving precinct to Congressional District4
+Getting border precinct from congressional district 1
+Passed Constrain
+Moving Precinct 291 From Congressional District 1
+Moving Precinct to neighbor with original score:320.57168793590245
+The NewScore After moving= 320.1767564948909
+Score did not improved, moving precinct back
+Moving Precinct to neighbor with original score:320.57168793590245
+The NewScore After moving= 320.1767564948909
+Score did not improved, moving precinct back
+Passed Constrain
+Moving Precinct 292 From Congressional District 1
+Moving Precinct to neighbor with original score:320.57168793590245
+The NewScore After moving= 320.3970221019689
+Score did not improved, moving precinct back
+Moving Precinct to neighbor with original score:320.57168793590245
+The NewScore After moving= 320.3970221019689
+Score did not improved, moving precinct back
+Passed Constrain
+Moving Precinct 300 From Congressional District 1
+Moving Precinct to neighbor with original score:320.57168793590245
+The NewScore After moving= 318.31104578573667
+Score did not improved, moving precinct back
+Passed Constrain
+Moving Precinct 395 From Congressional District 1
+Moving Precinct to neighbor with original score:312.30757170740435
+The NewScore After moving= 311.5966592415932
+Score did not improved, moving precinct back
+Passed Constrain
+Moving Precinct 399 From Congressional District 1
+Moving Precinct to neighbor with original score:312.30757170740435
+The NewScore After moving= 311.59937321795076
+Score did not improved, moving precinct back
+Moving Precinct to neighbor with original score:312.30757170740435
+The NewScore After moving= 311.59937321795076
+Score did not improved, moving precinct back
+Moving Precinct to neighbor with original score:312.30757170740435
+The NewScore After moving= 311.59937321795076
+Score did not improved, moving precinct back
+Passed Constrain
+Moving Precinct 401 From Congressional District 1
+Moving Precinct to neighbor with original score:312.30757170740435
+The NewScore After moving= 311.40350424354585
+Score did not improved, moving precinct back
+Moving Precinct to neighbor with original score:312.30757170740435
+The NewScore After moving= 311.40350424354585
+Score did not improved, moving precinct back
+Passed Constrain
+Moving Precinct 968 From Congressional District 1
+Moving Precinct to neighbor with original score:312.30757170740435
+The NewScore After moving= 312.3488227129528
+Contiguity Constraint check passed.
+Score improved, moving precinct to Congressional District2
+Getting border precinct from congressional district 1
+Passed Constrain
+Moving Precinct 969 From Congressional District 1
+Moving Precinct to neighbor with original score:312.3488227129528
+The NewScore After moving= 312.3836993430242
+Contiguity Constraint check passed.
+Score improved, moving precinct to Congressional District2
+Getting border precinct from congressional district 1
+Passed Constrain
+Moving Precinct 998 From Congressional District 1
+Moving Precinct to neighbor with original score:312.3836993430242
+The NewScore After moving= 312.44066689997317
+Contiguity Constraint check passed.
+Score improved, moving precinct to Congressional District2
+Getting border precinct from congressional district 1
+Passed Constrain
+Moving Precinct 999 From Congressional District 1
+Moving Precinct to neighbor with original score:312.44066689997317
+The NewScore After moving= 312.47170301320705
+Contiguity Check Failed, moving precinct back
+Passed Constrain
+Moving Precinct 1002 From Congressional District 1
+Moving Precinct to neighbor with original score:312.44066689997317
+The NewScore After moving= 312.46255091639705
+Contiguity Check Failed, moving precinct back
+Moving Precinct to neighbor with original score:312.44066689997317
+The NewScore After moving= 312.46255091639705
+Contiguity Check Failed, moving precinct back
+Moving Precinct to neighbor with original score:312.44066689997317
+The NewScore After moving= 312.46255091639705
+Contiguity Check Failed, moving precinct back
+Passed Constrain
+Moving Precinct 1050 From Congressional District 1
+Moving Precinct to neighbor with original score:320.51604243475924
+The NewScore After moving= 320.74315893798314
+Contiguity Constraint check passed.
+Score improved, moving precinct to Congressional District4
+Getting border precinct from congressional district 1
+Passed Constrain
+Moving Precinct 1051 From Congressional District 1
+Moving Precinct to neighbor with original score:320.74315893798314
+The NewScore After moving= 321.02224473920177
+Contiguity Constraint check passed.
+Score improved, moving precinct to Congressional District4
+Getting border precinct from congressional district 1
+Passed Constrain
+Moving Precinct 1058 From Congressional District 1
+Moving Precinct to neighbor with original score:312.30309816695086
+The NewScore After moving= 312.3491373587988
+Contiguity Check Failed, moving precinct back
+Moving Precinct to neighbor with original score:312.30309816695086
+The NewScore After moving= 312.3491373587988
+Contiguity Check Failed, moving precinct back
+Moving Precinct to neighbor with original score:321.02224473920177
+The NewScore After moving= 321.1317062210652
+Contiguity Check Failed, moving precinct back
+Passed Constrain
+Moving Precinct 1062 From Congressional District 1
+Moving Precinct to neighbor with original score:312.30309816695086
+The NewScore After moving= 312.3495022113775
+Contiguity Check Failed, moving precinct back
+Moving Precinct to neighbor with original score:312.30309816695086
+The NewScore After moving= 312.3495022113775
+Contiguity Check Failed, moving precinct back
+Moving Precinct to neighbor with original score:321.02224473920177
+The NewScore After moving= 321.1626380103286
+Contiguity Check Failed, moving precinct back
+Moving Precinct to neighbor with original score:321.02224473920177
+The NewScore After moving= 321.1626380103286
+Contiguity Check Failed, moving precinct back
+Passed Constrain
+Moving Precinct 1063 From Congressional District 1
+Moving Precinct to neighbor with original score:321.02224473920177
+The NewScore After moving= 321.16872103437197
+Contiguity Constraint check passed.
+Score improved, moving precinct to Congressional District4
+Getting border precinct from congressional district 1
+Passed Constrain
+Moving Precinct 1898 From Congressional District 1
+Moving Precinct to neighbor with original score:312.16984166456535
+The NewScore After moving= 312.22144032890753
+Contiguity Constraint check passed.
+Score improved, moving precinct to Congressional District2
+Getting border precinct from congressional district 1
+Passed Constrain
+Moving Precinct 1895 From Congressional District 1
+Moving Precinct to neighbor with original score:312.22144032890753
+The NewScore After moving= 312.3146358284974
+Contiguity Constraint check passed.
+Score improved, moving precinct to Congressional District2
+Getting border precinct from congressional district 1
+Passed Constrain
+Moving Precinct 1894 From Congressional District 1
+Moving Precinct to neighbor with original score:312.3146358284974
+The NewScore After moving= 312.37623852168736
+Contiguity Check Failed, moving precinct back
+Passed Constrain
+Moving Precinct 1896 From Congressional District 1
+Moving Precinct to neighbor with original score:312.3146358284974
+The NewScore After moving= 312.3439796868662
+Contiguity Constraint check passed.
+Score improved, moving precinct to Congressional District2
+Getting border precinct from congressional district 1
+Passed Constrain
+Moving Precinct 1897 From Congressional District 1
+Moving Precinct to neighbor with original score:312.3439796868662
+The NewScore After moving= 312.4195381320557
+Contiguity Check Failed, moving precinct back
+Passed Constrain
+Moving Precinct 1899 From Congressional District 1
+Moving Precinct to neighbor with original score:312.3439796868662
+The NewScore After moving= 312.4027570507908
+Contiguity Constraint check passed.
+Score improved, moving precinct to Congressional District2
+Getting border precinct from congressional district 1
+Passed Constrain
+Moving Precinct 1901 From Congressional District 1
+Moving Precinct to neighbor with original score:312.4027570507908
+The NewScore After moving= 312.4789704119596
+Contiguity Constraint check passed.
+Score improved, moving precinct to Congressional District2
+Getting border precinct from congressional district 1
+Passed Constrain
+Moving Precinct 1870 From Congressional District 1
+Moving Precinct to neighbor with original score:312.4789704119596
+The NewScore After moving= 312.5070610231992
+Contiguity Check Failed, moving precinct back
+Passed Constrain
+Moving Precinct 1902 From Congressional District 1
+Moving Precinct to neighbor with original score:320.8515496029669
+The NewScore After moving= 318.4055456974256
+Score did not improved, moving precinct back
+Moving Precinct to neighbor with original score:320.8515496029669
+The NewScore After moving= 318.4055456974256
+Score did not improved, moving precinct back
+Passed Constrain
+Moving Precinct 1903 From Congressional District 1
+Moving Precinct to neighbor with original score:312.4789704119596
+The NewScore After moving= 312.56500397754127
+Contiguity Check Failed, moving precinct back
+Moving Precinct to neighbor with original score:312.4789704119596
+The NewScore After moving= 312.56500397754127
+Contiguity Check Failed, moving precinct back
+Moving Precinct to neighbor with original score:312.4789704119596
+The NewScore After moving= 312.56500397754127
+Contiguity Check Failed, moving precinct back
+Moving Precinct to neighbor with original score:312.4789704119596
+The NewScore After moving= 312.56500397754127
+Contiguity Check Failed, moving precinct back
+Moving Precinct to neighbor with original score:320.8515496029669
+The NewScore After moving= 318.43631724609804
+Score did not improved, moving precinct back
+Passed Constrain
+Moving Precinct 1919 From Congressional District 1
+Moving Precinct to neighbor with original score:320.8515496029669
+The NewScore After moving= 318.87940062810424
+Score did not improved, moving precinct back
+Passed Constrain
+Moving Precinct 1925 From Congressional District 1
+Moving Precinct to neighbor with original score:320.8515496029669
+The NewScore After moving= 319.1430013396128
+Score did not improved, moving precinct back
+Getting border precinct from congressional district 1
+Passed Constrain
+Moving Precinct 81 From Congressional District 1
+Moving Precinct to neighbor with original score:327.3393422208244
+The NewScore After moving= 326.4433560248002
+Score did not improved, moving precinct back
+Passed Constrain
+Moving Precinct 82 From Congressional District 1
+Moving Precinct to neighbor with original score:327.3393422208244
+The NewScore After moving= 327.39080068769624
+Contiguity Constraint check passed.
+Score improved, moving precinct to Congressional District4
+Getting border precinct from congressional district 1
+Passed Constrain
+Moving Precinct 84 From Congressional District 1
+Moving Precinct to neighbor with original score:321.137144259965
+The NewScore After moving= 321.0697820743244
+Score did not improved, moving precinct back
+Passed Constrain
+Moving Precinct 88 From Congressional District 1
+Moving Precinct to neighbor with original score:321.137144259965
+The NewScore After moving= 321.31979491244755
+Contiguity Constraint check passed.
+Score improved, moving precinct to Congressional District4
+Getting border precinct from congressional district 1
+Passed Constrain
+Moving Precinct 81 From Congressional District 1
+Moving Precinct to neighbor with original score:321.08570474839655
+The NewScore After moving= 320.18970074060366
+Score did not improved, moving precinct back
+Passed Constrain
+Moving Precinct 82 From Congressional District 1
+Moving Precinct to neighbor with original score:321.08570474839655
+The NewScore After moving= 321.137144259965
+Contiguity Constraint check passed.
+Score improved, moving precinct to Congressional District4
 Getting border precinct from congressional district 1
 Passed Constrain
 Moving Precinct 81 From Congressional District 1
@@ -12010,3 +13510,1022 @@ Score did not improved, moving precinct back
 Moving Precinct to neighbor with original score:304.73632699874463
 The NewScore After moving= 303.6490893547183
 Score did not improved, moving precinct back
+Passed Constrain
+Moving Precinct 90 From Congressional District 1
+Moving Precinct to neighbor with original score:304.73632699874463
+The NewScore After moving= 303.8560830948219
+Score did not improved, moving precinct back
+Moving Precinct to neighbor with original score:304.73632699874463
+The NewScore After moving= 303.8560830948219
+Score did not improved, moving precinct back
+Passed Constrain
+Moving Precinct 99 From Congressional District 1
+Moving Precinct to neighbor with original score:304.73632699874463
+The NewScore After moving= 303.62058104880526
+Score did not improved, moving precinct back
+Passed Constrain
+Moving Precinct 290 From Congressional District 1
+Moving Precinct to neighbor with original score:304.73632699874463
+The NewScore After moving= 305.0713493251476
+Contiguity Constraint check passed.
+Score improved, moving precinct to Congressional District4
+Getting border precinct from congressional district 1
+Passed Constrain
+Moving Precinct 291 From Congressional District 1
+Moving Precinct to neighbor with original score:305.0713493251476
+The NewScore After moving= 304.61870225543845
+Score did not improved, moving precinct back
+Moving Precinct to neighbor with original score:305.0713493251476
+The NewScore After moving= 304.61870225543845
+Score did not improved, moving precinct back
+Passed Constrain
+Moving Precinct 292 From Congressional District 1
+Moving Precinct to neighbor with original score:305.0713493251476
+The NewScore After moving= 304.87176425633413
+Score did not improved, moving precinct back
+Moving Precinct to neighbor with original score:305.0713493251476
+The NewScore After moving= 304.87176425633413
+Score did not improved, moving precinct back
+Passed Constrain
+Moving Precinct 300 From Congressional District 1
+Moving Precinct to neighbor with original score:305.0713493251476
+The NewScore After moving= 302.50354273106984
+Score did not improved, moving precinct back
+Passed Constrain
+Moving Precinct 395 From Congressional District 1
+Moving Precinct to neighbor with original score:295.8732653104316
+The NewScore After moving= 295.06541470571034
+Score did not improved, moving precinct back
+Passed Constrain
+Moving Precinct 399 From Congressional District 1
+Moving Precinct to neighbor with original score:295.8732653104316
+The NewScore After moving= 295.06849803875684
+Score did not improved, moving precinct back
+Moving Precinct to neighbor with original score:295.8732653104316
+The NewScore After moving= 295.06849803875684
+Score did not improved, moving precinct back
+Moving Precinct to neighbor with original score:295.8732653104316
+The NewScore After moving= 295.06849803875684
+Score did not improved, moving precinct back
+Passed Constrain
+Moving Precinct 401 From Congressional District 1
+Moving Precinct to neighbor with original score:295.8732653104316
+The NewScore After moving= 294.8459187797754
+Score did not improved, moving precinct back
+Moving Precinct to neighbor with original score:295.8732653104316
+The NewScore After moving= 294.8459187797754
+Score did not improved, moving precinct back
+Passed Constrain
+Moving Precinct 968 From Congressional District 1
+Moving Precinct to neighbor with original score:295.8732653104316
+The NewScore After moving= 295.9201439277656
+Contiguity Constraint check passed.
+Score improved, moving precinct to Congressional District2
+Getting border precinct from congressional district 1
+Passed Constrain
+Moving Precinct 969 From Congressional District 1
+Moving Precinct to neighbor with original score:295.9201439277656
+The NewScore After moving= 295.9597762420843
+Contiguity Constraint check passed.
+Score improved, moving precinct to Congressional District2
+Getting border precinct from congressional district 1
+Passed Constrain
+Moving Precinct 998 From Congressional District 1
+Moving Precinct to neighbor with original score:295.9597762420843
+The NewScore After moving= 296.0245121641138
+Contiguity Constraint check passed.
+Score improved, moving precinct to Congressional District2
+Getting border precinct from congressional district 1
+Passed Constrain
+Moving Precinct 999 From Congressional District 1
+Moving Precinct to neighbor with original score:296.0245121641138
+The NewScore After moving= 296.0597807071126
+Contiguity Check Failed, moving precinct back
+Passed Constrain
+Moving Precinct 1002 From Congressional District 1
+Moving Precinct to neighbor with original score:296.0245121641138
+The NewScore After moving= 296.04938000798825
+Contiguity Check Failed, moving precinct back
+Moving Precinct to neighbor with original score:296.0245121641138
+The NewScore After moving= 296.04938000798825
+Contiguity Check Failed, moving precinct back
+Moving Precinct to neighbor with original score:296.0245121641138
+The NewScore After moving= 296.04938000798825
+Contiguity Check Failed, moving precinct back
+Passed Constrain
+Moving Precinct 1050 From Congressional District 1
+Moving Precinct to neighbor with original score:305.00742137793424
+The NewScore After moving= 305.263004000818
+Contiguity Constraint check passed.
+Score improved, moving precinct to Congressional District4
+Getting border precinct from congressional district 1
+Passed Constrain
+Moving Precinct 1051 From Congressional District 1
+Moving Precinct to neighbor with original score:305.263004000818
+The NewScore After moving= 305.6019741936801
+Contiguity Constraint check passed.
+Score improved, moving precinct to Congressional District4
+Getting border precinct from congressional district 1
+Passed Constrain
+Moving Precinct 1058 From Congressional District 1
+Moving Precinct to neighbor with original score:295.877846994435
+The NewScore After moving= 295.93016492409583
+Contiguity Check Failed, moving precinct back
+Moving Precinct to neighbor with original score:295.877846994435
+The NewScore After moving= 295.93016492409583
+Contiguity Check Failed, moving precinct back
+Moving Precinct to neighbor with original score:305.6019741936801
+The NewScore After moving= 305.73282463150167
+Contiguity Check Failed, moving precinct back
+Passed Constrain
+Moving Precinct 1062 From Congressional District 1
+Moving Precinct to neighbor with original score:295.877846994435
+The NewScore After moving= 295.9305790844566
+Contiguity Check Failed, moving precinct back
+Moving Precinct to neighbor with original score:295.877846994435
+The NewScore After moving= 295.9305790844566
+Contiguity Check Failed, moving precinct back
+Moving Precinct to neighbor with original score:305.6019741936801
+The NewScore After moving= 305.7607029766313
+Contiguity Check Failed, moving precinct back
+Moving Precinct to neighbor with original score:305.6019741936801
+The NewScore After moving= 305.7607029766313
+Contiguity Check Failed, moving precinct back
+Passed Constrain
+Moving Precinct 1063 From Congressional District 1
+Moving Precinct to neighbor with original score:305.6019741936801
+The NewScore After moving= 305.81933494915256
+Contiguity Constraint check passed.
+Score improved, moving precinct to Congressional District4
+Getting border precinct from congressional district 1
+Passed Constrain
+Moving Precinct 1898 From Congressional District 1
+Moving Precinct to neighbor with original score:295.75190052125924
+The NewScore After moving= 295.8105359874904
+Contiguity Constraint check passed.
+Score improved, moving precinct to Congressional District2
+Getting border precinct from congressional district 1
+Passed Constrain
+Moving Precinct 1895 From Congressional District 1
+Moving Precinct to neighbor with original score:295.8105359874904
+The NewScore After moving= 295.91643953972834
+Contiguity Constraint check passed.
+Score improved, moving precinct to Congressional District2
+Getting border precinct from congressional district 1
+Passed Constrain
+Moving Precinct 1894 From Congressional District 1
+Moving Precinct to neighbor with original score:295.91643953972834
+The NewScore After moving= 295.98644335017906
+Contiguity Check Failed, moving precinct back
+Passed Constrain
+Moving Precinct 1896 From Congressional District 1
+Moving Precinct to neighbor with original score:295.91643953972834
+The NewScore After moving= 295.9497839357694
+Contiguity Constraint check passed.
+Score improved, moving precinct to Congressional District2
+Getting border precinct from congressional district 1
+Passed Constrain
+Moving Precinct 1897 From Congressional District 1
+Moving Precinct to neighbor with original score:295.9497839357694
+The NewScore After moving= 296.03564592066425
+Contiguity Check Failed, moving precinct back
+Passed Constrain
+Moving Precinct 1899 From Congressional District 1
+Moving Precinct to neighbor with original score:295.9497839357694
+The NewScore After moving= 296.0165735548906
+Contiguity Constraint check passed.
+Score improved, moving precinct to Congressional District2
+Getting border precinct from congressional district 1
+Getting border precinct from congressional district 1
+Passed Constrain
+Moving Precinct 81 From Congressional District 1
+Moving Precinct to neighbor with original score:304.4552532551955
+The NewScore After moving= 303.447364222225
+Score did not improved, moving precinct back
+Passed Constrain
+Moving Precinct 82 From Congressional District 1
+Moving Precinct to neighbor with original score:304.4552532551955
+The NewScore After moving= 304.5279764302974
+Contiguity Constraint check passed.
+Score improved, moving precinct to Congressional District4
+Getting border precinct from congressional district 1
+Passed Constrain
+Moving Precinct 84 From Congressional District 1
+Moving Precinct to neighbor with original score:304.5279764302974
+The NewScore After moving= 304.4849726173262
+Score did not improved, moving precinct back
+Passed Constrain
+Moving Precinct 88 From Congressional District 1
+Moving Precinct to neighbor with original score:304.5279764302974
+The NewScore After moving= 304.73632699874463
+Contiguity Constraint check passed.
+Score improved, moving precinct to Congressional District4
+Getting border precinct from congressional district 1
+Passed Constrain
+Moving Precinct 83 From Congressional District 1
+Moving Precinct to neighbor with original score:304.73632699874463
+The NewScore After moving= 303.38649896048184
+Score did not improved, moving precinct back
+Passed Constrain
+Moving Precinct 89 From Congressional District 1
+Moving Precinct to neighbor with original score:304.73632699874463
+The NewScore After moving= 303.6490893547183
+Score did not improved, moving precinct back
+Moving Precinct to neighbor with original score:304.73632699874463
+The NewScore After moving= 303.6490893547183
+Score did not improved, moving precinct back
+Passed Constrain
+Moving Precinct 90 From Congressional District 1
+Moving Precinct to neighbor with original score:304.73632699874463
+The NewScore After moving= 303.8560830948219
+Score did not improved, moving precinct back
+Moving Precinct to neighbor with original score:304.73632699874463
+The NewScore After moving= 303.8560830948219
+Score did not improved, moving precinct back
+Passed Constrain
+Moving Precinct 99 From Congressional District 1
+Moving Precinct to neighbor with original score:304.73632699874463
+The NewScore After moving= 303.62058104880526
+Score did not improved, moving precinct back
+Passed Constrain
+Moving Precinct 290 From Congressional District 1
+Moving Precinct to neighbor with original score:304.73632699874463
+The NewScore After moving= 305.0713493251476
+Contiguity Constraint check passed.
+Score improved, moving precinct to Congressional District4
+Getting border precinct from congressional district 1
+Passed Constrain
+Moving Precinct 291 From Congressional District 1
+Moving Precinct to neighbor with original score:305.0713493251476
+The NewScore After moving= 304.61870225543845
+Score did not improved, moving precinct back
+Moving Precinct to neighbor with original score:305.0713493251476
+The NewScore After moving= 304.61870225543845
+Score did not improved, moving precinct back
+Passed Constrain
+Moving Precinct 292 From Congressional District 1
+Moving Precinct to neighbor with original score:305.0713493251476
+The NewScore After moving= 304.87176425633413
+Score did not improved, moving precinct back
+Moving Precinct to neighbor with original score:305.0713493251476
+The NewScore After moving= 304.87176425633413
+Score did not improved, moving precinct back
+Passed Constrain
+Moving Precinct 300 From Congressional District 1
+Moving Precinct to neighbor with original score:305.0713493251476
+The NewScore After moving= 302.50354273106984
+Score did not improved, moving precinct back
+Getting border precinct from congressional district 1
+Passed Constrain
+Moving Precinct 81 From Congressional District 1
+Moving Precinct to neighbor with original score:304.4552532551955
+The NewScore After moving= 303.447364222225
+Score did not improved, moving precinct back
+Passed Constrain
+Moving Precinct 82 From Congressional District 1
+Moving Precinct to neighbor with original score:304.4552532551955
+The NewScore After moving= 304.5279764302974
+Contiguity Constraint check passed.
+Score improved, moving precinct to Congressional District4
+Getting border precinct from congressional district 1
+Passed Constrain
+Moving Precinct 84 From Congressional District 1
+Moving Precinct to neighbor with original score:304.5279764302974
+The NewScore After moving= 304.4849726173262
+Score did not improved, moving precinct back
+Passed Constrain
+Moving Precinct 88 From Congressional District 1
+Moving Precinct to neighbor with original score:304.5279764302974
+The NewScore After moving= 304.73632699874463
+Contiguity Constraint check passed.
+Score improved, moving precinct to Congressional District4
+Getting border precinct from congressional district 1
+Passed Constrain
+Moving Precinct 83 From Congressional District 1
+Moving Precinct to neighbor with original score:304.73632699874463
+The NewScore After moving= 303.38649896048184
+Score did not improved, moving precinct back
+Passed Constrain
+Moving Precinct 89 From Congressional District 1
+Moving Precinct to neighbor with original score:304.73632699874463
+The NewScore After moving= 303.6490893547183
+Score did not improved, moving precinct back
+Moving Precinct to neighbor with original score:304.73632699874463
+The NewScore After moving= 303.6490893547183
+Score did not improved, moving precinct back
+Passed Constrain
+Moving Precinct 90 From Congressional District 1
+Moving Precinct to neighbor with original score:304.73632699874463
+The NewScore After moving= 303.8560830948219
+Score did not improved, moving precinct back
+Moving Precinct to neighbor with original score:304.73632699874463
+The NewScore After moving= 303.8560830948219
+Score did not improved, moving precinct back
+Passed Constrain
+Moving Precinct 99 From Congressional District 1
+Moving Precinct to neighbor with original score:304.73632699874463
+The NewScore After moving= 303.62058104880526
+Score did not improved, moving precinct back
+Passed Constrain
+Moving Precinct 290 From Congressional District 1
+Moving Precinct to neighbor with original score:304.73632699874463
+The NewScore After moving= 305.0713493251476
+Contiguity Constraint check passed.
+Score improved, moving precinct to Congressional District4
+Getting border precinct from congressional district 1
+Passed Constrain
+Moving Precinct 291 From Congressional District 1
+Moving Precinct to neighbor with original score:305.0713493251476
+The NewScore After moving= 304.61870225543845
+Score did not improved, moving precinct back
+Moving Precinct to neighbor with original score:305.0713493251476
+The NewScore After moving= 304.61870225543845
+Score did not improved, moving precinct back
+Passed Constrain
+Moving Precinct 292 From Congressional District 1
+Moving Precinct to neighbor with original score:305.0713493251476
+The NewScore After moving= 304.87176425633413
+Score did not improved, moving precinct back
+Moving Precinct to neighbor with original score:305.0713493251476
+The NewScore After moving= 304.87176425633413
+Score did not improved, moving precinct back
+Getting border precinct from congressional district 1
+Passed Constrain
+Moving Precinct 81 From Congressional District 1
+Moving Precinct to neighbor with original score:304.4552532551955
+The NewScore After moving= 303.447364222225
+Score did not improved, moving precinct back
+Passed Constrain
+Moving Precinct 82 From Congressional District 1
+Moving Precinct to neighbor with original score:304.4552532551955
+The NewScore After moving= 304.5279764302974
+Contiguity Constraint check passed.
+Score improved, moving precinct to Congressional District4
+Getting border precinct from congressional district 1
+Passed Constrain
+Moving Precinct 84 From Congressional District 1
+Moving Precinct to neighbor with original score:304.5279764302974
+The NewScore After moving= 304.4849726173262
+Score did not improved, moving precinct back
+Passed Constrain
+Moving Precinct 88 From Congressional District 1
+Moving Precinct to neighbor with original score:304.5279764302974
+The NewScore After moving= 304.73632699874463
+Contiguity Constraint check passed.
+Score improved, moving precinct to Congressional District4
+Getting border precinct from congressional district 1
+Passed Constrain
+Moving Precinct 83 From Congressional District 1
+Moving Precinct to neighbor with original score:304.73632699874463
+The NewScore After moving= 303.38649896048184
+Score did not improved, moving precinct back
+Passed Constrain
+Moving Precinct 89 From Congressional District 1
+Moving Precinct to neighbor with original score:304.73632699874463
+The NewScore After moving= 303.6490893547183
+Score did not improved, moving precinct back
+Moving Precinct to neighbor with original score:304.73632699874463
+The NewScore After moving= 303.6490893547183
+Score did not improved, moving precinct back
+Passed Constrain
+Moving Precinct 90 From Congressional District 1
+Moving Precinct to neighbor with original score:304.73632699874463
+The NewScore After moving= 303.8560830948219
+Score did not improved, moving precinct back
+Moving Precinct to neighbor with original score:304.73632699874463
+The NewScore After moving= 303.8560830948219
+Score did not improved, moving precinct back
+Passed Constrain
+Moving Precinct 99 From Congressional District 1
+Moving Precinct to neighbor with original score:304.73632699874463
+The NewScore After moving= 303.62058104880526
+Score did not improved, moving precinct back
+Passed Constrain
+Moving Precinct 290 From Congressional District 1
+Moving Precinct to neighbor with original score:304.73632699874463
+The NewScore After moving= 305.0713493251476
+Contiguity Constraint check passed.
+Score improved, moving precinct to Congressional District4
+Getting border precinct from congressional district 1
+Passed Constrain
+Moving Precinct 291 From Congressional District 1
+Moving Precinct to neighbor with original score:305.0713493251476
+The NewScore After moving= 304.61870225543845
+Score did not improved, moving precinct back
+Moving Precinct to neighbor with original score:305.0713493251476
+The NewScore After moving= 304.61870225543845
+Score did not improved, moving precinct back
+Passed Constrain
+Moving Precinct 292 From Congressional District 1
+Moving Precinct to neighbor with original score:305.0713493251476
+The NewScore After moving= 304.87176425633413
+Score did not improved, moving precinct back
+Moving Precinct to neighbor with original score:305.0713493251476
+The NewScore After moving= 304.87176425633413
+Score did not improved, moving precinct back
+Passed Constrain
+Moving Precinct 300 From Congressional District 1
+Moving Precinct to neighbor with original score:305.0713493251476
+The NewScore After moving= 302.50354273106984
+Score did not improved, moving precinct back
+Passed Constrain
+Moving Precinct 395 From Congressional District 1
+Moving Precinct to neighbor with original score:295.8732653104316
+The NewScore After moving= 295.06541470571034
+Score did not improved, moving precinct back
+Passed Constrain
+Moving Precinct 399 From Congressional District 1
+Moving Precinct to neighbor with original score:295.8732653104316
+The NewScore After moving= 295.06849803875684
+Score did not improved, moving precinct back
+Moving Precinct to neighbor with original score:295.8732653104316
+The NewScore After moving= 295.06849803875684
+Score did not improved, moving precinct back
+Moving Precinct to neighbor with original score:295.8732653104316
+The NewScore After moving= 295.06849803875684
+Score did not improved, moving precinct back
+Passed Constrain
+Moving Precinct 401 From Congressional District 1
+Moving Precinct to neighbor with original score:295.8732653104316
+The NewScore After moving= 294.8459187797754
+Score did not improved, moving precinct back
+Moving Precinct to neighbor with original score:295.8732653104316
+The NewScore After moving= 294.8459187797754
+Score did not improved, moving precinct back
+Passed Constrain
+Moving Precinct 968 From Congressional District 1
+Moving Precinct to neighbor with original score:295.8732653104316
+The NewScore After moving= 295.9201439277656
+Contiguity Constraint check passed.
+Score improved, moving precinct to Congressional District2
+Getting border precinct from congressional district 1
+Passed Constrain
+Moving Precinct 969 From Congressional District 1
+Moving Precinct to neighbor with original score:295.9201439277656
+The NewScore After moving= 295.9597762420843
+Contiguity Constraint check passed.
+Score improved, moving precinct to Congressional District2
+Getting border precinct from congressional district 1
+Passed Constrain
+Moving Precinct 998 From Congressional District 1
+Moving Precinct to neighbor with original score:295.9597762420843
+The NewScore After moving= 296.0245121641138
+Contiguity Constraint check passed.
+Score improved, moving precinct to Congressional District2
+Getting border precinct from congressional district 1
+Passed Constrain
+Moving Precinct 81 From Congressional District 1
+Moving Precinct to neighbor with original score:304.4552532551955
+The NewScore After moving= 303.447364222225
+Score did not improved, moving precinct back
+Passed Constrain
+Moving Precinct 82 From Congressional District 1
+Moving Precinct to neighbor with original score:304.4552532551955
+The NewScore After moving= 304.5279764302974
+Contiguity Constraint check passed.
+Score improved, moving precinct to Congressional District4
+Getting border precinct from congressional district 1
+Passed Constrain
+Moving Precinct 84 From Congressional District 1
+Moving Precinct to neighbor with original score:304.5279764302974
+The NewScore After moving= 304.4849726173262
+Score did not improved, moving precinct back
+Passed Constrain
+Moving Precinct 88 From Congressional District 1
+Moving Precinct to neighbor with original score:304.5279764302974
+The NewScore After moving= 304.73632699874463
+Contiguity Constraint check passed.
+Score improved, moving precinct to Congressional District4
+Getting border precinct from congressional district 1
+Passed Constrain
+Moving Precinct 83 From Congressional District 1
+Moving Precinct to neighbor with original score:304.73632699874463
+The NewScore After moving= 303.38649896048184
+Score did not improved, moving precinct back
+Passed Constrain
+Moving Precinct 89 From Congressional District 1
+Moving Precinct to neighbor with original score:304.73632699874463
+The NewScore After moving= 303.6490893547183
+Score did not improved, moving precinct back
+Moving Precinct to neighbor with original score:304.73632699874463
+The NewScore After moving= 303.6490893547183
+Score did not improved, moving precinct back
+Passed Constrain
+Moving Precinct 90 From Congressional District 1
+Moving Precinct to neighbor with original score:304.73632699874463
+The NewScore After moving= 303.8560830948219
+Score did not improved, moving precinct back
+Moving Precinct to neighbor with original score:304.73632699874463
+The NewScore After moving= 303.8560830948219
+Score did not improved, moving precinct back
+Passed Constrain
+Moving Precinct 99 From Congressional District 1
+Moving Precinct to neighbor with original score:304.73632699874463
+The NewScore After moving= 303.62058104880526
+Score did not improved, moving precinct back
+Passed Constrain
+Moving Precinct 290 From Congressional District 1
+Moving Precinct to neighbor with original score:304.73632699874463
+The NewScore After moving= 305.0713493251476
+Contiguity Constraint check passed.
+Score improved, moving precinct to Congressional District4
+Getting border precinct from congressional district 1
+Passed Constrain
+Moving Precinct 291 From Congressional District 1
+Moving Precinct to neighbor with original score:305.0713493251476
+The NewScore After moving= 304.61870225543845
+Score did not improved, moving precinct back
+Moving Precinct to neighbor with original score:305.0713493251476
+The NewScore After moving= 304.61870225543845
+Score did not improved, moving precinct back
+Passed Constrain
+Moving Precinct 292 From Congressional District 1
+Moving Precinct to neighbor with original score:305.0713493251476
+The NewScore After moving= 304.87176425633413
+Score did not improved, moving precinct back
+Moving Precinct to neighbor with original score:305.0713493251476
+The NewScore After moving= 304.87176425633413
+Score did not improved, moving precinct back
+Passed Constrain
+Moving Precinct 300 From Congressional District 1
+Moving Precinct to neighbor with original score:305.0713493251476
+The NewScore After moving= 302.50354273106984
+Score did not improved, moving precinct back
+Passed Constrain
+Moving Precinct 395 From Congressional District 1
+Moving Precinct to neighbor with original score:295.8732653104316
+The NewScore After moving= 295.06541470571034
+Score did not improved, moving precinct back
+Passed Constrain
+Moving Precinct 399 From Congressional District 1
+Moving Precinct to neighbor with original score:295.8732653104316
+The NewScore After moving= 295.06849803875684
+Score did not improved, moving precinct back
+Moving Precinct to neighbor with original score:295.8732653104316
+The NewScore After moving= 295.06849803875684
+Score did not improved, moving precinct back
+Moving Precinct to neighbor with original score:295.8732653104316
+The NewScore After moving= 295.06849803875684
+Score did not improved, moving precinct back
+Passed Constrain
+Moving Precinct 401 From Congressional District 1
+Moving Precinct to neighbor with original score:295.8732653104316
+The NewScore After moving= 294.8459187797754
+Score did not improved, moving precinct back
+Moving Precinct to neighbor with original score:295.8732653104316
+The NewScore After moving= 294.8459187797754
+Score did not improved, moving precinct back
+Passed Constrain
+Moving Precinct 968 From Congressional District 1
+Moving Precinct to neighbor with original score:295.8732653104316
+The NewScore After moving= 295.9201439277656
+Contiguity Constraint check passed.
+Score improved, moving precinct to Congressional District2
+Getting border precinct from congressional district 1
+Passed Constrain
+Moving Precinct 969 From Congressional District 1
+Moving Precinct to neighbor with original score:295.9201439277656
+The NewScore After moving= 295.9597762420843
+Contiguity Constraint check passed.
+Score improved, moving precinct to Congressional District2
+Getting border precinct from congressional district 1
+Passed Constrain
+Moving Precinct 998 From Congressional District 1
+Moving Precinct to neighbor with original score:295.9597762420843
+The NewScore After moving= 296.0245121641138
+Contiguity Constraint check passed.
+Score improved, moving precinct to Congressional District2
+Getting border precinct from congressional district 1
+Passed Constrain
+Moving Precinct 999 From Congressional District 1
+Moving Precinct to neighbor with original score:296.0245121641138
+The NewScore After moving= 296.0597807071126
+Contiguity Check Failed, moving precinct back
+Passed Constrain
+Moving Precinct 1002 From Congressional District 1
+Moving Precinct to neighbor with original score:296.0245121641138
+The NewScore After moving= 296.04938000798825
+Contiguity Check Failed, moving precinct back
+Moving Precinct to neighbor with original score:296.0245121641138
+The NewScore After moving= 296.04938000798825
+Contiguity Check Failed, moving precinct back
+Moving Precinct to neighbor with original score:296.0245121641138
+The NewScore After moving= 296.04938000798825
+Contiguity Check Failed, moving precinct back
+Passed Constrain
+Moving Precinct 1050 From Congressional District 1
+Moving Precinct to neighbor with original score:305.00742137793424
+The NewScore After moving= 305.263004000818
+Contiguity Constraint check passed.
+Score improved, moving precinct to Congressional District4
+Getting border precinct from congressional district 1
+Passed Constrain
+Moving Precinct 1051 From Congressional District 1
+Moving Precinct to neighbor with original score:305.263004000818
+The NewScore After moving= 305.6019741936801
+Contiguity Constraint check passed.
+Score improved, moving precinct to Congressional District4
+Getting border precinct from congressional district 1
+Passed Constrain
+Moving Precinct 1058 From Congressional District 1
+Moving Precinct to neighbor with original score:295.877846994435
+The NewScore After moving= 295.93016492409583
+Contiguity Check Failed, moving precinct back
+Moving Precinct to neighbor with original score:295.877846994435
+The NewScore After moving= 295.93016492409583
+Contiguity Check Failed, moving precinct back
+Moving Precinct to neighbor with original score:305.6019741936801
+The NewScore After moving= 305.73282463150167
+Contiguity Check Failed, moving precinct back
+Passed Constrain
+Moving Precinct 1062 From Congressional District 1
+Moving Precinct to neighbor with original score:295.877846994435
+The NewScore After moving= 295.9305790844566
+Contiguity Check Failed, moving precinct back
+Moving Precinct to neighbor with original score:295.877846994435
+The NewScore After moving= 295.9305790844566
+Contiguity Check Failed, moving precinct back
+Moving Precinct to neighbor with original score:305.6019741936801
+The NewScore After moving= 305.7607029766313
+Contiguity Check Failed, moving precinct back
+Moving Precinct to neighbor with original score:305.6019741936801
+The NewScore After moving= 305.7607029766313
+Contiguity Check Failed, moving precinct back
+Passed Constrain
+Moving Precinct 1063 From Congressional District 1
+Moving Precinct to neighbor with original score:305.6019741936801
+The NewScore After moving= 305.81933494915256
+Contiguity Constraint check passed.
+Score improved, moving precinct to Congressional District4
+Getting border precinct from congressional district 1
+Passed Constrain
+Moving Precinct 1898 From Congressional District 1
+Moving Precinct to neighbor with original score:295.75190052125924
+The NewScore After moving= 295.8105359874904
+Contiguity Constraint check passed.
+Score improved, moving precinct to Congressional District2
+Getting border precinct from congressional district 1
+Passed Constrain
+Moving Precinct 1895 From Congressional District 1
+Moving Precinct to neighbor with original score:295.8105359874904
+The NewScore After moving= 295.91643953972834
+Contiguity Constraint check passed.
+Score improved, moving precinct to Congressional District2
+Getting border precinct from congressional district 1
+Passed Constrain
+Moving Precinct 1894 From Congressional District 1
+Moving Precinct to neighbor with original score:295.91643953972834
+The NewScore After moving= 295.98644335017906
+Contiguity Check Failed, moving precinct back
+Getting border precinct from congressional district 1
+Passed Constrain
+Moving Precinct 81 From Congressional District 1
+Moving Precinct to neighbor with original score:304.4552532551955
+The NewScore After moving= 303.447364222225
+Score did not improved, moving precinct back
+Passed Constrain
+Moving Precinct 82 From Congressional District 1
+Moving Precinct to neighbor with original score:304.4552532551955
+The NewScore After moving= 304.5279764302974
+Contiguity Constraint check passed.
+Score improved, moving precinct to Congressional District4
+Getting border precinct from congressional district 1
+Passed Constrain
+Moving Precinct 81 From Congressional District 1
+Moving Precinct to neighbor with original score:304.4552532551955
+The NewScore After moving= 303.447364222225
+Score did not improved, moving precinct back
+Passed Constrain
+Moving Precinct 82 From Congressional District 1
+Moving Precinct to neighbor with original score:304.4552532551955
+The NewScore After moving= 304.5279764302974
+Contiguity Constraint check passed.
+Score improved, moving precinct to Congressional District4
+Getting border precinct from congressional district 1
+Passed Constrain
+Moving Precinct 84 From Congressional District 1
+Moving Precinct to neighbor with original score:304.5279764302974
+The NewScore After moving= 304.4849726173262
+Score did not improved, moving precinct back
+Passed Constrain
+Moving Precinct 88 From Congressional District 1
+Moving Precinct to neighbor with original score:304.5279764302974
+The NewScore After moving= 304.73632699874463
+Contiguity Constraint check passed.
+Score improved, moving precinct to Congressional District4
+Getting border precinct from congressional district 1
+Passed Constrain
+Moving Precinct 83 From Congressional District 1
+Moving Precinct to neighbor with original score:304.73632699874463
+The NewScore After moving= 303.38649896048184
+Score did not improved, moving precinct back
+Passed Constrain
+Moving Precinct 89 From Congressional District 1
+Moving Precinct to neighbor with original score:304.73632699874463
+The NewScore After moving= 303.6490893547183
+Score did not improved, moving precinct back
+Moving Precinct to neighbor with original score:304.73632699874463
+The NewScore After moving= 303.6490893547183
+Score did not improved, moving precinct back
+Passed Constrain
+Moving Precinct 90 From Congressional District 1
+Moving Precinct to neighbor with original score:304.73632699874463
+The NewScore After moving= 303.8560830948219
+Score did not improved, moving precinct back
+Moving Precinct to neighbor with original score:304.73632699874463
+The NewScore After moving= 303.8560830948219
+Score did not improved, moving precinct back
+Passed Constrain
+Moving Precinct 99 From Congressional District 1
+Moving Precinct to neighbor with original score:304.73632699874463
+The NewScore After moving= 303.62058104880526
+Score did not improved, moving precinct back
+Passed Constrain
+Moving Precinct 290 From Congressional District 1
+Moving Precinct to neighbor with original score:304.73632699874463
+The NewScore After moving= 305.0713493251476
+Contiguity Constraint check passed.
+Score improved, moving precinct to Congressional District4
+Getting border precinct from congressional district 1
+Passed Constrain
+Moving Precinct 291 From Congressional District 1
+Moving Precinct to neighbor with original score:305.0713493251476
+The NewScore After moving= 304.61870225543845
+Score did not improved, moving precinct back
+Moving Precinct to neighbor with original score:305.0713493251476
+The NewScore After moving= 304.61870225543845
+Score did not improved, moving precinct back
+Passed Constrain
+Moving Precinct 292 From Congressional District 1
+Moving Precinct to neighbor with original score:305.0713493251476
+The NewScore After moving= 304.87176425633413
+Score did not improved, moving precinct back
+Moving Precinct to neighbor with original score:305.0713493251476
+The NewScore After moving= 304.87176425633413
+Score did not improved, moving precinct back
+Getting border precinct from congressional district 1
+Passed Constrain
+Moving Precinct 81 From Congressional District 1
+Moving Precinct to neighbor with original score:304.4552532551955
+The NewScore After moving= 303.447364222225
+Score did not improved, moving precinct back
+Passed Constrain
+Moving Precinct 82 From Congressional District 1
+Moving Precinct to neighbor with original score:304.4552532551955
+The NewScore After moving= 304.5279764302974
+Contiguity Constraint check passed.
+Score improved, moving precinct to Congressional District4
+=======
+>>>>>>> 367245db68c529818eddb6ecd21ac4aa06851309
+Getting border precinct from congressional district 1
+Passed Constrain
+Moving Precinct 81 From Congressional District 1
+Moving Precinct to neighbor with original score:304.4552532551955
+The NewScore After moving= 303.447364222225
+Score did not improved, moving precinct back
+Passed Constrain
+Moving Precinct 82 From Congressional District 1
+Moving Precinct to neighbor with original score:304.4552532551955
+The NewScore After moving= 304.5279764302974
+Contiguity Constraint check passed.
+Score improved, moving precinct to Congressional District4
+Getting border precinct from congressional district 1
+Passed Constrain
+Moving Precinct 84 From Congressional District 1
+Moving Precinct to neighbor with original score:304.5279764302974
+The NewScore After moving= 304.4849726173262
+Score did not improved, moving precinct back
+Passed Constrain
+Moving Precinct 88 From Congressional District 1
+Moving Precinct to neighbor with original score:304.5279764302974
+The NewScore After moving= 304.73632699874463
+Contiguity Constraint check passed.
+Score improved, moving precinct to Congressional District4
+Getting border precinct from congressional district 1
+Passed Constrain
+Moving Precinct 83 From Congressional District 1
+Moving Precinct to neighbor with original score:304.73632699874463
+The NewScore After moving= 303.38649896048184
+Score did not improved, moving precinct back
+Passed Constrain
+Moving Precinct 89 From Congressional District 1
+Moving Precinct to neighbor with original score:304.73632699874463
+The NewScore After moving= 303.6490893547183
+Score did not improved, moving precinct back
+Moving Precinct to neighbor with original score:304.73632699874463
+The NewScore After moving= 303.6490893547183
+Score did not improved, moving precinct back
+<<<<<<< HEAD
+Passed Constrain
+Moving Precinct 90 From Congressional District 1
+Moving Precinct to neighbor with original score:304.73632699874463
+The NewScore After moving= 303.8560830948219
+Score did not improved, moving precinct back
+Moving Precinct to neighbor with original score:304.73632699874463
+The NewScore After moving= 303.8560830948219
+Score did not improved, moving precinct back
+Passed Constrain
+Moving Precinct 99 From Congressional District 1
+Moving Precinct to neighbor with original score:304.73632699874463
+The NewScore After moving= 303.62058104880526
+Score did not improved, moving precinct back
+Passed Constrain
+Moving Precinct 290 From Congressional District 1
+Moving Precinct to neighbor with original score:304.73632699874463
+The NewScore After moving= 305.0713493251476
+Contiguity Constraint check passed.
+Score improved, moving precinct to Congressional District4
+Getting border precinct from congressional district 1
+Passed Constrain
+Moving Precinct 291 From Congressional District 1
+Moving Precinct to neighbor with original score:305.0713493251476
+The NewScore After moving= 304.61870225543845
+Score did not improved, moving precinct back
+Moving Precinct to neighbor with original score:305.0713493251476
+The NewScore After moving= 304.61870225543845
+Score did not improved, moving precinct back
+Passed Constrain
+Moving Precinct 292 From Congressional District 1
+Moving Precinct to neighbor with original score:305.0713493251476
+The NewScore After moving= 304.87176425633413
+Score did not improved, moving precinct back
+Moving Precinct to neighbor with original score:305.0713493251476
+The NewScore After moving= 304.87176425633413
+Score did not improved, moving precinct back
+Passed Constrain
+Moving Precinct 300 From Congressional District 1
+Moving Precinct to neighbor with original score:305.0713493251476
+The NewScore After moving= 302.50354273106984
+Score did not improved, moving precinct back
+Passed Constrain
+Moving Precinct 395 From Congressional District 1
+Moving Precinct to neighbor with original score:295.8732653104316
+The NewScore After moving= 295.06541470571034
+Score did not improved, moving precinct back
+Passed Constrain
+Moving Precinct 399 From Congressional District 1
+Moving Precinct to neighbor with original score:295.8732653104316
+The NewScore After moving= 295.06849803875684
+Score did not improved, moving precinct back
+Moving Precinct to neighbor with original score:295.8732653104316
+The NewScore After moving= 295.06849803875684
+Score did not improved, moving precinct back
+Moving Precinct to neighbor with original score:295.8732653104316
+The NewScore After moving= 295.06849803875684
+Score did not improved, moving precinct back
+Passed Constrain
+Moving Precinct 401 From Congressional District 1
+Moving Precinct to neighbor with original score:295.8732653104316
+The NewScore After moving= 294.8459187797754
+Score did not improved, moving precinct back
+Moving Precinct to neighbor with original score:295.8732653104316
+The NewScore After moving= 294.8459187797754
+Score did not improved, moving precinct back
+Passed Constrain
+Moving Precinct 968 From Congressional District 1
+Moving Precinct to neighbor with original score:295.8732653104316
+The NewScore After moving= 295.9201439277656
+Contiguity Constraint check passed.
+Score improved, moving precinct to Congressional District2
+Getting border precinct from congressional district 1
+=======
+>>>>>>> 367245db68c529818eddb6ecd21ac4aa06851309
+Getting border precinct from congressional district 1
+Passed Constrain
+Moving Precinct 81 From Congressional District 1
+Moving Precinct to neighbor with original score:304.4552532551955
+The NewScore After moving= 303.447364222225
+Score did not improved, moving precinct back
+Passed Constrain
+Moving Precinct 82 From Congressional District 1
+Moving Precinct to neighbor with original score:304.4552532551955
+The NewScore After moving= 304.5279764302974
+Contiguity Constraint check passed.
+Score improved, moving precinct to Congressional District4
+Getting border precinct from congressional district 1
+Passed Constrain
+Moving Precinct 84 From Congressional District 1
+Moving Precinct to neighbor with original score:304.5279764302974
+The NewScore After moving= 304.4849726173262
+Score did not improved, moving precinct back
+Passed Constrain
+Moving Precinct 88 From Congressional District 1
+Moving Precinct to neighbor with original score:304.5279764302974
+The NewScore After moving= 304.73632699874463
+Contiguity Constraint check passed.
+Score improved, moving precinct to Congressional District4
+Getting border precinct from congressional district 1
+Passed Constrain
+Moving Precinct 83 From Congressional District 1
+Moving Precinct to neighbor with original score:304.73632699874463
+The NewScore After moving= 303.38649896048184
+Score did not improved, moving precinct back
+Passed Constrain
+Moving Precinct 89 From Congressional District 1
+Moving Precinct to neighbor with original score:304.73632699874463
+The NewScore After moving= 303.6490893547183
+Score did not improved, moving precinct back
+Moving Precinct to neighbor with original score:304.73632699874463
+The NewScore After moving= 303.6490893547183
+Score did not improved, moving precinct back
+<<<<<<< HEAD
+Passed Constrain
+Moving Precinct 90 From Congressional District 1
+Moving Precinct to neighbor with original score:304.73632699874463
+The NewScore After moving= 303.8560830948219
+Score did not improved, moving precinct back
+Moving Precinct to neighbor with original score:304.73632699874463
+The NewScore After moving= 303.8560830948219
+Score did not improved, moving precinct back
+Passed Constrain
+Moving Precinct 99 From Congressional District 1
+Moving Precinct to neighbor with original score:304.73632699874463
+The NewScore After moving= 303.62058104880526
+Score did not improved, moving precinct back
+Passed Constrain
+Moving Precinct 290 From Congressional District 1
+Moving Precinct to neighbor with original score:304.73632699874463
+The NewScore After moving= 305.0713493251476
+Contiguity Constraint check passed.
+Score improved, moving precinct to Congressional District4
+Getting border precinct from congressional district 1
+Passed Constrain
+Moving Precinct 291 From Congressional District 1
+Moving Precinct to neighbor with original score:305.0713493251476
+The NewScore After moving= 304.61870225543845
+Score did not improved, moving precinct back
+Moving Precinct to neighbor with original score:305.0713493251476
+The NewScore After moving= 304.61870225543845
+Score did not improved, moving precinct back
+Getting border precinct from congressional district 1
+Passed Constrain
+Moving Precinct 292 From Congressional District 1
+Moving Precinct to neighbor with original score:305.0713493251476
+The NewScore After moving= 304.87176425633413
+Score did not improved, moving precinct back
+Moving Precinct to neighbor with original score:305.0713493251476
+The NewScore After moving= 304.87176425633413
+Score did not improved, moving precinct back
+Passed Constrain
+Moving Precinct 300 From Congressional District 1
+Moving Precinct to neighbor with original score:305.0713493251476
+The NewScore After moving= 302.50354273106984
+Score did not improved, moving precinct back
+Passed Constrain
+Moving Precinct 395 From Congressional District 1
+Moving Precinct to neighbor with original score:295.8732653104316
+The NewScore After moving= 295.06541470571034
+Score did not improved, moving precinct back
+Passed Constrain
+Moving Precinct 399 From Congressional District 1
+Moving Precinct to neighbor with original score:295.8732653104316
+The NewScore After moving= 295.06849803875684
+Score did not improved, moving precinct back
+Moving Precinct to neighbor with original score:295.8732653104316
+The NewScore After moving= 295.06849803875684
+Score did not improved, moving precinct back
+Moving Precinct to neighbor with original score:295.8732653104316
+The NewScore After moving= 295.06849803875684
+Score did not improved, moving precinct back
+Passed Constrain
+Moving Precinct 401 From Congressional District 1
+Moving Precinct to neighbor with original score:295.8732653104316
+The NewScore After moving= 294.8459187797754
+Score did not improved, moving precinct back
+Moving Precinct to neighbor with original score:295.8732653104316
+The NewScore After moving= 294.8459187797754
+Score did not improved, moving precinct back
+Passed Constrain
+Moving Precinct 968 From Congressional District 1
+Moving Precinct to neighbor with original score:295.8732653104316
+The NewScore After moving= 295.9201439277656
+Contiguity Constraint check passed.
+Score improved, moving precinct to Congressional District2
+Getting border precinct from congressional district 1
+Passed Constrain
+Moving Precinct 969 From Congressional District 1
+Moving Precinct to neighbor with original score:295.9201439277656
+The NewScore After moving= 295.9597762420843
+Contiguity Constraint check passed.
+Score improved, moving precinct to Congressional District2
+Getting border precinct from congressional district 1
+Passed Constrain
+Moving Precinct 998 From Congressional District 1
+Moving Precinct to neighbor with original score:295.9597762420843
+The NewScore After moving= 296.0245121641138
+Contiguity Constraint check passed.
+Score improved, moving precinct to Congressional District2
+Getting border precinct from congressional district 1
+Passed Constrain
+Moving Precinct 81 From Congressional District 1
+Moving Precinct to neighbor with original score:304.4552532551955
+The NewScore After moving= 303.447364222225
+Score did not improved, moving precinct back
+Passed Constrain
+Moving Precinct 82 From Congressional District 1
+Moving Precinct to neighbor with original score:304.4552532551955
+The NewScore After moving= 304.5279764302974
+Contiguity Constraint check passed.
+Score improved, moving precinct to Congressional District4
+=======
+>>>>>>> 367245db68c529818eddb6ecd21ac4aa06851309
