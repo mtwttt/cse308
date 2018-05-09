@@ -177,33 +177,35 @@ function start(){
 	    ret = ret +selected[i]+",";
 	}
 	console.log(ret);
-	$.ajax({
-        type: "post",
-        url: "http://localhost:8080/demo/redraw",
-        data: { populationW: population.value,
-			racialW: racial.value,
-			partisanW: partisan.value,
-			compactnessW : compactness.value,
-			year: 2008,
-			name: state.value,
-			selectpid: ret,
-			contiguity: contiguity.checked,
-			representative: representative.checked},
-        success: function (response) {
-        		if(flag && isEmpty(response) == false){
-        			repeat += 1;
-            		updateMap(response,state.value);
-            		start();
-        		}else{
-            		updateMap(response,state.value);
-            		alert("terminate");
-            		repeat = 0;
-            		flag = true;
-        		}
-        },error: function (request, status, error) {
-        		console.log("12345");
-        }
-    });		
+	if(flag){
+		$.ajax({
+	        type: "post",
+	        url: "http://localhost:8080/demo/redraw",
+	        data: { populationW: population.value,
+				racialW: racial.value,
+				partisanW: partisan.value,
+				compactnessW : compactness.value,
+				year: 2008,
+				name: state.value,
+				selectpid: ret,
+				contiguity: contiguity.checked,
+				representative: representative.checked},
+	        success: function (response) {
+	        		if( isEmpty(response) == false){
+	        			repeat += 1;
+	            		updateMap(response,state.value);
+	            		start();
+	        		}else{
+	            		updateMap(response,state.value);
+	            		alert("terminate");
+	            		repeat = 0;
+	            		flag = false;
+	        		}
+	        },error: function (request, status, error) {
+	        		console.log("12345");
+	        }
+	    		});		
+	}
 }
 
 function updateMap(pids,name){
@@ -245,17 +247,18 @@ function stop(){
 }
 
 function restore(){
+	flag = true;
 	$.ajax({
         type: "post",
         url: "http://localhost:8080/demo/stop",
         data: { stop: true},
         success: function (response) {
+        		start();
         		console.log("got it");
         },error: function (request, status, error) {
         		console.log("12345");
         }
     });	
-	start();
 }
 
 function reset(){
@@ -266,6 +269,7 @@ function reset(){
         url: "http://localhost:8080/demo/resetMap",
         data: { name: state.value},
         success: function (response) {
+        		flag = true;
         		console.log("got it");
         },error: function (request, status, error) {
         		console.log("12345");
