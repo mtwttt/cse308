@@ -61,9 +61,24 @@ public class PageController {
 	CDRepository cdRepository;
 	
 	@GetMapping("home")
-	public String home() {
+	public String home(HttpSession httpSession) {
 		
-		return "demo/home.html";
+		if(httpSession.getAttribute("user")!=null&& !((boolean)(((String) httpSession.getAttribute("user")).equals("admin"))) 
+				&& !((boolean)(((String) httpSession.getAttribute("user")).equals(""))) ) {
+			return "demo/home.html";
+		}
+		return "demo/login.html";
+	}
+	
+	@GetMapping("welcome")
+	public String welcome() {
+		
+		return "demo/welcome.html";
+	}
+	@GetMapping("logout")
+	public String logout(HttpSession httpSession) {
+		httpSession.setAttribute("user", "");
+		return "demo/welcome.html";
 	}
 	
 	@GetMapping("aboutus")
@@ -84,21 +99,34 @@ public class PageController {
 	}
 	
 	@GetMapping("manageUser")
-	public String manageUser(Model model) {
+	public String manageUser(Model model,HttpSession httpSession) {
+		if(httpSession.getAttribute("user")!=null&&(boolean)(((String) httpSession.getAttribute("user")).equals("admin"))) {
+			
 		ArrayList<Account> accounts = (ArrayList<Account>) userRepo.getUsers();
 		model.addAttribute("accounts", accounts);
 		return "demo/manageUser.html";
+		}
+		return "demo/login.html";
 	}
 	@RequestMapping(value="addUser", method=RequestMethod.POST)
 	public String addUser(HttpSession httpSession) {
+		if(httpSession.getAttribute("user")!=null&&(boolean)(((String) httpSession.getAttribute("user")).equals("admin"))) {
+			
 		return "demo/addUser.html";
+		}
+		return "demo/login.html";
 	}
 	@RequestMapping(value="editUser", method=RequestMethod.POST)
 	public String editUser(@RequestParam(name ="username") String username,HttpSession httpSession) {
+		if(httpSession.getAttribute("user")!=null&&(boolean)(((String) httpSession.getAttribute("user")).equals("admin"))) {
+			
 		System.out.println(username);
 		httpSession.setAttribute("editUsername", username.substring(0, username.length()-1));
 		return "demo/editUser.html";
+		}
+		return "demo/login.html";
 	}
+	
 	@RequestMapping(value="deleteUser", method=RequestMethod.POST)
 	public String deleteUser(Model model,@RequestParam(name ="deleteUsername") String username,HttpSession httpSession) {
 		//Account account = new Account();
@@ -170,16 +198,21 @@ public class PageController {
 	
 	@GetMapping("changeExternal")
 	public String changeExternal(Model model) {
+		
 		return "demo/changeExternal.html";
 	}
 	
 	@GetMapping("statistics")
 	public String statistics(Model model, HttpSession httpSession) {
+		if(httpSession.getAttribute("user")!=null&&(boolean)(((String) httpSession.getAttribute("user")).equals("admin"))) {
+			
 		List<StateStat> s =  (List<StateStat>) statRepository.findAll();
 		httpSession.setAttribute("ksCount", s.get(0).getCount());
 		httpSession.setAttribute("idCount", s.get(1).getCount());
 		httpSession.setAttribute("coCount", s.get(2).getCount());
 		return "demo/stat.html";
+		}
+		return "demo/login.html";
 	}
 	
 	@RequestMapping(value="CD", method=RequestMethod.POST)
@@ -383,7 +416,8 @@ public class PageController {
 	
 	@GetMapping("admin")
 	public String admin(HttpSession httpSession) {
-		if(httpSession.getAttribute("isAdmin")!=null&&(boolean)(httpSession.getAttribute("isAdmin"))==true) {
+		
+		if(httpSession.getAttribute("user")!=null&&(boolean)(((String) httpSession.getAttribute("user")).equals("admin"))) {
 			return "demo/admin.html";
 		}
 		return "demo/login.html";
@@ -399,9 +433,10 @@ public class PageController {
 				account = userRepo.getAccount(username);
 				if(account.isAdmin()) {
 					httpSession.setAttribute("isAdmin", true);
+					httpSession.setAttribute("user", "admin");
 					return "demo/admin.html";
 				}
-				httpSession.setAttribute("username", username);
+				httpSession.setAttribute("user", username);
 				return "demo/home.html";
 			}
 			else {
