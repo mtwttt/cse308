@@ -196,7 +196,6 @@ function start(){
             		start();
         		}else{
             		updateMap(response,state.value);
-            		alert("Terminated");
             		repeat = 0;
             		flag = true;
         		}
