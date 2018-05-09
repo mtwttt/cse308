@@ -225,7 +225,6 @@ public class PageController {
 			@RequestParam("representative") boolean representative,Model model) {
 
 		Algorithm weight = new Algorithm();
-		System.out.println(contiguity);
 		if (contiguity)
 			Algorithm.contigConstraint = 1;
 		else

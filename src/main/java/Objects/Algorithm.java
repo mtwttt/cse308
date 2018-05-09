@@ -189,9 +189,9 @@ public class Algorithm {
 	
 	public boolean checkRepConstraint(Precinct p, CongressionalDistrict CD) {
 		if (p.getID()==CD.getRepLocation())
-			return true;
-		else
 			return false;
+		else
+			return true;
 	}
 	
 	public void pauseHandler() {
