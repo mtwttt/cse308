@@ -104,6 +104,9 @@ function onEachFeature(feature, layer) {
     layer.on('mouseout', function (e) {
         this.closePopup();
     });
+    layer.on('dblclick', function (e) {
+        movePrecinct(layer.feature.pid);
+    });
     layer.on('click', function (e){
     		console.log(selected);
     		if(selected.indexOf(layer.feature.pid)!=-1){
@@ -222,16 +225,29 @@ function findLocation(){
 	var selectpid = parseInt(document.getElementById("precinctid").value);
 	var lat = 0;
 	var lon = 0;
+	var zoom = 10;
+	var area = 0;
 	styleMap.eachLayer( function (layer){
 		if(layer.feature.pid == selectpid){
 			lat = layer.feature.properties.INTPTLAT10;
 			lon = layer.feature.properties.INTPTLON10;
+			area = layer.feature.properties.ALAND10 + layer.feature.properties.AWATER10;
 			layer.openPopup();
 		}
 	});
+	if(area < 700000){
+		zoom = 12;
+	}else if (area < 1000000){
+		zoom = 11;
+	}
 	console.log(lat);
 	console.log(lon);
 	console.log(selectpid);
-	map.setView(new L.LatLng(lat,lon), 10);
+	console.log(zoom);
+	map.setView(new L.LatLng(lat,lon), zoom);
 
+}
+
+function movePrecinct(moveP){
+	
 }
