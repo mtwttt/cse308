@@ -1,4 +1,4 @@
-html, body { height:100%; margin:0; padding:0 }
+html, body { height:100%; margin:0; padding:0; background:aqua;}
 div { position:fixed; width:50%; height:50% }
 #origMap { top:0;   left:0;    }
 #currMap { top:0;   left:50%;    }

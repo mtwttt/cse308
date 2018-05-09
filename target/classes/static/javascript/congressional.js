@@ -196,7 +196,6 @@ function start(){
             		start();
         		}else{
             		updateMap(response,state.value);
-            		alert("Terminated");
             		repeat = 0;
             		flag = true;
         		}
@@ -260,7 +259,7 @@ function restore(){
 
 function reset(){
 	state = document.getElementById("state");
-	stop();
+	flag = true;
 	$.ajax({
         type: "post",
         url: "http://localhost:8080/demo/resetMap",

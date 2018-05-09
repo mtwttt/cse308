@@ -482,10 +482,8 @@ public class PageController {
 	
 	@RequestMapping(value = "compareState", method=RequestMethod.POST)
 	public String compareState(String state,Model model) {
-		Cloner clone = new Cloner();
-		
+		Cloner clone = new Cloner();	
 		State original = stateService.getState(state, 2008);
-		
 		original = original.clearCoor(original);
 		original.setCDsize();
 		System.out.println(original.getCongressionalDistrict().size());
@@ -521,6 +519,25 @@ public class PageController {
 		model.addAttribute("oString",oString);
 		model.addAttribute("cString",cString);
 		return "demo/compareState.html";	
+	}
+	
+	@RequestMapping(value = "threeState", method=RequestMethod.POST)
+	public String threeState(Model model) {
+		State kansas = stateService.getState("kansas", 2008);
+		
+		kansas = kansas.clearCoor(kansas);
+		kansas.setCDsize();
+		State colorado = stateService.getState("colorado", 2008);
+		colorado = colorado.clearCoor(colorado);
+		colorado.setCDsize();
+		State idaho = stateService.getState("idaho", 2008);
+		idaho = idaho.clearCoor(idaho);
+		idaho.setCDsize();
+		
+		model.addAttribute("kansas",kansas);
+		model.addAttribute("colorado",colorado);
+		model.addAttribute("idaho",idaho);
+		return "demo/threeState.html";	
 	}
 }
 
