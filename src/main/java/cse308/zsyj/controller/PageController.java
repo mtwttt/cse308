@@ -250,30 +250,6 @@ public class PageController {
 
 	    return state.getBorderDict();
 	}
-	/*
-	 * 
-	 * 	
-	@RequestMapping(value="redraw", method=RequestMethod.POST)
-	public ResponseEntity<?> startAlgo( @RequestBody Algorithm weight, String name,String selectpid,Model model) {
-			System.out.println(selectpid);
-			System.out.println("11111111111111111111");
-			List<Integer> pids = new ArrayList<Integer>();
-			if(!selectpid.equals("")) {
-				String strarray[] = selectpid.split(",");
-				int intarray[] = new int[strarray.length];
-				for (int i = 0; i < intarray.length ; i++) {
-				    pids.add(Integer.parseInt(strarray[i]));
-				}
-			}
-			State state = stateService.getState(name, weight.getYear()); 
-			state.setSeletedPids(pids);
-			System.out.println("xxxxxxxxxxxxxxxxxxxxxxxxx");
-			state = weight.startAlgorithm(state);
-			model.addAttribute("state",state);
-			model.addAttribute("pids",state.getBorderDict());
-			return ResponseEntity.ok(state);
-	}
-	*/
 	@GetMapping("credit")
 	public String index() {
 		return "demo/credit.html";
