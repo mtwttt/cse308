@@ -9833,3 +9833,29 @@ Score improved, moving precinct to Congressional District2
 =======
 >>>>>>> c327002072da940139edd09bb9d23e712491aeb8
 >>>>>>> 74833c46277c7a657c60476de4e2692a4c8c360b
+Getting border precinct from congressional district 1
+Moving Precinct 977 From Congressional District 1
+Moving Precinct to neighbor with original score:229.18199472976727
+The NewScore After moving= 229.0394729925497
+Score did not improved, moving precinct back
+Moving Precinct to neighbor with original score:229.18199472976727
+The NewScore After moving= 229.0394729925497
+Score did not improved, moving precinct back
+Moving Precinct 980 From Congressional District 1
+Moving Precinct to neighbor with original score:278.6916028983179
+The NewScore After moving= 278.29071003695447
+Score did not improved, moving precinct back
+Moving Precinct to neighbor with original score:278.6916028983179
+The NewScore After moving= 278.29071003695447
+Score did not improved, moving precinct back
+Moving Precinct 982 From Congressional District 1
+Moving Precinct to neighbor with original score:278.6916028983179
+The NewScore After moving= 278.7148484059129
+Contiguity Constraint check passed.
+Score improved, moving precinct to Congressional District7
+Getting border precinct from congressional district 1
+Moving Precinct 979 From Congressional District 1
+Moving Precinct to neighbor with original score:278.7148484059129
+The NewScore After moving= 278.74393183736953
+Contiguity Constraint check passed.
+Score improved, moving precinct to Congressional District7
