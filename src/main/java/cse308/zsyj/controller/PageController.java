@@ -8,6 +8,7 @@ import Objects.RawCDData;
 import Objects.State;
 import Objects.StateManager;
 import Objects.StateStat;
+import cse308.zsyj.repository.CDRepository;
 import cse308.zsyj.repository.StateStatRepository;
 import cse308.zsyj.repository.UserRepository;
 import cse308.zsyj.service.StateService;
@@ -56,34 +57,76 @@ public class PageController {
 	UserRepository userRepo;
 	@Autowired
 	StateStatRepository statRepository;
+	@Autowired
+	CDRepository cdRepository;
 	
 	@GetMapping("home")
-	public String home() {
+	public String home(HttpSession httpSession) {
 		
-		return "demo/home.html";
+		if(httpSession.getAttribute("user")!=null&& !((boolean)(((String) httpSession.getAttribute("user")).equals("admin"))) 
+				&& !((boolean)(((String) httpSession.getAttribute("user")).equals(""))) ) {
+			return "demo/home.html";
+		}
+		return "demo/login.html";
+	}
+	
+	@GetMapping("welcome")
+	public String welcome() {
+		
+		return "demo/welcome.html";
+	}
+	@GetMapping("logout")
+	public String logout(HttpSession httpSession) {
+		httpSession.setAttribute("user", "");
+		return "demo/welcome.html";
 	}
 	
 	@GetMapping("aboutus")
 	public String aboutus(HttpSession httpSession) {
 		return "demo/aboutus.html";
 	}
+	@GetMapping("repKS")
+	public String repKS(HttpSession httpSession) {
+		return "demo/kansasRepresent.html";
+	}
+	@GetMapping("repID")
+	public String repID(HttpSession httpSession) {
+		return "demo/idahoRepresent.html";
+	}
+	@GetMapping("repCO")
+	public String repCO(HttpSession httpSession) {
+		return "demo/coloradoRepresent.html";
+	}
 	
 	@GetMapping("manageUser")
-	public String manageUser(Model model) {
+	public String manageUser(Model model,HttpSession httpSession) {
+		if(httpSession.getAttribute("user")!=null&&(boolean)(((String) httpSession.getAttribute("user")).equals("admin"))) {
+			
 		ArrayList<Account> accounts = (ArrayList<Account>) userRepo.getUsers();
 		model.addAttribute("accounts", accounts);
 		return "demo/manageUser.html";
+		}
+		return "demo/login.html";
 	}
 	@RequestMapping(value="addUser", method=RequestMethod.POST)
 	public String addUser(HttpSession httpSession) {
+		if(httpSession.getAttribute("user")!=null&&(boolean)(((String) httpSession.getAttribute("user")).equals("admin"))) {
+			
 		return "demo/addUser.html";
+		}
+		return "demo/login.html";
 	}
 	@RequestMapping(value="editUser", method=RequestMethod.POST)
 	public String editUser(@RequestParam(name ="username") String username,HttpSession httpSession) {
+		if(httpSession.getAttribute("user")!=null&&(boolean)(((String) httpSession.getAttribute("user")).equals("admin"))) {
+			
 		System.out.println(username);
 		httpSession.setAttribute("editUsername", username.substring(0, username.length()-1));
 		return "demo/editUser.html";
+		}
+		return "demo/login.html";
 	}
+	
 	@RequestMapping(value="deleteUser", method=RequestMethod.POST)
 	public String deleteUser(Model model,@RequestParam(name ="deleteUsername") String username,HttpSession httpSession) {
 		//Account account = new Account();
@@ -155,20 +198,25 @@ public class PageController {
 	
 	@GetMapping("changeExternal")
 	public String changeExternal(Model model) {
+		
 		return "demo/changeExternal.html";
 	}
 	
 	@GetMapping("statistics")
 	public String statistics(Model model, HttpSession httpSession) {
+		if(httpSession.getAttribute("user")!=null&&(boolean)(((String) httpSession.getAttribute("user")).equals("admin"))) {
+			
 		List<StateStat> s =  (List<StateStat>) statRepository.findAll();
 		httpSession.setAttribute("ksCount", s.get(0).getCount());
 		httpSession.setAttribute("idCount", s.get(1).getCount());
 		httpSession.setAttribute("coCount", s.get(2).getCount());
 		return "demo/stat.html";
+		}
+		return "demo/login.html";
 	}
 	
 	@RequestMapping(value="CD", method=RequestMethod.POST)
-	public String congressionaldistricts(State state, Model model) {
+	public String congressionaldistricts(State state, Model model, HttpSession httpSession) {
 		StateManager.state = stateService.getState(state.getName(), 2008);
 		Algorithm.improvedTimes = 0;
 		Algorithm.failedTimes = 0;
@@ -181,6 +229,11 @@ public class PageController {
 		StateStat stat= statRepository.findById(id).get();
 		stat.setCount(stat.getCount()+1);
 		statRepository.save(stat);
+		List<CongressionalDistrict> cdlist = cdRepository.findAllById(id, 2008);
+		for(int i =1; i<cdlist.size()+1; i++) {
+			String attr = "cd"+i;
+			httpSession.setAttribute(attr, cdlist.get(i-1).toString());
+		}
 		return "demo/congressionalD.html";
 	}
 	
@@ -203,15 +256,29 @@ public class PageController {
 	}
 	
 	@RequestMapping(value="resetMap", method=RequestMethod.POST)
-	public @ResponseBody String resetMap(@RequestParam("name") String name) {
+	public @ResponseBody String resetMap(@RequestParam("name") String name, HttpSession httpSession) {
 		StateManager.state = stateService.getState(name, 2008);
+		int id = 1;
+		if(name.equals("colorado"))
+			id = 3;
+		else if(name.equals("idaho"))
+			id = 2;
+		List<CongressionalDistrict> cdlist = cdRepository.findAllById(id, 2008);
+		for(int i =1; i<cdlist.size()+1; i++) {
+			String attr = "cd"+i;
+			httpSession.setAttribute(attr, cdlist.get(i-1).toString());
+		}
 		return "got it";
 	}
 	
 	@RequestMapping(value="moveP", method=RequestMethod.POST)
-	public @ResponseBody int moveP(@RequestParam("moveP") int moveP) {
+	public @ResponseBody int moveP(@RequestParam("moveP") int moveP, HttpSession httpSession) {
 		Algorithm temp = new Algorithm();
 		int movedCD = temp.manualMove(StateManager.state, moveP);
+		for (int i = 1; i<StateManager.state.getCongressionalDistrict().size()+1 ;i++) {
+			String attr = "cd"+i;
+			httpSession.setAttribute(attr, StateManager.state.getCongressionalDistrict().get(i-1).toString());
+		}
 		return movedCD;
 	}
 	
@@ -222,7 +289,9 @@ public class PageController {
 			@RequestParam("partisanW") int partisanW,@RequestParam("compactnessW") int compactnessW,
 			@RequestParam("selectpid") String selectpid,
 			@RequestParam("contiguity") boolean contiguity,
-			@RequestParam("representative") boolean representative,Model model) {
+			@RequestParam("representative") boolean representative,
+			Model model,
+			HttpSession httpSession) {
 
 		Algorithm weight = new Algorithm();
 		if (contiguity)
@@ -260,7 +329,10 @@ public class PageController {
 		}
 		System.out.println("xxxxxxxxxxxxxxxxxxxxxxxxx");
 		System.out.println(Algorithm.failedTimes);
-
+		for (int i = 1; i<state.getCongressionalDistrict().size()+1 ;i++) {
+			String attr = "cd"+i;
+			httpSession.setAttribute(attr, state.getCongressionalDistrict().get(i-1).toString());
+		}
 	    return state.getBorderDict();
 	}
 	@GetMapping("credit")
@@ -344,7 +416,8 @@ public class PageController {
 	
 	@GetMapping("admin")
 	public String admin(HttpSession httpSession) {
-		if(httpSession.getAttribute("isAdmin")!=null&&(boolean)(httpSession.getAttribute("isAdmin"))==true) {
+		
+		if(httpSession.getAttribute("user")!=null&&(boolean)(((String) httpSession.getAttribute("user")).equals("admin"))) {
 			return "demo/admin.html";
 		}
 		return "demo/login.html";
@@ -360,9 +433,10 @@ public class PageController {
 				account = userRepo.getAccount(username);
 				if(account.isAdmin()) {
 					httpSession.setAttribute("isAdmin", true);
+					httpSession.setAttribute("user", "admin");
 					return "demo/admin.html";
 				}
-				httpSession.setAttribute("username", username);
+				httpSession.setAttribute("user", username);
 				return "demo/home.html";
 			}
 			else {
@@ -401,4 +475,14 @@ public class PageController {
 		model.addAttribute("pids",state.getBorderPrecinctIDs());
 		return "demo/generateBorder.html";	
 	}
+	
+	@RequestMapping(value = "compareState", method=RequestMethod.POST)
+	public String compareState(String state,Model model) {
+		System.out.println(state);
+		model.addAttribute("name",state);
+		return "demo/compareState.html";	
+	}
 }
+
+
+

@@ -1,0 +1,6 @@
+html, body { height:100%; margin:0; padding:0 }
+div { position:fixed; width:50%; height:50% }
+#origMap { top:0;   left:0;    }
+#currMap { top:0;   left:50%; background:blue    }
+#origStat { top:50%; left:0;   background:green   }
+#currStat { top:50%; left:50%; background:red     } 
