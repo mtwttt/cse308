@@ -112,6 +112,11 @@ public class Algorithm {
 		CongressionalDistrict thisCD = this.getTargetCD(state, p);
 		otherCD.add(targetCD);
 		List<Precinct> pN = this.getNeighborInSameCD(p, thisCD);
+		if (pN.size()==1) {
+			System.out.println("Fail");
+			return false;
+		}
+			
 		for (int i=1;i<pN.size();i++) {
 			conFlag = 0;
 			for (Precinct kk:pN)
