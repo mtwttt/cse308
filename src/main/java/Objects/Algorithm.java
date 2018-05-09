@@ -360,4 +360,33 @@ public class Algorithm {
 		}
 		return null;
 	}
+	public State manualMove(State state,int pid) {
+		for(CongressionalDistrict c: state.getCongressionalDistrict()) {
+			for(Precinct p :c.getPrecincts()) {
+				if(p.getID() == pid) {
+					List<Precinct> neighbor = getNeighborInOtherCD(p,state.getCongressionalDistrict());
+					if(neighbor.size() ==0) {
+						return state;
+					}
+					else {
+						int neighborCD = neighbor.get(0).getcdNumber();
+						CongressionalDistrict targetC = null;
+						for(CongressionalDistrict c2:state.getCongressionalDistrict()) {
+							if(c2.getId() == neighborCD) {
+								targetC = c2;
+								break;
+							}
+						}
+						p.setcdNumber(neighborCD);
+						updateCD(targetC,c,p);
+						updateSourceCDBorder(p,c);
+						updateTargetCDBorder(neighbor,state);
+						return state;
+						
+					}
+				}
+			}
+		}
+		return state;
+	}
 }
