@@ -40,12 +40,16 @@
 </div>
 
 <div id="container">
-	<div id="chartContainer" style="height: 300px; width: 100%;"></div>
+	<div id="chartContainer" style="height: 80%; width: 100%;"></div>
 </div>
 <script src="https://canvasjs.com/assets/script/canvasjs.min.js"></script>
-<script type="text/javascript">
+<script th:inline="javascript">
 
 window.onload = function () {
+	/*<![CDATA[*/
+	var ks = [[${session.ksCount}]];
+	var id = [[${session.idCount}]];
+	var co = [[${session.coCount}]];
 	var chart = new CanvasJS.Chart("chartContainer", {
 		title:{
 			text: "States Access Counts"              
@@ -54,14 +58,15 @@ window.onload = function () {
 		{
 			type: "column",
 			dataPoints: [
-				{ label: "Kansas",  y: 10  },
-				{ label: "Idoho", y: 15  },
-				{ label: "Colorado", y: 25  }
+				{ label: "Kansas",  y: ks  },
+				{ label: "Idoho", y: id  },
+				{ label: "Colorado", y: co  }
 			]
 		}
 		]
 	});
 	chart.render();
+	/*]]>*/
 }
 </script>
 

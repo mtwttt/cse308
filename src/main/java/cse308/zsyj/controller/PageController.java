@@ -160,6 +160,10 @@ public class PageController {
 	
 	@GetMapping("statistics")
 	public String statistics(Model model, HttpSession httpSession) {
+		List<StateStat> s =  (List<StateStat>) statRepository.findAll();
+		httpSession.setAttribute("ksCount", s.get(0).getCount());
+		httpSession.setAttribute("idCount", s.get(1).getCount());
+		httpSession.setAttribute("coCount", s.get(2).getCount());
 		return "demo/stat.html";
 	}
 	
