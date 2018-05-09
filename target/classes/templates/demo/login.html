@@ -29,6 +29,8 @@
   </div>
 
   <div class="container">
+  <p style="display:none;" id='errorTag'><span style="color:red">Invalid Input: Invalid Username, Password or not Verified.</p>
+    <br>
     <label for="uname"><b>Username</b></label>
     <input type="text" placeholder="Enter Username" name="username" required>
     <br>
@@ -44,6 +46,31 @@
 
 </form>
 </div>
+
+<script th:inline="javascript">
+/*<![CDATA[*/ 
+var error =[[${session.loginError}]];
+function check(){
+  	if(error != null){
+  			if(error.valueOf() == "True"){
+  				document.getElementById('errorTag').style.display='inline';
+  			}
+  			else{
+  				document.getElementById('errorTag').style.display='none';
+  			}
+  		}
+  		else{
+  			document.getElementById('errorTag').style.display='none';
+  		}	
+  	};
+/*]]>*/
+  </script>
+  
+ <script language="javascript">
+ window.onload = new function(){
+	 check();
+	 }
+ </script>
 
 </body>
 </html>

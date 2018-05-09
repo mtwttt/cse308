@@ -64,7 +64,7 @@ public class PageController {
 	}
 	
 	@GetMapping("aboutus")
-	public String aboutus() {
+	public String aboutus(HttpSession httpSession) {
 		return "demo/aboutus.html";
 	}
 	
@@ -261,12 +261,13 @@ public class PageController {
 	    return state.getBorderDict();
 	}
 	@GetMapping("credit")
-	public String index() {
+	public String index(HttpSession httpSession) {
 		return "demo/credit.html";
 	}
 	
 	@GetMapping("loginpage")
-	public String loginPage() {
+	public String loginPage(HttpSession httpSession) {
+		httpSession.setAttribute("loginError", "False");
 		return "demo/login.html";
 	}
 	
@@ -277,49 +278,58 @@ public class PageController {
 	}
 	
 	@GetMapping("register")
-	public String register() {
-		
+	public String register(HttpSession httpSession) {
+		httpSession.setAttribute("registError", "False");
 		return "demo/register.html";	
 	}
 	
 	@GetMapping("verify")
-	public String verify() {
-		
+	public String verify(HttpSession httpSession) {
+		httpSession.setAttribute("verifyError", "False");
 		return "demo/verify.html";	
 	}
 	
 	@GetMapping("verifyAccount")
-	public String verifyAccount(Account account) {
+	public String verifyAccount(Account account, HttpSession httpSession) {
 		String vkey = account.getVkey();
 		String username = account.getUsername();
 		System.out.println("vkey:"+vkey+" "+username);
 		Account a = userRepo.getAccount(username);
-		if(a==null) 
+		if(a==null) {
+			httpSession.setAttribute("verifyError", "True");
 			return "demo/verify.html";
+			}
 		if(	a.setVerified(vkey)) {
+			httpSession.setAttribute("verifyError", "False");
 			userRepo.save(a);
 			return "demo/login.html";
 		}
 		else {
+			httpSession.setAttribute("verifyError", "True");
 			return "demo/verify.html";	
 		}
 	}
 	
 	@GetMapping("regist")
-	public String regist(Account account, Model model) {
+	public String regist(Account account, Model model, HttpSession httpSession) {
 		boolean check = false;
 		check = account.checkPsw();
 		if(check) {
-			String vkey = "";
-			for (int i = 0; i<8; i++) {
-				vkey += AB.charAt((int)(Math.random()*62));
+			try {
+				String vkey = "";
+				for (int i = 0; i<8; i++) {
+					vkey += AB.charAt((int)(Math.random()*62));
+				}
+				account.setIsAdmin(false);
+				account.setVkey(vkey);
+				account.sendEmail();
+				userRepo.save(account);
+				httpSession.setAttribute("registError", "False");
+				return "demo/login.html";
 			}
-			account.setIsAdmin(false);
-			account.setVkey(vkey);
-			account.sendEmail();
-			userRepo.save(account);
-			return "demo/login.html";
+			catch(Exception e) {}
 		}
+		httpSession.setAttribute("registError", "True");
 		return "demo/register.html";	
 	}
 	
@@ -355,6 +365,7 @@ public class PageController {
 			else {
 				
 			}
+			httpSession.setAttribute("loginError", "True");
 		return "demo/login.html";
 	}
 	
