@@ -260,7 +260,7 @@ function restore(){
 
 function reset(){
 	state = document.getElementById("state");
-	stop();
+	flag = true;
 	$.ajax({
         type: "post",
         url: "http://localhost:8080/demo/resetMap",
