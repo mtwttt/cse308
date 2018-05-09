@@ -7,6 +7,8 @@ import Objects.Precinct;
 import Objects.RawCDData;
 import Objects.State;
 import Objects.StateManager;
+import Objects.StateStat;
+import cse308.zsyj.repository.StateStatRepository;
 import cse308.zsyj.repository.UserRepository;
 import cse308.zsyj.service.StateService;
 
@@ -52,6 +54,8 @@ public class PageController {
 	StateService stateService;
 	@Autowired
 	UserRepository userRepo;
+	@Autowired
+	StateStatRepository statRepository;
 	
 	@GetMapping("home")
 	public String home() {
@@ -154,11 +158,24 @@ public class PageController {
 		return "demo/changeExternal.html";
 	}
 	
+	@GetMapping("statistics")
+	public String statistics(Model model, HttpSession httpSession) {
+		return "demo/stat.html";
+	}
+	
 	@RequestMapping(value="CD", method=RequestMethod.POST)
 	public String congressionaldistricts(State state, Model model) {
 		StateManager.state = stateService.getState(state.getName(), 2008);
 		Algorithm.improvedTimes = 0;
 		Algorithm.failedTimes = 0;
+		int id = 1;
+		if(state.getName().equals("colorado"))
+			id = 3;
+		else if(state.getName().equals("idaho"))
+			id = 2;
+		StateStat stat= statRepository.findById(id).get();
+		stat.setCount(stat.getCount()+1);
+		statRepository.save(stat);
 		return "demo/congressionalD.html";
 	}
 	
@@ -341,6 +358,7 @@ public class PageController {
 			}
 		return "demo/login.html";
 	}
+	
 	
 	@RequestMapping(value = "generateBorder", method=RequestMethod.POST)
 	public String generateBorder(State state, Model model) {
