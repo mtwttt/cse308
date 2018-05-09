@@ -1,6 +1,6 @@
 import json
 #
-with open('kansas.json') as json_data:
+with open('ID_final.json') as json_data:
     d = json.load(json_data)
 count = 0
 
@@ -11,5 +11,5 @@ for i in d["features"]:
         count += 1
     print(i["pid"])
 
-with open('kansas.json','w') as outfile:
+with open('ID_final.json','w') as outfile:
     d = json.dump(d,outfile, indent = 1)

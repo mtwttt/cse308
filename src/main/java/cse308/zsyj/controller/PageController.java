@@ -6,6 +6,7 @@ import Objects.CongressionalDistrict;
 import Objects.Precinct;
 import Objects.RawCDData;
 import Objects.State;
+import Objects.StateManager;
 import cse308.zsyj.repository.UserRepository;
 import cse308.zsyj.service.StateService;
 
@@ -13,13 +14,18 @@ import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
 import org.json.simple.parser.ParseException;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.Scope;
+import org.springframework.http.ResponseEntity;
 
 import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Hashtable;
 import java.util.List;
+
+import javax.servlet.http.HttpSession;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -37,6 +43,7 @@ import com.google.gson.JsonIOException;
 import com.google.gson.JsonSyntaxException;
 
 @Controller
+@Scope("session")
 @RequestMapping("demo")
 public class PageController {
 	static final String AB = "0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz";
@@ -48,6 +55,7 @@ public class PageController {
 	
 	@GetMapping("home")
 	public String home() {
+		
 		return "demo/home.html";
 	}
 	
@@ -62,10 +70,95 @@ public class PageController {
 		model.addAttribute("accounts", accounts);
 		return "demo/manageUser.html";
 	}
+	@RequestMapping(value="addUser", method=RequestMethod.POST)
+	public String addUser(HttpSession httpSession) {
+		return "demo/addUser.html";
+	}
+	@RequestMapping(value="editUser", method=RequestMethod.POST)
+	public String editUser(@RequestParam(name ="username") String username,HttpSession httpSession) {
+		System.out.println(username);
+		httpSession.setAttribute("editUsername", username.substring(0, username.length()-1));
+		return "demo/editUser.html";
+	}
+	@RequestMapping(value="deleteUser", method=RequestMethod.POST)
+	public String deleteUser(Model model,@RequestParam(name ="deleteUsername") String username,HttpSession httpSession) {
+		//Account account = new Account();
+		//account.setUsername(username);
+		userRepo.deleteById(username.substring(0, username.length()-1));
+		ArrayList<Account> accounts = (ArrayList<Account>) userRepo.getUsers();
+		model.addAttribute("accounts", accounts);
+		return "demo/manageUser.html";
+	}
+	@RequestMapping(value="edit", method=RequestMethod.POST)
+	public String edit(Model model, Account account,@RequestParam(name ="verified") String v,HttpSession httpSession) {
+		Account original = userRepo.getAccount((String)httpSession.getAttribute("editUsername"));
+		if(!account.getUsername().equals("")) {
+			original.setUsername(account.getUsername());
+		}
+		if(!account.getEmail().equals("")) {
+			original.setEmail(account.getEmail());
+		}
+		if(!account.getVkey().equals("")) {
+			original.setVkey(account.getVkey());
+		}
+		if(!account.getPassword().equals("")) {
+			original.setPassword(account.getPassword());
+		}
+		if(v.equals("True")) {
+			original.setIsVerified(true);
+		}
+		else if (v.equals("False")) {
+			original.setIsVerified(false);
+		}
+		userRepo.save(original);
+		ArrayList<Account> accounts = (ArrayList<Account>) userRepo.getUsers();
+		model.addAttribute("accounts", accounts);
+		return "demo/manageUser.html";
+	}
+	
+	@RequestMapping(value="add", method=RequestMethod.POST)
+	public String add(Model model, Account account,@RequestParam(name ="verified") String v,@RequestParam(name ="IsAdmin") String a) {
+		Account original = new Account();
+		if(!account.getUsername().equals("")) {
+			original.setUsername(account.getUsername());
+		}
+		if(!account.getEmail().equals("")) {
+			original.setEmail(account.getEmail());
+		}
+		if(!account.getVkey().equals("")) {
+			original.setVkey(account.getVkey());
+		}
+		if(!account.getPassword().equals("")) {
+			original.setPassword(account.getPassword());
+		}
+		if(v.equals("True")) {
+			original.setIsVerified(true);
+		}
+		else if (v.equals("False")) {
+			original.setIsVerified(false);
+		}
+		if(a.equals("True")) {
+			original.setIsAdmin(true);
+		}
+		else if (a.equals("False")) {
+			original.setIsAdmin(false);
+		}
+		userRepo.save(original);
+		ArrayList<Account> accounts = (ArrayList<Account>) userRepo.getUsers();
+		model.addAttribute("accounts", accounts);
+		return "demo/manageUser.html";
+	}
+	
+	@GetMapping("changeExternal")
+	public String changeExternal(Model model) {
+		return "demo/changeExternal.html";
+	}
 	
 	@RequestMapping(value="CD", method=RequestMethod.POST)
 	public String congressionaldistricts(State state, Model model) {
-		model.addAttribute("state",state);
+		StateManager.state = stateService.getState(state.getName(), 2008);
+		Algorithm.improvedTimes = 0;
+		Algorithm.failedTimes = 0;
 		return "demo/congressionalD.html";
 	}
 	
@@ -75,17 +168,82 @@ public class PageController {
 		return "demo/loading.html";
 	}
 	
+
+	@RequestMapping(value="stop", method=RequestMethod.POST)
+	public @ResponseBody String stop(boolean stop) {
+		Algorithm.running = stop;
+		if(Algorithm.running == false) {
+			System.out.println("1231241");
+		}
+		return "got it";
+	}
+	
+	
 	@RequestMapping(value="redraw", method=RequestMethod.POST)
-	public String startAlgo(Algorithm weight, String name,Model model) {
-			System.out.println("11111111");
+	public @ResponseBody
+	Hashtable<Integer,Integer> startAlgo(@RequestParam("name") String name,@RequestParam("year") int year, 
+			@RequestParam("populationW") int populationW,@RequestParam("racialW") int racialW,
+			@RequestParam("partisanW") int partisanW,@RequestParam("compactnessW") int compactnessW,
+			@RequestParam("selectpid") String selectpid, Model model) {
+		System.out.println(name);
+		System.out.println(populationW);
+		System.out.println(partisanW);
+		System.out.println(racialW);
+		System.out.println(year);
+		System.out.println(compactnessW);
+		System.out.println(selectpid);
+
+		Algorithm weight = new Algorithm();
+		weight.setcompactnessW(compactnessW);
+		weight.setpartisanW(partisanW);
+		weight.setPopulationW(populationW);
+		weight.setracialW(racialW);
+		weight.setYear(year);
+		List<Integer> pids = new ArrayList<Integer>();
+		if(!selectpid.equals("")) {
+			String strarray[] = selectpid.split(",");
+			int intarray[] = new int[strarray.length];
+			for (int i = 0; i < intarray.length ; i++) {
+			    pids.add(Integer.parseInt(strarray[i]));
+			}
+		}	
+		State state = StateManager.state;
+		state.setSeletedPids(pids);
+		for(int x : pids) {
+			System.out.println(x);
+		}
+		System.out.println(Algorithm.failedTimes);
+		System.out.println("xxxxxxxxxxxxxxxxxxxxxxxxx");
+		state = weight.startAlgorithm(state);
+		System.out.println("xxxxxxxxxxxxxxxxxxxxxxxxx");
+		System.out.println(Algorithm.failedTimes);
+
+	    return state.getBorderDict();
+	}
+	/*
+	 * 
+	 * 	
+	@RequestMapping(value="redraw", method=RequestMethod.POST)
+	public ResponseEntity<?> startAlgo( @RequestBody Algorithm weight, String name,String selectpid,Model model) {
+			System.out.println(selectpid);
+			System.out.println("11111111111111111111");
+			List<Integer> pids = new ArrayList<Integer>();
+			if(!selectpid.equals("")) {
+				String strarray[] = selectpid.split(",");
+				int intarray[] = new int[strarray.length];
+				for (int i = 0; i < intarray.length ; i++) {
+				    pids.add(Integer.parseInt(strarray[i]));
+				}
+			}
 			State state = stateService.getState(name, weight.getYear()); 
+			state.setSeletedPids(pids);
 			System.out.println("xxxxxxxxxxxxxxxxxxxxxxxxx");
 			state = weight.startAlgorithm(state);
 			model.addAttribute("state",state);
-			model.addAttribute("pids",state.getBorderPrecinctIDs());
-			return "demo/generateBorder.html";
+			model.addAttribute("pids",state.getBorderDict());
+			return ResponseEntity.ok(state);
 	}
-	
+	*/
 	@GetMapping("credit")
 	public String index() {
 		return "demo/credit.html";
@@ -155,16 +313,27 @@ public class PageController {
 		return "demo/resetp.html";
 	}
 	
+	@GetMapping("admin")
+	public String admin(HttpSession httpSession) {
+		if(httpSession.getAttribute("isAdmin")!=null&&(boolean)(httpSession.getAttribute("isAdmin"))==true) {
+			return "demo/admin.html";
+		}
+		return "demo/login.html";
+	}
+	
 	@RequestMapping(value = "login", method=RequestMethod.POST)
-	public String login(Account account, Model model) {
+	public String login(Account account, Model model, HttpSession httpSession) {
 			String username = account.getUsername();
 			String password = account.getPassword();
 			int check = userRepo.verified(username, password);
 			System.out.print("asdasd+"+check);
 			if ( check == 1) {
 				account = userRepo.getAccount(username);
-				if(account.isAdmin())
+				if(account.isAdmin()) {
+					httpSession.setAttribute("isAdmin", true);
 					return "demo/admin.html";
+				}
+				httpSession.setAttribute("username", username);
 				return "demo/home.html";
 			}
 			else {
@@ -175,20 +344,28 @@ public class PageController {
 	
 	@RequestMapping(value = "generateBorder", method=RequestMethod.POST)
 	public String generateBorder(State state, Model model) {
-		String fileUrl = "./src/main/resources/static/json/kansasCD2010.geojson";
+		String filename = state.getName().toLowerCase();
+		String fileUrl = "./src/main/resources/static/json/"+filename+"CD.geojson";
+		//state = stateService.getState(state.getName(), 2008);
+		//state.generateBorder2();
+		
 		try {
 			RawCDData cdBoundary = new Gson().fromJson(new FileReader(fileUrl), 
 					RawCDData.class);
 			state = stateService.getState(state.getName(), 2008);
+			System.out.println(state.getCongressionalDistrict().size());
+			System.out.println(cdBoundary.features.size());
 			for(int i=0;i<cdBoundary.features.size();i++) {
 				List<List<List<Double>>> coordinates = 
 						cdBoundary.features.get(i).geometry.coordinates;
 				state.generateBorder(coordinates);
 			}
+			
 		} catch (JsonSyntaxException | JsonIOException | FileNotFoundException e) {
 			e.printStackTrace();
 		}
-		
+		//stateService.updateBorder(state, true);
+		System.out.println(state.getBorderPrecinctIDs());
 		model.addAttribute("state", state);
 		model.addAttribute("pids",state.getBorderPrecinctIDs());
 		return "demo/generateBorder.html";	

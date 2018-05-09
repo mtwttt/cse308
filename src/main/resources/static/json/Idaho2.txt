@@ -1,0 +1,44 @@
+01	Ada	
+03	Adams	
+05	Bannock	
+07	Bear Lake	
+09	Benewah	
+11	Bingham	
+13	Blaine	
+15	Boise	
+17	Bonner	
+19	Bonneville	
+21	Boundary	
+23	Butte	
+25	Camas	
+27	Canyon	
+29	Caribou	
+31	Cassia	
+33	Clark	
+35	Clearwater	
+37	Custer	
+39	Elmore	
+41	Franklin	
+43	Fremont	
+45	Gem	
+47	Gooding	
+49	Idaho	
+51	Jefferson	
+53	Jerome	
+55	Kootenai	
+57	Latah	
+59	Lemhi	
+61	Lewis	
+63	Lincoln	
+65	Madison	
+67	Minidoka	
+69	Nez Perce	
+71	Oneida	
+73	Owyhee	
+75	Payette	
+77	Power	
+79	Shoshone	
+81	Teton	
+83	Twin Falls	
+85	Valley	
+87	Washington	

@@ -6,6 +6,7 @@
   <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
   <link rel="stylesheet" type = 'text/css' href="/css/map.css">
   <link rel="stylesheet" type = 'text/css' href="/css/loader.css">
+  <link rel="stylesheet" type = 'text/css' href="/css/popup.css">  
   <script src="/javascript/jquery-3.3.1.min.js"></script>
     <meta name="viewport" content="initial-scale=1,maximum-scale=1,user-scalable=no" />
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.0.3/dist/leaflet.css" />
@@ -31,39 +32,51 @@
 	 <div class="dropdown-container">
             <ul class="w3-ul">
               <li> Population</li>
-               <li><input type="range" min="1" max="100" value="50" class="slider" name="populationW" id="population"><span id="popu"> </span></li>
+               <li><input type="range" min="0" max="100" value="50" class="slider" name="populationW" id="population"><span id="popu"> </span></li>
               <li> Racial</li>
-               <li><input type="range" min="1" max="100" value="50" class="slider" name="racialW" id="racial"> <span id="raci"> </span> </li>
+               <li><input type="range" min="0" max="100" value="50" class="slider" name="racialW" id="racial"> <span id="raci"> </span> </li>
               
               <li> Partisan</li>
-              <li><input type="range" min="1" max="100" value="50" class="slider" name="partisanW" id="partisan"> <span id="part"> </span> </li>
+              <li><input type="range" min="0" max="100" value="50" class="slider" name="partisanW" id="partisan"> <span id="part"> </span> </li>
               
               <li> Compactness</li>
-                <li><input type="range" min="1" max="100" value="50" class="slider" name ="compactnessW" id="compactness"> <span id="comp"> </span> </li>
+                <li><input type="range" min="0" max="100" value="50" class="slider" name ="compactnessW" id="compactness"> <span id="comp"> </span> </li>
             </ul>
       </div>
        <p class="dropdown-btn">Years </p>
           <div class="dropdown-container">
             <ul class="w3-ul">
-                <li><input type="radio" id="utah" name="year" value="2008"  checked="checked" > 2008</li>
+                <li><input type="radio" id="idaho" name="year" value="2008"  checked="checked" > 2008</li>
                 <li><input type="radio" id="colorado" name="year" value="2010" > 2010</li>
                 <li><input type="radio" id="kansas" name="year" value="2012" > 2012</li>
             </ul>
      	  </div>
-     	  <input type="text" name = "name" th:value ="${state.name}" hidden>
+     	  <a id="myBtn">Open Modal</a>
+     	  <br>
+		  <input type="text" name ="selectpid" id = "selectpid" value =""  hidden>
+     	  <input type="text" id = "state" th:value ="${state.name}" hidden>
      	  <input type="submit" value="redraw"/>
      </form>
-</div>
+     <button class= "reset" onclick="stop()">Pause</button>
+     <br>
+     <button class= "reset" onclick="">Continue</button>
+     <br>
+     <button class= "reset" onclick="">Reset</button>
+     <br>
+     <button class= "reset" onclick="start()">Start</button>
+</div>     	  			
 
 <div style="margin-left:20%">
-  
+
 <div id="container"></div>
 	<script src="/javascript/interaction.js"></script>
 	<script src="/javascript/congressional.js"></script>
 	<div class="loader"></div>
    <div id="map"></div>
+   <div id="weathermap"></div>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
     <script src="https://unpkg.com/leaflet@1.0.3/dist/leaflet.js"></script>
+
     <script th:inline="javascript">
 	    var state = "/json/"+ [[${state.name}]]+".json";
         var counties = $.ajax({
@@ -71,7 +84,7 @@
             dataType: "json",
             success: console.log("County data successfully loaded."),
             error: function(xhr) {
-                alert(xhr.statusText)
+                alert(xhr.statusText);
             }
         })
         $.when(counties).done(function() {
@@ -91,7 +104,49 @@
             			onEachFeature: onEachFeature}).addTo(map);
         });
     </script>
-</div>
+    <script type="text/javascript">
+    var modal = document.getElementById('popup1');
+	 window.onclick = function(event) {
+		    if (event.target == modal) {
+		        modal.style.display = "none";
+		    }
+	}
+    </script>
+    	<div id="myModal" class="modal">
+		  <!-- Modal content -->
+		  <div class="modal-content">
+		    <span class="close">&times;</span>
+		    <p>Some text in the Modal..</p>
+			</div>
+   </div>
 
+<script>
+// Get the modal
+var modal = document.getElementById('myModal');
+
+// Get the button that opens the modal
+var btn = document.getElementById("myBtn");
+
+// Get the <span> element that closes the modal
+var span = document.getElementsByClassName("close")[0];
+
+// When the user clicks the button, open the modal 
+btn.onclick = function() {
+    modal.style.display = "block";
+}
+
+// When the user clicks on <span> (x), close the modal
+span.onclick = function() {
+    modal.style.display = "none";
+}
+
+// When the user clicks anywhere outside of the modal, close it
+window.onclick = function(event) {
+    if (event.target == modal) {
+        modal.style.display = "none";
+    }
+}
+</script>
+</div>
 </body>
 </html>

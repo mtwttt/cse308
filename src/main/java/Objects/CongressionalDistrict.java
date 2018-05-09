@@ -6,12 +6,17 @@ import java.util.List;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.IdClass;
 import javax.persistence.Transient;
 @Entity
+@IdClass(CongressionalDistrictID.class)
 public class CongressionalDistrict {
 	@Id
 	private int cdid;
+	@Id
 	private int sid;
+	@Id
+	public int year;
 	@Column
 	private int totalVote;
 	private String whichParty;
@@ -31,8 +36,22 @@ public class CongressionalDistrict {
 	private double totalRacial;
 	@Transient
 	private double totalArea;
+	public int ecoMedian;
+	public int ecoMean;
+	public int getEcoMean() {
+		return ecoMean;
+	}
+	public int getEcoMedian() {
+		return ecoMedian;
+	}
 	public CongressionalDistrict() {	}
 	
+	public int getYear() {
+		return year;
+	}
+	public void setYear(int y) {
+		this.year = y;
+	}
 	public int getId() {
 		return cdid;
 	}

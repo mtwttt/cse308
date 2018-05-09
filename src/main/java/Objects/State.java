@@ -7,6 +7,7 @@ import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.Transient;
+import java.util.Hashtable;
 @Entity
 public class State {
 	@Column
@@ -22,16 +23,22 @@ public class State {
 	private int sid;
 	private int totalPopulation;
 	public double totalAvgRace;
+	@Transient
+	public List<Integer> selectedPids;
 	public State() {	}
 	
 	public String getName() {
 		return name;
 	}
-	
+	public List<Integer> getSelectedPids(){
+		return selectedPids;
+	}
 	public void setName(String name) {
 		this.name = name;
 	}
-	
+	public void setSeletedPids(List<Integer> pids) {
+		this.selectedPids = pids;
+	}
 	public String getOverallPartyWin() {
 		return overallPartyWin;
 	}
@@ -96,39 +103,30 @@ public class State {
 		this.totalPopulation = totalPopulation;
 	}
 	
-	public RawCDData generateBorder(List<List<List<Double>>> coordinates, RawCDData precincts) {
-		List<List<Double>> coordinate = coordinates.get(0);
-		for(int i=0;i<precincts.features.size();i++) {
-			List<List<Double>> checkLists = precincts.features.get(i).geometry.coordinates.get(0);
-			for (int x = 0;x<checkLists.size();x++) {
-				double checkX = checkLists.get(x).get(0);
-				double checkY = checkLists.get(x).get(1);
-				for(int y = 0;y<coordinate.size();y++) {
-					double borderX = coordinate.get(x).get(0);
-					double borderY = coordinate.get(x).get(1);
-					if((borderX - checkX < 0.000001) && (borderY - checkY < 0.000001)) {
-						precincts.features.get(i).properties.setBorder(1);
-					}
-				}
-			}
-		}
-		return precincts;	
-	}
+	
 	
 	public void generateBorder(List<List<List<Double>>> cdBorder) {
+		System.out.println(name);
+		double diff = 0.000001;
+		if(name.equals("Colorado")||name.equals("Idaho")) {
+			diff = 0.0001;
+			System.out.println("ASd");
+		}			
 		for(int i=0;i<congressionalDistrict.size();i++) {
 			List<Precinct> precincts = congressionalDistrict.get(i).getPrecincts();
 			for(int j=0;j<precincts.size();j++) {
 				if(precincts.get(j).getCoordinate().size()!=0) {
-				List<ArrayList<Double>> coordinate = precincts.get(j).getCoordinate().get(0);
+				List<List<Double>> coordinate = precincts.get(j).getCoordinate().get(0);
 					for(int k = 0;k<coordinate.size();k++) {
 						double pX = coordinate.get(k).get(0);
 						double pY = coordinate.get(k).get(1);
 						for(int x = 0;x<cdBorder.get(0).size();x++) {
 							double bX = cdBorder.get(0).get(x).get(0);
 							double bY = cdBorder.get(0).get(x).get(1);
-							if((Math.abs(bX - pX)< 0.000001) && (Math.abs(bY - pY) < 0.000001)) {
+							if((Math.abs(bX - pX) <= diff) && (Math.abs(bY - pY) <= diff)) {
+								System.out.println("hi");
 								precincts.get(j).setBorder(1);
+								break;
 							}
 						}
 					}
@@ -175,6 +173,30 @@ public class State {
 			}
 		}
 		return ps;
+	}
+	
+	public Hashtable<Integer,Integer> getBorderDict(){
+		Hashtable<Integer,Integer> ps = new Hashtable<Integer,Integer>();
+		for(int i=0;i<congressionalDistrict.size();i++) {
+			CongressionalDistrict cd = congressionalDistrict.get(i);
+			for(int j=0;j<cd.getPrecincts().size();j++) {
+				Precinct p = cd.getPrecincts().get(j);
+				if(p.isBorder==1) {
+					ps.put(p.getID(),cd.getId());
+				}
+			}
+		}
+		return ps;
+	}
+	public void generateBorder2() {
+		for(CongressionalDistrict c : getCongressionalDistrict()) {
+			for(Precinct p : c.getPrecincts()) {
+				if(p.getID() == 564 || p.getID() == 899 || p.getID() == 271 || p.getID() == 713 || p.getID() == 475 || p.getID() == 492 || p.getID() == 269 || p.getID() == 270 || p.getID() == 493 || p.getID() == 131 || p.getID() == 125 || p.getID() == 85 || p.getID() == 499 || p.getID() == 485 || p.getID() == 808 || p.getID() == 807 || p.getID() == 814 || p.getID() == 873 || p.getID() == 863 || p.getID() == 862 || p.getID() == 489|| p.getID() == 500) {
+					p.setBorder(1);
+					System.out.println("123");
+				}
+			}
+		}
 	}
 	
 }

@@ -10,10 +10,11 @@ def importPrecinct(d, db):
                     longtitude, rVote, dVote, oVote, isBorder, avgRace) values (
                     """+str(i["pid"])+""","""+str(i["properties"]["POP100"])+""","""+cdNumber+""",
                     """+str(i["properties"]["ALAND10"])+""","""+str(i["properties"]["AWATER10"])+""",
-                    """+str(i["properties"]["T_08"])+""",2008,"""+str(i["properties"]["INTPTLAT10"])+""",
-                    """+str(i["properties"]["INTPTLON10"])+""","""+str(i["properties"]["PRES_R_08"])+""",
-                    """+str(i["properties"]["PRES_D_08"])+""",
-                    """+str((i["properties"]["T_08"]-i["properties"]["PRES_R_08"]-i["properties"]["PRES_D_08"]))+""",
+                    """+str(i["properties"]["USP_R_08"]+i["properties"]["USP_D_08"]+i["properties"]["USP_O_08"])\
+                        +""",2008,"""+str(i["properties"]["INTPTLAT10"])+""",
+                    """+str(i["properties"]["INTPTLON10"])+""","""+str(i["properties"]["USP_R_08"])+""",
+                    """+str(i["properties"]["USP_D_08"])+""",
+                    """+str(i["properties"]["USP_O_08"])+""",
                     0,"""+str(i["properties"]["AV"])+""");"""
         try:
             cursor.execute(sql)

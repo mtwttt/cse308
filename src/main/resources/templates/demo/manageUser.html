@@ -14,9 +14,12 @@
 </head>
 <body>
 <div class="w3-sidebar w3-light-grey w3-bar-block" style="width:20%">
+  <input class ='cb' type="button" onclick="location.href='admin';" value="Home" />
   <input class ='cb' type="button" onclick="location.href='home';" value="Log Out" /> 
   <input class ='cb' type="button" onclick="location.href='manageUser';" value="Manage User" /> 
-  
+  <input class ='cb' type="button" onclick="location.href='changeExternal';" value="Modify External File" /> 
+  <input class ='cb' type="button" onclick="location.href='importState';" value="Import State File" /> 
+  <input class ='cb' type="button" onclick="location.href='statistics';" value="View Statistics" /> 
      <button class="dropdown-btn">Select States To Generate Border</button>
           <div class="dropdown-container">
             <ul class="w3-ul">
@@ -61,23 +64,23 @@
 								
 									<tr th:each="account: ${accounts}">
 									<form action="editUser" method="post">
-									<input type = "hidden" name="eid" value = ${account.getUsername()}/>
+									<input type = "hidden" name="username" th:value = ${account.getUsername()}/>
 								      <td th:text="${account.username}"></td>
 								      <td th:text="${account.email}"></td>
 								      <td th:text="${account.verified}"></td>
 								      <td th:text="${account.vkey}"></td>
-								      <td><input type="button" class = "edit_button">Edit</button></td>
+								      <td><button type="submit" class = "edit_button">Edit</button></td>
 								      
 								    </form>
 								    <td><form action="deleteUser" method = "post" >
-								    <input type = "hidden" name="eid" value = ${account.getUsername()}/>
+								    <input type = "hidden" name="deleteUsername" th:value = ${account.getUsername()}/>
 								      <button type="submit" class = "edit_button" onclick="return confirm('Are you sure you want to delete?(no regret.)')">Delete</button></form></td>		
 								    </tr>
 								    
 								    <tr>
-								    <form action="addEmployeeServlet" method="post">
-								    <input type = "hidden" name="mid" value = ${manager.getId()}/>
-								    <td><button type="submit" class = "add_button">Add Employee</button></td>
+								    <form action="addUser" method="post">
+								   
+								    <td><button type="submit" class = "add_button">Add Account</button></td>
 								    </form>
 								    </tr>
 						      </tbody>

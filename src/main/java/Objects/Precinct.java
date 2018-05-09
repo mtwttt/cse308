@@ -4,33 +4,47 @@ import java.util.ArrayList;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.IdClass;
 import javax.persistence.Transient;
 
 @Entity
+@IdClass(PrecinctID.class)
 public class Precinct {
 	@Id
     public int pid;
+	@Id 
+	public int sid;
+	@Id 
+	public int year;
     @Column
     public int population;
     public int cdNumber;
     public int aLand;
     public int aWater;
     public int totalVote;
-    public int year; 
     public double latitude;
     public double longtitude;
     public int rVote;
     public int dVote;
     public int oVote; 
     @Transient
-    public List<ArrayList<ArrayList<Double>>> coordinates;
+    public List<List<List<Double>>> coordinates;
     public int isBorder;
     public double avgRace;
     @Transient
     public int isUsed;
+    @Transient
+    public int isChecked;
+    @Transient
+    public int isCheckedWithP;
     
     public Precinct() {}
-    
+    public int getSid() {
+    	return sid;
+    }
+    public void setSid(int s) {
+    	this.sid = s;
+    }
     public int getIsUsed() {
     	return isUsed;
     }
@@ -87,7 +101,7 @@ public class Precinct {
 		return oVote; 
 	}
 	
-	public List<ArrayList<ArrayList<Double>>> getCoordinate() {
+	public List<List<List<Double>>> getCoordinate() {
 		return coordinates;
 	}
 	
@@ -155,20 +169,8 @@ public class Precinct {
 		avgRace = a;
 	}
 	
-	public void setCoordinate(List<Coordinate> list) {
-		if(coordinates == null) {
-			coordinates = new ArrayList<ArrayList<ArrayList<Double>>>();
-		}
-		if(list.size()!=0) {
-			ArrayList<ArrayList<Double>> addList = new ArrayList<ArrayList<Double>>();
-			for(int i=0;i<list.size();i++) {
-				ArrayList<Double> sublist = new ArrayList<Double>();
-				sublist.add(list.get(i).x);
-				sublist.add(list.get(i).y);
-				addList.add(sublist);
-			}
-			coordinates.add(addList);
-		}
+	public void setCoordinate(List<List<List<Double>>> list) {
+		coordinates = list;
 	}
 	
 }
