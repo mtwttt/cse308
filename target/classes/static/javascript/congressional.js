@@ -2,6 +2,7 @@ var styleMap = "123"	;
 var state = document.getElementById("state");
 var states = "/json/"+ state.value+".json";
 var map = "tempMap";
+var repeat = 0;
 var counties = $.ajax({
             url: states,
             dataType: "json",
@@ -125,13 +126,20 @@ json_data["selectpid"] = selected;
 var state = document.getElementById("state");
 
 var ret = "";
+
+function isEmpty(obj) {
+	  return Object.keys(obj).length === 0;
+}
+
 function start(){
 	state = document.getElementById("state");
 	var population = document.getElementById("population");
 	var racial = document.getElementById("racial");
 	var partisan = document.getElementById("partisan");
 	var compactness = document.getElementById("compactness");
-	
+	var contiguity = document.getElementById("contiguity");
+	var representative = document.getElementById("representative");
+
 	console.log(state.value);
 	console.log(selected);
 	for (var i = 0; i< selected.length;i++) {
@@ -147,13 +155,17 @@ function start(){
 			compactnessW : compactness.value,
 			year: 2008,
 			name: state.value,
-			selectpid: ret},
+			selectpid: ret,
+			contiguity: contiguity.checked,
+			representative: representative.checked},
         success: function (response) {
-        		if(flag){
+        		if(flag && isEmpty(response) == false){
+        			repeat += 1;
             		updateMap(response,state.value);
             		start();
         		}else{
             		updateMap(response,state.value);
+            		repeat = 0;
             		flag = true;
         		}
         },error: function (request, status, error) {
@@ -318,4 +330,17 @@ function updatePrecinct(CD,precinct){
 			}
 		});
 	}
+}
+
+function test(){
+	$.ajax({
+        type: "post",
+        url: "http://localhost:8080/demo/test",
+        data: { move: false},
+        success: function (response) {
+        		console.log(response);
+        },error: function (request, status, error) {
+        		console.log("12345");
+        }
+    });
 }

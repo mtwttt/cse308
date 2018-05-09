@@ -220,14 +220,9 @@ public class PageController {
 	Hashtable<Integer,Integer> startAlgo(@RequestParam("name") String name,@RequestParam("year") int year, 
 			@RequestParam("populationW") int populationW,@RequestParam("racialW") int racialW,
 			@RequestParam("partisanW") int partisanW,@RequestParam("compactnessW") int compactnessW,
-			@RequestParam("selectpid") String selectpid, Model model) {
-		System.out.println(name);
-		System.out.println(populationW);
-		System.out.println(partisanW);
-		System.out.println(racialW);
-		System.out.println(year);
-		System.out.println(compactnessW);
-		System.out.println(selectpid);
+			@RequestParam("selectpid") String selectpid,
+			@RequestParam("contiguity") boolean contiguity,
+			@RequestParam("representative") boolean representative,Model model) {
 
 		Algorithm weight = new Algorithm();
 		weight.setcompactnessW(compactnessW);
