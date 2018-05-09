@@ -111,21 +111,18 @@ public class PageController {
 	}
 	@RequestMapping(value="addUser", method=RequestMethod.POST)
 	public String addUser(HttpSession httpSession) {
-		if(httpSession.getAttribute("user")!=null&&(boolean)(((String) httpSession.getAttribute("user")).equals("admin"))) {
 			
 		return "demo/addUser.html";
-		}
-		return "demo/login.html";
+		
+		
 	}
 	@RequestMapping(value="editUser", method=RequestMethod.POST)
 	public String editUser(@RequestParam(name ="username") String username,HttpSession httpSession) {
-		if(httpSession.getAttribute("user")!=null&&(boolean)(((String) httpSession.getAttribute("user")).equals("admin"))) {
-			
+		
 		System.out.println(username);
 		httpSession.setAttribute("editUsername", username.substring(0, username.length()-1));
 		return "demo/editUser.html";
-		}
-		return "demo/login.html";
+		
 	}
 	
 	@RequestMapping(value="deleteUser", method=RequestMethod.POST)
