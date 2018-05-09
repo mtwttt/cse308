@@ -6,6 +6,7 @@
   <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
   <link rel="stylesheet" type = 'text/css' href="/css/login.css">
   <link rel="stylesheet" type = 'text/css' href="/css/map.css">
+  
 </head>
 <body>
 <div class="w3-sidebar w3-light-grey w3-bar-block" style="width:20%">
@@ -29,6 +30,8 @@
   </div>
 
   <div class="container">
+  	<p style="display:none;" id='errorTag'><span style="color:red">Invalid Input: Invalid Username, Email or Passwords do not match.</p>
+    <br>
     <label for="username"><b>New Username</b></label>
     <input type="text" placeholder="Enter New Username" name="username" required>
     <br>
@@ -47,6 +50,29 @@
 
 </form>
 </div>
-
+<script th:inline="javascript">
+/*<![CDATA[*/ 
+var error =[[${session.registError}]];
+function check(){
+  	if(error != null){
+  			if(error.valueOf() == "True"){
+  				document.getElementById('errorTag').style.display='inline';
+  			}
+  			else{
+  				document.getElementById('errorTag').style.display='none';
+  			}
+  		}
+  		else{
+  			document.getElementById('errorTag').style.display='none';
+  		}	
+  	};
+/*]]>*/
+  </script>
+  
+ <script language="javascript">
+ window.onload = new function(){
+	 check();
+	 }
+ </script>
 </body>
 </html>
