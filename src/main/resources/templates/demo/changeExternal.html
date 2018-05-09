@@ -78,7 +78,7 @@
 <script>
 
 document.getElementById('saveButton').onclick = function(){
-	try{
+	
 	var files = document.getElementById('selectFiles').files;
 	var pid = document.getElementById('pid').value;
 	var NAME10v = document.getElementById('NAME10v').value;
@@ -148,13 +148,12 @@ document.getElementById('saveButton').onclick = function(){
 		    // $("#textLink").attr("href",url)[0].click();
 	  }
 	  fr.readAsText(files.item(0));
-	}
+	
 
-catch (Exception e){}
 }
 
 document.getElementById('import').onclick = function() {
-try{
+
   var files = document.getElementById('selectFiles').files;
   var pid = document.getElementById('pid').value;
   console.log(files);
@@ -182,10 +181,8 @@ try{
   }
 
   fr.readAsText(files.item(0));
-}
-catch (Exception e){
-	
-}
+
+
 };
 </script>
 </body>
