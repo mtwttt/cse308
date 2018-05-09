@@ -178,6 +178,10 @@ function start(){
 	}
 	console.log(ret);
 	if(flag){
+		document.getElementById("pause").style.display = "inline";
+		document.getElementById("start").style.display = "none";
+		document.getElementById("reset").style.display = "none";
+		document.getElementById("continue").style.display = "none";
 		$.ajax({
 	        type: "post",
 	        url: "http://localhost:8080/demo/redraw",
@@ -191,11 +195,16 @@ function start(){
 				contiguity: contiguity.checked,
 				representative: representative.checked},
 	        success: function (response) {
+
 	        		if( isEmpty(response) == false){
 	        			repeat += 1;
 	            		updateMap(response,state.value);
 	            		start();
 	        		}else{
+		    	        	document.getElementById("continue").style.display = "none";
+		    	        	document.getElementById("reset").style.display = "inline";
+		    	        	document.getElementById("pause").style.display = "none";
+		    	        	document.getElementById("start").style.display = "none";
 	            		updateMap(response,state.value);
 	            		alert("terminate");
 	            		repeat = 0;
@@ -234,12 +243,17 @@ function updateMap(pids,name){
 	});
 }
 function stop(){
+
 	flag = false;
 	$.ajax({
         type: "post",
         url: "http://localhost:8080/demo/stop",
         data: { stop: false},
         success: function (response) {
+	        	document.getElementById("continue").style.display = "inline";
+	        	document.getElementById("reset").style.display = "inline";
+	        	document.getElementById("pause").style.display = "none";
+	        	document.getElementById("start").style.display = "none";
         		console.log("got it");
         },error: function (request, status, error) {
         		console.log("12345");
@@ -254,6 +268,10 @@ function restore(){
         url: "http://localhost:8080/demo/stop",
         data: { stop: true},
         success: function (response) {
+	        	document.getElementById("continue").style.display = "none";
+	        	document.getElementById("reset").style.display = "none";
+	        	document.getElementById("pause").style.display = "inline";
+	        	document.getElementById("start").style.display = "none";
         		start();
         		console.log("got it");
         },error: function (request, status, error) {
@@ -269,6 +287,10 @@ function reset(){
         url: "http://localhost:8080/demo/resetMap",
         data: { name: state.value},
         success: function (response) {
+	        	document.getElementById("continue").style.display = "none";
+	        	document.getElementById("reset").style.display = "none";
+	        	document.getElementById("pause").style.display = "none";
+	        	document.getElementById("start").style.display = "inline";
         		console.log("got it");
         },error: function (request, status, error) {
         		console.log("12345");
