@@ -94,11 +94,33 @@ var unhighlight = {
 var selected = []
 
 function onEachFeature(feature, layer) {
+	var cdInfo = null
+	if (layer.feature.properties.CONGRESSIO.valueOf() =="1"){
+		cdInfo = cd1;
+	}
+	if (layer.feature.properties.CONGRESSIO.valueOf() =="2"){
+		cdInfo = cd2;
+	}
+	if (layer.feature.properties.CONGRESSIO.valueOf() =="3"){
+		cdInfo = cd3;
+	}
+	if (layer.feature.properties.CONGRESSIO.valueOf() =="4"){
+		cdInfo = cd4;
+	}
+	if (layer.feature.properties.CONGRESSIO.valueOf() =="5"){
+		cdInfo = cd5;
+	}
+	if (layer.feature.properties.CONGRESSIO.valueOf() =="6"){
+		cdInfo = cd6;
+	}
+	if (layer.feature.properties.CONGRESSIO.valueOf() =="7"){
+		cdInfo = cd7;
+	}
 	layer.bindPopup("Pid: "+layer.feature.pid+"</br>"
 			+"Name: "+layer.feature.properties.NAME10+"</br>"
 			+"Population: "+layer.feature.properties.POP100+"</br>"
 			+"rVote for President 2008: "+ layer.feature.properties.PRES_R_08+"</br>"
-			+"dVote for President 2008: "+ layer.feature.properties.PRES_D_08);
+			+"dVote for President 2008: "+ layer.feature.properties.PRES_D_08+"</br>"+cdInfo);
 	layer.on('mouseover', function (e) {
         this.openPopup();
     });

@@ -8,6 +8,7 @@ import Objects.RawCDData;
 import Objects.State;
 import Objects.StateManager;
 import Objects.StateStat;
+import cse308.zsyj.repository.CDRepository;
 import cse308.zsyj.repository.StateStatRepository;
 import cse308.zsyj.repository.UserRepository;
 import cse308.zsyj.service.StateService;
@@ -56,6 +57,8 @@ public class PageController {
 	UserRepository userRepo;
 	@Autowired
 	StateStatRepository statRepository;
+	@Autowired
+	CDRepository cdRepository;
 	
 	@GetMapping("home")
 	public String home() {
@@ -180,7 +183,7 @@ public class PageController {
 	}
 	
 	@RequestMapping(value="CD", method=RequestMethod.POST)
-	public String congressionaldistricts(State state, Model model) {
+	public String congressionaldistricts(State state, Model model, HttpSession httpSession) {
 		StateManager.state = stateService.getState(state.getName(), 2008);
 		Algorithm.improvedTimes = 0;
 		Algorithm.failedTimes = 0;
@@ -193,6 +196,13 @@ public class PageController {
 		StateStat stat= statRepository.findById(id).get();
 		stat.setCount(stat.getCount()+1);
 		statRepository.save(stat);
+		List<CongressionalDistrict> cdlist = cdRepository.findAllById(id, 2008);
+		for(int i =1; i<cdlist.size()+1; i++) {
+			String attr = "cd"+i;
+			httpSession.setAttribute(attr, cdlist.get(i-1).toString());
+			System.out.print(1);
+		}
+		System.out.print(2);
 		return "demo/congressionalD.html";
 	}
 	
