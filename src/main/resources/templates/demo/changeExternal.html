@@ -20,17 +20,6 @@
   <input class ='cb' type="button" onclick="location.href='changeExternal';" value="Modify External File" /> 
   <input class ='cb' type="button" onclick="location.href='importState';" value="Import State File" /> 
   <input class ='cb' type="button" onclick="location.href='statistics';" value="View Statistics" /> 
-     <button class="dropdown-btn">Select States To Generate Border</button>
-          <div class="dropdown-container">
-            <ul class="w3-ul">
-              <form action="loading"  method="post">
-                <li><input type="radio" id="idaho" name="name" value="idaho"   onClick="setState('id')">Idaho</li>
-                <li><input type="radio" id="colorado" name="name" value="colorado"  onClick="setState('co')"> Colorado</li>
-                <li><input type="radio" id="kansas" name="name" value="kansas"  onClick="setState('ks')"> Kansas</li>
-                <button type="submit"> Apply </button>
-              </form>
-            </ul>
-      </div>
 
 </div>
 
@@ -41,6 +30,13 @@
 </div>
 
 	<section>
+		
+		<span style="font-size: 14pt; color: grey">Attention: The JSON Data File Format: {"type": "FeatureCollection","features":[{"type": "Feature",
+		"geometry": {
+    "type": "Polygon",
+    "coordinates": [...],
+    "properties": {"NAME10": name,"ALAND10": areaOfLand,"AWATER10": areaOfWater, "INTPTLAT10": latitude,"INTPTLON10": longitude, "PRES_O_08": presidentOVote, "PRES_R_08": presidentRVote, "PRES_D_08": presidentDVote,"CONGRESSIO": cdnumber},"pid": precinctID},...]}</span><br></br>
+		
 		<span style="font-size: 14pt; color: white; margin-left:1em">File to upload: </span><input type="file" id="selectFiles"  class = "edit_button" value="Import" /><br />
 		<span style="font-size: 14pt; color: white; margin-left:1em">Pid to view: </span><input type="text" id="pid" value ="" style="margin-left:1.5em"/>
 		<button id="import" class = "edit_button">Find</button>
