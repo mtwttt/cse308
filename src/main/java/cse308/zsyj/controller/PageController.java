@@ -208,15 +208,14 @@ public class PageController {
 		Algorithm.running = stop;
 		if(Algorithm.running == false) {
 			System.out.println("1231241");
+		}else {
+			System.out.println("Yes");
 		}
 		return "got it";
 	}
 	
 	@RequestMapping(value="resetMap", method=RequestMethod.POST)
-	public @ResponseBody String reset(String name) {
-		Algorithm.improvedTimes = 0;
-		Algorithm.failedTimes = 0;
-		Algorithm.stop =0;
+	public @ResponseBody String resetMap(@RequestParam("name") String name) {
 		StateManager.state = stateService.getState(name, 2008);
 		return "got it";
 	}
@@ -233,16 +232,19 @@ public class PageController {
 	Hashtable<Integer,Integer> startAlgo(@RequestParam("name") String name,@RequestParam("year") int year, 
 			@RequestParam("populationW") int populationW,@RequestParam("racialW") int racialW,
 			@RequestParam("partisanW") int partisanW,@RequestParam("compactnessW") int compactnessW,
-			@RequestParam("selectpid") String selectpid, Model model) {
-		System.out.println(name);
-		System.out.println(populationW);
-		System.out.println(partisanW);
-		System.out.println(racialW);
-		System.out.println(year);
-		System.out.println(compactnessW);
-		System.out.println(selectpid);
+			@RequestParam("selectpid") String selectpid,
+			@RequestParam("contiguity") boolean contiguity,
+			@RequestParam("representative") boolean representative,Model model) {
 
 		Algorithm weight = new Algorithm();
+		if (contiguity)
+			Algorithm.contigConstraint = 1;
+		else
+			Algorithm.contigConstraint = 0;
+		if (representative)
+			Algorithm.repConstraint = 1;
+		else
+			Algorithm.repConstraint = 0;
 		weight.setcompactnessW(compactnessW);
 		weight.setpartisanW(partisanW);
 		weight.setPopulationW(populationW);
@@ -265,6 +267,7 @@ public class PageController {
 		System.out.println("xxxxxxxxxxxxxxxxxxxxxxxxx");
 		state = weight.startAlgorithm(state);
 		if(Algorithm.stop == 1) {
+			System.out.println("herexxxxxxxxxxx");
 			return new Hashtable<Integer,Integer>();
 		}
 		System.out.println("xxxxxxxxxxxxxxxxxxxxxxxxx");
@@ -393,8 +396,8 @@ public class PageController {
 			RawCDData cdBoundary = new Gson().fromJson(new FileReader(fileUrl), 
 					RawCDData.class);
 			state = stateService.getState(state.getName(), 2008);
-			System.out.println(state.getCongressionalDistrict().size());
-			System.out.println(cdBoundary.features.size());
+			//System.out.println(state.getCongressionalDistrict().size());
+			//System.out.println(cdBoundary.features.size());
 			for(int i=0;i<cdBoundary.features.size();i++) {
 				List<List<List<Double>>> coordinates = 
 						cdBoundary.features.get(i).geometry.coordinates;
@@ -405,9 +408,19 @@ public class PageController {
 			e.printStackTrace();
 		}
 		//stateService.updateBorder(state, true);
-		System.out.println(state.getBorderPrecinctIDs());
+		//System.out.println(state.getBorderPrecinctIDs());
 		model.addAttribute("state", state);
 		model.addAttribute("pids",state.getBorderPrecinctIDs());
 		return "demo/generateBorder.html";	
 	}
+	
+	@RequestMapping(value = "compareState", method=RequestMethod.POST)
+	public String compareState(String state,Model model) {
+		System.out.println(state);
+		model.addAttribute("name",state);
+		return "demo/compareState.html";	
+	}
 }
+
+
+

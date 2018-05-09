@@ -26,6 +26,7 @@ public class Algorithm {
 		failedTimes = 0;
 	}
 	
+	
 	public void setPopulationW(int weight) {
 		this.populationW = weight;
 	}
@@ -125,7 +126,6 @@ public class Algorithm {
 	
 	public State startAlgorithm(State state) {
 		running = true;
-		this.contigConstraint = 1;
 		File logFile = new File("./log/log.txt");
 		try {
 		for (CongressionalDistrict CD : state.getCongressionalDistrict()) {
@@ -189,9 +189,9 @@ public class Algorithm {
 	
 	public boolean checkRepConstraint(Precinct p, CongressionalDistrict CD) {
 		if (p.getID()==CD.getRepLocation())
-			return true;
-		else
 			return false;
+		else
+			return true;
 	}
 	
 	public void pauseHandler() {

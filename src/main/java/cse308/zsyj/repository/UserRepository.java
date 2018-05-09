@@ -25,7 +25,7 @@ public interface UserRepository extends CrudRepository<Account,String>{
 			nativeQuery = true)
 	Account getAccount(String username);
 	
-	@Query(value =  "Select * from Account where isAdmin = 0",
+	@Query(value =  "Select * from Account",
 			nativeQuery = true)
 	List<Account> getUsers();
 }

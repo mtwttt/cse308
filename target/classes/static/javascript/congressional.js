@@ -2,6 +2,7 @@ var styleMap = "123"	;
 var state = document.getElementById("state");
 var states = "/json/"+ state.value+".json";
 var map = "tempMap";
+var repeat = 0;
 var counties = $.ajax({
             url: states,
             dataType: "json",
@@ -125,13 +126,20 @@ json_data["selectpid"] = selected;
 var state = document.getElementById("state");
 
 var ret = "";
+
+function isEmpty(obj) {
+	  return Object.keys(obj).length === 0;
+}
+
 function start(){
 	state = document.getElementById("state");
 	var population = document.getElementById("population");
 	var racial = document.getElementById("racial");
 	var partisan = document.getElementById("partisan");
 	var compactness = document.getElementById("compactness");
-	
+	var contiguity = document.getElementById("contiguity");
+	var representative = document.getElementById("representative");
+
 	console.log(state.value);
 	console.log(selected);
 	for (var i = 0; i< selected.length;i++) {
@@ -147,11 +155,18 @@ function start(){
 			compactnessW : compactness.value,
 			year: 2008,
 			name: state.value,
-			selectpid: ret},
+			selectpid: ret,
+			contiguity: contiguity.checked,
+			representative: representative.checked},
         success: function (response) {
-        		if(flag){
+        		if(flag && isEmpty(response) == false){
+        			repeat += 1;
             		updateMap(response,state.value);
             		start();
+        		}else{
+            		updateMap(response,state.value);
+            		repeat = 0;
+            		flag = true;
         		}
         },error: function (request, status, error) {
         		console.log("12345");
@@ -198,13 +213,22 @@ function stop(){
 }
 
 function restore(){
-	flag = true;
+	$.ajax({
+        type: "post",
+        url: "http://localhost:8080/demo/stop",
+        data: { stop: true},
+        success: function (response) {
+        		console.log("got it");
+        },error: function (request, status, error) {
+        		console.log("12345");
+        }
+    });	
 	start();
 }
 
 function reset(){
 	state = document.getElementById("state");
-	flag = true;
+	stop();
 	$.ajax({
         type: "post",
         url: "http://localhost:8080/demo/resetMap",
@@ -215,6 +239,27 @@ function reset(){
         		console.log("12345");
         }
     });	
+	
+	styleMap.eachLayer( function (layer){
+			console.log(layer.feature.properties.CONGRESSIO);
+			if(layer.feature.properties.CONGRESSIO == 1){
+				layer.setStyle({ fillColor: 'red', color: 'grey', weight: 1, opacity: 0.75});
+			}else if (layer.feature.properties.CONGRESSIO == 2 ){
+				layer.setStyle({fillColor: '#9F06F2', color: 'grey', weight: 1,opacity: 0.7});
+			}else if (layer.feature.properties.CONGRESSIO == 3){
+				layer.setStyle({fillColor: '#04F9FD', color: 'grey', weight: 1, opacity: 0.7});
+			}else if (layer.feature.properties.CONGRESSIO == 4){
+				layer.setStyle({ fillColor: 'yellow', color: 'grey', weight: 1, opacity: 0.7});
+			}else if (layer.feature.properties.CONGRESSIO == 5){
+				layer.setStyle({ fillColor: 'green', color: 'grey', weight: 1, opacity: 0.7});
+			}else if (layer.feature.properties.CONGRESSIO == 6){
+				layer.setStyle({ fillColor: 'blue', color: 'grey', weight: 1, opacity: 0.7});
+			}else if (layer.feature.properties.CONGRESSIO == 7){
+				layer.setStyle({ fillColor: '#FB03D0', color: 'grey', weight: 1, opacity: 0.7});
+			}else{
+				layer.setStyle({fillColor: 'grey', color: 'grey', weight: 1, opacity: 0.7, 	fillOpacity: 0.7});
+			}
+	});
 }
 
 
@@ -285,4 +330,17 @@ function updatePrecinct(CD,precinct){
 			}
 		});
 	}
+}
+
+function test(){
+	$.ajax({
+        type: "post",
+        url: "http://localhost:8080/demo/test",
+        data: { move: false},
+        success: function (response) {
+        		console.log(response);
+        },error: function (request, status, error) {
+        		console.log("12345");
+        }
+    });
 }
