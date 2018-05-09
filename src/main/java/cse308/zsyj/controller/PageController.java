@@ -201,15 +201,16 @@ public class PageController {
 	}
 	
 	@RequestMapping(value="resetMap", method=RequestMethod.POST)
-	public @ResponseBody String reset(String name) {
+	public @ResponseBody String reset(@RequestParam("name") String name) {
 		StateManager.state = stateService.getState(name, 2008);
 		return "got it";
 	}
 	
 	@RequestMapping(value="moveP", method=RequestMethod.POST)
-	public @ResponseBody int moveP(int movePid) {
-		
-		return 0;
+	public @ResponseBody int moveP(@RequestParam("moveP") int moveP) {
+		Algorithm temp = new Algorithm();
+		int movedCD = temp.manualMove(StateManager.state, moveP);
+		return movedCD;
 	}
 	
 	@RequestMapping(value="redraw", method=RequestMethod.POST)
